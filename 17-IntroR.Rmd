@@ -903,6 +903,10 @@ rpkm_ordered  <- rpkm_data[ , genomic_idx]
 ```{r}
 # View the reordered counts
 View(rpkm_ordered)
+
+# I prefer ti use `head` -- and set the output to a limited number of columns so that it fits in the console
+
+head(rpkm_ordered[,1:5])
 ```
 
 ```{r}
@@ -972,7 +976,7 @@ age_in_days <- c(40, 32, 38, 35, 41, 32, 34, 26, 28, 28, 30, 32)
 new_metadata <- data.frame(metadata, samplemeans, age_in_days) 
 
 # Take a look at the new_metadata object
-View(new_metadata)
+head(new_metadata)
 ```
 ## 12 Data visualization with ggplot2
 
@@ -1356,7 +1360,7 @@ names(functional_GO_results)
 bp_oe <- functional_GO_results %>%
   filter(domain == "BP")
   
-head(bp_oe)
+head(bp_oe[,1:5])
 ```
 
 **Exercise**
@@ -1378,7 +1382,7 @@ names(bp_oe)
 bp_oe <- bp_oe %>%
   select(term.id, term.name, p.value, query.size, term.size, overlap.size, intersection)
 
-View(bp_oe)
+head(bp_oe[,1:5])
 dim(bp_oe)
 ```
 
