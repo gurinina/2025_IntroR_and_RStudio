@@ -1459,5 +1459,5 @@ sub$`-log10(p.value)` = -log10(sub$p.value)
 
 
 ```
-See [ggplot](https://hbctraining.github.io/Training-modules/Tidyverse_ggplot2/lessons/03_ggplot2.html) for more detail.
+
 

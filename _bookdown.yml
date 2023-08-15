@@ -1,0 +1,27 @@
+book_filename: intro-to-R
+new_session: 'yes'
+rmd_files:
+  - index.Rmd
+  - 01-getting-started.Rmd
+  - 02-introR-R-and-RStudio.md
+  - 03-introR-syntax-and-data-structures.md
+  - 04-introR-functions-and-arguments.md
+  - 05-introR_packages.md
+  - 06-introR-data-wrangling.md
+  - 07-reading_and_data_inspection.md
+  - 08-introR-data-wrangling2.md
+  - 09-identifying-matching-elements.md
+  - 10-reordering-to-match-datasets.md
+  - 11-setting_up_to_plot.md
+  - 12-ggplot2.md
+  - 13-boxplot_exercise.md
+  - 14-exporting_data_and_plots.md
+  - 15-finding_help.md
+  - 16-tidyverse.md
+  - 17-IntroR.Rmd
+delete_merged_file: false
+chapter_name: 'Chapter '
+language:
+  label:
+    fig: 'Figure '
+    tab: 'Table '
