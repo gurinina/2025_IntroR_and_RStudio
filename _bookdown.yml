@@ -1,6 +1,6 @@
 book_filename: "intro-to-R"
 before_chapter_script: ["R/introR_setup.R", "R/setup.R"]
-new_session: 'yes'
+new_session: yes
 rmd_files:
   - index.Rmd
   - 01-getting-started.Rmd
