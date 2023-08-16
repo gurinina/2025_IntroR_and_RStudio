@@ -1,42 +1,27 @@
 --- 
-<<<<<<< HEAD
-
-=======
->>>>>>> 5ba8b43 (renaming)
 title: "intro-to-R" 
 output:
     bookdown::gitbook:
         number_sections: true
-<<<<<<< HEAD
-=======
         includes:
           in_header: header.html
->>>>>>> 5ba8b43 (renaming)
 date: "`r Sys.Date()`" 
 link-citations: yes 
 github-repo: gurinina/genomics/intro-to-R 
 url: https\://bookdown.org/ggiaever/intro-to-R/ 
 site: bookdown::bookdown_site 
 documentclass: book
-<<<<<<< HEAD
-favicon: favicon.ico
-=======
 favicon: "img/icons8-biotech-64.png"
->>>>>>> 5ba8b43 (renaming)
-cover-image: "koos10.png"
+cover-image: "img/koos10.png"
 --- 
 
 # Welcome to Omic-sciences! {-}
 
-![](koos10.png)
+![](img/koos10.png)
 
 The bookdown version of these pages is published on my page at [intro-to-R](https://bookdown.org/ggiaever/intro-to-R/) and here, [RNAseq_analysis](https://bookdown.org/ggiaever/RNAseq_analysis/).
 
-<<<<<<< HEAD
-## What we will cover:
-=======
 ## What we will cover: {-}
->>>>>>> 5ba8b43 (renaming)
 
 This course will cover several of the statistical concepts and data analytic skills needed to succeed in data-driven life science research as it relates to genomics and the omic sciences. For the bulk of the course we cover topics related to genomics and high-dimensional data. Specifically, we describe multiple testing, error rate controlling procedures, exploratory data analysis for high-throughput data, p-value corrections and the false discovery rate. Here we will cover experimental techniques used in genomics including RNA-seq and variant analysis.
 
@@ -44,9 +29,7 @@ We start with an introduction to R, including data structures, data wrangling an
 
 To determine the expression levels of genes, our RNA-seq workflow follows the steps detailed in the image below. All steps were performed on the command line (Linux/Unix) through the generation of the read counts per gene. The differential expression analysis and any downstream functional analysis are generally performed in R using R packages specifically designed for the complex statistical analyses required to determine whether genes are differentially expressed.
 
-
-<img src="img/rnaseq_full_workflow.png" width="400">
-
+<img src="img/rnaseq_full_workflow.png alt = "RNA-seq full workflow" width="400">
 
 We will next cover variant analysis from FASTQ files to mapping genome sequencing data to a reference and produce high-quality variant calls that can be used in downstream analyses.  We will use a pipeline employing the Genome Analysis Toolkit (GATK) to perform variant calling that is based on the best practices for variant discovery analysis outlined by the Broad Institute. The result will be the identification of genomic variants, such as single nucleotide polymorphisms (SNPs) and DNA insertions and deletions (indels). 
 
@@ -58,12 +41,7 @@ Finally, we cover functional analysis of high-throughput data. The output of RNA
 - identify genes' involvement in novel pathways or networks by grouping genes together based on similar trends
 - use global changes in gene expression by visualizing all genes being significantly up- or down-regulated in the context of external interaction data
 
-
-<<<<<<< HEAD
-## How Is This Course Different?
-=======
 ## How Is This Course Different? {-}
->>>>>>> 5ba8b43 (renaming)
 
 While statistics textbooks focus on mathematics, this book focuses on using a computer to perform data analysis by stating a practical data-related challenge. This book also includes the computer code that provides a solution to the problem and helps illustrate the concepts behind the solution. By running the code yourself, and seeing data generation and analysis happen live, you will get a better intuition for the concepts, the mathematics, and the theory.
 
