@@ -1,19 +1,12 @@
----
-title: Tidyverse data wrangling
-author: Mary Piper, Jihe Liu, Meeta Mistry, Radhika Khetani, Will Gammerdinger
----
-
-Approximate time: 75 minutes
+# Tidyverse data wrangling
 
 ## Learning Objectives 
 
 * Perform basic data wrangling with functions in the Tidyverse package.
 
-# Data Wrangling with Tidyverse
+The [Tidyverse suite of integrated packages](https://www.tidyverse.org/packages/) are designed to work together to make common data science operations more user friendly. The packages have functions for data wrangling, tidying, reading/writing, parsing, and visualizing, among others. We will explore the basic syntax for working with these packages, as well as, specific functions for data wrangling with the 'dplyr' package and data visualization with the 'ggplot2' package.
 
-The [Tidyverse suite of integrated packages](https://www.tidyverse.org/packages/) are designed to work together to make common data science operations more user friendly. The packages have functions for data wrangling, tidying, reading/writing, parsing, and visualizing, among others. There is a freely available book, [R for Data Science](http://r4ds.had.co.nz/index.html), with detailed descriptions and practical examples of the tools available and how they work together. We will explore the basic syntax for working with these packages, as well as, specific functions for data wrangling with the 'dplyr' package and data visualization with the 'ggplot2' package.
-
-![](../img/tidyverse_website.png)
+![](img/tidyverse_website.png)
 
 ## Tidyverse basics
 
@@ -27,9 +20,9 @@ Before we get started with pipes or tibbles, let's load the library:
 
 Stringing together commands in R can be quite daunting. Also, trying to understand code that has many nested functions can be confusing. 
 
-To make R code more human readable, the Tidyverse tools use the pipe, `%>%`, which was acquired from the `magrittr` package and is now part of the `dplyr` package that is installed automatically with Tidyverse. **The pipe allows the output of a previous command to be used as input to another command instead of using nested functions.**
+To make R code more human readable, the Tidyverse tools use the pipe, `%>%`, which is part of the `dplyr` package that is installed automatically with Tidyverse. **The pipe allows the output of a previous command to be used as input to another command instead of using nested functions.**
 
->**NOTE:** Shortcut to write the pipe is <kbd>shift</kbd> + <kbd>command</kbd> + <kbd>M</kbd>
+>**NOTE:** Shortcut to write the pipe is <kbd>shift</kbd> + <kbd>command</kbd> + <kbd>M</kbd> in MacOS; for Windows <kbd>shift</kbd> + <kbd>ctrl</kbd> + <kbd>M</kbd>
 
 An example of using the pipe to run multiple commands:
 
@@ -66,54 +59,57 @@ The pipe represents a much easier way of writing and deciphering R code, and so 
 
 A core component of the [tidyverse](http://tidyverse.org/) is the [tibble](http://tibble.tidyverse.org/). **Tibbles are a modern rework of the standard `data.frame`, with some internal improvements** to make code more reliable.  They are data frames, but do not follow all of the same rules. For example, tibbles can have numbers/symbols for column names, which is not normally allowed in base R. 
 
-**Important: [tidyverse](http://tidyverse.org/) is very opininated about row names**. These packages insist that all column data (e.g. `data.frame`) be treated equally, and that special designation of a column as `rownames` should be deprecated. [Tibble](http://tibble.tidyverse.org/) provides simple utility functions to handle rownames: `rownames_to_column()` and `column_to_rownames()`. 
-
 Tibbles can be created directly using the `tibble()` function or data frames can be converted into tibbles using `as_tibble(name_of_df)`. 
 
->**NOTE:** The function `as_tibble()` will ignore row names, so if a column representing the row names is needed, then the function `rownames_to_column(name_of_df)` should be run prior to turning the data.frame into a tibble. Also, `as_tibble()` will not coerce character vectors to factors by default.
+>**NOTE:** The function `as_tibble()` will ignore row names, so if a column representing the row names is needed, then the function `rownames_to_column(name_of_df)` should be run prior to turning the `data.frame` into a tibble. `rownames_to_column()` takes the rownames and adds it as a column in the data frame.
 
 ## Experimental data
 
-We're going to explore the Tidyverse suite of tools to wrangle our data to prepare it for visualization. You should have downloaded the file called `gprofiler_results_Mov10oe.tsv` into your R project's `data` folder earlier. 
-
-> If you do not have the `gprofiler_results_Mov10oe.tsv` file in your `data` folder, you can right click and download it into the `data` folder [using this link](https://github.com/hbctraining/Training-modules/blob/master/Tidyverse_ggplot2/data/gprofiler_results_Mov10oe.tsv?raw=true).
+We're going to explore the Tidyverse suite of tools to wrangle our data to prepare it for visualization. You should have `gprofiler_results_Mov10oe.tsv` in your R project's `data` folder earlier. 
 
 **The dataset:**
 
-- Represents the **functional analysis results**, including the biological processes, functions, pathways, or conditions that are over-represented in a given list of genes.
-- Our gene list was generated by **differential gene expression analysis** and the genes represent differences between **control mice** and **mice over-expressing a gene involved in RNA splicing**. 
+* Represents the **functional analysis results**, including the biological processes, functions, pathways, or conditions that are over-represented in a given list of genes.
+
+* Our gene list was generated by **differential gene expression analysis** and the genes represent differences between **control mice** and **mice over-expressing a gene involved in RNA splicing**. 
 
 The functional analysis that we will focus on involves **gene ontology (GO) terms**, which:
 
-- describe the roles of genes and gene products
-- organized into three controlled vocabularies/ontologies (domains):
-	- biological processes (BP)
-	- cellular components (CC)
-	- molecular functions (MF)
+* describe the roles of genes and gene products
+* organized into three controlled vocabularies/ontologies (domains):
+	* biological processes (BP)
+	* cellular components (CC)
+	* molecular functions (MF)
 
-<img src="../img/mov10_FA.png" width="1200">
+<img src="img/mov10_FA.png" width="1200">
 
 ## Analysis goal and workflow
 
 **Goal:** *Visually compare the most significant biological processes (BP) based on the number of associated differentially expressed genes (gene ratios) and significance values by creating the following plot:*
 
-![dotplot6](../img/dotplot6.png)
+![dotplot6](img/dotplot6.png)
 
 To wrangle our data in preparation for the plotting, we are going to use the Tidyverse suite of tools to wrangle and visualize our data through several steps:
 
 1. Read in the functional analysis results
+
 2. Extract only the GO biological processes (BP) of interest
+
 3. Select only the columns needed for visualization
+
 4. Order by significance (p-adjusted values)
+
 5. Rename columns to be more intuitive
+
 6. Create additional metrics for plotting (e.g. gene ratios)
+
 7. Plot results
 
-## Tidyverse tools
+**Tidyverse tools**
 
 While all of the tools in the Tidyverse suite are deserving of being explored in more depth, we are going to investigate more deeply the reading (`readr`), wrangling (`dplyr`), and plotting (`ggplot2`) tools.
 
-## 1. Read in the functional analysis results
+### 1. Read in the functional analysis results
 
 While the base R packages have perfectly fine methods for reading in data, the `readr` and `readxl` Tidyverse packages offer additional methods for reading in data. Let's read in our tab-delimited functional analysis results using `read_delim()`:
 
@@ -138,7 +134,7 @@ Notice that the results were automatically read in as a tibble and the output gi
 > **NOTE**: A large number of tidyverse functions will work with both tibbles and dataframes, and the data structure of the output will be identical to the input. However, there are some functions that will return a tibble (without row names), whether or not a tibble or dataframe is provided.
 
 
-## 2. Extract only the GO biological processes (BP) of interest
+### 2. Extract only the GO biological processes (BP) of interest
 
 Now that we have our data, we will need to wrangle it into a format ready for plotting. For all of our data wrangling steps we will be using tools from the [dplyr](http://dplyr.tidyverse.org/) package, which is a swiss-army knife for data wrangling of data frames. 
 
@@ -176,7 +172,7 @@ We would like to perform an additional round of filtering to only keep the most 
 ***
 
 
-## 3. Select only the columns needed for visualization
+### 3. Select only the columns needed for visualization
 
 For visualization purposes, we are only interested in the columns related to the GO terms, the significance of the terms, and information about the number of genes associated with the terms. 
 
@@ -216,10 +212,10 @@ bp_oe <- bp_oe[, idx]</code></pre><br>
 </details>
 
 	
-<img src="../img/bp_oe_selection.png" width="1200">
+<img src="img/bp_oe_selection.png" width="1200">
 
 
-## 4. Order GO processes by significance (adjusted p-values)
+### 4. Order GO processes by significance (adjusted p-values)
 
 Now that we have only the rows and columns of interest, let's arrange these by significance, which is denoted by the adjusted p-value.
 
@@ -256,7 +252,7 @@ bp_oe <- bp_oe[idx,]</code></pre><br>
 
 > **NOTE2:** Ordering variables in `ggplot2` is a bit different. [This post](https://www.r-graph-gallery.com/267-reorder-a-variable-in-ggplot2.html) introduces a few ways of ordering variables in a plot.
 
-## 5. Rename columns to be more intuitive
+### 5. Rename columns to be more intuitive
 
 While not necessary for our visualization, renaming columns more intuitively can help with our understanding of the data using the `rename()` function. The syntax is `new_name` = `old_name`.
 
@@ -288,7 +284,7 @@ Rename the `intersection` column to `genes` to reflect the fact that these are t
 
 ***
 
-## 6. Create additional metrics for plotting (e.g. gene ratios)
+### 6. Create additional metrics for plotting (e.g. gene ratios)
 
 Finally, before we plot our data, we need to create a couple of additional metrics. The `mutate()` function enables you to create a new column from an existing column. 
 
@@ -315,7 +311,7 @@ Create a column in `bp_oe` called `term_percent` to determine the percent of DE 
 
 Our final data for plotting should look like the table below:
 
-<img src="../img/bp_oe_ready_to_plot.png" width="1200">
+<img src="img/bp_oe_ready_to_plot.png" width="1200">
 
 ## Next steps
 
@@ -323,9 +319,8 @@ Now that we have our results ready for plotting, we can use the [ggplot2](https:
 
 ### Additional resources
 
--   [R for Data Science](http://r4ds.had.co.nz)
--   [teach the tidyverse](http://varianceexplained.org/r/teach-tidyverse/)
--   [tidy style guide](http://style.tidyverse.org/)
+* [R for Data Science](http://r4ds.had.co.nz)
+* [teach the tidyverse](http://varianceexplained.org/r/teach-tidyverse/)
+* [tidy style guide](http://style.tidyverse.org/)
 
----
-*This lesson has been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*
+***

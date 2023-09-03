@@ -4,8 +4,7 @@ bookdown::gitbook:
     after_body: [includes/footer.html, includes/webex.js]
   md_extensions: -smart
   df_print: kable
-  dev: svglite
-  css: [css/style.css, css/toc.css, webex.css]
+  css: [css/style.css, css/toc.css, css/webex.css]
   config:
     toc:
       collapse: section
@@ -28,10 +27,10 @@ bookdown::word_document2:
   fig_height: 5.3
   fig_width: 8.5
 bookdown::html_chapters:
-  css: [css/style.css, css/toc.css]
+  css: [lessons/css/style.css, lessoons/css/toc.css]
 bookdown::pdf_book:
   includes:
-   in_header: preamble.tex
+   in_header: lessons/preamble.tex
   keep_tex: yes
   dev: "cairo_pdf"
   latex_engine: xelatex
@@ -44,5 +43,5 @@ bookdown::pdf_book:
   quote_footer: ["\\VA{", "}{}"]
 bookdown::epub_book:
   dev: svglite
-  stylesheet: css/epub.css
+  stylesheet: lessons/css/epub.css
 bookdown::bs4_book: default

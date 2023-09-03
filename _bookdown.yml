@@ -1,28 +1,30 @@
 book_filename: "intro-to-R"
-before_chapter_script: ["R/introR_setup.R", "R/setup.R"]
-new_session: yes
+before_chapter_script: ["lessons/R/introR_setup.R", "lessons/R/setup.R"]
+new_session: no
 rmd_files:
   - index.Rmd
-  - 01-getting-started.Rmd
-  - 02-introR-R-and-RStudio.md
-  - 03-introR-syntax-and-data-structures.md
-  - 04-introR-functions-and-arguments.md
-  - 05-introR_packages.md
-  - 06-introR-data-wrangling.md
-  - 07-reading_and_data_inspection.md
-  - 08-introR-data-wrangling2.md
-  - 09-identifying-matching-elements.md
-  - 10-reordering-to-match-datasets.md
-  - 11-setting_up_to_plot.md
-  - 12-ggplot2.md
-  - 13-boxplot_exercise.md
-  - 14-exporting_data_and_plots.md
-  - 15-finding_help.md
-  - 16-tidyverse.md
-  - 17-IntroR.Rmd
+  - lessons/01-getting-started.Rmd
+  - lessons/02-introR-R-and-RStudio.md
+  - lessons/03-introR-syntax-and-data-structures.md
+  - lessons/04-introR-functions-and-arguments.md
+  - lessons/05-introR_packages.md
+  - lessons/06-introR-data-wrangling.md
+  - lessons/07-reading_and_data_inspection.md
+  - lessons/08-introR-data-wrangling2.md
+  - lessons/09-identifying-matching-elements.md
+  - lessons/10-reordering-to-match-datasets.md
+  - lessons/11-setting_up_to_plot.md
+  - lessons/12-ggplot2.md
+  - lessons/13-boxplot_exercise.md
+  - lessons/14-exporting_data_and_plots.md
+  - lessons/15-finding_help.md
+  - lessons/16-tidyverse.md
+  - lessons/17-IntroR.Rmd
+  - lessons/18-dummy-script.Rmd
 delete_merged_file: false
-chapter_name: 'Chapter '
+chapter_name: "Chapter "
 language:
   label:
-    fig: 'Figure '
-    tab: 'Table '
+    fig: "Figure "
+    tab: "Table "
+rmd_subdir: ["lessons"]

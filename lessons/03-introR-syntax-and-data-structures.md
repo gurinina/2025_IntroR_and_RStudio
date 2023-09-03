@@ -1,13 +1,9 @@
----
-title: R Syntax and Data Structures
-authors: Meeta Mistry, Mary Piper
-date: "Tuesday, April 21, 2020"
----
-Approximate time: 70 min
+# R Syntax and Data Structures
 
 ## Learning Objectives
 
 * Describe frequently-used data types in R. 
+
 * Construct data structures to store data.
 
 ## Data Types
@@ -15,13 +11,16 @@ Approximate time: 70 min
 Variables can contain values of specific types within R. The six **data types** that R uses include: 
 
 * `"numeric"` for any numerical value, including whole numbers and decimals. This is the most common data type for performing mathematical operations.
+
 * `"character"` for text values, denoted by using quotes ("") around value. For instance, while 5 is a numeric value, if you were to put quotation marks around it, it would turn into a character value, and you could no longer use it for mathematical operations. Single or double quotes both work, as long as the same type is used at the beginning and end of the character value.
+
 * `"integer"` for whole numbers (e.g., `2L`, the `L` indicates to R that it's an integer). It behaves similar to the `numeric` data type for most tasks or functions; however, it takes up less storage space than numeric data, so often tools will output integers if the data is known to be comprised of whole numbers. Just know that integers behave similarly to numeric values. If you wanted to create your own, you could do so by providing the whole number, followed by an upper-case L.
+
 * `"logical"` for `TRUE` and `FALSE` (the Boolean data type). The `logical` data type can be specified using four values, `TRUE` in all capital letters, `FALSE` in all capital letters, a single capital `T` or a single capital `F`.
+
 * `"complex"` to represent complex numbers with real and imaginary parts (e.g.,
   `1+4i`) and that's all we're going to say about them
-* `"raw"` that we won't discuss further
-
+  
 The table below provides examples of each of the commonly used data types:
 
 | Data Type  | Examples|
@@ -35,36 +34,36 @@ The type of data will determine what you can do with it. For example, if you wan
 
 ## Data Structures
 
-We know that variables are like buckets, and so far we have seen that bucket filled with a single value. Even when `number` was created, the result of the mathematical operation was a single value. **Variables can store more than just a single value, they can store a multitude of different data structures.** These include, but are not limited to, vectors (`c`), factors (`factor`), matrices (`matrix`), data frames (`data.frame`) and lists (`list`).
+So far we have seen variables with a single value. **Variables can store more than just a single value, they can store a multitude of different data structures.** These include, but are not limited to, vectors (`c`), factors (`factor`), matrices (`matrix`), data frames (`data.frame`) and lists (`list`).
 
 
 ### Vectors
 
 A vector is the most common and basic data structure in R, and is pretty much the workhorse of R. It's basically just a collection of values, mainly either numbers,
 
-![numeric vector](../img/vector2.png)
+![numeric vector](img/vector2.png)
 
 or characters,
 
-![character vector](../img/vector1.png)
+![character vector](img/vector1.png)
 
 or logical values,
 
-![logical vector](../img/vector5-logical.png)
+![logical vector](img/vector5-logical.png)
 
 **Note that all values in a vector must be of the same data type.** If you try to create a vector with more than a single data type, R will try to coerce it into a single data type. 
 
 For example, if you were to try to create the following vector:
 
-![mixed vector](../img/vector3.png)
+![mixed vector](img/vector3.png)
 
 R will coerce it into:
 
-<img src="../img/vector4.png" width="400">
+<img src="img/vector4.png" width="400">
 
-The analogy for a vector is that your bucket now has different compartments; these compartments in a vector are called *elements*. 
+The values in a vector are called *elements*. 
 
-Each **element** contains a single value, and there is no limit to how many elements you can have. A vector is assigned to a single variable, because regardless of how many elements it contains, in the end it is still a single entity (bucket). 
+Each **element** contains a single value, and there is no limit to how many elements you can have. A vector is assigned to a single variable, because regardless of how many elements it contains, in the end it is still a vector.
 
 Let's create a vector of genome lengths and assign it to a variable called `glengths`. 
 
@@ -93,11 +92,7 @@ What do you think would happen if we forgot to put quotations around one of the 
 species <- c("ecoli", "human", corn)
 ```
 
-Note that RStudio is quite helpful in color-coding the various data types. We can see that our numeric values are blue, the character values are green, and if we forget to surround corn with quotes, it's black. What does this mean? Let's try to run this code.
-
-When we try to run this code we get an error specifying that object 'corn' is not found. What this means is that R is looking for an object or variable in my Environment called 'corn', and when it doesn't find it, it returns an error. If we had a character vector called 'corn' in our Environment, then it would combine the contents of the 'corn' vector with the values "ecoli" and "human".
-
-Since we only want to add the value "corn" to our vector, we need to re-run the code with the quotation marks surrounding corn. A quick way to add quotes to both ends of a word in RStudio is to highlight the word, then press the quote key.
+When we try to run this code we get an error specifying that object 'corn' is not found. What this means is that R is looking for an object or variable in my Environment called 'corn', and when it doesn't find it, it returns an error. 
 
 ```r
 # Create a character vector and store the vector as a variable called 'species'
@@ -118,7 +113,7 @@ A **factor** is a special type of vector that is used to **store categorical dat
 
 For instance, if we have four animals and the first animal is female, the second and third are male, and the fourth is female, we could create a factor that appears like a vector, but has integer values stored under-the-hood. The integer value assigned is a one for females and a two for males. The numbers are assigned in alphabetical order, so because the f- in females comes before the m- in males in the alphabet, females get assigned a one and males a two. In later lessons we will show you how you could change these assignments.
 
-![factors](../img/factors_sm.png)
+![factors](img/factors_sm.png)
 
 Let's create a factor vector and explore a bit more.  We'll start by creating a character vector describing three different levels of expression. Perhaps the first value represents expression in mouse1, the second value represents expression in mouse2, and so on and so forth:
 
@@ -136,15 +131,13 @@ expression <- factor(expression)
 
 So, what exactly happened when we applied the `factor()` function? 
 
-![factor_new](../img/factors_new.png)
+![factor_new](img/factors_new.png)
 
-The expression vector is categorical, in that all the values in the vector belong to a set of categories; in this case, the categories are `low`, `medium`, and `high`. By turning the expression vector into a factor, the **categories are assigned integers alphabetically**, with high=1, low=2, medium=3. This in effect assigns the different factor levels. You can view the newly created factor variable and the levels in the **Environment** window.
-
-![Factor variables in environment](../img/factors.png)
+The expression vector is categorical, in that all the values in the vector belong to a set of categories; in this case, the categories are `low`, `medium`, and `high`. 
 
 So now that we have an idea of what factors are, when would you ever want to use them?
 
-Factors are extremely valuable for many operations often performed in R. For instance, factors can give order to values with no intrinsic order. In the previous 'expression' vector, if I wanted the low category to be less than the medium category, then we could do this using factors. Also, factors are necessary for many statistical methods. For example, descriptive statistics can be obtained for character vectors if you have the categorical information stored as a factor. Also, if you want to denote which category is your base level for a statistical comparison, then you would need to have your category variable stored as a factor with the base level assigned to 1. Anytime that it is helpful to have the categories thought of as groups in an analysis, the factor function makes this possible. For instance, if you want to color your plots by treatment type, then you would need the treatment variable to be a factor.
+Factors are extremely valuable for many operations often performed in R. For instance, factors can give order to values with no intrinsic order. In the previous 'expression' vector, if I wanted the low category to be less than the medium category, then we could do this using factors. Also, factors are necessary for many statistical methods. For example, descriptive statistics can be obtained for character vectors if you have the categorical information stored as a factor. Anytime that it is helpful to have the categories thought of as groups in an analysis, the factor function makes this possible. For instance, if you want to color your plots by treatment type, then you would need the treatment variable to be a factor.
 
 ***
 **Exercises**
@@ -159,17 +152,15 @@ Let's say that in our experimental analyses, we are working with three different
 
 ### Matrix
 
-A `matrix` in R is a collection of vectors of **same length and identical datatype**. Vectors can be combined as columns in the matrix or by row, to create a 2-dimensional structure.
+A `matrix` in R is a collection of vectors of **same length and identical datatype**. Vectors can be combined as columns in the matrix or by row, to create a 2-dimensional structure and are usually of numeric datatype.
 
-![matrix](../img/matrix.png)
-
-Matrices are used commonly as part of the mathematical machinery of statistics. They are usually of numeric datatype and used in computational algorithms to serve as a checkpoint. For example, if input data is not of identical data type (numeric, character, etc.), the `matrix()` function will throw an error and stop any downstream code execution.
+![matrix](img/matrix.png)
 
 ### Data Frame
 
 A `data.frame` is the _de facto_ data structure for most tabular data and what we use for statistics and plotting. A `data.frame` is similar to a matrix in that it's a collection of vectors of the **same length** and each vector represents a column. However, in a dataframe **each vector can be of a different data type** (e.g., characters, integers, factors). In the data frame pictured below, the first column is character, the second column is numeric, the third is character, and the fourth is logical.
 
-![dataframe](../img/dataframe.png)
+![dataframe](img/dataframe.png)
 
 A data frame is the most common way of storing data in R, and if used systematically makes data analysis easier. 
 
@@ -180,15 +171,7 @@ We can create a dataframe by bringing **vectors** together to **form the columns
 df <- data.frame(species, glengths)
 ```
 
-We can see that a new variable called `df` has been created in our `Environment` within a new section called `Data`. In the `Environment`, it specifies that `df` has 3 observations of 2 variables. What does that mean? In R, rows always come first, so it means that `df` has 3 rows and 2 columns. We can get additional information if we click on the blue circle with the white triangle in the middle next to `df`. It will display information about each of the columns in the data frame, giving information about what the data type is of each of the columns and the first few values of those columns.
-
-Another handy feature in RStudio is that if we hover the cursor over the variable name in the `Environment`, `df`, it will turn into a pointing finger. If you click on `df`, it will open the data frame as it's own tab next to the script editor. We can explore the table interactively within this window. To close, just click on the X on the tab.
-
-As with any variable, we can print the values stored inside to the console if we type the variable's name and run. 
-
-```r
-df
-```
+We can see that a new variable called `df` has been created in our `Environment` within a new section called `Data`. In the `Environment`, it specifies that `df` has 3 observations of 2 variables. What does that mean? In R, rows always come first, so it means that `df` has 3 rows and 2 columns.
 
 ***
 **Exercise**
@@ -206,8 +189,7 @@ Create a data frame called `favorite_books` with the following vectors as column
 
 Lists are a data structure in R that can be perhaps a bit daunting at first, but soon become amazingly useful. A list is a data structure that can hold any number of any types of other data structures.
 
-![list](../img/list.png)
-
+![list](img/list.png)
 
 If you have variables of different data structures you wish to combine, you can put all of those into one list object by using the `list()` function and placing all the items you wish to combine within parentheses:
 
@@ -215,11 +197,7 @@ If you have variables of different data structures you wish to combine, you can 
 list1 <- list(species, df, number)
 ```
 
-We see `list1` appear within the Data section of our environment as a list of 3 components or variables. If we click on the blue circle with a triangle in the middle, it's not quite as interpretable as it was for data frames. 
-
-Essentially, each component is preceded by a colon. The first colon give the `species` vector, the second colon precedes the `df` data frame, with the dollar signs indicating the different columns, the last colon gives the single value, `number`.
-
-If I click on `list1`, it opens a tab where you can explore the contents a bit more, but it's still not super intuitive. The easiest way to view small lists is to print to the console. 
+We see `list1` appear within the Data section of our environment as a list of 3 components or variables. The easiest way to view small lists is to print to the console. 
 
 Let's type list1 and print to the console by running it.
 
@@ -249,15 +227,8 @@ Create a list called `list2` containing `species`, `glengths`, and `number`.
 
 ***
 
-Now that we know what lists are, why would we ever want to use them? When getting started with R, you will most likely encounter lists with different tools or functions that you use. Oftentimes a tool will need a list as input, so that all the information needed to run the tool is present in a single variable. Sometimes a tool will output a list when working through an analysis. Knowing how to work with them and extract necessary information will be critically important. 
+Now that we know what lists are, why would we ever want to use them? Oftentimes a function will need a list as input, so that all the information needed to run the function is present in a single variable. Sometimes a function will output a list when working through an analysis. Knowing how to work with them and extract necessary information will be critically important. 
 
-As you become more comfortable with R, you will find yourself using lists more often. One common use of lists is to make iterative processes more efficient. For example, let's say you had multiple data frames containing the same weather information from different cities throughout North America. You wanted to perform the same task on each of the data frames, but that would take a long time to do individually. Instead you could create a list where each data frame is a component of the list. Then, you could perform the task on the list instead, which would be applied to each of the components.
-
----
+Lists are useful when you want to run a function on multiple data frames for example, but that would take a long time to do individually. Instead you could create a list where each data frame is a component of the list. Then, you could perform the task on the list instead, which would be applied to each of the components.
 
 *This lesson has been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*
-
-* *The materials used in this lesson are adapted from work that is Copyright © Data Carpentry (http://datacarpentry.org/). 
-All Data Carpentry instructional material is made available under the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0).*
-
-

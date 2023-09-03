@@ -1,19 +1,14 @@
----
-title: "Data wrangling: dataframes, matrices, and lists"
-authors: Meeta Mistry, Mary Piper
-date: "Tuesday, April, 21, 2020"
----
-Approximate time: 60 min
+# Dataframes, matrices, and lists
 
 ## Learning Objectives
 
 * Demonstrate how to subset, merge, and create new datasets from existing data structures in R.
 
-### Dataframes
+## Dataframes
 
 Dataframes (and matrices) have 2 dimensions (rows and columns), so if we want to select some specific data from it we need to specify the "coordinates" we want from it. We use the same square bracket notation but rather than providing a single index, there are *two indices required*. Within the square bracket, **row numbers come first followed by column numbers (and the two are separated by a comma)**. Let's explore the `metadata` dataframe, shown below are the first six samples:
 
-![metadata](../img/metadata.png)
+![metadata](img/metadata.png)
 
 Let's say we wanted to extract the wild type (`Wt`) value that is present in the first row and the first column. To extract it, just like with vectors, we give the name of the data frame that we want to extract from, followed by the square brackets. Now inside the square brackets we give the coordinates or indices for the rows in which the value(s) are present, followed by a comma, then the coordinates or indices for the columns in which the value(s) are present. We know the wild type value is in the first row if we count from the top, so we put a one, then a comma. The wild type value is also in the first column, counting from left to right, so we put a one in the columns space too. 
 
@@ -46,7 +41,7 @@ If you were selecting specific columns from the data frame - the rows are left b
 metadata[ , 3]   
 ```
 
-What kind of data structure does this output appear to be? It looks different from the data frame, and we really just see a series of values output, indicating a vector data structure. This happens be default if just selecting a single column from a data frame. R will drop to the simplest data structure possible. Since a single column in a data frame is really just a vector, R will output a vector data structure as the simplest data structure. Oftentimes we would like to keep our single column as a data frame. To do this, there is an argument we can add when subsetting called `drop`, meaning do we want to drop down to the simplest data structure. By default it is `TRUE`, but we can change it's value to `FALSE` in order to keep the output as a data frame.
+What kind of data structure does this output appear to be? It looks different from the data frame, and we really just see a series of values output, indicating a vector data structure. This happens be default if just selecting a single column from a data frame. R will drop to the simplest data structure possible. Oftentimes we would like to keep our single column as a data frame. To do this, there is an argument we can add when subsetting called `drop`, by changing it's value to `FALSE` the output is kept as a data frame.
 
 ```r
 # Extract third column as a data frame
@@ -69,15 +64,12 @@ Alternatively, we can use the combine function (`c()`) to extract any number of 
 metadata[c(1,3,6), ] 
 ```
 
-For larger datasets, it can be tricky to remember the column number that corresponds to a particular variable. (Is celltype in column 1
-or 2? oh, right... they are in column 1). In some cases, the column/row number for values can change if the script you are using adds or removes columns/rows. It's, therefore, often better to use column/row names to refer to extract particular values, and it makes your code easier to read and your intentions clearer.
+For larger datasets, it can be tricky to remember the column number that corresponds to a particular variable. It's, therefore, often better to use column/row names to refer to extract particular values, and it makes your code easier to read and your intentions clearer.
 
 ```r
 # Extract the celltype column for the first three samples
 metadata[c("sample1", "sample2", "sample3") , "celltype"] 
 ```
-
-It's important to type the names of the columns/rows in the exact way that they are typed in the data frame; for instance if I had spelled `celltype` with a capital `C`, it would not have worked.
 
 If you need to remind yourself of the column/row names, the following functions are helpful:
 
@@ -114,13 +106,14 @@ Unfortunately, there is no equivalent `$` syntax to select a row by name.
 
 ***
 
-#### Selecting using indices with logical operators
+### Selecting using indices with logical operators
 
 With data frames, similar to vectors, we can use logical expressions to extract the rows or columns in the data frame with specific values. First, we need to determine the indices in a rows or columns where a logical expression is `TRUE`, then we can extract those rows or columns from the data frame. 
 
 For example, if we want to return only those rows of the data frame with the `celltype` column having a value of `typeA`, we would perform two steps:
 
 1. Identify which rows in the celltype column have a value of `typeA`.
+
 2. Use those TRUE values to extract those rows from the data frame.
 
 To do this we would extract the column of interest as a vector, with the first value corresponding to the first row, the second value corresponding to the second row, so on and so forth. We use that vector in the logical expression. Here we are looking for values to be equal to `typeA`, so our logical expression would be:
@@ -141,7 +134,7 @@ Now we can use those `TRUE` and `FALSE` values to extract the rows that correspo
 metadata[logical_idx, ]
 ```
 
-##### Selecting indices with logical operators using the `which()` function
+### Logical operators using the `which()` function
 
 As you might have guessed, we can also use the `which()` function to return the indices for which the logical expression is TRUE. For example, we can find the indices where the `celltype` is `typeA` within the `metadata` dataframe:
 
@@ -197,13 +190,15 @@ Subset the `metadata` dataframe to return only the rows of data with a genotype 
 	
 ***
 
-> **NOTE:** There are easier methods for subsetting **dataframes** using logical expressions, including the `filter()` and the `subset()` functions. These functions will return the rows of the dataframe for which the logical expression is TRUE, allowing us to subset the data in a single step. We will explore the `filter()` function in more detail in a later lesson.
+## Lists
 
-### Lists
+### Selecting components from a list
 
 Selecting components from a list requires a slightly different notation, even though in theory a list is a vector (that contains multiple data structures). To select a specific component of a list, you need to use double bracket notation `[[]]`. Let's use the `list1` that we created previously, and index the second component:
 
 ```r
+
+list1 <- list(species, df, number)
 list1[[2]]
 ```
 
@@ -230,10 +225,6 @@ list1[[1]][1]
 [1] "ecoli"
 ```
 
-You can also do the same for dataframes and matrices, although with larger datasets it is not advisable. Instead, it is better to save the contents of a list component to a variable (as we did above) and further manipulate it. Also, it is important to note that when selecting components we can only **access one at a time**. To access multiple components of a list, see the note below. 
-
-> **NOTE:** Using the single bracket notation also works wth lists. The difference is the class of the information that is retrieved. Using single bracket notation i.e. `list1[1]` will return the contents in a list form and *not the original data structure*. The benefit of this notation is that it allows indexing by vectors so you can access multiple components of the list at once.
-
 ***
 
 **Exercises**  
@@ -254,6 +245,7 @@ names(list1)
 
 When we created the list we had combined the `species` vector with  a dataframe `df` and the `number` variable. Let's assign the original names to the components. To do this we can use the assignment operator in a new context. If we add `names(list1)` to the left side of the assignment arrow to be assigned to, then anything on the right side of the arrow will be assigned. Since we have three components in `list1`, we need three names to assign. We can create a vector of names using the combine (`c()`) function, and inside the combine function we give the names to assign to the components in the order we would like. So the first name is assigned to the first component of the list, and so on.
 
+### Naming lists
 ```r
 # Name components of the list
 names(list1) <- c("species", "df", "number")
@@ -281,13 +273,3 @@ Let's practice combining ways to extract data from the data structures we have c
 2. Extract the `age` component using the `$` notation
 
 ***
-
-> ### An R package for data wrangling
-> The methods presented above are using base R functions for data wrangling. Later we will explore the **Tidyverse suite of packages**, specifically designed to make data wrangling easier.
-
----
-
-*This lesson has been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*
-
-* *The materials used in this lesson are adapted from work that is Copyright © Data Carpentry (http://datacarpentry.org/). 
-All Data Carpentry instructional material is made available under the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0).*

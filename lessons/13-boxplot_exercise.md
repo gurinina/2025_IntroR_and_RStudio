@@ -1,12 +1,6 @@
----
-title: "Plotting and data visualization in R"
-author: "Mary Piper, Meeta Mistry, Radhika Khetani"
-date: "Wednesday, December 4, 2019"
----
+# Boxplot with ggplot2: exercise
 
-Approximate time: 60 minutes
-
-## Learning Objectives 
+## Learning Objectives
 
 * Generate the box plot using ggplot2
 
@@ -32,14 +26,16 @@ Generate a boxplot using the data in the new_metadata dataframe. Create a ggplot
 	* Change the size of your axes labels to 1.25x larger than the default.
 	* Change the size of your plot title to 1.5x larger than default.
 	* Center the plot title.
+	
+
 
 **After running the above code the boxplot should look something like that provided below.**
 
 <p align="center">
-<img src="../img/ggboxplot_flip.png" width="600">
+<img src="img/ggboxplot_flip.png" width="600">
 </p>
 
-### 2. Changing the order of genotype on the Boxplot
+### 2. Change genotype order
 
 Let's say you wanted to have the "Wt" boxplots displayed first on the left side, and "KO" on the right. How might you go about doing this?
 
@@ -72,5 +68,4 @@ You are not restricted to using colors by writing them out as character vectors.
 
 * Find the hexadecimal code for your 2 favourite colors (from exercise 3 above) and replace the color names with the hexadecimal codes within the ggplot2 code chunk.
 
----
-*This lesson has been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*
+***

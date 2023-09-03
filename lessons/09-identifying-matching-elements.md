@@ -1,18 +1,11 @@
----
-title: "Advanced R, logical operators for matching"
-authors: Meeta Mistry, Mary Piper, Jihe Liu
-date: "Wednesday, April 22, 2020"
----
-
-Approximate time: 45 min
-
+# R: logical operators for matching
 
 ## Learning Objectives
 
 * Describe the use of `%in%` operator.
 * Explain the user case for `any` and `all` functions.
 
-## Logical operators for identifying matching elements 
+## Logical operators to match elements 
 
 Oftentimes, we encounter different analysis tools that require multiple input datasets. It is not uncommon for these inputs to need to have the same row names, column names, or unique identifiers in the same order to perform the analysis. Therefore, knowing how to reorder datasets and determine whether the data matches is an important skill.
 
@@ -23,8 +16,6 @@ Let's read in our gene expression data (RPKM matrix) that we downloaded previous
 ```r
 rpkm_data <- read.csv("data/counts.rpkm.csv")
 ```
-
->**NOTE:** If the data file name ends with `txt` instead of `csv`, you can read in the data using the code: `rpkm_data <- read.csv("data/counts.rpkm.txt")`. 
 
 Take a look at the first few lines of the data matrix to see what's in there.
 
@@ -43,7 +34,7 @@ What we want to know is, **do we have data for every sample that we have metadat
 
 ## The `%in%` operator
  
-Although lacking in [documentation](http://dr-k-lo.blogspot.com/2013/11/), this operator is well-used and convenient once you get the hang of it. The operator is used with the following syntax: 
+This operator is well-used and convenient once you get the hang of it. The operator is known as `exactly in` and is used with the following syntax: 
 
 ```r
 vector1 %in% vector2
@@ -65,7 +56,6 @@ A %in% B
 
 Since vector A contains only odd numbers and vector B contains only even numbers, the operation returns a logical vector containing six `FALSE`, suggesting that no element in vector A is present in vector B. Let's change a couple of numbers inside vector B to match vector A:
 
-
 ```r
 A <- c(1,3,5,7,9,11)   # odd numbers
 B <- c(2,4,6,8,1,5)  # add some odd numbers in 
@@ -80,24 +70,26 @@ A %in% B
 ## [1]  TRUE FALSE  TRUE FALSE FALSE FALSE
 ```
 
-The returned logical vector denotes which elements in `A` are also in `B` - the first and third elements, which are 1 and 5.  
+The returned logical vector denotes which elements in `A` are also in `B` - the first and third elements, which are 1 and 5.
+
+**Note: this function is not reversible; i.e. `B %in% A` will give a different answer.
 
 We saw previously that we could use the output from a logical expression to subset data by returning only the values corresponding to `TRUE`. Therefore, we can use the output logical vector to subset our data, and return only those elements in `A`, which are also in `B` by returning only the TRUE values:
 
-![matching1](../img/in-operator1.png)
+![matching1](img/in-operator1.png)
 
 ```r
 intersection <- A %in% B
 intersection
 ```
 
-![matching2](../img/in-operator2.png)
+![matching2](img/in-operator2.png)
 
 ```r
 A[intersection]
 ```
 
-![matching3](../img/in-operator3.png)
+![matching3](img/in-operator3.png)
 
 In these previous examples, the vectors were so small that it's easy to check every logical value by eye; but this is not practical when we work with large datasets (e.g. a vector with 1000 logical values). Instead, we can use `any` function. Given a logical vector, this function will tell you whether **at least one value** is `TRUE`. It provides us a quick way to assess if **any of the values contained in vector A are also in vector B**:
 
@@ -180,5 +172,4 @@ important_genes <- c("ENSMUSG00000083700", "ENSMUSG00000080990", "ENSMUSG0000006
 
 3. **Bonus question:** Extract the rows from `rpkm_data` that correspond to these 6 genes using `[]`, but without using the `%in%` operator.
 
----
-*This lesson has been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*
+***

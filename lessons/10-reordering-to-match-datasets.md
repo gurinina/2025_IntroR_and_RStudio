@@ -1,21 +1,14 @@
----
-title: "Advanced R, reordering to match datasets"
-authors: Meeta Mistry, Mary Piper
-date: "Wednesday, April 22, 2020"
----
-Approximate time: 45 min
-
+# R: reordering to match datasets
 
 ## Learning Objectives
 
-* Implement manual reordering of vectors and data frames
 * Utilize the `match()` function to reorder vectors and data frames so that unique identifiers are in the same order
 
 ## Reordering data to match
 
 In the previous lesson, we learned how to determine whether the same data is present in two datasets, in addition to, whether it is in the same order. In this lesson, we will explore how to reorder the data such that the datasets are matching.
 
-## Manual reordering of data using indices
+## Reordering of data using indices
 
 Indexing `[ ]` can be used to extract values from a dataset as we saw earlier, but we can also use it to rearrange our data values. 
 
@@ -23,19 +16,13 @@ Indexing `[ ]` can be used to extract values from a dataset as we saw earlier, b
 teaching_team <- c("Jihe", "Mary", "Meeta", "Radhika", "Will", "Emma")
 ```
 
-<img src="../img/teaching_team_2023.jpg" width="600">
+<img src="img/teaching_team_2023.jpg" width="600">
 
 Remember that we can return values in a vector by specifying it's position or index:
 
 ```r
 # Extracting values from a vector
 teaching_team[c(2, 4)] 
-```
-
-Also, note that we haven't changed the `teaching_team` variable. The only way to change the `teaching_team` variable would be to re-assign/overwrite it.
-
-```r
-teaching_team
 ```
 
 We can also extract the values and reorder them:
@@ -64,7 +51,7 @@ reorder_teach <- teaching_team[c(5, 4, 6, 2, 1, 3)]
 
 Now that we know how to reorder using indices, let's try to use it to reorder the contents of one vector to match the contents of another. Let's create the vectors `first` and `second` as detailed below:
 
-![matching4](../img/match1.png)
+![matching4](img/match1.png)
 
 ```r
 first <- c("A","B","C","D","E")
@@ -118,7 +105,7 @@ If the output looks good, we can save the reordered vector to a new variable.
 second_reordered <- second[reorder_idx]  
 ```
 
-![matching7](../img/match3-reordered.png)
+![matching7](img/match3-reordered.png)
 
 
 Now that we know how `match()` works, let's change vector `second` so that only a subset are retained:
@@ -128,7 +115,7 @@ first <- c("A","B","C","D","E")
 second <- c("D","B","A")  # remove values
 ```
 
-![matching5](../img/match2.png)
+![matching5](img/match2.png)
 
 And try to `match()` again:
 
@@ -149,7 +136,7 @@ second[match(first, second)]
 ```
 
 
-### Reordering genomic data using `match()` function
+### Reordering genomic data using `match()` function {-}
 
 While the input to the `match()` function is always going to be to vectors, often we need to use these vectors to reorder the rows or columns of a data frame to match the rows or columns of another dataframe. Let's explore how to do this with our use case featuring RNA-seq data. To perform differential gene expression analysis, we have a data frame with the expression data or counts for every sample and another data frame with the information about to which condition each sample belongs. For the tools doing the analysis, the samples in the counts data, which are the column names, need to be the same and in the same order as the samples in the metadata data frame, which are the rownames.
 
@@ -192,7 +179,7 @@ Check and see what happened by clicking on the `rpkm_ordered` in the Environment
 View(rpkm_ordered)
 ```
 
-We can see the sample names are now in a nice order from sample 1 to 12, just like the metadata. One thing to note is that you would never want to rearrange just the column names without the rest of the column because that would dissociate the sample name from it's values.
+We can see the sample names are now in a nice order from sample 1 to 12, just like the metadata. 
 
 You can also verify that column names of this new data matrix matches the metadata row names by using the `all` function:
 
@@ -210,5 +197,4 @@ Now that our samples are ordered the same in our metadata and counts data, **if 
 
 2. Use the `match()` function to subset the `metadata` data frame so that the row names of the `metadata` data frame match the column names of the `subset_rpkm` data frame.
 
----
-*This lesson has been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*
+***

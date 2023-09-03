@@ -1,18 +1,10 @@
----
-title: 'Data subsetting with base R: vectors and factors'
-date: "Friday, September 8, 2017"
-authors: Meeta Mistry, Mary Piper, Radhika Khetani
----
-Approximate time: 60 min
+# Subsetting with R: vectors and factors
 
 ## Learning Objectives
 
-* Demonstrate how to subset vectors and factors
-* Explain the use of logical operators when subsetting vectors and factors
-* Demonstrate how to relevel factors in a desired order
+* Subsetting vectors and factors
 
-
-## Selecting data using indices and sequences
+## Selecting data using indices
 
 When analyzing data, we often want to **partition the data so that we are only working with selected columns or rows.** A data frame or data matrix is simply a collection of vectors combined together. So let's begin with vectors and how to access different elements, and then extend those concepts to dataframes.
 
@@ -20,7 +12,7 @@ When analyzing data, we often want to **partition the data so that we are only w
 
 #### Selecting using indices
 
-If we want to extract one or several values from a vector, we must provide one or several indices using square brackets `[ ]` syntax. The **index represents the element number within a vector** (or the compartment number, if you think of the bucket analogy). R indices start at 1. Programming languages like Fortran, MATLAB, and R start counting at 1, because that's what human beings typically do. Languages in the C family (including C++, Java, Perl, and Python) count from 0 because that's simpler for computers to do.
+If we want to extract one or several values from a vector, we must provide one or several indices using square brackets `[ ]` syntax. The **index represents the element number within a vector**. R indices start at 1. 
 
 Let's start by creating a vector called age:
 
@@ -28,7 +20,7 @@ Let's start by creating a vector called age:
 age <- c(15, 22, 45, 52, 73, 81)
 ```
 
-![vector indices](../img/vector-index.png)
+![vector indices](img/vector-index.png)
 
 Suppose we only wanted the fifth value of this vector, we would use the following syntax:
 
@@ -66,10 +58,14 @@ Alternatively, if you wanted the reverse could try `4:1` for instance, and see w
 **Exercises** 
 
 1. Create a vector called alphabets with the following letters, C, D, X, L, F.
+
 2. Use the associated indices along with `[ ]` to do the following:
-	* only display C, D and F
-	* display all except X
-	* display the letters in the opposite order (F, L, X, D, C)
+
+* only display C, D and F
+
+* display all except X
+
+* display the letters in the opposite order (F, L, X, D, C)
 
 ***
 
@@ -124,9 +120,9 @@ idx <- age > 50 | age < 18
 age[idx]
 ```
 
-##### Indexing with logical operators using the `which()` function
+#### Indexing with logical operators using the `which()` function
 
-While logical expressions will return a vector of TRUE and FALSE  values of the same length, we could use the `which()` function to output the indices where the values are TRUE. Indexing with either method generates the same results, and personal preference determines which method you choose to use. For example:
+While logical expressions will return a vector of TRUE and FALSE  values of the same length, we could use the `which()` function to output the indices where the values are TRUE. For example:
 
 ```r
 which(age > 50 | age < 18)
@@ -140,26 +136,15 @@ idx_num <- which(age > 50 | age < 18)
 age[idx_num]
 ```
 
-Notice that we get the same results regardless of whether or not we use the `which()`. Also note that while `which()` works the same as the logical expressions for indexing, it can be used for multiple other operations, where it is not interchangeable with logical expressions.
+Notice that we get the same results regardless of whether or not we use the `which()`.
 
 ### Factors
 
 Since factors are special vectors, the same rules for selecting values using indices apply. The elements of the expression factor created previously had the following categories or levels: low, medium, and high. 
-
-Let's extract the values of the factor with high expression, and let's using nesting here:
-
+Let's extract the values of the factor with high expression, and let's using `nesting` here:
 ```r
 expression[expression == "high"]    ## This will only return those elements in the factor equal to "high"
 ```
-
-> **Nesting note**: 
->
-> The piece of code above was more efficient with nesting; we used a single step instead of two steps as shown below:
-> 
-> Step1 (no nesting): `idx <- expression == "high"`
->
-> Step2 (no nesting): `expression[idx]`
-
 
 ***
 **Exercise**
@@ -199,10 +184,3 @@ Now we have a releveled factor with low as the lowest or first category, medium 
 **Exercise**
 
 Use the `samplegroup` factor we created in a previous lesson, and relevel it such that KO is the first level followed by CTL and OE. 
-
----
-
-*This lesson has been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*
-
-* *The materials used in this lesson are adapted from work that is Copyright © Data Carpentry (http://datacarpentry.org/). 
-All Data Carpentry instructional material is made available under the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0).*

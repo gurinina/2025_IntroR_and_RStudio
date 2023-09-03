@@ -1,20 +1,15 @@
----
-title: "Plotting and data visualization in R"
-author: "Mary Piper, Meeta Mistry, Radhika Khetani"
-date: "Wednesday, December 4, 2019"
----
+# Plotting and data visualization in R
 
-
-## Learning Objectives 
+## Learning Objectives
 
 * Describe the `map()` function for iterative tasks on data structures.
 
-## Setting up a data frame for visualization
+## Dataframe setup for visualization
 
 In this lesson we want to make plots to evaluate the average expression in each sample and its relationship with the age of the mouse. So, to this end, we will be adding a couple of additional columns of information to the `metadata` data frame that we can utilize for plotting. 
 
 <p align="center">
-<img src="../img/new_metadata.png" width="600">
+<img src="img/new_metadata.png" width="600">
 </p>
 
 
@@ -40,9 +35,9 @@ library(purrr)  # Load the purrr
 samplemeans <- map_dbl(rpkm_ordered, mean) 
 ```
 
-> #### The `map` family of functions
+### The `map` family of functions
 > 
-> The `map()` family of functions is available from the **`purrr`** package, which is part of the tidyverse suite of packages. More detailed information is available in the [R for Data Science](http://r4ds.had.co.nz/iteration.html#the-map-functions) book. This family includes several functions, each taking a vector as input and outputting a vector of a specified type. For example, we can use these functions to execute some task/function on every element in a vector, or every column in a dataframe, or every component of a list, and so on. 
+> The `map()` family of functions is available from the **`purrr`** package, which is part of the tidyverse suite of packages. This family includes several functions, each taking a vector as input and outputting a vector of a specified type. For example, we can use these functions to execute some task/function on every element in a vector, or every column in a dataframe, or every component of a list, and so on. 
 > 
 > - `map()` creates a list.
 > - `map_lgl()` creates a logical vector.
@@ -57,9 +52,9 @@ samplemeans <- map_dbl(rpkm_ordered, mean)
 > map(object, function_to_apply)
 > ```
 > 
-> If you would like to practice with the `map()` family of functions, we have [additional materials](https://hbctraining.github.io/Intro-to-R/lessons/map_purrr.html) available.
 
-### Creating a new metadata object with additional information
+
+### Adding data to metadata
 
 Because the input was 12 columns of information the output of `map_dbl()` is a *named* vector of length 12. 
 
@@ -92,5 +87,4 @@ View(new_metadata)
 
 We are now ready for plotting and data visualization!
 
----
-*This lesson has been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*
+***

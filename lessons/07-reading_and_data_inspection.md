@@ -1,18 +1,12 @@
----
-title: 'Data subsetting with base R: vectors and factors'
-date: "Friday, September 8, 2017"
-authors: Meeta Mistry, Mary Piper, Radhika Khetani
----
+# Reading and data inspection
 
 ## Learning Objectives
 
-* Demonstrate how to read existing data into R
-* Utilize base R functions to inspect data structures
+* Read existing data into R and use base R functions to inspect data structures
 
 ## Reading data into R
 
 ### The basics
-Regardless of the specific analysis in R we are performing, we usually need to bring data in for any analysis being done in R, so learning how to read in data is a crucial component of learning to use R.
 
 Many functions exist to read data in, and the function in R you use will depend on the file format being read in. Below we have a table with some examples of functions that can be used for importing some common text data types (plain text).
 
@@ -22,32 +16,19 @@ Many functions exist to read data in, and the function in R you use will depend 
 |                         |           | `read_csv()`      | readr (tidyverse)  |
 | Tab separated values    | tsv       | `read_tsv()`      | readr              |
 | Other delimited formats | txt       | `read.table()`    | utils              |
-|                         |           | `read_table()`    | readr              |
-|                         |           | `read_delim()`    | readr              |
+|                         |           | `read_table()`    | readr     
+|(tidyverse) excel      | xlsx   | `read_xlsx()`      | readxl              |
+
 
 For example, if we have text file where the columns are separated by commas (comma-separated values or comma-delimited), you could use the function `read.csv`. However, if the data are separated by a different delimiter in a text file (e.g. ":", ";", " "), you could use the generic `read.table` function and specify the delimiter (`sep = " "`) as an argument in the function. 
-
-In the above table we refer to base R functions as being contained in the "utils" package. In addition to base R functions, we have also listed functions from some other packages that can be used to import data, specifically the "readr" package that installs when you install the "tidyverse" suite of packages.
-
-In addition to plain text files, you can also import data from other statistical analysis packages and Excel using functions from different packages. 
-
-| Data type               | Extension | Function          | Package            |
-|:------------------------|:----------|:------------------|:-------------------|
-| Stata version 13-14     | dta       | `readdta()`       | haven              |
-| Stata version 7-12      | dta       | `read.dta()`      | foreign            |
-| SPSS                    | sav       | `read.spss()`     | foreign            |
-| SAS                     | sas7bdat  | `read.sas7bdat()` | sas7bdat           |
-| Excel                   | xlsx, xls | `read_excel()`    | readxl (tidyverse) |
-
-Note, that these lists are not comprehensive, and may other functions exist for importing data. Once you have been using R for a bit, maybe you will have a preference for which functions you prefer to use for which data type.
 
 ### Metadata
 
 When working with large datasets, you will very likely be working with "metadata" file which contains the information about each sample in your dataset.
 
-<img src="../img/metadata_view.png" width="400"> 
+<img src="img/metadata_view.png" width="400"> 
 
-The metadata is very important information and we encourage you to think about creating a document with as much metadata you can record before you bring the data into R. [Here is some additional reading on metadata](https://datamanagement.hms.harvard.edu/metadata-overview) from the [HMS Data Management Working Group](https://datamanagement.hms.harvard.edu/).
+The metadata is very important information and we encourage you to think about creating a document with as much metadata you can record before you bring the data into R.
 
 ### The `read.csv()` function
 
@@ -59,75 +40,53 @@ First, check the arguments for the function using the `?` to ensure that you are
 ?read.csv
 ```
 
-<img src="../img/read.table-help.png" width="450"> 
-
-The first thing you will notice is that you've pulled up the documentation for `read.table()`, this is because that is the parent function and all the other functions are in the same family. 
+<img src="img/read.table-help.png" width="450"> 
 
 The next item on the documentation page is the function **Description**, which specifies that the output of this set of functions is going to be a **data frame** - "*Reads a file in table format and **creates a data frame from it**, with cases corresponding to lines and variables to fields in the file.*"
 
 In usage, all of the arguments listed for `read.table()` are the default values for all of the family members unless otherwise specified for a given function. Let's take a look at 2 examples:
-1. **The separator** - 
-	* in the case of `read.table()` it is `sep = ""` (space or tab)
-	* whereas for `read.csv()` it is `sep = ","` (a comma).
-2. **The `header`** - This argument refers to the column headers that may (`TRUE`) or may not (`FALSE`) exist **in the plain text file you are reading in**. 
-	* in the case of `read.table()` it is `header = FALSE` (by default, it assumes you do not have column names)
-	* whereas for `read.csv()` it is `header = TRUE` (by default, it assumes that all your columns have names listed). 
 
-***The take-home from the "Usage" section for `read.csv()` is that it has one mandatory argument, the path to the file and filename in quotations; in our case that is `data/mouse_exp_design.csv` or `data/mouse_exp_design.txt`.***
+1. **The separator**  
+
+* in the case of `read.table()` it is `sep = ""` (space or tab)
+
+* whereas for `read.csv()` it is `sep = ","` (a comma).
+
+2. **The `header`** - This argument refers to the column headers that may (`TRUE`) or may not (`FALSE`) exist **in the plain text file you are reading in**. 
+
+* in the case of `read.table()` it is `header = FALSE` (by default, it assumes you do not have column names)
+
+* whereas for `read.csv()` it is `header = TRUE` (by default, it assumes that all your columns have names listed). 
+
+***The take-home from the "Usage" section for `read.csv()` is that it has one mandatory argument, the path to the file and filename in quotations; in our case that is `data/mouse_exp_design.csv`***
 
 > #### The `stringsAsFactors` argument
 > 
-> Note that the `read.table {utils}` family of functions has an argument called `stringsAsFactors`, which by default will take the value of `default.stringsAsFactors()`. 
-> 
-> Type out `default.stringsAsFactors()` in the console to check what the default value is for your current R session. Is it `TRUE` or `FALSE`?
-> 
-> If `default.stringsAsFactors()` is set to `TRUE`, then `stringsAsFactors = TRUE`. In that case any function in this family of functions will coerce `character` columns in the data you are reading in to `factor` columns (i.e. coerce from `vector` to `factor`) in the resulting data frame. 
-> 
-> If you want to maintain the `character vector` data structure (e.g. for gene names), you will want to make sure that `stringsAsFactors = FALSE` (or that `default.stringsAsFactors()` is set to `FALSE`).
+> Note that the `read.table {utils}` family of functions has an argument called `stringsAsFactors`, which if set to TRUE, will coerce `character` columns in the data you are reading in to `factor` columns (i.e. coerce from `vector` to `factor`) in the resulting data frame. We want to set this as `FALSE` to maintain `character` columns in metadata. 
 
 ***
 
 ### Create a data frame by reading in the file
 
-At this point, please check the extension for the `mouse_exp_design` file within your `data` folder. You will have to type it accordingly within the `read.csv()` function.
-
-> `read.csv` is not fussy about extensions for plain text files, so even though the file we are reading in is a comma-separated value file, it will be read in properly even with a `.txt` extension.
-
-Let's read in the `mouse_exp_design` file and create a new data frame called `metadata`.
+Let's read in the `mouse_exp_design.csv` file and create a new data frame called `metadata`.
 
 ```r
 metadata <- read.csv(file="data/mouse_exp_design.csv")
 
-# OR 
-# metadata <- read.csv(file="data/mouse_exp_design.txt")
 ```
 
 > **NOTE:** RStudio supports the automatic completion of code using the <kbd>Tab</kbd> key. This is especially helpful for when reading in files to ensure the correct file path. The tab completion feature also provides a shortcut to listing objects, and inline help for functions. **Tab completion is your friend!** We encourage you to use it whenever possible.
 
-Go to your Global environment and click on the name of the data frame you just created. 
-
-<img src="../img/metadata_env.png" width="300">
-
-When you do this the metadata table will pop up on the top left hand corner of RStudio, right next to the R script.
-
-<img src="../img/metadata_display.png" width="300">
-
-You should see a subtle coloring (blue-gray) of the first row and first column, the rest of the table will have a white background. This is because your first row and first columns have different properties than the rest of the table, they are the names of the rows and columns respectively. 
-
-<img src="../img/metadata_display_row_cols.png" width="300">
-
 Earlier we noted that the file we just read in had column names (first row of values) and how `read.csv()` deals with "headers". In addition to column headers, `read.csv()` also assumes that the first column contains the row names. Not all functions in the `read.table()` family of functions will do this and depending on which one you use, you may have to specify an additional argument to properly assign the row names and column names.
-
-> Row names and column names are really handy when subsetting data structures and they are also helpful to identify samples or genes. We almost always use them with data frames.
 
 ***
 **Exercise 1**
 
-1. Download [this tab-delimited `.txt` file](https://www.dropbox.com/s/k2mlcqn4823g400/project-summary.txt?dl=1) and save it in your  project's `data` folder.
-2. Read it in to R using `read.table()` with the approriate arguments and store it as the variable `proj_summary`. To figure out the appropriate arguments to use with `read.table()`, keep the following in mind:
-	- all the columns in the input text file have column name/headers
-	- you want the first column of the text file to be used as row names (hint: look up the input for the `row.names =` argument in `read.table()`)
-3. Display the contents of `proj_summary` in your console
+1. Read "project-summary.txt" in to R using `read.table()` with the approriate arguments and store it as the variable `proj_summary`. To figure out the appropriate arguments to use with `read.table()`, keep the following in mind:
+	* all the columns in the input text file have column name/headers
+	* you want the first column of the text file to be used as row names (hint: look up the input for the `row.names =` argument in `read.table()`)
+
+2. Display the contents of `proj_summary` in your console
 
 ***
 
@@ -168,22 +127,22 @@ We already saw how the functions `head()` and `str()` (in the releveling section
 
 We have some exercises below that will allow you to gain more familiarity with these. You will definitely be using some of them in the next few homework sections.
 
-* All data structures - content display:
-	- **`str()`:** compact display of data contents (similar to what you see in the Global environment)
-	- **`class()`:** displays the data type for vectors (e.g. character, numeric, etc.) and data structure for dataframes, matrices, lists
-	- **`summary()`:** detailed display of the contents of a given object, including descriptive statistics, frequencies
-	- **`head()`:**  prints the first 6 entries (elements for 1-D objects, rows for 2-D objects)
-	- **`tail()`:** prints the last 6 entries (elements for 1-D objects, rows for 2-D objects)
+All data structures - content display:
+* **`str()`:** compact display of data contents (similar to what you see in the Global environment)
+* **`class()`:** displays the data type for vectors (e.g. character, numeric, etc.) and data structure for dataframes, matrices, lists
+* **`summary()`:** detailed display of the contents of a given object, including descriptive statistics, frequencies
+* **`head()`:**  prints the first 6 entries (elements for 1-D objects, rows for 2-D objects)
+* **`tail()`:** prints the last 6 entries (elements for 1-D objects, rows for 2-D objects)
 
-* Vector and factor variables: 
-	- **`length()`:** returns the number of elements in a vector or factor
+Vector and factor variables: 
+* **`length()`:** returns the number of elements in a vector or factor
 
-* Dataframe and matrix variables:
-	- **`dim()`:** returns dimensions of the dataset (number_of_rows, number_of_columns) [Note, row numbers will always be displayed before column numbers in R]
-	- **`nrow()`:** returns the number of rows in the dataset
-	- **`ncol()`:** returns the number of columns in the dataset
-	- **`rownames()`:** returns the row names in the dataset  
-	- **`colnames()`:** returns the column names in the dataset
+Dataframe and matrix variables:
+* **`dim()`:** returns dimensions of the dataset (number_of_rows, number_of_columns) [Note, row numbers will always be displayed before column numbers in R]
+* **`nrow()`:** returns the number of rows in the dataset
+* **`ncol()`:** returns the number of columns in the dataset
+* **`rownames()`:** returns the row names in the dataset  
+* **`colnames()`:** returns the column names in the dataset
 
 ***
 **Exercise 2**
@@ -196,9 +155,3 @@ We have some exercises below that will allow you to gain more familiarity with t
 * [Optional] How many elements in (how long is) the output of `colnames(proj_summary)`? Don't count, but use another function to determine this.
 
 ***
----
-
-*This lesson has been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*
-
-* *The materials used in this lesson are adapted from work that is Copyright © Data Carpentry (http://datacarpentry.org/). 
-All Data Carpentry instructional material is made available under the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0).*
