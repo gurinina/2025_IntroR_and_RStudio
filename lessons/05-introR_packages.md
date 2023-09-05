@@ -1,11 +1,5 @@
 # Packages and libraries
 
-## Learning Objectives
-
-* Demonstrate how to install a package and load a library
-
-* Find functions specific to a package 
-
 ## Packages and Libraries
 
 **Packages** are collections of R functions, data, and compiled code in a well-defined format, created to add specific functionality. 
@@ -74,15 +68,6 @@ Once you have the package installed, you can **load the library** into your R se
 library(ggplot2)
 ```
 
-You can also check what is loaded in your current environment by using `sessionInfo()` or `search()` and you should see your package listed as:
-
-```r
-other attached packages:
-[1] ggplot2_2.0.0
-```
-
-In this case there are several other packages that were also loaded along with `ggplot2`.
-
 We only need to install a package once on our computer. However, to use the package, we need to load the library every time we start a new R/RStudio environment. 
 
 <img src="img/install_vs_library.jpeg" width="600">
@@ -98,9 +83,15 @@ If your library is successfully loaded you will see the box checked, as in the s
 
 **Other resources**
 
-An alternative is to find the help manual online, which can be less technical and sometimes easier to follow. For example, [this website](https://ggplot2.tidyverse.org/reference/index.html) is much more comprehensive for ggplot2 and is the result of a Google search. Many of the Bioconductor packages also have very helpful vignettes that include comprehensive tutorials with mock data that you can work with.
+An alternative is to find the help manual online, which can be less technical and sometimes easier to follow. For example, [this website](https://ggplot2.tidyverse.org/reference/index.html) is much more comprehensive for ggplot2 and is the result of a Google search. 
 
 If you can't find what you are looking for, you can use the [rdrr.io](https://rdrr.io/) website that searches through the help files across all packages available. It also provides source code for functions. 
+
+To see the functions in a package you can also type:
+
+```r
+ls("package:ggplot2")
+```
 
 ***
 

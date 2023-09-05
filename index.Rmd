@@ -6,6 +6,7 @@ output:
         includes:
           in_header: includes/header.html
 date: "`r Sys.Date()`" 
+geometry: margin=2cm
 link-citations: yes 
 github-repo: gurinina/genomics/intro-to-R 
 url: https\://bookdown.org/ggiaever/intro-to-R/ 

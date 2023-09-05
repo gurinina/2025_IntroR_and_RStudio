@@ -1,4 +1,4 @@
-# R: logical operators for matching
+# Logical operators for matching
 
 ## Learning Objectives
 

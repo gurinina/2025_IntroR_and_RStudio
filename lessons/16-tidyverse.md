@@ -1,8 +1,5 @@
 # Tidyverse data wrangling
 
-## Learning Objectives 
-
-* Perform basic data wrangling with functions in the Tidyverse package.
 
 The [Tidyverse suite of integrated packages](https://www.tidyverse.org/packages/) are designed to work together to make common data science operations more user friendly. The packages have functions for data wrangling, tidying, reading/writing, parsing, and visualizing, among others. We will explore the basic syntax for working with these packages, as well as, specific functions for data wrangling with the 'dplyr' package and data visualization with the 'ggplot2' package.
 
@@ -10,15 +7,17 @@ The [Tidyverse suite of integrated packages](https://www.tidyverse.org/packages/
 
 ## Tidyverse basics
 
-The Tidyverse suite of packages introduces users to a set of data structures, functions and operators to make working with data more intuitive, but is slightly different from the way we do things in base R. **Two important new concepts we will focus on are pipes and tibbles**.
+The Tidyverse suite of packa
+
+**Two important new concepts in tidyverse that we will focus on are pipes and tibbles**.
 
 Before we get started with pipes or tibbles, let's load the library:
 
-	library(tidyverse)
-	
-### Pipes
+```r
+library(tidyverse)
+```
 
-Stringing together commands in R can be quite daunting. Also, trying to understand code that has many nested functions can be confusing. 
+### Pipes
 
 To make R code more human readable, the Tidyverse tools use the pipe, `%>%`, which is part of the `dplyr` package that is installed automatically with Tidyverse. **The pipe allows the output of a previous command to be used as input to another command instead of using nested functions.**
 
@@ -37,7 +36,7 @@ round(sqrt(83), digits = 2)
 sqrt(83) %>% round(digits = 2)
 ```
 
-The pipe represents a much easier way of writing and deciphering R code, and so we will be taking advantage of it, when possible, as we work through the remaining lesson.
+The pipe represents a much easier way of writing and deciphering R code.
 
 ***
 **Exercises**
@@ -50,14 +49,14 @@ The pipe represents a much easier way of writing and deciphering R code, and so 
 
 2. Use the pipe (`%>%`) to perform two steps in a single line:
 	
-	1. Take the mean of `random_numbers` using the `mean()` function.
-	2. Round the output to three digits using the `round()` function.
+* Take the mean of `random_numbers` using the `mean()` function.
+* Round the output to three digits using the `round()` function.
 
 ***
 
 ### Tibbles
 
-A core component of the [tidyverse](http://tidyverse.org/) is the [tibble](http://tibble.tidyverse.org/). **Tibbles are a modern rework of the standard `data.frame`, with some internal improvements** to make code more reliable.  They are data frames, but do not follow all of the same rules. For example, tibbles can have numbers/symbols for column names, which is not normally allowed in base R. 
+A core component of [tidyverse](http://tidyverse.org/) is the [tibble](http://tibble.tidyverse.org/). **Tibbles are a modern rework of the standard `data.frame`.  They are data frames, but do not follow all of the same rules. For example, tibbles can have numbers/symbols for column names, which is not normally allowed in base R. 
 
 Tibbles can be created directly using the `tibble()` function or data frames can be converted into tibbles using `as_tibble(name_of_df)`. 
 
@@ -107,7 +106,7 @@ To wrangle our data in preparation for the plotting, we are going to use the Tid
 
 **Tidyverse tools**
 
-While all of the tools in the Tidyverse suite are deserving of being explored in more depth, we are going to investigate more deeply the reading (`readr`), wrangling (`dplyr`), and plotting (`ggplot2`) tools.
+We are going to investigate more deeply the packages loaded with tidyverse, specifically the reading (`readr`), wrangling (`dplyr`), and plotting (`ggplot2`) tools.
 
 ### 1. Read in the functional analysis results
 
@@ -131,14 +130,12 @@ functional_GO_results</code></pre><br>
 
 Notice that the results were automatically read in as a tibble and the output gives the number of rows, columns and the data type for each of the columns.
 
-> **NOTE**: A large number of tidyverse functions will work with both tibbles and dataframes, and the data structure of the output will be identical to the input. However, there are some functions that will return a tibble (without row names), whether or not a tibble or dataframe is provided.
-
 
 ### 2. Extract only the GO biological processes (BP) of interest
 
-Now that we have our data, we will need to wrangle it into a format ready for plotting. For all of our data wrangling steps we will be using tools from the [dplyr](http://dplyr.tidyverse.org/) package, which is a swiss-army knife for data wrangling of data frames. 
+Now that we have our data, we will need to wrangle it into a format ready for plotting.
 
-To extract the biological processes of interest, we only want those rows where the `domain` is equal to `BP`, which we can do using the `filter()` function. 
+To extract the biological processes of interest, we only want those rows where the `domain` is equal to `BP`, which we can do using the `filter()` function from the `dplyr` package. 
 
 To filter rows of a data frame/tibble based on values in different columns, we give a logical expression as input to the `filter()` function to return those rows for which the expression is TRUE.
 
@@ -176,7 +173,7 @@ We would like to perform an additional round of filtering to only keep the most 
 
 For visualization purposes, we are only interested in the columns related to the GO terms, the significance of the terms, and information about the number of genes associated with the terms. 
 
-To extract columns from a data frame/tibble we can use the `select()` function. In contrast to base R, we do not need to put the column names in quotes for selection.
+To extract these columns from a data frame/tibble we can use the `select()` function. In contrast to base R, we do not need to put the column names in quotes for selection.
 
 ```r
 # Selecting columns to keep
@@ -194,24 +191,6 @@ bp_oe <- bp_oe[, c("term.id", "term.name", "p.value", "query.size", "term.size",
 </details>
 	
 	
-The `select()` function also allows for negative selection. So we could have alternately removed columns with negative selection. Note that we need to put the column names inside of the combine (`c()`) function with a `-` preceding it for this functionality.
-
-``` r
-# DO NOT RUN
-# Selecting columns to remove
-bp_oe <- bp_oe %>%
-    select(-c(query.number, significant, recall, precision, subgraph.number, relative.depth, domain))
-```
-
-<details>
-	<summary><i>Click here to see how to do this in base R</i></summary>
-	<br><pre><code># DO NOT RUN</code>
-</code># Selecting columns to remove
-idx <- !(colnames(bp_oe) %in% c("query.number", "significant", "recall", "precision", "subgraph.number", "relative.depth", "domain"))
-bp_oe <- bp_oe[, idx]</code></pre><br>
-</details>
-
-	
 <img src="img/bp_oe_selection.png" width="1200">
 
 
@@ -219,12 +198,11 @@ bp_oe <- bp_oe[, idx]</code></pre><br>
 
 Now that we have only the rows and columns of interest, let's arrange these by significance, which is denoted by the adjusted p-value.
 
-Let's sort the rows by adjusted p-value with the `arrange()` function.
+Let's sort the rows by adjusted p-value with the `arrange()` function from the `dplyr` package.
 
 ``` r
 # Order by adjusted p-value ascending
-bp_oe <- bp_oe %>%
-  arrange(p.value)
+bp_oe <- bp_oe %>% arrange(p.value)
 ```
 <details>
 	<summary><i>Click here to see how to do this in base R</i></summary>
@@ -250,19 +228,16 @@ bp_oe <- bp_oe[idx,]</code></pre><br>
 >bp_oe <- bp_oe[idx,]</code></pre>
 ></details>
 
-> **NOTE2:** Ordering variables in `ggplot2` is a bit different. [This post](https://www.r-graph-gallery.com/267-reorder-a-variable-in-ggplot2.html) introduces a few ways of ordering variables in a plot.
-
 ### 5. Rename columns to be more intuitive
 
-While not necessary for our visualization, renaming columns more intuitively can help with our understanding of the data using the `rename()` function. The syntax is `new_name` = `old_name`.
+While not necessary for our visualization, renaming columns more intuitively can help with our understanding of the data using the `rename()` function from the `dplyr` package. The syntax is `new_name` = `old_name`.
 
 
 Let's rename the `term.id` and `term.name` columns.
 
 ```r
 # Provide better names for columns
-bp_oe <- bp_oe %>% 
-  dplyr::rename(GO_id = term.id, 
+bp_oe <- bp_oe %>% dplyr::rename(GO_id = term.id, 
                 GO_term = term.name)
 ```
 <details>
@@ -315,7 +290,14 @@ Our final data for plotting should look like the table below:
 
 ## Next steps
 
-Now that we have our results ready for plotting, we can use the [ggplot2](https://ggplot2.tidyverse.org) package to plot our results. If you are interested, you can follow [this lesson](https://hbctraining.github.io/Training-modules/Tidyverse_ggplot2/lessons/03_ggplot2.html) and dive into how to use `ggplot2` to create the plots with this dataset.
+Now that we have our results ready for plotting, we can use the [ggplot2](https://ggplot2.tidyverse.org) package to plot our results. 
+
+**Homework**
+
+Use ggplot2 to plot bp_oe to recapitulate the GO enrichment figure shown below using the top 30 categories:
+
+![dotplot6](img/dotplot6.png)
+
 
 ### Additional resources
 

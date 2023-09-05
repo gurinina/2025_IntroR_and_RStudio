@@ -2,13 +2,13 @@
 
 ## What is R?
 
-R is a programming language and is a great option for analyzing and visualizing data. R has a wide array of statistical methods, general data analysis and graphical techniques available. R is open source and has an active development community that's constantly releasing new packages, making R code even easier to use.
+R is a programming language and is a great option for analyzing and visualizing data. R is open source and has an active development community that's constantly releasing new packages, making R code even easier to use.
 
 <img src="img/why_R.png" width="600">
 
 ## What is RStudio?
 
-RStudio is an integrated development environment (IDE) for R. It includes a console, syntax-highlighting editor that supports direct code execution, as well as a graphical interface for plotting, history, debugging and workspace management.
+RStudio is an integrated development environment (IDE) for R. 
 
 <img src="img/rstudio_logo.png" width="300">
 
@@ -18,14 +18,15 @@ RStudio is an integrated development environment (IDE) for R. It includes a cons
 
 2. When RStudio opens, you will see four panels in the window.
 
-3. Open the file "17-IntroR.Rmd file"and you should now be in the script window.
+3. Open the file "17-codebook.Rmd file"and it will open in the script window. This file contains all the R code that we will be running in the lessons.
 
 
 ![RStudio interface](img/Rstudio_interface.png)
 
 ### What is a project in RStudio?
 
-It is simply a directory that contains everything related your analyses for a specific project. When creating a project in RStudio you associate it with a working directory of your choice (either an existing one, or a new one). A `. RProj file` is created within that directory and that keeps track of your command history and variables in the environment. 
+It is simply a directory that contains everything related your analyses for a specific project. A `. RProj file` is created within your project directory and that keeps track of your command history and variables in the environment. 
+
 When a project is **(re) opened** within RStudio the following actions are taken:
  
 * A new R session (process) is started
@@ -34,63 +35,51 @@ When a project is **(re) opened** within RStudio the following actions are taken
 
 * The .Rhistory file in the project's main directory is loaded into the RStudio History pane (and used for Console Up/Down arrow command history).
 
-* The current working directory is set to the project directory.
-
-* Previously edited source documents are restored into editor tabs
 
 ## RStudio Interface
 
 **The RStudio interface has four main panels:**
 
-1. **Console**: where you can type commands and see output. *The console is all you would see if you ran R in the command line without RStudio.*
+1. **Console**: where you can type commands and see output. 
 
 2. **Script editor**: where you can type out commands and save to file. You can also submit the commands to run in the console.
 
 3. **Environment/History**: environment shows all active objects and history keeps track of all commands run in console
 
 4. **Files/Plots/Packages/Help**
+* File pane: view all the files in your project directory
+* Plots: output of graphs you generate -- set the output of your Rmd file to "Preview in Viewer Pane"; cogwheel next to Knitr button at the top of your window.
+* Packages: view loaded libraries
+* Help: R help for functions
 
-## Organizing your working directory
+## Viewing your working directory
 
-#### Viewing your working directory
-
-Before we organize our working directory, let's check to see where our current working directory is located by typing into the console:
+Let's check to see where our current working directory is located by typing into the console:
 
 ```r
 getwd()
 ```
 
-Your working directory should the directory path to the `Intro-to-R` folder constructed when you created the project. The working directory is where RStudio will automatically look for any files you bring in and where it will automatically save any files you create, unless otherwise specified. 
+Your working directory should the directory path to the `Intro-to-R` folder constructed when you created the project. 
 
-You can visualize your working directory by selecting the `Files` tab from the **Files/Plots/Packages/Help** window. 
+You can view the files in the working directory by selecting the `Files` tab from the **Files/Plots/Packages/Help** window. 
 
 <p align="center">
 <img src="img/Get_wd.png" width="400">
 </p>
 
-### Structuring your working directory
-To organize your working directory for a particular analysis, you should separate the original data (raw data) from intermediate datasets. Let's create three new directories within your working directory by clicking on `New Folder` within the `Files` tab and naming them `figures`, `results` and `data`. 
+### The structure of your working directory
 
-### Setting up 
-
-This is more of a housekeeping task. We will be writing long lines of code in our script editor and want to make sure that the lines "wrap" and you don't have to scroll back and forth to look at your long line of code.
-
-Click on "Edit" at the top of your RStudio screen and click on "Preferences..." in the pull down menu.
-
-On the left, select "Code" and put a check against "Soft-wrap R source files". Make sure you click the "Apply" button at the bottom of the Window before saying "OK".
-
-<p align="center">
-<img src="img/Soft_wrap_RStudio.gif" width="900">
-</p>
+Your working directory has three folders: `figures`, `results` and `data`. The `data` directory has all the original data (raw data) you will be using in your analysis. `Figures` and `results` are for storing results from your analysis. 
 
 ## Interacting with R
 
-Now that we have our interface and directory structure set up, let's start playing with R! There are **two main ways** of interacting with R in RStudio: using the **console** or by using **script editor** (plain text files that contain your code).
+There are **two main ways** of interacting with R in RStudio: using the **console** or by using **script editor** (plain text files that contain your code).
 
 ### Console window
-The **console window** (in RStudio, the bottom left panel) is the place where R is waiting for you to tell it what to do, and where it will show the results of a command.  You can type commands directly into the console, but they will be forgotten when you close the session. 
+The **console window** (in RStudio, the bottom left panel) is the place where R will show the results of a command.  You can type commands directly into the console, but they will be forgotten when you close the session. 
 
-Let's test it out:
+Let's test it out; in your console type:
 
 ```r
 3 + 5
@@ -102,72 +91,31 @@ Let's test it out:
 
 ### Script editor
 
-Best practice is to enter the commands in the **script editor**, and save the script. You are encouraged to comment liberally to describe the commands you are running using `#`. This way, you have a complete record of what you did, you can easily show others how you did it and you can do it again later on if needed. 
+You can use the comments character `#` to add additional descriptions.t It's best practice to comment liberally to describe the commands you are running using `#`. To run the code, you click on the little green arrow on the side of the `code chunk`. Let's run the second chunk.
 
-**The Rstudio script editor allows you to 'send' the current line or the currently highlighted text to the R console by clicking on the `Run` button in the upper-right hand corner of the script editor**. 
-
-Open the file 17-IntroR.Rmd.  This file has all the commands in it that are in the lessons. Let's try entering commands to the **script editor**. You can use the comments character `#` to add additional descriptions. To run the code, you click on the little green arrow on the side of the `code chunk`.
-	
+```r
 	# Intro to R Lesson
-
-	# Interacting with R
 	
 	## I am adding 3 and 5. R is fun!
 	3+5
+```
 
+You will see the command run in the console and output the result.
 
-Alternatively, you can run by the code by highlighting it and pressing the `Ctrl` and `Return/Enter` keys at the same time as a shortcut.
-
-You should see the command run in the console and output the result.
+You can also run the code by highlighting it and pressing the `Ctrl` and `Return/Enter` keys at the same time as a shortcut.
 
 <p align="center">
 <img src="img/Script_editor_output.png" width="400">
 </p>
 	
-What happens if we do that same command without the comment symbol `#`? Re-run the command after removing the # sign in the front:
-
-```r
-I am adding 3 and 5. R is fun!
-3+5
-```
-
-Now R is trying to run that sentence as a command, and it 
-doesn't work. We get an error in the console *"Error: unexpected symbol in "I am" means that the R interpreter did not know what to do with that command."*
-
-
 ### Console command prompt
 
-Interpreting the command prompt can help understand when R is ready to accept commands. Below lists the different states of the command prompt and how you can exit a command:
+If R is ready to accept commands, **the R console shows a `>` prompt.**
 
-**Console is ready to accept commands**: `>`.
+If R is still waiting for you to enter more data because it isn't complete yet, **the console will show a `+` prompt**. It means that you haven't finished entering
+a complete command. 
 
-If R is ready to accept commands, the R console shows a `>` prompt. 
-
-When the console receives a command (by directly typing into the console or running from the script editor (`Ctrl-Enter`), R will try to execute it.
-
-After running, the console will show the results and come back with a new `>` prompt to wait for new commands.
-
-
-**Console is waiting for you to enter more data**: `+`.
-
-If R is still waiting for you to enter more data because it isn't complete yet,
-the console will show a `+` prompt. It means that you haven't finished entering
-a complete command. Often this can be due to you having not 'closed' a parenthesis or quotation. 
-
-**Escaping a command and getting a new prompt**: `esc`
-
-If you're in Rstudio and you can't figure out why your command isn't running, you can click inside the console window and press `esc` to escape the command and bring back a new prompt `>`.
-
-### Keyboard shortcuts in RStudio
-In addition to some of the shortcuts described earlier in this lesson, we have listed a few more that can be helpful as you work in RStudio.
-
-| key              | action                 |
-| ---------------- | ---------------------- |
-| <kbd>Ctrl</kbd>+<kbd>Enter</kbd>     | Run command from script editor in console |
-| <kbd>ESC</kbd> | Escape the current command to return to the command prompt          |
-| <kbd>Ctrl</kbd>+<kbd>1</kbd>      | Move cursor from console to script editor        |
-| <kbd>Tab</kbd>     | Use this key to complete a file path       |
-| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd>     | Comment the block of highlighted text               |
+If you're in Rstudio and you can't figure out why your command isn't running, **you can click inside the console window and press `esc`** to escape the command and bring back a new prompt `>`.              |
 
 ***
 **Exercise**
@@ -180,7 +128,7 @@ In addition to some of the shortcuts described earlier in this lesson, we have l
 Now that we know how to talk with R via the script editor or the console, we want to use R for something more than adding numbers. To do this, we need to know more about the R syntax. 
 
 
-The main "parts of speech" in R (syntax) include:
+The main parts of R (syntax) include:
 
 * the **comments** `#` and how they are used to document function and its content
   
@@ -190,7 +138,7 @@ The main "parts of speech" in R (syntax) include:
   
 * the `=` for **arguments** in functions
 
-We will go through each of these "parts of speech" in more detail, starting with the assignment operator.
+We will go through each of these in more detail, starting with the assignment operator.
 
 ## Assignment operator
 
@@ -203,7 +151,7 @@ x <- 3
 
 The assignment operator (`<-`) assigns **values on the right** to **variables on the left**. 
 
-*In RStudio, typing `Alt + -` (push `Alt` at the same time as the `-` key, on Mac type `option + -`) will write ` <- ` in a single keystroke.*
+*In Windows, typing `Alt + -` (push `Alt` at the same time as the `-` key, on Mac type `option + -`) will write ` <- ` in a single keystroke.*
 
 
 ## Variables
@@ -243,54 +191,45 @@ number <- x + y
 ***
 
 ### Tips on variable names
+
 Variables can be given almost any name, such as `x`, `current_temperature`, or
 `subject_id`. However, there are some rules / suggestions you should keep in mind:
 
-* Make your names explicit and not too long.
-
 * Avoid names starting with a number (`2x` is not valid but `x2` is)
 
-* Avoid names of fundamental functions in R (e.g., `if`, `else`, `for`, see [here](https://statisticsglobe.com/r-functions-list/) for a complete list). In general, even if it's allowed, it's best to not use other function names (e.g., `c`, `T`, `mean`, `data`) as variable names. When in doubt
-check the help to see if the name is already in use. 
+* Avoid names of fundamental functions in R (e.g., `if`, `else`, `for`, see [here](https://statisticsglobe.com/r-functions-list/) for a complete list). 
 
-* Avoid dots (`.`) within a variable name as in `my.dataset`. There are many functions
-in R with dots in their names for historical reasons, but because dots have a
-special meaning in R (for methods) and other programming languages, it's best to
+* Avoid dots (`.`) within a variable name; dots have a
+special meaning in R (for methods) so it's best to
 avoid them. 
-* Use nouns for object names and verbs for function names
 
 * Keep in mind that **R is case sensitive** (e.g., `genome_length` is different from `Genome_length`)
 
-* Be consistent with the styling of your code (where you put spaces, how you name variable, etc.). In R, two popular style guides are [Hadley Wickham's style guide](http://adv-r.had.co.nz/Style.html) and [Google's](http://web.stanford.edu/class/cs109l/unrestricted/resources/google-style.html).
+* Be consistent with the styling of your code (where you put spaces, how you name variable, etc.). In R, two popular style guides:
+
+* [Hadley Wickham's style guide](http://adv-r.had.co.nz/Style.html)
+
+* [Google's](http://web.stanford.edu/class/cs109l/unrestricted/resources/google-style.html).
 
 
 ## Interacting with data in R
 
-R is commonly used for handling big data, and so it only makes sense that we learn about R in the context of some kind of relevant data. Let's take a few minutes to add files to the folders we created and familiarize ourselves with the data.
+R is commonly used for handling big data, and so it only makes sense that we learn about R in the context of some kind of relevant data.
 
-### Adding files to your working directory
+### Data directory
 
-You can access the files we need for this workshop using the links provided below. If you right click on the link, and "Save link as..". Choose `~/Desktop/Intro-to-R/data` as the destination of the file. You should now see the file appear in your working directory. **We will discuss these files a bit later in the lesson.**
+You can access the files we need for this workshop in your data directory. **We will discuss these files a bit later in the lesson.**
 
-* Download the **normalized counts file** by right clicking on [this link](https://raw.githubusercontent.com/hbc/NGS_Data_Analysis_Course/master/sessionII/data/counts.rpkm.csv)
+### The mouse dataset
 
-* Download **metadata file** using [this link](https://github.com/hbc/NGS_Data_Analysis_Course/raw/master/sessionII/data/mouse_exp_design.csv)
-
-* Download the **functional analysis output file** using [this link](https://github.com/hbctraining/Training-modules/blob/master/Tidyverse_ggplot2/data/gprofiler_results_Mov10oe.csv?raw=true) 
-
-
-> *NOTE:* If the files download automatically to some other location on your laptop, you can move them to the your working directory using your file explorer or finder (outside RStudio), or navigating to the files in the `Files` tab of the bottom right panel of RStudio
-
-### The dataset
-
-In this example dataset, we have collected whole brain samples from 12 mice and want to evaluate expression differences between them. The expression data represents normalized count data obtained from RNA-sequencing of the 12 brain samples. This data is stored in a comma separated values (CSV) file as a 2-dimensional matrix, with **each row corresponding to a gene and each column corresponding to a sample**.
+In this example dataset we have collected whole brain samples from 12 mice and want to evaluate expression differences between them. The expression data represents normalized count data (`normalized_counts.txt`) obtained from RNA-sequencing of the 12 brain samples. This data is stored in a comma separated values (CSV) file as a 2-dimensional matrix, with **each row corresponding to a gene and each column corresponding to a sample**.
 
 <p align="center">
 <img src="img/counts_view.png" width="900">
 </p>
 
 ### The metadata
-We have another file in which we identify **information about the data** or **metadata**. Our metadata is also stored in a CSV file. In this file, each row corresponds to a sample and each column contains some information about each sample. 
+We have another file in which we identify **information about the data** or **metadata** (`mouse_exp_design.csv`). Our metadata is also stored in a CSV file. In this file, each row corresponds to a sample and each column contains some information about each sample. 
 
 The first column contains the row names, and **note that these are identical to the column names in our expression data file above** (albeit, in a slightly different order). The next few columns contain information about our samples that allow us to categorize them. For example, the second column contains genotype information for each sample. Each sample is classified in one of two categories: Wt (wild type) or KO (knockout). *What types of categories do you observe in the remaining columns?*
 
@@ -299,23 +238,3 @@ The first column contains the row names, and **note that these are identical to 
 </p>
 
 R is particularly good at handling this type of **categorical data**. Rather than simply storing this information as text, the data is represented in a specific data structure which allows the user to sort and manipulate the data in a quick and efficient manner. We will discuss this in more detail as we go through the different lessons in R!  
-
-### The functional analysis results
-
-We will be using the results of the functional analysis to learn about packages/functions from the [Tidyverse suite of integrated packages](https://www.tidyverse.org/packages/). These packages are designed to work together to make common data science operations like data wrangling, tidying, reading/writing, parsing, and visualizing, more user-friendly. 
-
-## Best practices
-
-Before we move on to more complex concepts and getting familiar with the language, we want to point out a few things about best practices when working with R which will help you stay organized in the long run:
-
-* Code and workflow are more reproducible if we can document everything that we do. Our end goal is not just to "do stuff", but to do it in a way that anyone can easily and exactly replicate our workflow and results. **All code should be written in the script editor and saved to file, rather than working in the console.** 
-
-* The **R console** should be mainly used to inspect objects, test a function or get help. 
-
-* Use `#` signs to comment. **Comment liberally** in your R scripts. This will help future you and other collaborators know what each line of code (or code block) was meant to do. Anything to the right of a `#` is ignored by R. 
-
-*This lesson has been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*
-
-The materials used in this lesson are adapted from work that is Copyright © Data Carpentry (http://datacarpentry.org/). 
-All Data Carpentry instructional material is made available under the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0).
-

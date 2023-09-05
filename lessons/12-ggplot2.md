@@ -1,12 +1,6 @@
 # Plotting with ggplot2
 
-## Learning Objectives
-
-* Apply ggplot2 package to visualize data.
-
 ## Data Visualization with `ggplot2`
-
-***
 
 For this lesson, you will need the `new_metadata` data frame. Load it into your environment as follows:
 
@@ -16,19 +10,18 @@ load("data/new_metadata.RData")
 ```
 
 Next, let's check if it was successfully loaded into the environment:
-
 ```r
 # this data frame should have 12 rows and 5 columns
-View(new_metadata)
+head(new_metadata)
 ```
 
 Great, we are now ready to move forward!
 
 ***
 
-When we are working with large sets of numbers it can be useful to display that information graphically to gain more insight. In this lesson we will be plotting with the popular Bioconductor package [`ggplot2`](http://docs.ggplot2.org/).
+When we are working with large sets of numbers it can be useful to display that information graphically to gain more insight. In this lesson we will be plotting with the Bioconductor package [`ggplot2`](http://docs.ggplot2.org/).
 
-The `ggplot2` syntax takes some getting used to, but once you get it, you will find it's extremely powerful and flexible. We will start with drawing a simple x-y scatterplot of `samplemeans` versus `age_in_days` from the `new_metadata` data frame. Please note that `ggplot2` expects a "data frame".
+The `ggplot2` syntax takes some getting used to, but once you get it, you will find it's extremely powerful and flexible. We will start with drawing a simple x-y scatterplot of `samplemeans` versus `age_in_days` from the `new_metadata` data frame. Note that `ggplot2` expects a "data frame".
 
 Let's start by loading the `ggplot2` library:
 
@@ -36,7 +29,7 @@ Let's start by loading the `ggplot2` library:
 library(ggplot2)
 ```
 
-The `ggplot()` function is used to **initialize the basic graph structure**, then we add to it. The basic idea is that you specify different parts of the plot using additional functions one after the other and combine them into a "code chunk" using the `+` operator; the functions in the resulting code chunk are called layers.
+The `ggplot()` function is used to **initialize the basic graph structure**, then we add to it. The basic idea is that you specify different parts of the plot using additional functions one after the other and combine them using the `+` operator; the functions in the resulting code chunk are called layers.
 
 Let's start: 
 
@@ -59,10 +52,19 @@ ggplot(new_metadata) +
   geom_point() # note what happens here
 ```
 
-Why do we get an error? Is the error message easy to decipher?
+Why do we get an error? 
 
-We get an error because each type of `geom` usually has a **required set of aesthetics** to be set. "Aesthetics" are set with the aes() function and can be set either nested within `geom_point()` (applies only to that layer) or within `ggplot()` (applies to the whole plot).
+We get an error because each type of `geom` usually has a **required set of aesthetics** to be set. "Aesthetics" are set with the aes() function can be set nested within `geom_point()` or within `ggplot()`.
 
+The minimal `ggplot` function requires the following arguments:
+
+```r
+# Minimal ggplot template:
+ggplot(<DATA>) +        # 1. specify data set to use  
+<GEOM_function>(        # 2. specify geom
+aes(<MAPPING>)).        # 3. map x and y axes
+```
+      
 ### Aesthetics
 
 The `aes()` function has many different arguments, and all of those arguments take columns from the original data frame as input. It can be used to specify many plot elements including the following:
@@ -71,8 +73,7 @@ The `aes()` function has many different arguments, and all of those arguments ta
 * color ("outside" color)
 * fill ("inside" color) 
 * shape (of points)
-* linetype
-* size
+* etc.
 
 To start, we will specify x- and y-axis since `geom_point` requires the most basic information about a scatterplot, i.e. what you want to plot on the x and y axes. All of the other plot elements mentioned above are optional.
 
@@ -85,11 +86,12 @@ ggplot(new_metadata) +
 <img src="img/ggscatter-1.png" width="500">
 </p>
 
-Now that we have the required aesthetics, let's add some extras like color to the plot. We can **`color` the points on the plot based on the genotype column** within `aes()`. You will notice that there are a default set of colors that will be used so we do not have to specify. Note that the legend has been conveniently plotted for us.
+Now that we have the required aesthetics, let's add some extras like color to the plot. We can **`color` the points on the plot based on the genotype column** within `aes()`. 
 
 ```r
 ggplot(new_metadata) +
-  geom_point(aes(x = age_in_days, y= samplemeans, color = genotype)) 
+  geom_point(aes(x = age_in_days, y= samplemeans, 
+  color = genotype)) 
 ```
 
 <p align="center">
@@ -100,8 +102,8 @@ Let's try to have both **celltype and genotype represented on the plot**. To do 
 
 ```r
 ggplot(new_metadata) +
-  geom_point(aes(x = age_in_days, y= samplemeans, color = genotype,
-  			shape=celltype)) 
+  geom_point(aes(x = age_in_days, y= samplemeans, 
+  color = genotype, shape=celltype)) 
 ```
 
 <p align="center">
@@ -112,8 +114,8 @@ The data points are quite small. We can adjust the **size of the data points** w
 
 ```r
 ggplot(new_metadata) +
-  geom_point(aes(x = age_in_days, y= samplemeans, color = genotype,
-  			shape=celltype), size=2.25) 
+  geom_point(aes(x = age_in_days, y= samplemeans, 
+  color = genotype, shape=celltype), size=2.25) 
 ```
 
 <p align="center">
@@ -129,14 +131,14 @@ The labels on the x- and y-axis are also quite small and hard to read. To change
 * Facet label backround
 * Legend appearance
 
-There are built-in themes we can use (i.e. `theme_bw()`) that mostly change the background/foreground colours, by adding it as additional layer. Or we can adjust specific elements of the current default theme by adding the `theme()` layer and passing in arguments for the things we wish to change. Or we can use both.
+There are built-in themes we can use (i.e. `theme_bw()`) that mostly change the background/foreground colours, by adding it as additional layer. Or we can adjust specific elements of the current default theme by adding the `theme()` layer and passing in arguments for the things we wish to change.
 
 Let's add a layer `theme_bw()`. 
 
 ```r
 ggplot(new_metadata) +
-  geom_point(aes(x = age_in_days, y= samplemeans, color = genotype,
-  			shape=celltype), size=3.0) +
+  geom_point(aes(x = age_in_days, y= samplemeans, 
+  color = genotype, shape=celltype), size=3.0) +
   theme_bw() 
 ```
 
@@ -148,8 +150,8 @@ Let's **increase the size of both the axes titles to be 1.5 times the default si
 
 ```r
 ggplot(new_metadata) +
-  geom_point(aes(x = age_in_days, y= samplemeans, color = genotype,
-  			shape=celltype), size=2.25) +
+  geom_point(aes(x = age_in_days, y= samplemeans, 
+  color =   genotype, shape=celltype), size=2.25) +
   theme_bw() +
   theme(axis.title = element_text(size=rel(1.5)))			
 ```

@@ -1,14 +1,10 @@
 # Functions in R
 
-## Learning Objectives
-
-* Describe and utilize functions in R. 
-
 ## Functions and their arguments
 
 ### What are functions?
 
-A key feature of R is functions. Functions are **"self contained" modules of code that accomplish a specific task**. Functions usually take in some sort of data structure (value, vector, dataframe etc.), process it, and return a result.
+A key feature of R is functions. Functions are **"self contained" modules of code that accomplish a specific task**. Functions usually take in some sort of data structure (value, vector, dataframe etc.) as arguments, process them, and then return a result.
 
 The general usage for a function is the name of the function followed by parentheses:
 ```r
@@ -98,7 +94,7 @@ round(3.14159, digits=2)
 
 2. Create a new vector `test <- c(1, NA, 2, 3, NA, 4)`. Use the same base R function from exercise 1 (with addition of proper argument), and calculate mean value of the `test` vector. The output should be `2.5`.
 
-	> *NOTE:* In R, missing values are represented by the symbol `NA` (not available). 
+	> *NOTE:* In R, missing values are represented by the symbol `NA` (not available). It’s a way to make sure that users know they have missing data, and make a conscious decision on how to deal with it. There are ways to ignore NA during statistical calculation, or to remove NA from the vector. 
 	
 3. Another commonly used base function is `sort()`. Use this function to sort the `glengths` vector in **descending** order.
 

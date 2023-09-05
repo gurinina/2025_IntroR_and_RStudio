@@ -1,4 +1,4 @@
-# Subsetting with R: vectors and factors
+# Subsetting: vectors and factors
 
 ## Learning Objectives
 

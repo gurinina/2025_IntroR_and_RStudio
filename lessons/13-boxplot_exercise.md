@@ -17,17 +17,15 @@ A boxplot provides a graphical view of the distribution of data based on a five 
 ### 1. Boxplot!
 Generate a boxplot using the data in the new_metadata dataframe. Create a ggplot2 code chunk with the following instructions:
 
-1. Use the `geom_boxplot()` layer to plot the differences in sample means between the Wt and KO genotypes.
-2. Use the `fill` *aesthetic* to look at differences in sample means between the celltypes within each genotype.
-3. Add a title to your plot.
-4. Add labels, 'Genotype' for the x-axis and 'Mean expression' for the y-axis.
-5. Make the following `theme()` changes:
+* Use the `geom_boxplot()` layer to plot the differences in sample means between the Wt and KO genotypes.
+* Use the `fill` *aesthetic* to look at differences in sample means between the celltypes within each genotype.
+* Add a title to your plot.
+* Add labels, 'Genotype' for the x-axis and 'Mean expression' for the y-axis.
+* Make the following `theme()` changes:
 	* Use the `theme_bw()` function to make the background white.
 	* Change the size of your axes labels to 1.25x larger than the default.
 	* Change the size of your plot title to 1.5x larger than default.
 	* Center the plot title.
-	
-
 
 **After running the above code the boxplot should look something like that provided below.**
 
@@ -44,20 +42,20 @@ To do this, your first question should be - *How does ggplot2 determine what to 
 * To change it, you need to make sure that the genotype column is a factor
 * And, the factor levels for that column are in the order you want on the X-axis
 
-1. Factor the `new_metadata$genotype` column without creating any extra variables/objects and change the levels to `c("Wt", "KO")`
-2. Re-run the boxplot code chunk you created for the "Boxplot!" exercise above.
+* Factor the `new_metadata$genotype` column without creating any extra variables/objects and change the levels to `c("Wt", "KO")`
+### 3. Re-run the boxplot code chunk you created for the "Boxplot!" exercise above.
 
-### 3. Changing default colors
+### 4. Changing default colors
 
 You can color the boxplot differently by using some specific layers:
 
-1. Add a new layer `scale_color_manual(values=c("purple","orange"))`. 
+* Add a new layer `scale_color_manual(values=c("purple","orange"))`. 
 	* Do you observe a change?
-2. Replace `scale_color_manual(values=c("purple","orange"))` with `scale_fill_manual(values=c("purple","orange"))`.
+* Replace `scale_color_manual(values=c("purple","orange"))` with `scale_fill_manual(values=c("purple","orange"))`.
 	* Do you observe a change?
-	* In the scatterplot we drew in class, add a new layer `scale_color_manual(values=c("purple","orange"))`, do you observe a difference?
+  * In the scatterplot we drew in class, add a new layer `scale_color_manual(values=c("purple","orange"))`, do you observe a difference?
 	* What do you think is the difference between `scale_color_manual()` and `scale_fill_manual()`?
-3. Back in your boxplot code, change the colors in the `scale_fill_manual()` layer to be your 2 favorite colors.
+* Back in your boxplot code, change the colors in the `scale_fill_manual()` layer to be your 2 favorite colors.
 	* Are there any colors that you tried that did not work? 
 
 We have [a separate lesson about using color palettes from the package RColorBrewer](https://hbctraining.github.io/Training-modules/Tidyverse_ggplot2/lessons/ggplot2.html#customizing-data-point-colors), if you are interested.
@@ -66,6 +64,7 @@ You are not restricted to using colors by writing them out as character vectors.
 
 **OPTIONAL Exercise:**
 
-* Find the hexadecimal code for your 2 favourite colors (from exercise 3 above) and replace the color names with the hexadecimal codes within the ggplot2 code chunk.
+### 5. Find the hexadecimal code for your 2 favourite colors (from exercise 3 above) and replace the color names with the hexadecimal codes within the ggplot2 code chunk.
 
 ***
+*This lesson has been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*

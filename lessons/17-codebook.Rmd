@@ -1,14 +1,12 @@
----
-output: html_document
-editor_options: 
-  chunk_output_type: console
----
 # Code book
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-## 02 IntroR and RStudio
+
+## 02 Introduction to R and RStudio
+
+**.md file = 02-introR-R-and-RStudio.md**
 
 ### File directories
 ```{r}
@@ -20,6 +18,8 @@ getwd()
 Add some additional code to the following `chunk`:
 ```{r}
 # Intro to R Lesson
+# 
+## I am adding 3 and 5. R is fun!
 
 3+5
 ```
@@ -63,7 +63,9 @@ number <- x + y
 
 ```
 
-## 03 IntroR syntax and data structures
+## 03 R syntax and data structures
+
+**.md file = 03-introR-syntax-and-data-structures.md**
 
 ### Vectors
 
@@ -155,8 +157,9 @@ Create a list called list2 containing species, glengths, and number.
 
 ```
 
-## 04 IntroR: functions and arguments 
+## 04 Functions in R
 
+**.md file = 04-introR-functions-and-arguments.md**
 ### Basic functions
 
 We have already used a few examples of basic functions in the previous lessons i.e `getwd()`, `c()`, and `factor()`.
@@ -202,9 +205,10 @@ round(3.14159, digits=2)
 
 1. Let’s use base R function to calculate mean value of the glengths vector. You might need to search online to find what function can perform this task.
 ```{r}
+
 ```
 
-2. Create a new vector test <- c(1, NA, 2, 3, NA, 4). Use the same base R function from exercise 1 (with addition of proper argument), and calculate mean value of the test vector. The output should be 2.5. > NOTE: In R, missing values are represented by the symbol NA (not available). It’s a way to make sure that users know they have missing data, and make a conscious decision on how to deal with it. There are ways to ignore NA during statistical calculation, or to remove NA from the vector. If you want more information related to missing data or NA you can go to the NA help page (please note that there are many advanced concepts on that page that have not been covered in class).
+2. Create a new vector test <- c(1, NA, 2, 3, NA, 4). Use the same base R function from exercise 1 (with addition of proper argument), and calculate mean value of the test vector. The output should be 2.5. > NOTE: In R, missing values are represented by the symbol NA (not available). It’s a way to make sure that users know they have missing data, and make a conscious decision on how to deal with it. There are ways to ignore NA during statistical calculation, or to remove NA from the vector. 
 ```{r}
 
 ```
@@ -244,7 +248,9 @@ Write a function called multiply_it, which takes two inputs: a numeric value x, 
 
 ```
 
-## 05 Intro to packages
+## 05 Packages and libraries
+
+**.md file = 05-introR_packages.md**
 
 ### Packages and Libraries
 
@@ -293,18 +299,25 @@ BiocManager::install("ggplot2")
 library(ggplot2)
 ```
 
+To see the functions in a package you can also type:
+```{r}
+ls("package:ggplot2")
+```
+
 **Exercise**
 
-The ggplot2 package is part of the tidyverse suite of integrated packages which was designed to work together to make common data science operations more user-friendly. We will be using the tidyverse suite in later lessons, and so let’s install it. Use the function from the`BiocManager` package.
+The tidyverse suite of integrated packages was designed to work together to make common data science operations more user-friendly. We will be using the tidyverse suite in later lessons, and so let’s install it. Use the function from the`BiocManager` package.
 
-Set eval=TRUE if tidyverse is not yet installed. If you've already installed `tidyverse`, how can you run the installation without getting an error?
+Set eval=TRUE if tidyverse is not yet installed. How can you run the `BiocManager::install()` command for a package that is already installed without getting an error?
 ```{r, eval=FALSE}
 
 ```
 
 * Ans: use the argument force = TRUE
 
-## 06 introR: data wrangling
+## 06 Subsetting: vectors and factors
+
+**.md file = 06-introR-data wrangling.md**
 
 ### Vectors: Selecting using indices
 ```{r}
@@ -427,7 +440,19 @@ Use the samplegroup factor we created in a previous lesson, and relevel it such 
 
 ```
 
+It's always a good idea to periodically save your work. You can do this by using the command `save.image()`:
+```{r}
+
+save.image() # saves all environmental variables in your current R session to a file called ".RData" in your working directory -- this is a command that you should use often when in an R session to save your work.
+
+#OR give it a memorable name
+
+save.image("intro-to-R.RData")
+```
+
 ## 07 Reading and data inspection
+
+**.md file = 07-reading_and_data_inspection.md**
 
 ### Reading data into R:
 
@@ -513,7 +538,9 @@ How many elements in (how long is) the output of colnames(proj_summary)? Don’t
 
 ```
 
-## 08 Data-wrangling: dataframes and lists
+## 08 Data frames, matrices and lists
+
+**.md file = 08-introR-_data_wrangling2.md**
 
 ### Data wrangling: dataframes
 
@@ -710,9 +737,11 @@ Extract the age component using the $ notation
 ```
 
 
-## 09 Identifying matching elements
+## 09 Logical operators for matching
 
-### Logical operators for matching elements
+**.md file = 09-identifying-matching-elements.md**
+
+### Logical operators to match elements
 
 ```{r}
 rpkm_data <- read.csv("data/counts.rpkm.csv")
@@ -842,7 +871,9 @@ important_genes <- c("ENSMUSG00000083700", "ENSMUSG00000080990", "ENSMUSG0000006
 
 ```
 
-## 10 reordering to match datasets
+## 10 Reordering to match datasets
+
+**.md file = 10-reordering-to-match-datasets.md**
 
 ### Manual reordering using indices
 
@@ -989,14 +1020,19 @@ Use the `match()` function to subset the metadata data frame so that the row nam
 
 ```
 
-## 11 Setting up to plot
+## 11 Plotting and data visualization
 
+**.md file = 11-setting_up_to_plot.md10-reordering-to-match-datasets.md**
 
 ### Setup a data frame for visualization
 
 ```{r}
 mean(rpkm_ordered$sample1)
 ```
+
+But what we want is a vector of 12 values that we can add to the metadata data frame. What is the best way to do this?
+
+To get the mean of all the samples in a single line of code the `map()` family of function is a good option. 
 
 ### The `map` family of functions
 
@@ -1021,34 +1057,30 @@ library(purrr)  # Load the purrr
 samplemeans <- map_dbl(rpkm_ordered, mean) 
 ```
 
+The output of `map_dbl()` is a *named* vector of length 12. 
 
 ### Adding to a metadata object
-
-```{r}
-# Named vectors have a name assigned to each element instead of just referring to them as indices ([1], [2] and so on)
-samplemeans
-
-# Check length of the vector before adding it to the data frame
-length(samplemeans)
-```
-
+	
+Before we add `samplemeans` as a new column to metadata, let's create a vector with the ages of each of the mice in our data set.
 ```{r}
 # Create a numeric vector with ages. Note that there are 12 elements here
-age_in_days <- c(40, 32, 38, 35, 41, 32, 34, 26, 28, 28, 30, 32)      
+
+age_in_days <- c(40, 32, 38, 35, 41, 32, 34, 26, 28, 28, 30, 32)    	
 ```
 
-Now, we are ready to combine the metadata data frame with the 2 new vectors to create a new data frame with 5 columns:
+Now, we are ready to combine the `metadata` data frame with the 2 new vectors to create a new data frame with 5 columns:
 ```{r}
-# Add the new vector as the last column to the new_metadata dataframe
+# Add the new vectors as the last columns to the metadata 
+
 new_metadata <- data.frame(metadata, samplemeans, age_in_days) 
 
 # Take a look at the new_metadata object
 head(new_metadata)
-
-
 ```
 
 ## 12 Data visualization with ggplot2
+
+**.md file = 12-ggplot2.md**
 
 ```{r}
 ## load the new_metadata data frame into your environment from a .RData object
@@ -1064,79 +1096,81 @@ head(new_metadata)
 library(ggplot2)
 ```
 
+
+The `ggplot()` function is used to **initialize the basic graph structure**, then we add to it. The basic idea is that you specify different parts of the plot using additional functions one after the other and combine them using the `+` operator; the functions in the resulting code chunk are called layers.
+
+1st layer: plot window
 ```{r}
 ggplot(new_metadata) # what happens? we get a plot window
 ```
 
+The **geom (geometric) object** is the layer that specifies what kind of plot we want to draw. A plot **must have at least one `geom`**; there is no upper limit. Examples include:
+
+* points (`geom_point`, `geom_jitter` for scatter plots, dot plots, etc)
+* lines (`geom_line`, for time series, trend lines, etc)
+* boxplot (`geom_boxplot`, for, well, boxplots!)
+
+2nd layer: geometries
 ```{r, eval=FALSE}
 ggplot(new_metadata) +
   geom_point() # note what happens here
 ```
+### Geometries
+
+Geoms (e.g.) in layers:
+- `geom_point()`
+- `geom_boxplot()`
+- `geom_bar()`
+- `geom_density()`
+- `geom_dotplot()`
+
 
 ### Aesthetics
 
-We get an error because each type of geom usually has a required set of aesthetics to 
-be set. “Aesthetics” are set with the aes() function and can be set either nested within geom_point() (applies only to that layer) or within ggplot() (applies to the whole plot).
+We get an error because each type of geom usually has a required set of aesthetics. “Aesthetics” are set with the aes() function and can be set within `geom_point()` or within `ggplot()`.
 
-The aes() function has many different arguments, and all of those arguments take columns from the original data frame as input. It can be used to specify many plot elements including the following:
+The aes() function can be used to specify many plot elements including the following:
 
 - position (i.e., on the x and y axes)
 - color (“outside” color)
 - fill (“inside” color)
 - shape (of points)
-- linetype
-- size
+- etc.
   
-ggplot(data,aes()) + geoms()
+3rd layer: aesthetics
 ```{r}
-ggplot(new_metadata,aes(x = age_in_days, y= samplemeans)) # what happens here? we initialize the plot window with the axes
+ggplot(new_metadata,aes(x = age_in_days, y= samplemeans)) + geom_point()# what happens here? we initialize the plot window with the axes
 ```
 
-Now add geoms:
-```{r}
-
-ggplot(new_metadata,aes(x = age_in_days, y= samplemeans))+geom_point()
-
-#OR 
-
-ggplot(new_metadata) +
-     geom_point(aes(x = age_in_days, y= samplemeans))
-```
-
-### Geometries
-
-Geoms (e.g.) in layeres:
-- geom_point()
-- geom_boxplot()
-- geom_bar()
-- geom_density()
-- geom_dotplot()
-- geom_label() 
-- geom_text()
-  
+Add color to aesthetics:
 ```{r}
 ggplot(new_metadata) +
   geom_point(aes(x = age_in_days, y= samplemeans, color = genotype)) 
 ```
 
+Add shape to aesthetics:
 ```{r}
 ggplot(new_metadata) +
   geom_point(aes(x = age_in_days, y= samplemeans, color = genotype, shape=celltype)) 
 ```
 
+Add point size to geometry:
 ```{r}
 ggplot(new_metadata) +
   geom_point(aes(x = age_in_days, y= samplemeans, color = genotype, shape=celltype), size=2.25) 
 ```
 
+5th layer: theme
 ```{r}
 ggplot(new_metadata) +
-  geom_point(aes(x = age_in_days, y= samplemeans, color = genotype, shape=celltype), size=3.0) + theme_bw()
+  geom_point(aes(x = age_in_days, y= samplemeans, color = genotype, shape=celltype), size=3.0) +
+  theme_bw()
 ```
 
+6th layer: axes title size
 ```{r}
 ggplot(new_metadata) +
-  geom_point(aes(x = age_in_days, y= samplemeans, color = genotype, shape=celltype), size=2.25) +
+  geom_point(aes(x = age_in_days, y= samplemeans,      color = genotype, shape=celltype), size=2.25) +
   theme_bw() +
   theme(axis.title = element_text(size=rel(1.5)))       
 ```
@@ -1163,34 +1197,41 @@ How many theme() layers can be added to a ggplot code chunk, in your estimation?
 
 ## 13 Boxplot exercise
 
-Generate a boxplot using the data in the new_metadata dataframe. Create a ggplot2 code chunk with the following instructions:
+**.md file = 13-boxplot_exercise.md**
 
-1. Use the geom_boxplot() layer to plot the differences in sample means between the Wt and KO genotypes.
+1. Generate a boxplot using the data in the new_metadata dataframe. Create a ggplot2 code chunk with the following instructions:
 
-2. Use the fill aesthetic to look at differences in sample means between the celltypes within each genotype.
+* Use the geom_boxplot() layer to plot the differences in sample means between the Wt and KO genotypes.
 
-3. Add a title to your plot.
+* Use the fill aesthetic to look at differences in sample means between the celltypes within each genotype.
 
-4. Add labels, ‘Genotype’ for the x-axis and ‘Mean expression’ for the y-axis.
+* Add a title to your plot.
 
-5. Make the following theme() changes:
+* Add labels, ‘Genotype’ for the x-axis and ‘Mean expression’ for the y-axis.
+
+* Make the following theme() changes:
     a) Use the theme_bw() function to make the background white.
     b) Change the size of your axes labels to 1.25x larger than the default.
     c) Change the size of your plot title to 1.5x larger than default.
     d) Center the plot title.
 
-1-5.
+1.
 ```{r}
 
 ```
 
-6. Change the order of genotype
+2. Change genotype order: Factor the `new_metadata$genotype` column without creating any extra variables/objects and change the levels to `c("Wt", "KO")`
+```{r}
+
+```
+
+3. Re-run the boxplot code chunk you created in 1.
 
 ```{r}
 
 ```
 
-7. Change default colors
+4. Change default colors
 
 Add a new layer scale_color_manual(values=c("purple","orange")). Do you observe a change?
 
@@ -1209,23 +1250,23 @@ What do you think is the difference between scale_color_manual() and scale_fill_
 - Ans: 
 
 
-8. Boxplot using "color" instead of "fill". Use purple and orange for your colors.
+* Boxplot using "color" instead of "fill". Use purple and orange for your colors.
 ```{r}
 
  
 ```
 
-9. Back in your boxplot code, change the colors in the scale_fill_manual() layer to be your 2 favorite colors.
+* Back in your boxplot code, change the colors in the scale_fill_manual() layer to be your 2 favorite colors.
 ```{r}
  
  
 ```
 
-10. Are there any colors that you tried that did not work?
+Are there any colors that you tried that did not work?
 
 - Ans: 
 
-11. **OPTIONAL Exercise**
+5. **OPTIONAL Exercise**
 
 Find the hexadecimal code for your 2 favourite colors (from exercise 3 above) and replace the color names with the hexadecimal codes within the ggplot2 code chunk.
 ```{r}
@@ -1242,7 +1283,9 @@ library(gplots)
  
 ```
 
-## 14 Exporting data and plots
+## 14 Saving data and plots to file
+
+**.md file = 14-exporting_data_and_plots.md**
 
 ### Writing data to file
 
@@ -1251,48 +1294,34 @@ library(gplots)
 write.csv(sub_meta, file="data/subset_meta.csv")
 ```
 
-```{r}
-# Save a vector to file
-write(glengths, file="data/genome_lengths.txt")
-```
-
-Note, the ncolumns argument that it defaults to five columns unless specified, so to get a single column:
-
-```{r}
-# Save a vector to file as a single column
-write(glengths, file="data/genome_lengths.txt", ncolumns = 1)
-```
 
 ### Exporting figures to file:
 
 ```{r}
-## Make a plot which will be written to the open device, in this case the temp file created by pdf() or png()
-##  
+# Make a plot which will be written to the variable p
+
 p <- ggplot(new_metadata) +
   geom_point(aes(x = age_in_days, y= samplemeans, color = genotype, shape=celltype), size=rel(3.0)) 
 ```
 
 ```{r}
 
-## Open device for writing
+## Open device for writing: `pdf`, `png` or `tiff`
 pdf(file = "figures/scatterplot.pdf")
 print(p)
+## Closing the device is essential to save the temporary file created by pdf()/png()/tiff()
+dev.off()
 
 # OR
 
 pdf(file = "figures/scatterplot.pdf")
 ggplot(new_metadata) +
-  geom_point(aes(x = age_in_days, y= samplemeans, color = genotype,
-            shape=celltype), size=rel(3.0)) 
-
-```
-
-```{r}
+  geom_point(aes(x = age_in_days, y= samplemeans,      color = genotype,shape=celltype), size=rel(3.0)) 
 ## Closing the device is essential to save the temporary file created by pdf()/png()
 dev.off()
 ```
 
-Alternative method with ggplot2:
+Alternative saving method that can be used with ggplot2:
 ```{r}
 
 ggplot(new_metadata) +
@@ -1303,6 +1332,8 @@ ggsave("figures/scatterplot.pdf")
 ```
 
 ## 15 Finding help
+
+**.md file = 15-finding_help.md**
 
 ### Saving variables
 
@@ -1334,18 +1365,13 @@ readRDS(file = "metadata.rds") # to load .rds files
 
 ```
 
-### `sessionInfo()`
 
-Lists details about your current R session: R version and platform; locale and timezone; all packages and versions that are loaded as we saw before.
-```{r, eval=FALSE}
-# you'll also often be required to provide your session info
-sessionInfo()
-```
+## 16 Tidyverse data wrangling
 
-## 16 Data wrangling with Tidyverse
+**.md file = 16-tidyverse.md**
 
-Set message to FALSE in a chunck if you want to avoid the messages when loading libraries
-```{r, message=FALSE}
+
+```{r}
 # If tidyverse is not already installed, uncomment the following line of code
 # BiocManager::install("tidyverse")
 
@@ -1527,27 +1553,17 @@ Create a column in bp_oe called term_percent to determine the percent of DE gene
 
 ```
 
-**Exercise**
+**Homework**
 
-Use ggplot to plot the first 30 significant GO terms vs gene_ratio. Color the points by p.value as shown in the figure in 16_tidyverse.md.
+Use ggplot to plot the first 30 significant GO terms vs gene_ratio. Color the points by p.value as shown in the figure below:
+
+![dotplot6](img/dotplot6.png)
+
 ```{r}
-sub = bp_oe[1:30,]
 
-ggplot(sub, aes(x = p.value, y = GO_term, col = p.value)) + geom_point()
-
-ggplot(sub,aes(x = gene_ratio,y = GO_term, color = p.value)) + geom_point() + theme_bw() 
 ```
 
-Change the p.value gradient colors to red-orange-yellow
 ```{r}
-# to help linearize the p.values for the colors; not essential for answer
-sub$`-log10(p.value)` = -log10(sub$p.value) 
-
-g <- ggplot(sub,aes(x = gene_ratio,y = GO_term, color = -log10(p.value))) + geom_point() + theme_bw()
-
-mid <- mean(sub$`-log10(p.value)`)
-
-g + scale_color_gradient2(midpoint = mid, low = "yellow", mid = "orange",high = "red" )
 
 ```
 

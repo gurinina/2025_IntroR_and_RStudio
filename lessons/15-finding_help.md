@@ -1,8 +1,4 @@
-# Troubleshooting and finding help
-
-## Learning Objectives
-
-* Identify different R-specific external sources to help with troubleshooting errors and obtaining more information about functions and packages.
+# Finding help
 
 ## Asking for help
 
@@ -31,19 +27,19 @@ your script up to the point of the error (and after removing everything that is
 not relevant to your issue). Alternatively, in particular if your questions is
 not related to a `data.frame`, you can save any other R data structure that you have in your environment to a file:
 
-		```r
+```r
 		# DO NOT RUN THIS!
 
 		save(iris, file="/tmp/iris.RData")
-		```
+```
 
 The content of this `.RData` file is not human readable and cannot be posted directly on stackoverflow. It can, however, be emailed to someone who can read it with this command:
 
-		```r
-		# DO NOT RUN THIS!
+```r
+# DO NOT RUN THIS!
 
-		load(file="~/Downloads/iris.RData")
-		```
+load(file="~/Downloads/iris.RData")
+```
 
 ### Where to ask for help?
 

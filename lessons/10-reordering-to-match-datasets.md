@@ -1,4 +1,4 @@
-# R: reordering to match datasets
+# Reordering to match datasets
 
 ## Learning Objectives
 

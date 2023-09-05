@@ -1,26 +1,21 @@
-# R Syntax and Data Structures
+# R syntax and data structures
 
 ## Learning Objectives
 
 * Describe frequently-used data types in R. 
 
-* Construct data structures to store data.
-
 ## Data Types
 
 Variables can contain values of specific types within R. The six **data types** that R uses include: 
 
-* `"numeric"` for any numerical value, including whole numbers and decimals. This is the most common data type for performing mathematical operations.
+* `"numeric"` for any numerical value, including whole numbers and decimals. 
 
-* `"character"` for text values, denoted by using quotes ("") around value. For instance, while 5 is a numeric value, if you were to put quotation marks around it, it would turn into a character value, and you could no longer use it for mathematical operations. Single or double quotes both work, as long as the same type is used at the beginning and end of the character value.
+* `"character"` for text values, denoted by using quotes ("") around value. 
 
-* `"integer"` for whole numbers (e.g., `2L`, the `L` indicates to R that it's an integer). It behaves similar to the `numeric` data type for most tasks or functions; however, it takes up less storage space than numeric data, so often tools will output integers if the data is known to be comprised of whole numbers. Just know that integers behave similarly to numeric values. If you wanted to create your own, you could do so by providing the whole number, followed by an upper-case L.
+* `"integer"` for whole numbers (e.g., `2L`, the `L` indicates to R that it's an integer). It behaves similar to the `numeric` data type for most tasks or functions. 
 
-* `"logical"` for `TRUE` and `FALSE` (the Boolean data type). The `logical` data type can be specified using four values, `TRUE` in all capital letters, `FALSE` in all capital letters, a single capital `T` or a single capital `F`.
+* `"logical"` datatypes are `TRUE` and `FALSE` in all capital letters (the Boolean data type). The `logical` data type can also be specified using `T` for `TRUE` in all capital letters, and `F`for`FALSE` 
 
-* `"complex"` to represent complex numbers with real and imaginary parts (e.g.,
-  `1+4i`) and that's all we're going to say about them
-  
 The table below provides examples of each of the commonly used data types:
 
 | Data Type  | Examples|
@@ -30,24 +25,22 @@ The table below provides examples of each of the commonly used data types:
 | Integer:  | 2L, 500L, -17L|
 | Logical:  | TRUE, FALSE, T, F|
 
-The type of data will determine what you can do with it. For example, if you want to perform mathematical operations, then your data type cannot be character or logical. Whereas if you want to search for a word or pattern in your data, then you data should be of the character data type. The task or function being performed on the data will determine what type of data can be used. 
 
 ## Data Structures
 
 So far we have seen variables with a single value. **Variables can store more than just a single value, they can store a multitude of different data structures.** These include, but are not limited to, vectors (`c`), factors (`factor`), matrices (`matrix`), data frames (`data.frame`) and lists (`list`).
 
-
 ### Vectors
 
-A vector is the most common and basic data structure in R, and is pretty much the workhorse of R. It's basically just a collection of values, mainly either numbers,
+A vector is the most common and basic data structure in R, and is pretty much the workhorse of R. It's basically just a collection of values, mainly either numbers: 
 
 ![numeric vector](img/vector2.png)
 
-or characters,
+or characters:
 
 ![character vector](img/vector1.png)
 
-or logical values,
+or logical values:
 
 ![logical vector](img/vector5-logical.png)
 
@@ -55,7 +48,7 @@ or logical values,
 
 For example, if you were to try to create the following vector:
 
-![mixed vector](img/vector3.png)
+![](img/vector3.png)
 
 R will coerce it into:
 
@@ -85,19 +78,6 @@ A vector can also contain characters. Create another vector called `species` wit
 species <- c("ecoli", "human", "corn")
 species
 ```
-What do you think would happen if we forgot to put quotations around one of the values? Let's test it out with corn.
-
-```r
-# Forget to put quotes around corn
-species <- c("ecoli", "human", corn)
-```
-
-When we try to run this code we get an error specifying that object 'corn' is not found. What this means is that R is looking for an object or variable in my Environment called 'corn', and when it doesn't find it, it returns an error. 
-
-```r
-# Create a character vector and store the vector as a variable called 'species'
-species <- c("ecoli", "human", "corn")
-```
 
 ***
 **Exercise**
@@ -109,7 +89,7 @@ Print the `combined` vector in the console, what looks different compared to the
 
 ### Factors
 
-A **factor** is a special type of vector that is used to **store categorical data**. Each unique category is referred to as a **factor level** (i.e. category = level). Factors are built on top of integer vectors such that each **factor level** is assigned an **integer value**, creating value-label pairs. 
+A **factor** is a special type of vector that is used to **store categorical data**. Each unique category is referred to as a **factor level** (i.e. category = level). 
 
 For instance, if we have four animals and the first animal is female, the second and third are male, and the fourth is female, we could create a factor that appears like a vector, but has integer values stored under-the-hood. The integer value assigned is a one for females and a two for males. The numbers are assigned in alphabetical order, so because the f- in females comes before the m- in males in the alphabet, females get assigned a one and males a two. In later lessons we will show you how you could change these assignments.
 
@@ -137,7 +117,7 @@ The expression vector is categorical, in that all the values in the vector belon
 
 So now that we have an idea of what factors are, when would you ever want to use them?
 
-Factors are extremely valuable for many operations often performed in R. For instance, factors can give order to values with no intrinsic order. In the previous 'expression' vector, if I wanted the low category to be less than the medium category, then we could do this using factors. Also, factors are necessary for many statistical methods. For example, descriptive statistics can be obtained for character vectors if you have the categorical information stored as a factor. Anytime that it is helpful to have the categories thought of as groups in an analysis, the factor function makes this possible. For instance, if you want to color your plots by treatment type, then you would need the treatment variable to be a factor.
+Factors are extremely valuable for many operations often performed in R and are necessary for many statistical methods, as you'll see. As an example, if you want to color your plots by treatment type, then you would need the treatment variable to be a factor.
 
 ***
 **Exercises**
