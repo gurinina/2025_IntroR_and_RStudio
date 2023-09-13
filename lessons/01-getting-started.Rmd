@@ -81,7 +81,7 @@ library(knitr)
 
 Alternatively, packages can also be installed from [Bioconductor](https://www.bioconductor.org/), another repository of packages which provides tools for the analysis and comprehension of high-throughput **genomic data**.
 
-To install from Bioconductor, you will first need to install BiocManager. *This only needs to be done once ever for your R installation.* 
+To install from Bioconductor, you will first need to install `BiocManager`. *This only needs to be done once ever for your R installation.* We will be installing several packages from Bioconductor using `BiocManager` (see beloow) 
 
 Set eval=TRUE if you haven't yet installed BiocManager.
 ```{r, eval=FALSE}
@@ -89,19 +89,22 @@ Set eval=TRUE if you haven't yet installed BiocManager.
 install.packages("BiocManager")
 ```
 
-To install using `BiocManager` you use the command `install`:
+Once you've installed these packages you should be able to run this file in R, so you can switch from the 01-getting-started.html file to the 01-getting-started.Rmd file. If want to keep using the .html file, just copy and paste the `chunk outputs` (pink bits) into your console (bottom left corner of RStudio) without the header and footer.
 
-If you haven't installed rmarkdown yet, set eval = TRUE.
-```{r, eval=FALSE}
+For the other packages you'll need, run the following (you should set eval = TRUE): 
+```{r, eval = FALSE}
 
-BiocManager::install("rmarkdown")
-library(rmarkdown)
+devtools::install_github("gurinina/GOenrichment")
+
+BiocManager::install(c("gplots","tidyverse","RColorBrewer",
+"DESeq2","pheatmap","ggplot2","ggrepel","org.Hs.eg.db",    "clusterProfiler","enrichplot","fgsea ","purrr"))
+
 ```
 
 
-Once they are installed and the libraries are loaded, you can run the following command **in your console:** 
+Once they are installed and the libraries for `rmarkdown`, `bookdown` and `knitr` are loaded using the library function, you can run the following command **in your console:** 
 Setting eval = FALSE tells R not to run the code in the chunk.
-```{r,eval=FALSE}
+```{r,eval = FALSE}
 # DO NOT RUN THIS IN RMARKDOWN, DO NOT SET EVAL = TRUE, COPY AND PASTE IT INTO YOUR CONSOLE AND RUN IT THERE -- ELSE IT WILL TRIGGER AN ENDLESS LOOP
 render_book(input = 'index.Rmd',config_file = "_bookdown.yml", output_format = "bookdown::gitbook")
 ```
@@ -110,7 +113,7 @@ If it appears to run successfully, go to the "_book" folder that has appeared in
 
 You can publish this book on bookdown.org. It requires setting up an account and then running the following command:
 
-```{r, eval=FALSE}
+```{r, eval = FALSE}
 # DO NOT RUN THIS IN RMARKDOWN, RUN IT IN YOUR CONSOLE
 publish_book(account = "yourusername")
 ```
@@ -169,8 +172,7 @@ characters is not interpreted by R:
 From now on you will see that we sometimes load packages without
 installing them. This is because once you install the package, it
 remains in place and only needs to be loaded with `library`. If you
-try to load a package and get an error, it probably means you need to
-install it first.
+try to load a package and get an error, it probably means you need to install it first.
 
 ## Paths and the Working Directory
 

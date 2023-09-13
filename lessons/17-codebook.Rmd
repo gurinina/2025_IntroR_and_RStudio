@@ -1,9 +1,13 @@
-# Code book
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+# Codebook answers
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
 ## 02 Introduction to R and RStudio
 
 **.md file = 02-introR-R-and-RStudio.md**
@@ -18,8 +22,6 @@ getwd()
 Add some additional code to the following `chunk`:
 ```{r}
 # Intro to R Lesson
-# 
-## I am adding 3 and 5. R is fun!
 
 3+5
 ```
@@ -33,9 +35,10 @@ Try running only 3 + in the console. Find a way to bring back the command prompt
 * Ans: 
 
 ### The assignment operator (\<-)
+
 The assignment operator assigns values on the right to variables on the left.
 
-**In RStudio the keyboard shortcut for the assignment operator <- is Alt + - (Windows) or Option + - (MacOS).**
+**In RStudio the keyboard shortcut for the assignment operator <- is Alt + - (Windows) or Option + - (Mac).**
 
 ```{r}
 x <- 3
@@ -43,6 +46,8 @@ y <- 5
 ```
 
 ```{r}
+
+ x + y
 number <- x + y
 ```
 
@@ -101,7 +106,6 @@ expression
 ```
 
 ```{r}
-
 # Turn 'expression' vector into a factor
 expression <- factor(expression)
 expression
@@ -142,24 +146,13 @@ pages <- c(453, 432, 328)
 
 ```{r}
 
-```
-### Lists:
-
-```{r}
-list1 <- list(species, df, number)
-list1
-```
-
-**Exercise**
-
-Create a list called list2 containing species, glengths, and number.
-```{r}
 
 ```
 
 ## 04 Functions in R
 
 **.md file = 04-introR-functions-and-arguments.md**
+
 ### Basic functions
 
 We have already used a few examples of basic functions in the previous lessons i.e `getwd()`, `c()`, and `factor()`.
@@ -203,17 +196,17 @@ round(3.14159, digits=2)
 
 **Exercise**
 
-1. Let’s use base R function to calculate mean value of the glengths vector. You might need to search online to find what function can perform this task.
+1. Let’s use base R function to calculate mean value of the `glengths` vector. You might need to search online to find what function can perform this task.
 ```{r}
 
 ```
 
-2. Create a new vector test <- c(1, NA, 2, 3, NA, 4). Use the same base R function from exercise 1 (with addition of proper argument), and calculate mean value of the test vector. The output should be 2.5. > NOTE: In R, missing values are represented by the symbol NA (not available). It’s a way to make sure that users know they have missing data, and make a conscious decision on how to deal with it. There are ways to ignore NA during statistical calculation, or to remove NA from the vector. 
+2. Create a new vector `test <- c(1, NA, 2, 3, NA, 4)`. Use the same base R function from exercise 1 (with addition of proper argument), and calculate mean value of the `test` vector. The output should be 2.5. > NOTE: In R, missing values are represented by the symbol NA (not available). It’s a way to make sure that users know they have missing data, and make a conscious decision on how to deal with it. There are ways to ignore NA during statistical calculation, or to remove NA from the vector. If you want more information related to missing data or NA you can go to the NA help page (please note that there are many advanced concepts on that page that have not been covered in class).
 ```{r}
 
 ```
 
-3. Another commonly used base function is sort(). Use this function to sort the glengths vector in descending order.
+3. Another commonly used base function is sort(). Use this function to sort the `glengths` vector in descending order.
 ```{r}
 
 ```
@@ -296,6 +289,7 @@ BiocManager::install("ggplot2")
 ### Loading libraries/packages
 
 ```{r}
+
 library(ggplot2)
 ```
 
@@ -311,9 +305,10 @@ The tidyverse suite of integrated packages was designed to work together to make
 Set eval=TRUE if tidyverse is not yet installed. How can you run the `BiocManager::install()` command for a package that is already installed without getting an error?
 ```{r, eval=FALSE}
 
+
 ```
 
-* Ans: use the argument force = TRUE
+* Ans: 
 
 ## 06 Subsetting: vectors and factors
 
@@ -420,7 +415,6 @@ expression[expression == "high"]    ## This will only return those elements in t
 Extract only those elements in samplegroup that are not KO (nesting the logical operation is optional).
 ```{r}
 
-
 ```
 
 #### Releveling factors
@@ -454,6 +448,7 @@ save.image("intro-to-R.RData")
 
 **.md file = 07-reading_and_data_inspection.md**
 
+
 ### Reading data into R:
 
 ```{r}
@@ -478,7 +473,7 @@ metadata <- read.csv(file="data/mouse_exp_design.csv")
 
 ```
 
-2. Display the contents of proj_summary in your console
+2. Display the contents of `proj_summary` in your console
 ```{r}
 
 ```
@@ -509,7 +504,7 @@ Use the summary() function on the proj_summary dataframe, what is the median “
 
 ```
 
-* Ans: 
+* Ans:  
 
 How long is the samplegroup factor?
 
@@ -517,7 +512,7 @@ How long is the samplegroup factor?
 
 ```
 
-* Ans:
+* Ans: 
 
 What are the dimensions of the proj_summary dataframe?
 
@@ -535,10 +530,9 @@ When you use the rownames() function on metadata, what is the data structure of 
 How many elements in (how long is) the output of colnames(proj_summary)? Don’t count, but use another function to determine this.
 ```{r}
 
-
 ```
 
-## 08 Data frames, matrices and lists
+## 08 Data frames and matrices
 
 **.md file = 08-introR-_data_wrangling2.md**
 
@@ -636,7 +630,6 @@ logical_idx <- metadata$celltype == "typeA"
 ```
 
 If we want to keep all the rows that have celltype == "typeA":
-
 Any row in the logical_idx that is TRUE will be kept, those that are FALSE will be discarded.
 ```{r}
 metadata[logical_idx, ]
@@ -652,7 +645,6 @@ metadata[idx, ]
 
 Let’s try another subsetting. Extract the rows of the metadata data frame for only the replicates 2 and 3. First, let’s create the logical expression for the column of interest (replicate):
 ```{r}
-
 idx <- which(metadata$replicate > 1)
     
 metadata[idx, ]
@@ -667,71 +659,6 @@ sub_meta <- metadata[which(metadata$replicate > 1), ]
 
 Subset the metadata dataframe to return only the rows of data with a genotype of KO.
 
-```{r}
-
-```
-
-### Selecting components from a list 
-
-Selecting from a list requires slightly different notation, even though in theory a list is a vector (that contains multiple data structures). To select a specific component of a list, you need to use double bracket notation [[]].
-```{r}
-
-list1 <- list(species, df, number)
-list1[[2]]
-```
-
-```{r}
-comp2 <- list1[[2]]
-class(comp2)
-```
-
-```{r}
-list1[[1]]
-```
-
-```{r}
-list1[[1]][1]
-```
-
-**Exercises**
-
-Create a list named random with the following components: metadata, age, list1, samplegroup, and number.
-```{r}
-
-```
-
-Extract the samplegroup component.
-```{r}
-
-```
-
-#### Assigning names to a list
-
-Adding names to components of a list uses the names() function. Let’s check and see if the list1 has names for the components:
-```{r}
-names(list1)
-
-# Name components of the list
-names(list1) <- c("species", "df", "number")
-    
-names(list1)
-```
-
-```{r}
-# Extract 'df' component
-list1$df
-```
-
-**Exercise**
-
-Let’s practice combining ways to extract data from the data structures we have covered so far:
-
-Set names for the random list you created in the last exercise.
-```{r}
-
-```
-
-Extract the age component using the $ notation
 ```{r}
 
 ```
@@ -773,7 +700,6 @@ A %in% B
 
 Let’s change a couple of numbers inside vector B to match vector A:
 ```{r}
-
 A <- c(1,3,5,7,9,11)   # odd numbers
 B <- c(2,4,6,8,1,5)  # add some odd numbers in 
 
@@ -800,12 +726,10 @@ all(A %in% B)
 1. Using the A and B vectors created above, evaluate each element in B to see if there is a match in A
 ```{r}
 
-
 ```
 
 2. Subset the B vector to only return those values that are also in A.
 ```{r}
-
 
 ```
 
@@ -907,6 +831,7 @@ second <- c("B","D","E","A","C")  # same letters but different order
 
 How would you reorder the second vector to match first?
 ```{r}
+
 
 ```
 
@@ -1017,7 +942,6 @@ After talking with your collaborator, it becomes clear that sample2 and sample9 
 Use the `match()` function to subset the metadata data frame so that the row names of the metadata data frame match the column names of the subset_rpkm data frame.
 ```{r}
 
-
 ```
 
 ## 11 Plotting and data visualization
@@ -1095,7 +1019,6 @@ head(new_metadata)
 ```{r}
 library(ggplot2)
 ```
-
 
 The `ggplot()` function is used to **initialize the basic graph structure**, then we add to it. The basic idea is that you specify different parts of the plot using additional functions one after the other and combine them using the `+` operator; the functions in the resulting code chunk are called layers.
 
@@ -1181,7 +1104,7 @@ ggplot(new_metadata) +
 
 2. Use the ggtitle layer to add a plot title of your choice.
 
-3. Add the following new layer to the code chunk theme(plot.title=element_text(hjust=0.5))
+3. Add the following new layer to the code chunk `theme(plot.title=element_text(hjust=0.5))`:
 
 ```{r}
 
@@ -1190,7 +1113,7 @@ ggplot(new_metadata) +
 What does it change?
 
 - Ans: 
-
+ 
 How many theme() layers can be added to a ggplot code chunk, in your estimation?
 
 - Ans: 
@@ -1220,6 +1143,7 @@ How many theme() layers can be added to a ggplot code chunk, in your estimation?
 
 ```
 
+
 2. Change genotype order: Factor the `new_metadata$genotype` column without creating any extra variables/objects and change the levels to `c("Wt", "KO")`
 ```{r}
 
@@ -1228,6 +1152,7 @@ How many theme() layers can be added to a ggplot code chunk, in your estimation?
 3. Re-run the boxplot code chunk you created in 1.
 
 ```{r}
+
 
 ```
 
@@ -1249,7 +1174,6 @@ What do you think is the difference between scale_color_manual() and scale_fill_
 
 - Ans: 
 
-
 * Boxplot using "color" instead of "fill". Use purple and orange for your colors.
 ```{r}
 
@@ -1258,13 +1182,14 @@ What do you think is the difference between scale_color_manual() and scale_fill_
 
 * Back in your boxplot code, change the colors in the scale_fill_manual() layer to be your 2 favorite colors.
 ```{r}
- 
- 
+
 ```
+ 
 
 Are there any colors that you tried that did not work?
 
 - Ans: 
+
 
 5. **OPTIONAL Exercise**
 
@@ -1279,9 +1204,9 @@ library(gplots)
 ```
 
 ```{r}
- 
- 
+  
 ```
+
 
 ## 14 Saving data and plots to file
 
@@ -1294,30 +1219,30 @@ library(gplots)
 write.csv(sub_meta, file="data/subset_meta.csv")
 ```
 
-
 ### Exporting figures to file:
 
 ```{r}
-# Make a plot which will be written to the variable p
 
+# Make a plot which will be written to the variable p
 p <- ggplot(new_metadata) +
-  geom_point(aes(x = age_in_days, y= samplemeans, color = genotype, shape=celltype), size=rel(3.0)) 
+  geom_point(aes(x = age_in_days, y= samplemeans, color = genotype,
+            shape=celltype), size=rel(3.0)) 
 ```
+
 
 ```{r}
 
-## Open device for writing: `pdf`, `png` or `tiff`
+## Open device for writing
 pdf(file = "figures/scatterplot.pdf")
 print(p)
-## Closing the device is essential to save the temporary file created by pdf()/png()/tiff()
+## Closing the device is essential to save the temporary file created by pdf()/png()
 dev.off()
 
 # OR
-
+## Make a plot which will be written to the open device, in this case the temp file created by pdf() or png()
 pdf(file = "figures/scatterplot.pdf")
 ggplot(new_metadata) +
-  geom_point(aes(x = age_in_days, y= samplemeans,      color = genotype,shape=celltype), size=rel(3.0)) 
-## Closing the device is essential to save the temporary file created by pdf()/png()
+  geom_point(aes(x = age_in_days, y= samplemeans, color = genotype, shape=celltype), size=rel(3.0)) 
 dev.off()
 ```
 
@@ -1325,7 +1250,8 @@ Alternative saving method that can be used with ggplot2:
 ```{r}
 
 ggplot(new_metadata) +
-  geom_point(aes(x = age_in_days, y= samplemeans, color = genotype, shape=celltype), size=rel(3.0)) 
+  geom_point(aes(x = age_in_days, y= samplemeans, color = genotype,
+            shape=celltype), size=rel(3.0)) 
 
 ggsave("figures/scatterplot.pdf")
 
@@ -1365,11 +1291,17 @@ readRDS(file = "metadata.rds") # to load .rds files
 
 ```
 
+### `sessionInfo()`
+
+Lists details about your current R session: R version and platform; locale and timezone; all packages and versions that are loaded as we saw before.
+```{r, eval=FALSE}
+# you'll also often be required to provide your session info
+sessionInfo()
+```
 
 ## 16 Tidyverse data wrangling
 
 **.md file = 16-tidyverse.md**
-
 
 ```{r}
 # If tidyverse is not already installed, uncomment the following line of code
@@ -1400,7 +1332,7 @@ sqrt(83) %>% round(digits = 2)
 1. Create a vector of random numbers using the code below:
 
 ```{r}
-
+random_numbers <- c(81, 90, 65, 43, 71, 29)
 ```
 
 2. Use the pipe (%>%) to perform two steps in a single line: 
@@ -1466,6 +1398,11 @@ bp_oe[1:3,1:12]
 We would like to perform an additional round of filtering to only keep the most specific GO terms.
 
 1. For bp_oe, use the filter() function to only keep those rows where the relative.depth is greater than 4.
+```{r}
+
+```
+
+
 2. Save output to overwrite our bp_oe variable.
 ```{r}
 
@@ -1555,15 +1492,21 @@ Create a column in bp_oe called term_percent to determine the percent of DE gene
 
 **Homework**
 
-Use ggplot to plot the first 30 significant GO terms vs gene_ratio. Color the points by p.value as shown in the figure below:
+Use ggplot to plot the first 30 significant GO terms vs gene_ratio. Color the points by p.value as shown in the figure in below:
+
 
 ![dotplot6](img/dotplot6.png)
 
-```{r}
-
-```
 
 ```{r}
 
+
 ```
+
+Change the p.value gradient colors to red-orange-yellow
+```{r}
+
+
+```
+See [ggplot](https://hbctraining.github.io/Training-modules/Tidyverse_ggplot2/lessons/03_ggplot2.html) for more detail.
 

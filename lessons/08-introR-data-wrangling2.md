@@ -1,8 +1,4 @@
-# Dataframes, matrices, and lists
-
-## Learning Objectives
-
-* Demonstrate how to subset, merge, and create new datasets from existing data structures in R.
+# Dataframes and matrices
 
 ## Dataframes
 
@@ -188,88 +184,4 @@ sub_meta <- metadata[which(metadata$replicate > 1), ]
 
 Subset the `metadata` dataframe to return only the rows of data with a genotype of `KO`.
 	
-***
-
-## Lists
-
-### Selecting components from a list
-
-Selecting components from a list requires a slightly different notation, even though in theory a list is a vector (that contains multiple data structures). To select a specific component of a list, you need to use double bracket notation `[[]]`. Let's use the `list1` that we created previously, and index the second component:
-
-```r
-
-list1 <- list(species, df, number)
-list1[[2]]
-```
-
-What do you see printed to the console? Using the double bracket notation is useful for **accessing the individual components whilst preserving the original data structure.** When creating this list we know we had originally stored a dataframe in the second component. With the `class` function we can check if that is what we retrieve:
-
-```r
-comp2 <- list1[[2]]
-class(comp2)
-```
-
-You can also reference what is inside the component by adding an additional bracket. For example, in the first component we have a vector stored. 
-
-```r
-list1[[1]]
-	
-[1] "ecoli" "human" "corn" 
-```
-
-Now, if we wanted to reference the first element of that vector we would use:
-
-```r
-list1[[1]][1]
-
-[1] "ecoli"
-```
-
-***
-
-**Exercises**  
-
-1. Create a list named `random` with the following components: `metadata`, `age`, `list1`, `samplegroup`, and `number`.
-
-2. Extract the `samplegroup` component.
-	
-***
-
-Assigning names to the components in a list can help identify what each list component contains, as well as, facilitating the extraction of values from list components. 
-
-Adding names to components of a list uses the `names()` function. Let's check and see if the `list1` has names for the components:
-
-```r
-names(list1) 
-```
-
-When we created the list we had combined the `species` vector with  a dataframe `df` and the `number` variable. Let's assign the original names to the components. To do this we can use the assignment operator in a new context. If we add `names(list1)` to the left side of the assignment arrow to be assigned to, then anything on the right side of the arrow will be assigned. Since we have three components in `list1`, we need three names to assign. We can create a vector of names using the combine (`c()`) function, and inside the combine function we give the names to assign to the components in the order we would like. So the first name is assigned to the first component of the list, and so on.
-
-### Naming lists
-```r
-# Name components of the list
-names(list1) <- c("species", "df", "number")
-	
-names(list1)
-```
-
-Now that we have named our list components, we can extract components using the `$` similar to extracting columns from a data frame. To obtain a component of a list using the component name, use `list_name$component_name`:
-
-To extract the `df` dataframe from the `list1` list:
-
-```r
-# Extract 'df' component
-list1$df
-```
-
-***
-
-**Exercise**
-
-Let's practice combining ways to extract data from the data structures we have covered so far:
-
-1. Set names for the `random` list you created in the last exercise.
-
-2. Extract the `age` component using the `$` notation
-
 ***

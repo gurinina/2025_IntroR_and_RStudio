@@ -18,7 +18,7 @@ RStudio is an integrated development environment (IDE) for R.
 
 2. When RStudio opens, you will see four panels in the window.
 
-3. Open the file "17-codebook.Rmd file"and it will open in the script window. This file contains all the R code that we will be running in the lessons.
+3. Open the file "17-codebook.Rmd", it will open in the script window in the upper left. This file contains all the R code that we will be running in the lessons.
 
 
 ![RStudio interface](img/Rstudio_interface.png)
@@ -238,3 +238,7 @@ The first column contains the row names, and **note that these are identical to 
 </p>
 
 R is particularly good at handling this type of **categorical data**. Rather than simply storing this information as text, the data is represented in a specific data structure which allows the user to sort and manipulate the data in a quick and efficient manner. We will discuss this in more detail as we go through the different lessons in R!  
+
+***
+
+*These lessons have been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*

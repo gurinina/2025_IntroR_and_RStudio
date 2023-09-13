@@ -1,10 +1,5 @@
 # Logical operators for matching
 
-## Learning Objectives
-
-* Describe the use of `%in%` operator.
-* Explain the user case for `any` and `all` functions.
-
 ## Logical operators to match elements 
 
 Oftentimes, we encounter different analysis tools that require multiple input datasets. It is not uncommon for these inputs to need to have the same row names, column names, or unique identifiers in the same order to perform the analysis. Therefore, knowing how to reorder datasets and determine whether the data matches is an important skill.

@@ -1,8 +1,5 @@
 # Subsetting: vectors and factors
 
-## Learning Objectives
-
-* Subsetting vectors and factors
 
 ## Selecting data using indices
 

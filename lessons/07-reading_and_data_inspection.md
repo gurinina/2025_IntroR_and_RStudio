@@ -1,9 +1,5 @@
 # Reading and data inspection
 
-## Learning Objectives
-
-* Read existing data into R and use base R functions to inspect data structures
-
 ## Reading data into R
 
 ### The basics
@@ -13,11 +9,11 @@ Many functions exist to read data in, and the function in R you use will depend 
 | Data type               | Extension | Function          | Package            |
 |:------------------------|:----------|:------------------|:-------------------|
 | Comma separated values  | csv       | `read.csv()`      | utils (default)    |
-|                         |           | `read_csv()`      | readr (tidyverse)  |
+|                         |           | `read_csv()`      | readr (tidyverse). |
 | Tab separated values    | tsv       | `read_tsv()`      | readr              |
 | Other delimited formats | txt       | `read.table()`    | utils              |
 |                         |           | `read_table()`    | readr     
-|(tidyverse) excel      | xlsx   | `read_xlsx()`      | readxl              |
+| excel      | xlsx   | `read_xlsx()`      | readxl
 
 
 For example, if we have text file where the columns are separated by commas (comma-separated values or comma-delimited), you could use the function `read.csv`. However, if the data are separated by a different delimiter in a text file (e.g. ":", ";", " "), you could use the generic `read.table` function and specify the delimiter (`sep = " "`) as an argument in the function. 
@@ -42,7 +38,7 @@ First, check the arguments for the function using the `?` to ensure that you are
 
 <img src="img/read.table-help.png" width="450"> 
 
-The next item on the documentation page is the function **Description**, which specifies that the output of this set of functions is going to be a **data frame** - "*Reads a file in table format and **creates a data frame from it**, with cases corresponding to lines and variables to fields in the file.*"
+The first item on the documentation page is the function **Description**, which specifies that the output of this set of functions is going to be a **data frame** - "*Reads a file in table format and **creates a data frame from it**, with cases corresponding to lines and variables to fields in the file.*"
 
 In usage, all of the arguments listed for `read.table()` are the default values for all of the family members unless otherwise specified for a given function. Let's take a look at 2 examples:
 
@@ -59,10 +55,7 @@ In usage, all of the arguments listed for `read.table()` are the default values 
 * whereas for `read.csv()` it is `header = TRUE` (by default, it assumes that all your columns have names listed). 
 
 ***The take-home from the "Usage" section for `read.csv()` is that it has one mandatory argument, the path to the file and filename in quotations; in our case that is `data/mouse_exp_design.csv`***
-
-> #### The `stringsAsFactors` argument
-> 
-> Note that the `read.table {utils}` family of functions has an argument called `stringsAsFactors`, which if set to TRUE, will coerce `character` columns in the data you are reading in to `factor` columns (i.e. coerce from `vector` to `factor`) in the resulting data frame. We want to set this as `FALSE` to maintain `character` columns in metadata. 
+ 
 
 ***
 

@@ -1,9 +1,5 @@
 # Reordering to match datasets
 
-## Learning Objectives
-
-* Utilize the `match()` function to reorder vectors and data frames so that unique identifiers are in the same order
-
 ## Reordering data to match
 
 In the previous lesson, we learned how to determine whether the same data is present in two datasets, in addition to, whether it is in the same order. In this lesson, we will explore how to reorder the data such that the datasets are matching.

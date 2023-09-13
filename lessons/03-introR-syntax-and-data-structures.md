@@ -1,9 +1,5 @@
 # R syntax and data structures
 
-## Learning Objectives
-
-* Describe frequently-used data types in R. 
-
 ## Data Types
 
 Variables can contain values of specific types within R. The six **data types** that R uses include: 
@@ -28,7 +24,7 @@ The table below provides examples of each of the commonly used data types:
 
 ## Data Structures
 
-So far we have seen variables with a single value. **Variables can store more than just a single value, they can store a multitude of different data structures.** These include, but are not limited to, vectors (`c`), factors (`factor`), matrices (`matrix`), data frames (`data.frame`) and lists (`list`).
+So far we have seen variables with a single value. **Variables can store more than just a single value, they can store a multitude of different data structures.** These include, but are not limited to, vectors (`c`), factors (`factor`), matrices (`matrix`) and data frames (`data.frame`).
 
 ### Vectors
 
@@ -164,51 +160,3 @@ Create a data frame called `favorite_books` with the following vectors as column
   ```
   
 ***
-
-### Lists
-
-Lists are a data structure in R that can be perhaps a bit daunting at first, but soon become amazingly useful. A list is a data structure that can hold any number of any types of other data structures.
-
-![list](img/list.png)
-
-If you have variables of different data structures you wish to combine, you can put all of those into one list object by using the `list()` function and placing all the items you wish to combine within parentheses:
-
-```r
-list1 <- list(species, df, number)
-```
-
-We see `list1` appear within the Data section of our environment as a list of 3 components or variables. The easiest way to view small lists is to print to the console. 
-
-Let's type list1 and print to the console by running it.
-
-```r
-list1
-	
-[[1]]
-[1] "ecoli" "human" "corn" 
-
-[[2]]
-  species glengths
-1   ecoli      4.6
-2   human   3000.0
-3    corn  50000.0
-
-[[3]]
-[1] 5
-
-```
-
-There are three components corresponding to the three different variables we passed in, and what you see is that structure of each is retained. Each component of a list is referenced based on the number position. We will talk more about how to inspect and manipulate components of lists in later lessons.
-
-***
-**Exercise**
-
-Create a list called `list2` containing `species`, `glengths`, and `number`.
-
-***
-
-Now that we know what lists are, why would we ever want to use them? Oftentimes a function will need a list as input, so that all the information needed to run the function is present in a single variable. Sometimes a function will output a list when working through an analysis. Knowing how to work with them and extract necessary information will be critically important. 
-
-Lists are useful when you want to run a function on multiple data frames for example, but that would take a long time to do individually. Instead you could create a list where each data frame is a component of the list. Then, you could perform the task on the list instead, which would be applied to each of the components.
-
-*This lesson has been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*
