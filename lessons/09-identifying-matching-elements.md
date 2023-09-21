@@ -67,7 +67,7 @@ A %in% B
 
 The returned logical vector denotes which elements in `A` are also in `B` - the first and third elements, which are 1 and 5.
 
-**Note: this function is not reversible; i.e. `B %in% A` will give a different answer.
+**Note: this function is not reversible; i.e. `B %in% A` will give a different answer.**
 
 We saw previously that we could use the output from a logical expression to subset data by returning only the values corresponding to `TRUE`. Therefore, we can use the output logical vector to subset our data, and return only those elements in `A`, which are also in `B` by returning only the TRUE values:
 

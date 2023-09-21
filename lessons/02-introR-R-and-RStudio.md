@@ -18,59 +18,33 @@ RStudio is an integrated development environment (IDE) for R.
 
 2. When RStudio opens, you will see four panels in the window.
 
-3. Open the file "17-codebook.Rmd", it will open in the script window in the upper left. This file contains all the R code that we will be running in the lessons.
-
-
-![RStudio interface](img/Rstudio_interface.png)
-
-### What is a project in RStudio?
-
-It is simply a directory that contains everything related your analyses for a specific project. A `. RProj file` is created within your project directory and that keeps track of your command history and variables in the environment. 
-
-When a project is **(re) opened** within RStudio the following actions are taken:
- 
-* A new R session (process) is started
-
-* The .RData file in the project's main directory is loaded, populating the environment with any objects that were present when the project was closed. 
-
-* The .Rhistory file in the project's main directory is loaded into the RStudio History pane (and used for Console Up/Down arrow command history).
-
+3. Open the file `17-codebook.Rmd` in the lessons directory under the File menu (lower right panel). It will open in the script window in the upper left. This file contains all the R code that we will be running in the lessons.
 
 ## RStudio Interface
 
 **The RStudio interface has four main panels:**
 
-1. **Console**: where you can type commands and see output. 
+1. **Console**: (lower left panel) where you can type commands and see output. 
 
-2. **Script editor**: where you can type out commands and save to file. You can also submit the commands to run in the console.
+2. **Script editor**: (upper left panel) where you can type out commands and save to file. You can also submit the commands to run in the console.
 
-3. **Environment/History**: environment shows all active objects and history keeps track of all commands run in console
+3. **Environment/History/Git**: (upper right panel) 
 
-4. **Files/Plots/Packages/Help**
-* File pane: view all the files in your project directory
-* Plots: output of graphs you generate -- set the output of your Rmd file to "Preview in Viewer Pane"; cogwheel next to Knitr button at the top of your window.
-* Packages: view loaded libraries
-* Help: R help for functions
+* Environment: lists the active objects in your R session
 
-## Viewing your working directory
+* History: keeps track of all commands run in console. 
 
-Let's check to see where our current working directory is located by typing into the console:
+* Git keeps track of any changes in your git repository. It is important that you don't change any of the original files in your working directory. In fact, it's best if you save `17-codeboo.Rmd` which contains all the code we will be runnnig under anothter name, e.g. `17-codebook_gg.Rmd`, with your initials at the end. You can use `git pull` to update your files with those in the repository.
 
-```r
-getwd()
-```
+4. **Files/Plots/Packages/Help** (lower right panel)
 
-Your working directory should the directory path to the `Intro-to-R` folder constructed when you created the project. 
+* File: lists all the files in your project directory (current directory)
 
-You can view the files in the working directory by selecting the `Files` tab from the **Files/Plots/Packages/Help** window. 
+* Plots: shows the output of graphs you generate -- set the output of your Rmd file to "Preview in Viewer Pane"; cogwheel next to Knitr button at the top of your window.
 
-<p align="center">
-<img src="img/Get_wd.png" width="400">
-</p>
+* Packages: lists the loaded libraries
 
-### The structure of your working directory
-
-Your working directory has three folders: `figures`, `results` and `data`. The `data` directory has all the original data (raw data) you will be using in your analysis. `Figures` and `results` are for storing results from your analysis. 
+* Help: interface for R help menu for functions
 
 ## Interacting with R
 
@@ -108,20 +82,6 @@ You can also run the code by highlighting it and pressing the `Ctrl` and `Return
 <img src="img/Script_editor_output.png" width="400">
 </p>
 	
-### Console command prompt
-
-If R is ready to accept commands, **the R console shows a `>` prompt.**
-
-If R is still waiting for you to enter more data because it isn't complete yet, **the console will show a `+` prompt**. It means that you haven't finished entering
-a complete command. 
-
-If you're in Rstudio and you can't figure out why your command isn't running, **you can click inside the console window and press `esc`** to escape the command and bring back a new prompt `>`.              |
-
-***
-**Exercise**
-
-1. Try highlighting only `3 +` from your script editor and running it. Find a way to bring back the command prompt `>` in the console.
-
 ***
 
 ## The R syntax
@@ -197,8 +157,6 @@ Variables can be given almost any name, such as `x`, `current_temperature`, or
 
 * Avoid names starting with a number (`2x` is not valid but `x2` is)
 
-* Avoid names of fundamental functions in R (e.g., `if`, `else`, `for`, see [here](https://statisticsglobe.com/r-functions-list/) for a complete list). 
-
 * Avoid dots (`.`) within a variable name; dots have a
 special meaning in R (for methods) so it's best to
 avoid them. 
@@ -236,8 +194,6 @@ The first column contains the row names, and **note that these are identical to 
 <p align="center">
 <img src="img/metadata_view.png" width="400">
 </p>
-
-R is particularly good at handling this type of **categorical data**. Rather than simply storing this information as text, the data is represented in a specific data structure which allows the user to sort and manipulate the data in a quick and efficient manner. We will discuss this in more detail as we go through the different lessons in R!  
 
 ***
 

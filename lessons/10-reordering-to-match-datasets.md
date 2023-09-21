@@ -4,43 +4,7 @@
 
 In the previous lesson, we learned how to determine whether the same data is present in two datasets, in addition to, whether it is in the same order. In this lesson, we will explore how to reorder the data such that the datasets are matching.
 
-## Reordering of data using indices
 
-Indexing `[ ]` can be used to extract values from a dataset as we saw earlier, but we can also use it to rearrange our data values. 
-
-```r
-teaching_team <- c("Jihe", "Mary", "Meeta", "Radhika", "Will", "Emma")
-```
-
-<img src="img/teaching_team_2023.jpg" width="600">
-
-Remember that we can return values in a vector by specifying it's position or index:
-
-```r
-# Extracting values from a vector
-teaching_team[c(2, 4)] 
-```
-
-We can also extract the values and reorder them:
-
-```r
-# Extracting values and reordering them
-teaching_team[c(4, 2)] 
-```
-
-Similarly, we can extract all of the values and reorder them:
-
-```r
-# Extracting all values and reordering them
-teaching_team[c(5, 4, 6, 2, 1, 3)]
-```
-
-If we want to save our results, we need to assign to a variable:
-
-```r
-# Saving the results to a variable
-reorder_teach <- teaching_team[c(5, 4, 6, 2, 1, 3)] 
-```
 
 ***
 **Exercise**

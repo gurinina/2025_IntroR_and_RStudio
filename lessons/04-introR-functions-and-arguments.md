@@ -20,16 +20,7 @@ Most functions can take several arguments. If you don't specify a required argum
 
 ### Basic functions
 
-We have already used a few examples of basic functions in the previous lessons i.e `getwd()`, `c()`, and  `factor()`. These functions are available as part of R's built in capabilities, and we will explore a few more of these base functions below. 
-
-Let's revisit a function that we have used previously to combine data `c()` into vectors. The *arguments* it takes is a collection of numbers, characters or strings (separated by a comma). The `c()` function performs the task of combining the numbers or characters into a single vector. You can also use the function to add elements to an existing vector:
-
-```r
-glengths <- c(glengths, 90) # adding at the end	
-glengths <- c(30, glengths) # adding at the beginning
-```
-
-What happens here is that we take the original vector `glengths` (containing three elements), and we are adding another item to either end. We can do this over and over again to build a vector or a dataset.
+We have already used a few examples of basic functions in the previous lessons i.e `c()`, and  `factor()`. These functions are available as part of R's built in capabilities, and we will explore a few more of these base functions below. 
 
 Many of the base functions in R involve mathematical operations. One example would be the function `sqrt()`. The input/argument must be a number, and the output is the square root of that number. Let's try finding the square root of 81:
 
@@ -81,12 +72,6 @@ In our example, we can change the number of digits returned by **adding an argum
 round(3.14159, digits=2)
 ```
 
-> *NOTE:* If you provide the arguments in the exact same order as they are defined (in the help manual) you don't have to name them:
->
-	round(3.14159, 2)
->
->However, it's usually not recommended as it makes your code difficult to read for your future self and others, especially if your code includes functions that are not commonly used. 
-
 ***
 **Exercise** 
 
@@ -99,57 +84,5 @@ round(3.14159, digits=2)
 3. Another commonly used base function is `sort()`. Use this function to sort the `glengths` vector in **descending** order.
 
 ***
-
-### User-defined Functions
-
-One of the great strengths of R is the user's ability to add functions. Sometimes there is a small task (or series of tasks) you need done and you find yourself having to repeat it multiple times. In these types of situations, it can be helpful to create your own custom function. The **structure of a function is given below**:
-
-```r
-name_of_function <- function(argument1, argument2) {
-    statements or code that does something
-    return(something)
-}
-```
-
-* First you give your function a name. 
-
-* Then you assign value to it, where the value is the function. 
-
-When **defining the function** you will want to provide the **list of arguments required** (inputs and/or options to modify behaviour of the function), and wrapped between curly brackets place the **tasks that are being executed on/using those arguments**.  The argument(s) can be any type of object (like a scalar, a matrix, a dataframe, a vector, a logical, etc), and it’s not necessary to define what it is in any way. 
-
-Finally, you **“return” the value of the object from the function**, meaning pass the value of it into the global environment.
-
-Let's try creating a simple example function. This function will take in a numeric value as input, and return the squared value.
-
-```r
-square_it <- function(x) {
-    square <- x * x
-    return(square)
-}
-```
-
-Once you run the code, you should see a function named `square_it` in the Environment panel (located at the top right of Rstudio interface). Now, we can use this function as any other base R functions. We type out the name of the function, and inside the parentheses  we provide a numeric value `x`:
-
-```r
-square_it(5)
-```
-
-Pretty simple, right? In this case, we only had one line of code that was run, but in theory you could have many lines of code to get obtain the final results that you want to "return" to the user. 
-
-> #### Do I always have to `return()` something at the end of the function?
-> In the example above, we created a new variable called `square` inside the function, and then return the value of `square`. If you don't use `return()`, by default R will return the value of the last line of code inside that function. That is to say, the following function will also work. 
-> 
-> ```r
-> square_it <- function(x) {
->    x * x
-> }
-> ```
-> However, we **recommend** always using `return` at the end of a function as the best practice.
-
-***
-**Exercise** 
-
-1. Write a function called `multiply_it`, which takes two inputs: a numeric value `x`, and a numeric value `y`. The function will return the product of these two numeric values, which is `x * y`. For example, `multiply_it(x=4, y=6)` will return output `24`.
-
 
 

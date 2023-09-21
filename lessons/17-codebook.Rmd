@@ -3,7 +3,7 @@ output: html_document
 editor_options: 
   chunk_output_type: console
 ---
-# Codebook answers
+# Codebook
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -11,11 +11,6 @@ knitr::opts_chunk$set(echo = TRUE)
 ## 02 Introduction to R and RStudio
 
 **.md file = 02-introR-R-and-RStudio.md**
-
-### File directories
-```{r}
-getwd()
-```
 
 ### Running commands and annotating code:
 
@@ -27,15 +22,7 @@ Add some additional code to the following `chunk`:
 ```
 The chunk will run inline, but I prefer to set the chunk so it will run in the console, because it gives us extra room, especially for plotting. You can set this using the cog wheel at the top of the script window next to the Knit button.
 
-
-**Exercise**
-
-Try running only 3 + in the console. Find a way to bring back the command prompt > in the console.
-
-* Ans: 
-
 ### The assignment operator (\<-)
-
 The assignment operator assigns values on the right to variables on the left.
 
 **In RStudio the keyboard shortcut for the assignment operator <- is Alt + - (Windows) or Option + - (Mac).**
@@ -46,8 +33,8 @@ y <- 5
 ```
 
 ```{r}
+x + y
 
- x + y
 number <- x + y
 ```
 
@@ -56,9 +43,10 @@ number <- x + y
 1. Try changing the value of the variable x to 5. What happens to number?
 ```{r}
 
+
 ```
 
-* Ans:  
+* Ans: 
 
 2. Now try changing the value of variable y to contain the value 10. What do you need to do, to update the variable number?
 
@@ -89,7 +77,7 @@ species
 
 **Exercise**
 
-Try to create a vector of numeric and character values by combining the two vectors that we just created (glengths and species). Assign this combined vector to a new variable called combined. Hint: you will need to use the combine `c()` function to do this. Print the combined vector in the console, what looks different compared to the original vectors?
+Try to create a vector of numeric and character values by combining the two vectors that we just created (`glengths` and `species`). Assign this combined vector to a new variable called combined. Hint: you will need to use the combine `c()` function to do this. Print the combined vector in the console, what looks different compared to the original vectors?
 
 ```{r}
 
@@ -155,16 +143,9 @@ pages <- c(453, 432, 328)
 
 ### Basic functions
 
-We have already used a few examples of basic functions in the previous lessons i.e `getwd()`, `c()`, and `factor()`.
+We have already used a few examples of basic functions in the previous lessons i.e `c()`, and `factor()`.
 
-Here we use `c()`:
-```{r}
-glengths <- c(glengths, 90) # adding at the end 
-glengths
-glengths <- c(30, glengths) # adding at the beginning
-glengths
-```
-
+Many of the base functions in R involve mathematical operations. One example would be the function `sqrt()`. The input/argument must be a number, and the output is the square root of that number. Let's try finding the square root of 81:
 ```{r}
 sqrt(81)
 ```
@@ -201,42 +182,12 @@ round(3.14159, digits=2)
 
 ```
 
-2. Create a new vector `test <- c(1, NA, 2, 3, NA, 4)`. Use the same base R function from exercise 1 (with addition of proper argument), and calculate mean value of the `test` vector. The output should be 2.5. > NOTE: In R, missing values are represented by the symbol NA (not available). It’s a way to make sure that users know they have missing data, and make a conscious decision on how to deal with it. There are ways to ignore NA during statistical calculation, or to remove NA from the vector. If you want more information related to missing data or NA you can go to the NA help page (please note that there are many advanced concepts on that page that have not been covered in class).
+2. Create a new vector `test <- c(1, NA, 2, 3, NA, 4)`. Use the same base R function from exercise 1 (with addition of proper argument), and calculate the mean value of the `test` vector. The output should be 2.5. > NOTE: In R, missing values are represented by the symbol NA (not available). It’s a way to make sure that users know they have missing data, and make a conscious decision on how to deal with it. There are ways to ignore NA during statistical calculation, or to remove NA from the vector. If you want more information related to missing data or NA you can go to the NA help page (please note that there are many advanced concepts on that page that have not been covered in class).
 ```{r}
 
 ```
 
 3. Another commonly used base function is sort(). Use this function to sort the `glengths` vector in descending order.
-```{r}
-
-```
-
-### User-defined functions:
-
-name_of_function <- function(argument1, argument2) {
-    |statements or code that does something
-    |return(something)
-}
-
-This function will take in a numeric value as input, and return the squared value.
-```{r}
-square_it <- function(x) {
-    square <- x * x
-    return(square)
-}
-```
-
-```{r}
-square_it(5)
-```
-
-**Exercise**
-
-Write a function called multiply_it, which takes two inputs: a numeric value x, and a numeric value y. The function will return the product of these two numeric values, which is x * y. For example, multiply_it(x=4, y=6) will return output 24.
-```{r}
-
-```
-
 ```{r}
 
 ```
@@ -271,9 +222,7 @@ Alternatively, packages can also be installed from [Bioconductor](https://www.bi
 
 Set eval = TRUE if you haven't installed BiocManager yet
 ```{r, eval=FALSE}
-if (!require("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
-BiocManager::install(version = "3.17")
+install.packages("BiocManager")
 ```
 
 #### Packages from Bioconductor:
@@ -304,7 +253,6 @@ The tidyverse suite of integrated packages was designed to work together to make
 
 Set eval=TRUE if tidyverse is not yet installed. How can you run the `BiocManager::install()` command for a package that is already installed without getting an error?
 ```{r, eval=FALSE}
-
 
 ```
 
@@ -360,7 +308,7 @@ age[1:4]
 
 ```
 
-   c)  display the letters in the opposite order (F, L, X, D, C)
+   c)  display the letters in the opposite order (F, L, X, D, C) *Bonus points for using a function instead of the indices (Hint: use Google)
 ```{r}
 
 ```
@@ -381,7 +329,10 @@ age[age > 50 | age < 18]  ## nested
 
 ## create a vector first then select
 idx <- age > 50 | age < 18
+idx
+
 age[idx]
+
 ```
 
 ### Logical operators with `which()`
@@ -401,6 +352,8 @@ age[idx_num]
 ### Factors
 
 ```{r}
+
+
 expression <- c("low", "high", "medium", "high", "low", "medium", "high")
 
 expression <- factor(expression)
@@ -432,6 +385,7 @@ Use the samplegroup factor we created in a previous lesson, and relevel it such 
 
 ```{r}
 
+
 ```
 
 It's always a good idea to periodically save your work. You can do this by using the command `save.image()`:
@@ -459,7 +413,11 @@ save.image("intro-to-R.RData")
 metadata <- read.csv(file="data/mouse_exp_design.csv")
 
 ```
+We can see if it has successfully been read in by running:
 
+```{r}
+metadata
+```
 **Exercise 1**
 
 1. Read "project-summary.txt" in to R using read.table() with the approriate arguments and store it as the variable proj_summary. To figure out the appropriate arguments to use with read.table(), keep the following in mind:
@@ -467,20 +425,25 @@ metadata <- read.csv(file="data/mouse_exp_design.csv")
 * all the columns in the input text file have column name/headers
 
 * you want the first column of the text file to be used as row names       
+
 * hint: look up the input for the row.names = argument in read.table()
 
 ```{r}
 
+
 ```
 
-2. Display the contents of `proj_summary` in your console
+2. Display the contents of proj_summary in your console
 ```{r}
+
 
 ```
 
 ### Inspecting data structures:
 
 Getting info on environmental variables:
+
+Let's use the `metadata` file that we created to test out data inspection functions.
 ```{r}
 head(metadata)
 str(metadata)
@@ -493,22 +456,41 @@ colnames(metadata)
 
 **Exercise 2**
 
-Use the class() function on glengths and metadata, how does the output differ between the two?
+* What is the class of each column in metadata (use one command)?
+
+```{r}
+
+
+```
+
+* What is the median of the replicates in metadata (use one command)?
+
+```{r}
+
+
+```
+
+
+**Exercise 3**
+
+Use the `class()` function on `glengths` and `metadata`, how does the output differ between the two?
+```{r}
+
+
+```
+
+Use the `summary()` function on the `proj_summary dataframe`, what is the median “Intronic_Rate?
+
 ```{r}
 
 ```
 
-Use the summary() function on the proj_summary dataframe, what is the median “Intronic_Rate?
+* Ans:
+
+How long is the `samplegroup` factor?
 
 ```{r}
 
-```
-
-* Ans:  
-
-How long is the samplegroup factor?
-
-```{r}
 
 ```
 
@@ -517,6 +499,7 @@ How long is the samplegroup factor?
 What are the dimensions of the proj_summary dataframe?
 
 ```{r}
+
 
 ```
 
@@ -641,6 +624,8 @@ idx <- which(metadata$celltype == "typeA")
 
 ```{r}
 metadata[idx, ]
+# OR you can use nesting
+metadata[which(metadata$celltype == "typeA"), ]
 ```
 
 Let’s try another subsetting. Extract the rows of the metadata data frame for only the replicates 2 and 3. First, let’s create the logical expression for the column of interest (replicate):
@@ -675,13 +660,14 @@ rpkm_data <- read.csv("data/counts.rpkm.csv")
 ```
 
 ```{r}
-rpkm_data[1:3, 1:3]
-ncol(rpkm_data)
-nrow(metadata)
+head(rpkm_data)
+
+colnames(rpkm_data)
+rownames(metadata)
 ```
 
+It looks as if the sample names (header) in our data matrix are similar to the row names of our metadata file, but it's hard to tell since they are not in the same order. 
 ```{r}
-head(rpkm_data)
 ncol(rpkm_data)
 nrow(metadata)
 ```
@@ -759,6 +745,7 @@ y <- colnames(rpkm_data)
 all(x %in% y)
 ```
 
+Now we can replace x and y by their real values to get the same answer:
 ```{r}
 all(rownames(metadata) %in% colnames(rpkm_data))
 ```
@@ -799,29 +786,10 @@ important_genes <- c("ENSMUSG00000083700", "ENSMUSG00000080990", "ENSMUSG0000006
 
 **.md file = 10-reordering-to-match-datasets.md**
 
-### Manual reordering using indices
-
-```{r}
-teaching_team <- c("Jihe", "Mary", "Meeta", "Radhika", "Will", "Emma")
-```
-
-```{r}
-# Extracting values from a vector
-teaching_team[c(2, 4)] 
-```
-
-```{r}
-
-# Extracting all values and reordering them
-teaching_team[c(5, 4, 6, 2, 1, 3)]
-# Saving the results to a variable
-reorder_teach <- teaching_team[c(5, 4, 6, 2, 1, 3)] 
-
-```
 
 **Exercise**
 
-Now that we know how to reorder using indices, let’s try to use it to reorder the contents of one vector to match the contents of another. Let’s create the vectors first and second as detailed below:
+We know how to reorder using indices, let’s try to use it to reorder the contents of one vector to match the contents of another. Let’s create the vectors first and second as detailed below:
 ```{r}
 
 first <- c("A","B","C","D","E")
@@ -831,7 +799,6 @@ second <- c("B","D","E","A","C")  # same letters but different order
 
 How would you reorder the second vector to match first?
 ```{r}
-
 
 ```
 
@@ -849,7 +816,7 @@ The `match` function returns the position of the matches (indices) with respect 
 
 # Saving indices for how to reorder `second` to match `first`
 reorder_idx <- match(first,second) 
-
+reorder_idx
 ```
 
 ```{r}
@@ -942,6 +909,7 @@ After talking with your collaborator, it becomes clear that sample2 and sample9 
 Use the `match()` function to subset the metadata data frame so that the row names of the metadata data frame match the column names of the subset_rpkm data frame.
 ```{r}
 
+
 ```
 
 ## 11 Plotting and data visualization
@@ -1006,8 +974,8 @@ head(new_metadata)
 
 **.md file = 12-ggplot2.md**
 
-```{r}
-## load the new_metadata data frame into your environment from a .RData object
+```{r, eval=FALSE}
+## load the new_metadata data frame into your environment from a .RData object, if you need to - set eval=TRUE 
 load("data/new_metadata.RData")
 ```
 
@@ -1083,12 +1051,21 @@ ggplot(new_metadata) +
   geom_point(aes(x = age_in_days, y= samplemeans, color = genotype, shape=celltype), size=2.25) 
 ```
 
+The labels on the x- and y-axis are also quite small and hard to read. To change their size, we need to add an additional theme layer. The ggplot2 theme system handles non-data plot elements such as:
+
+* Axis label aesthetics
+* Plot background
+* Facet label background
+* Legend appearance
+
 5th layer: theme
 ```{r}
 ggplot(new_metadata) +
   geom_point(aes(x = age_in_days, y= samplemeans, color = genotype, shape=celltype), size=3.0) +
   theme_bw()
 ```
+
+Do the axis labels or the tick labels get any larger by changing themes?
 
 6th layer: axes title size
 ```{r}
@@ -1104,7 +1081,7 @@ ggplot(new_metadata) +
 
 2. Use the ggtitle layer to add a plot title of your choice.
 
-3. Add the following new layer to the code chunk `theme(plot.title=element_text(hjust=0.5))`:
+3. Add the following new layer to the code chunk theme(plot.title=element_text(hjust=0.5))
 
 ```{r}
 
@@ -1116,7 +1093,7 @@ What does it change?
  
 How many theme() layers can be added to a ggplot code chunk, in your estimation?
 
-- Ans: 
+- Ans:
 
 ## 13 Boxplot exercise
 
@@ -1160,7 +1137,7 @@ How many theme() layers can be added to a ggplot code chunk, in your estimation?
 
 Add a new layer scale_color_manual(values=c("purple","orange")). Do you observe a change?
 
-- Ans: 
+- Ans:
 
 Replace scale_color_manual(values=c("purple","orange")) with scale_fill_manual(values=c("purple","orange")). Do you observe a change?
 
@@ -1177,7 +1154,7 @@ What do you think is the difference between scale_color_manual() and scale_fill_
 * Boxplot using "color" instead of "fill". Use purple and orange for your colors.
 ```{r}
 
- 
+
 ```
 
 * Back in your boxplot code, change the colors in the scale_fill_manual() layer to be your 2 favorite colors.
@@ -1189,7 +1166,6 @@ What do you think is the difference between scale_color_manual() and scale_fill_
 Are there any colors that you tried that did not work?
 
 - Ans: 
-
 
 5. **OPTIONAL Exercise**
 
@@ -1204,7 +1180,7 @@ library(gplots)
 ```
 
 ```{r}
-  
+
 ```
 
 
@@ -1223,37 +1199,14 @@ write.csv(sub_meta, file="data/subset_meta.csv")
 
 ```{r}
 
-# Make a plot which will be written to the variable p
-p <- ggplot(new_metadata) +
-  geom_point(aes(x = age_in_days, y= samplemeans, color = genotype,
-            shape=celltype), size=rel(3.0)) 
-```
-
-
-```{r}
-
 ## Open device for writing
 pdf(file = "figures/scatterplot.pdf")
-print(p)
+
+ggplot(new_metadata) +
+      geom_point(aes(x = age_in_days, y= samplemeans, color = genotype,
+            shape=celltype), size=rel(3.0)) 
 ## Closing the device is essential to save the temporary file created by pdf()/png()
 dev.off()
-
-# OR
-## Make a plot which will be written to the open device, in this case the temp file created by pdf() or png()
-pdf(file = "figures/scatterplot.pdf")
-ggplot(new_metadata) +
-  geom_point(aes(x = age_in_days, y= samplemeans, color = genotype, shape=celltype), size=rel(3.0)) 
-dev.off()
-```
-
-Alternative saving method that can be used with ggplot2:
-```{r}
-
-ggplot(new_metadata) +
-  geom_point(aes(x = age_in_days, y= samplemeans, color = genotype,
-            shape=celltype), size=rel(3.0)) 
-
-ggsave("figures/scatterplot.pdf")
 
 ```
 
@@ -1375,6 +1328,7 @@ functional_GO_results <- read.delim(file = "data/gprofiler_results_Mov10oe.tsv")
 
 # Take a look at the results
 functional_GO_results[1:3,1:12]
+names(functional_GO_results)
 
 ```
 
@@ -1388,24 +1342,21 @@ names(functional_GO_results)
 
 # Return only GO biological processes
 bp_oe <- functional_GO_results %>%
-  filter(domain == "BP")
+  dplyr::filter(domain == "BP")
   
 bp_oe[1:3,1:12]
 ```
+>Note: the dplyr::filter is necessary because the stats library gets loaded with ggplot2, rmarkdown and bookdown and stats also has a filter function
 
 **Exercise**
 
 We would like to perform an additional round of filtering to only keep the most specific GO terms.
 
 1. For bp_oe, use the filter() function to only keep those rows where the relative.depth is greater than 4.
-```{r}
-
-```
-
-
 2. Save output to overwrite our bp_oe variable.
 ```{r}
 
+bp_oe <- bp_oe %>% dplyr::filter(relative.depth > 4)
 ```
 
 ### Select
@@ -1423,16 +1374,6 @@ head(bp_oe[,1:6])
 dim(bp_oe)
 ```
 
-The `select()` function also allows for negative selection. So we could have alternately removed columns with negative selection. Note that we need to put the column names inside of the combine (`c()`) function with a - preceding it for this functionality.
-
-```{r, eval=FALSE}
-
-# DO NOT RUN
-# Selecting columns to remove
-bp_oe <- bp_oe %>%
-    select(-c(query.number, significant, recall, precision, subgraph.number, relative.depth, domain))
-```
-
 ### Arrange
 
 Let’s sort the rows by adjusted p-value with the arrange() function.
@@ -1442,15 +1383,6 @@ Let’s sort the rows by adjusted p-value with the arrange() function.
 # Order by adjusted p-value ascending
 bp_oe <- bp_oe %>%
   arrange(p.value)
-```
-
-**NOTE: If you wanted to arrange in descending order, then you could have run the following instead:**
-```{r, eval=FALSE}
-
-# DO NOT RUN
-# Order by adjusted p-value descending
-bp_oe <- bp_oe %>%
-  arrange(desc(p.value))
 ```
 
 ### Rename
@@ -1470,7 +1402,8 @@ bp_oe <- bp_oe %>%
 
 Rename the intersection column to genes to reflect the fact that these are the DE genes associated with the GO process.
 ```{r}
-
+bp_oe <- bp_oe %>% 
+  dplyr::rename(genes = intersection)
 ```
 
 ### Mutate
@@ -1487,7 +1420,7 @@ bp_oe <- bp_oe %>%
 Create a column in bp_oe called term_percent to determine the percent of DE genes associated with the GO term relative to the total number of genes associated with the GO term (overlap.size / term.size)
 
 ```{r}
-
+bp_oe <- bp_oe %>% mutate(term_percent = overlap.size / term.size)
 ```
 
 **Homework**
@@ -1499,12 +1432,16 @@ Use ggplot to plot the first 30 significant GO terms vs gene_ratio. Color the po
 
 
 ```{r}
-
+sub = bp_oe[1:30,]
 
 ```
 
 Change the p.value gradient colors to red-orange-yellow
 ```{r}
+# to help linearize the p.values for the colors; not essential for answer
+sub$`-log10(p.value)` = -log10(sub$p.value) 
+
+
 
 
 ```

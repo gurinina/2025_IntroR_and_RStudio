@@ -180,7 +180,7 @@ To extract these columns from a data frame/tibble we can use the `select()` func
 bp_oe <- bp_oe %>%
   select(term.id, term.name, p.value, query.size, term.size, overlap.size, intersection)
 
-View(bp_oe)
+head(bp_oe)
 ```
 	
 <details>
@@ -204,30 +204,6 @@ Let's sort the rows by adjusted p-value with the `arrange()` function from the `
 # Order by adjusted p-value ascending
 bp_oe <- bp_oe %>% arrange(p.value)
 ```
-<details>
-	<summary><i>Click here to see how to do this in base R</i></summary>
-	<br><pre><code># Order by adjusted p-value ascending
-idx <- order(bp_oe$p.value)
-bp_oe <- bp_oe[idx,]</code></pre><br>
-</details>
-	
-	
-> **NOTE1:** If you wanted to arrange in descending order, then you could have run the following instead:
-> ```r
-> # DO NOT RUN
-> # Order by adjusted p-value descending
-> bp_oe <- bp_oe %>%
->   arrange(desc(p.value))
-> ```
->
-><details>
->	<summary><i>Click here to see how to do this in base R</i></summary>
->	<br><pre><code># DO NOT RUN</code>
-></code># Order by adjusted p-value descending
->idx <- order(bp_oe$p.value, decreasing = TRUE)
->bp_oe <- bp_oe[idx,]</code></pre>
-></details>
-
 ### 5. Rename columns to be more intuitive
 
 While not necessary for our visualization, renaming columns more intuitively can help with our understanding of the data using the `rename()` function from the `dplyr` package. The syntax is `new_name` = `old_name`.

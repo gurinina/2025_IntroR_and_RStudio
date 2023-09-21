@@ -1,15 +1,15 @@
 # Boxplot with ggplot2: exercise
 
-## Learning Objectives
-
-* Generate the box plot using ggplot2
-
 ## Generating a Boxplot with ggplot2
 
 A boxplot provides a graphical view of the distribution of data based on a five number summary: 
+
 * The top and bottom of the box represent the (1) first and (2) third quartiles (25th and 75th percentiles, respectively). 
+
 * The line inside the box represents the (3) median (50th percentile). 
+
 * The whiskers extending above and below the box represent the (4) maximum, and (5) minimum of a data set. 
+
 * The whiskers of the plot reach the minimum and maximum values that are not outliers. 
 
 > In this case, **outliers** are determined using the interquartile range (IQR), which is defined as: Q3 - Q1. Any values that exceeds 1.5 x IQR below Q1 or above Q3 are considered outliers and are represented as points above or below the whiskers. 

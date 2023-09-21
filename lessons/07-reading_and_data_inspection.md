@@ -4,31 +4,26 @@
 
 ### The basics
 
-Many functions exist to read data in, and the function in R you use will depend on the file format being read in. Below we have a table with some examples of functions that can be used for importing some common text data types (plain text).
+There are several function in base R that exist to read data in, and the function in R you use will depend on the file format being read in. Below we have a table with the base R functions that can be used for importing some common text data types (plain text).
 
-| Data type               | Extension | Function          | Package            |
-|:------------------------|:----------|:------------------|:-------------------|
-| Comma separated values  | csv       | `read.csv()`      | utils (default)    |
-|                         |           | `read_csv()`      | readr (tidyverse). |
-| Tab separated values    | tsv       | `read_tsv()`      | readr              |
-| Other delimited formats | txt       | `read.table()`    | utils              |
-|                         |           | `read_table()`    | readr     
-| excel      | xlsx   | `read_xlsx()`      | readxl
+| Data type               | Extension | Function          |
+|:------------------------|:----------|:------------------|
+| Comma separated values  | csv       | `read.csv()`      |
+| Tab separated values    | tsv       | `read.delim`      |
+| Other delimited formats | txt       | `read.table()`    |
 
 
-For example, if we have text file where the columns are separated by commas (comma-separated values or comma-delimited), you could use the function `read.csv`. However, if the data are separated by a different delimiter in a text file (e.g. ":", ";", " "), you could use the generic `read.table` function and specify the delimiter (`sep = " "`) as an argument in the function. 
+For example, if we have text file where the columns are separated by commas (comma-delimited), you could use the function `read.csv`. However, if the data are separated by a different delimiter in a text file (e.g. ":", ";", " "), you could use the generic `read.table` function and specify the delimiter (`sep = " "`) as an argument in the function. 
 
 ### Metadata
 
-When working with large datasets, you will very likely be working with "metadata" file which contains the information about each sample in your dataset.
+When working with large datasets, you will very likely be working with a "metadata" file which contains the information about each sample in your dataset.
 
 <img src="img/metadata_view.png" width="400"> 
 
-The metadata is very important information and we encourage you to think about creating a document with as much metadata you can record before you bring the data into R.
-
 ### The `read.csv()` function
 
-Let's bring in the metadata file we downloaded earlier (`mouse_exp_design.csv` or `mouse_exp_design.txt`) using the `read.csv` function. 
+Let's bring in the metadata file in our data folder (`mouse_exp_design.csv`) using the `read.csv` function. 
 
 First, check the arguments for the function using the `?` to ensure that you are entering all the information appropriately:
 
@@ -38,21 +33,29 @@ First, check the arguments for the function using the `?` to ensure that you are
 
 <img src="img/read.table-help.png" width="450"> 
 
-The first item on the documentation page is the function **Description**, which specifies that the output of this set of functions is going to be a **data frame** - "*Reads a file in table format and **creates a data frame from it**, with cases corresponding to lines and variables to fields in the file.*"
+The first item on the documentation page is the function **Description**, which specifies that the output of this set of functions is going to be a **data frame**.
 
 In usage, all of the arguments listed for `read.table()` are the default values for all of the family members unless otherwise specified for a given function. Let's take a look at 2 examples:
 
 1. **The separator**  
 
-* in the case of `read.table()` it is `sep = ""` (space or tab)
+* for `read.table()` `sep = ""` (space or tab)
 
-* whereas for `read.csv()` it is `sep = ","` (a comma).
+* for `read.csv()` `sep = ","` (a comma).
 
 2. **The `header`** - This argument refers to the column headers that may (`TRUE`) or may not (`FALSE`) exist **in the plain text file you are reading in**. 
 
-* in the case of `read.table()` it is `header = FALSE` (by default, it assumes you do not have column names)
+* for `read.table()` `header = FALSE` (by default, it assumes you do not have column names)
 
-* whereas for `read.csv()` it is `header = TRUE` (by default, it assumes that all your columns have names listed). 
+* for `read.csv()` `header = TRUE` (by default, it assumes that all your columns have names listed). 
+
+3. **The `row.names`** - This argument refers to the rownames.
+
+* for `read.table()` `row.names` by default assumes that your rownames are not in the first column.
+
+* for `read.csv()` `header = TRUE` (by default, it assumes that your rownames are in the first column.
+
+**Note: this one is tricky because the default isn't listed as such in the help file.**
 
 ***The take-home from the "Usage" section for `read.csv()` is that it has one mandatory argument, the path to the file and filename in quotations; in our case that is `data/mouse_exp_design.csv`***
  
@@ -67,10 +70,11 @@ Let's read in the `mouse_exp_design.csv` file and create a new data frame called
 metadata <- read.csv(file="data/mouse_exp_design.csv")
 
 ```
+We can see if it has successfully been read in by running:
 
-> **NOTE:** RStudio supports the automatic completion of code using the <kbd>Tab</kbd> key. This is especially helpful for when reading in files to ensure the correct file path. The tab completion feature also provides a shortcut to listing objects, and inline help for functions. **Tab completion is your friend!** We encourage you to use it whenever possible.
-
-Earlier we noted that the file we just read in had column names (first row of values) and how `read.csv()` deals with "headers". In addition to column headers, `read.csv()` also assumes that the first column contains the row names. Not all functions in the `read.table()` family of functions will do this and depending on which one you use, you may have to specify an additional argument to properly assign the row names and column names.
+```r
+metadata
+```
 
 ***
 **Exercise 1**
@@ -85,60 +89,58 @@ Earlier we noted that the file we just read in had column names (first row of va
 
 ## Inspecting data structures
 
-There are a wide selection of base functions in R that are useful for inspecting your data and summarizing it. Let's use the `metadata` file that we created to test out data inspection functions. 
+There are a wide selection of base functions in R that are useful for inspecting your data and summarizing it. Below is a non-exhaustive list of these functions:
 
-Take a look at the dataframe by typing out the variable name `metadata` and pressing return; the variable contains information describing the samples in our study. Each row holds information for a single sample, and the columns contain categorical information about the sample `genotype`(WT or KO),  `celltype` (typeA or typeB), and `replicate number` (1,2, or 3).
+The list has been divided into functions that work on all types of objects, some that work only on vectors/factors (1 dimensional objects), and others that work on data frames and matrices (2 dimensional objects).
 
-```r
-metadata
+All data structures - content display: 
 
-          genotype celltype replicate
-sample1        Wt    typeA		1
-sample2        Wt    typeA		2
-sample3        Wt    typeA		3
-sample4        KO    typeA		1
-sample5        KO    typeA		2
-sample6        KO    typeA		3
-sample7        Wt    typeB		1
-sample8        Wt    typeB		2
-sample9        Wt    typeB		3
-sample10       KO    typeB		1
-sample11       KO    typeB		2
-sample12       KO    typeB		3
 
-```
-
-Suppose we had a larger file, we might not want to display all the contents in the console. Instead we could check the top (the first 6 lines) of this `data.frame` using the function `head()`:
-
-```r
-head(metadata)
-```
-
-### List of functions for data inspection
-
-We already saw how the functions `head()` and `str()` (in the releveling section) can be useful to check the content and the structure of a `data.frame`. Below is a non-exhaustive list of functions to get a sense of the content/structure of data. The list has been divided into functions that work on all types of objects, some that work only on vectors/factors (1 dimensional objects), and others that work on data frames and matrices (2 dimensional objects).
-
-We have some exercises below that will allow you to gain more familiarity with these. You will definitely be using some of them in the next few homework sections.
-
-All data structures - content display:
 * **`str()`:** compact display of data contents (similar to what you see in the Global environment)
-* **`class()`:** displays the data type for vectors (e.g. character, numeric, etc.) and data structure for dataframes, matrices, lists
+
+* **`class()`:** displays the data type for vectors (e.g. character, numeric, etc.) and data structure for dataframes, matrices
+
 * **`summary()`:** detailed display of the contents of a given object, including descriptive statistics, frequencies
+
 * **`head()`:**  prints the first 6 entries (elements for 1-D objects, rows for 2-D objects)
+
 * **`tail()`:** prints the last 6 entries (elements for 1-D objects, rows for 2-D objects)
 
-Vector and factor variables: 
+Vector and factor variables:
+
 * **`length()`:** returns the number of elements in a vector or factor
 
 Dataframe and matrix variables:
+
 * **`dim()`:** returns dimensions of the dataset (number_of_rows, number_of_columns) [Note, row numbers will always be displayed before column numbers in R]
+
 * **`nrow()`:** returns the number of rows in the dataset
+
 * **`ncol()`:** returns the number of columns in the dataset
+
 * **`rownames()`:** returns the row names in the dataset  
+
 * **`colnames()`:** returns the column names in the dataset
 
-***
+Let's use the `metadata` file that we created to test out data inspection functions.
+
+```r
+head(metadata)
+str(metadata)
+dim(metadata)
+nrow(metadata)
+ncol(metadata)
+class(metadata)
+colnames(metadata)
+```
+
 **Exercise 2**
+
+* What is the class of each column in metadata (use one command)?
+
+* What is the median of the replicates in metadata (use one command)?
+
+**Exercise 3**
 
 * Use the `class()` function on `glengths` and `metadata`, how does the output differ between the two?
 * Use the `summary()` function on the `proj_summary` dataframe, what is the median "rRNA_rate"?
