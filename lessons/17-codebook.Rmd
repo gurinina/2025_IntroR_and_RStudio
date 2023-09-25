@@ -28,6 +28,7 @@ The assignment operator assigns values on the right to variables on the left.
 **In RStudio the keyboard shortcut for the assignment operator <- is Alt + - (Windows) or Option + - (Mac).**
 
 ```{r}
+
 x <- 3
 y <- 5
 ```
@@ -191,6 +192,39 @@ round(3.14159, digits=2)
 ```{r}
 
 ```
+
+### User-defined Functions
+
+Let's try creating a simple example function. This function will take in a numeric value as input, and return the squared value.
+
+```r
+square_it <- function(x) {
+    square <- x * x
+    return(square)
+}
+```
+
+Once you run the code, you should see a function named `square_it` in the Environment panel (located at the top right of Rstudio interface). Now, we can use this function as any other base R functions. We type out the name of the function, and inside the parentheses  we provide a numeric value `x`:
+
+```r
+square_it(5)
+```
+Pretty simple, right? In this case, we only had one line of code that was run, but in theory you could have many lines of code to get obtain the final results that you want to "return" to the user. 
+We have only scratched the surface here when it comes to creating functions! If you are interested you can also find more detailed information on writing functions [R-bloggers site](https://www.r-bloggers.com/how-to-write-and-debug-an-r-function/).
+
+***
+**Exercise** 
+
+1. Write a function called `multiply_it`, which takes two inputs: a numeric value `x`, and a numeric value `y`. The function will return the product of these two numeric values, which is `x * y`. For example, `multiply_it(x=4, y=6)` will return output `24`.
+
+```{r}
+
+```
+
+```{r}
+
+```
+
 
 ## 05 Packages and libraries
 

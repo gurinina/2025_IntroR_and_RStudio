@@ -85,4 +85,46 @@ round(3.14159, digits=2)
 
 ***
 
+### User-defined Functions
+
+One of the great strengths of R is the user's ability to add functions. Sometimes there is a small task (or series of tasks) you need done and you find yourself having to repeat it multiple times. In these types of situations, it can be helpful to create your own custom function. The **structure of a function is given below**:
+
+```r
+name_of_function <- function(argument1, argument2) {
+    statements or code that does something
+    return(something)
+}
+```
+
+* First you give your function a name. 
+* Then you assign value to it, where the value is the function. 
+
+When **defining the function** you will want to provide the **list of arguments required** (inputs and/or options to modify behaviour of the function), and wrapped between curly brackets place the **tasks that are being executed on/using those arguments**.  The argument(s) can be any type of object (like a scalar, a matrix, a dataframe, a vector, a logical, etc), and it’s not necessary to define what it is in any way. 
+
+Finally, you can **“return” the value of the object from the function**, meaning pass the value of it into the global environment. The important idea behind functions is that objects that are created within the function are local to the environment of the function – they don’t exist outside of the function. 
+
+
+Let's try creating a simple example function. This function will take in a numeric value as input, and return the squared value.
+
+```r
+square_it <- function(x) {
+    square <- x * x
+    return(square)
+}
+```
+
+Once you run the code, you should see a function named `square_it` in the Environment panel (located at the top right of Rstudio interface). Now, we can use this function as any other base R functions. We type out the name of the function, and inside the parentheses  we provide a numeric value `x`:
+
+```r
+square_it(5)
+```
+
+Pretty simple, right? In this case, we only had one line of code that was run, but in theory you could have many lines of code to get obtain the final results that you want to "return" to the user. 
+
+We have only scratched the surface here when it comes to creating functions! If you are interested you can also find more detailed information on writing functions [R-bloggers site](https://www.r-bloggers.com/how-to-write-and-debug-an-r-function/).
+
+***
+**Exercise** 
+
+1. Write a function called `multiply_it`, which takes two inputs: a numeric value `x`, and a numeric value `y`. The function will return the product of these two numeric values, which is `x * y`. For example, `multiply_it(x=4, y=6)` will return output `24`.
 

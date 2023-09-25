@@ -1,13 +1,11 @@
 # Tidyverse data wrangling
 
 
-The [Tidyverse suite of integrated packages](https://www.tidyverse.org/packages/) are designed to work together to make common data science operations more user friendly. The packages have functions for data wrangling, tidying, reading/writing, parsing, and visualizing, among others. We will explore the basic syntax for working with these packages, as well as, specific functions for data wrangling with the 'dplyr' package and data visualization with the 'ggplot2' package.
+[Tidyverse](https://www.tidyverse.org/packages/) is a suite of packages that are incredibly useful for working with data. are designed to work together to make common data science operations more user friendly. The packages have functions for data wrangling, tidying, reading/writing, parsing, and visualizing, among others. 
 
 ![](img/tidyverse_website.png)
 
 ## Tidyverse basics
-
-The Tidyverse suite of packa
 
 **Two important new concepts in tidyverse that we will focus on are pipes and tibbles**.
 
@@ -56,9 +54,12 @@ The pipe represents a much easier way of writing and deciphering R code.
 
 ### Tibbles
 
-A core component of [tidyverse](http://tidyverse.org/) is the [tibble](http://tibble.tidyverse.org/). **Tibbles are a modern rework of the standard `data.frame`.  They are data frames, but do not follow all of the same rules. For example, tibbles can have numbers/symbols for column names, which is not normally allowed in base R. 
 
-Tibbles can be created directly using the `tibble()` function or data frames can be converted into tibbles using `as_tibble(name_of_df)`. 
+A core component of [tidyverse](http://tidyverse.org/) is the [tibble](http://tibble.tidyverse.org/). **Tibbles are data frames, but have several properties that make it superior. For example, printing the tibble to screen displays the data types in each of the columns and the dimensions. Another very handy feature of tibbles is that by default they will only print out the first 10 rows and as many columns as fit in your window. This is important when you are working with large datasets -- as we are.
+
+
+Tibbles can be created directly using the `tibble()` function or data frames can be converted into tibbles using `as_tibble(name_of_df)`. It is also easy to convert `tibbles` into dataframes with the `as.data.frame()` function.
+
 
 >**NOTE:** The function `as_tibble()` will ignore row names, so if a column representing the row names is needed, then the function `rownames_to_column(name_of_df)` should be run prior to turning the `data.frame` into a tibble. `rownames_to_column()` takes the rownames and adds it as a column in the data frame.
 
