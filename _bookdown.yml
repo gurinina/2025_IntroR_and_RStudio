@@ -19,7 +19,7 @@ rmd_files:
   - lessons/15-finding_help.md
   - lessons/16-tidyverse.md
   - lessons/17-codebook.Rmd
-  - lessons/18-dummy-script.Rmd
+
 delete_merged_file: false
 chapter_name: "Chapter "
 language:
