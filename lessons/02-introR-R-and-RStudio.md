@@ -34,7 +34,7 @@ RStudio is an integrated development environment (IDE) for R.
 
 * History: keeps track of all commands run in console. 
 
-* Git keeps track of any changes in your git repository. It is important that you don't change any of the original files in your working directory. In fact, it's best if you save `17-codeboo.Rmd` which contains all the code we will be runnnig under anothter name, e.g. `17-codebook_gg.Rmd`, with your initials at the end. You can use `git pull` to update your files with those in the repository.
+* Git keeps track of any changes in your git repository. It is important that you don't change any of the original files in your working directory. In fact, it's best if you save `17-codebook.Rmd` which contains all the code we will be running under another name, e.g. `17-codebook_yourname.Rmd`, with your name at the end. You can save this either in the lessons directory or in the scripts directory, this is the document you will be handing in as your homework for this module. This way you can always go back to the original file if you need to. If you want to take notes, you can do so in the `17-codebook_yourname.Rmd` file.
 
 4. **Files/Plots/Packages/Help** (lower right panel)
 
@@ -44,7 +44,7 @@ RStudio is an integrated development environment (IDE) for R.
 
 * Packages: lists the loaded libraries
 
-* Help: interface for R help menu for functions
+* Help: interface for R help menu for functions and packages
 
 ## Interacting with R
 

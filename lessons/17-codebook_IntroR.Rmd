@@ -3,7 +3,7 @@ output: html_document
 editor_options: 
   chunk_output_type: console
 ---
-# Codebook
+# Codebook 69 points total; 70 with bonus
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)

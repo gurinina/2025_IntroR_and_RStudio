@@ -1,5 +1,6 @@
 --- 
 title: "intro-to-R" 
+author: "Guri Giaever"
 output:
     bookdown::gitbook:
         number_sections: true
@@ -8,7 +9,11 @@ output:
 date: "`r Sys.Date()`" 
 geometry: margin=2cm
 link-citations: yes 
-github-repo: gurinina/genomics/intro-to-R 
+colorlinks: yes
+lot: yes
+lof: yes
+fontsize: 12pt
+github-repo: gurinina/intro-to-R 
 url: https\://bookdown.org/ggiaever/intro-to-R/ 
 site: bookdown::bookdown_site 
 documentclass: book
@@ -20,7 +25,8 @@ cover-image: "img/koos10.png"
 
 ![](lessons/img/koos10.png)
 
-The bookdown version of these pages is published on my page at [intro-to-R](https://bookdown.org/ggiaever/intro-to-R/) and here, [RNAseq_analysis](https://bookdown.org/ggiaever/RNAseq_analysis/).
+The bookdown version of these pages for each module is published on my page at [intro-to-R](https://bookdown.org/ggiaever/intro-to-R/) and here, [RNAseq_analysis](https://bookdown.org/ggiaever/RNAseq_analysis/) and finally
+[r4ds-ggplot2](https://bookdown.org/ggiaever/r4ds-ggplot2/).
 
 ## What we will cover: {-}
 

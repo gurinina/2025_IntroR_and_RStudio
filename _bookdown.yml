@@ -18,7 +18,7 @@ rmd_files:
   - lessons/14-exporting_data_and_plots.md
   - lessons/15-finding_help.md
   - lessons/16-tidyverse.md
-  - lessons/17-codebook.Rmd
+  - lessons/17-codebook_introR.Rmd
 
 delete_merged_file: false
 chapter_name: "Chapter "
