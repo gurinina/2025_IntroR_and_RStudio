@@ -53,3 +53,7 @@ po/*~
 rsconnect/
 
 .DS_Store
+
+# bookdown files
+_book/
+_bookdown_files/
