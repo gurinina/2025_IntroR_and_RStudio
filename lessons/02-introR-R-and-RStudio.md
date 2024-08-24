@@ -92,7 +92,7 @@ The main parts of R (syntax) include:
 
 * the **comments** `#` and how they are used to document function and its content
   
-* variables** and **functions**
+* **variables** and **functions**
   
 * the **assignment operator** `<-`
   
