@@ -23,6 +23,7 @@
 
 # RStudio files
 *.Rproj
+*.RData
 
 # produced vignettes
 vignettes/*.html
