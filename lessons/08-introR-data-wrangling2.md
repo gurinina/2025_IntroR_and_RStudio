@@ -37,7 +37,7 @@ If you were selecting specific columns from the data frame - the rows are left b
 metadata[ , 3]   
 ```
 
-What kind of data structure does this output appear to be? It looks different from the data frame, and we really just see a series of values output, indicating a vector data structure. This happens be default if just selecting a single column from a data frame. R will drop to the simplest data structure possible. Oftentimes we would like to keep our single column as a data frame. To do this, there is an argument we can add when subsetting called `drop`, by changing it's value to `FALSE` the output is kept as a data frame.
+What kind of data structure does this output appear to be? It looks different from the data frame, and we really just see a series of values output, indicating a vector data structure. This happens by default. R automatically drops to the simplest data structure possible. Oftentimes however, we would like to keep our single column as a data frame. To do this, there is an argument we can add when subsetting called `drop`, by changing it's value to `FALSE` the output is kept as a data frame.
 
 ```r
 # Extract third column as a data frame
