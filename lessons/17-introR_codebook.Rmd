@@ -37,6 +37,8 @@ y <- 5
 x + y
 
 number <- x + y
+
+number
 ```
 
 **Exercise**
@@ -98,6 +100,8 @@ expression
 # Turn 'expression' vector into a factor
 expression <- factor(expression)
 expression
+length(expression)
+levels(expression)
 ```
 
 **Exercises**
@@ -117,7 +121,7 @@ Let’s say that in our experimental analyses, we are working with three differe
 
 ### Dataframes
 
-A data.frame is the de facto data structure for most tabular data and what we use for statistics and plotting. A data.frame is similar to a matrix in that it’s a collection of vectors of the same length and each vector represents a column. However, in a dataframe each vector can be of a different data type (e.g., characters, integers, factors).
+A data.frame is the de facto data structure for most tabular data and what we use for statistics and plotting. A data.frame is similar to a matrix in that it’s a collection of vectors of the same length and each vector represents a column. However, in a dataframe each vector can be of a different data type (e.g., characters, integers, factors). A dataframe can be created using the `data.frame()` function.
 
 ```{r}
 # Create a data frame and store it as a variable called 'df'
