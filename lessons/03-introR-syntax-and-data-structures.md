@@ -10,7 +10,7 @@ Variables can contain values of specific types within R. The six **data types** 
 
 * `"integer"` for whole numbers (e.g., `2L`, the `L` indicates to R that it's an integer). It behaves similar to the `numeric` data type for most tasks or functions. 
 
-* `"logical"` datatypes are `TRUE` and `FALSE` in all capital letters (the Boolean data type). The `logical` data type can also be specified using `T` for `TRUE` in all capital letters, and `F`for`FALSE` 
+* `"logical"` datatypes are `TRUE` and `FALSE` in all capital letters (the Boolean data type). The `logical` data type can also be specified using `T` for `TRUE` in all capital letters, and `F`for`FALSE`. `T` and `F` are not recommended for use in R, as they can be confused with other functions or variables. 1 and 0 can also be used to represent `TRUE` and `FALSE`, respectively.
 
 The table below provides examples of each of the commonly used data types:
 
