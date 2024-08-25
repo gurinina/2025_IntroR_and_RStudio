@@ -11,7 +11,7 @@ In this lesson we want to make plots to evaluate the average expression in each 
 
 ### Calculating average expression
 
-Let's take a closer look at our counts data (`rpkm_data`). Each column represents a sample in our experiment, and each sample has > 36,000 total counts. We want to compute **the average value of expression** for each sample. Taking this one step at a time, if we just wanted the average expression for Sample 1 we can use the R base function `mean()`:
+Let's take a closer look at our counts data (`rpkm_ordered`). Each column represents a sample in our experiment, and each sample has > 36,000 total counts. We want to compute **the average value of expression** for each sample. Taking this one step at a time, if we just wanted the average expression for Sample 1 we can use the R base function `mean()`:
 
 ```r
 mean(rpkm_ordered$sample1)
