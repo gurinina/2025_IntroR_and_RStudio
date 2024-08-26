@@ -454,7 +454,6 @@ save.image("intro-to-R.RData")
 
 **.md file = 07-reading_and_data_inspection.md**
 
-
 ### Reading data into R:
 
 ```{r}
@@ -462,6 +461,7 @@ save.image("intro-to-R.RData")
 ```
 
 ```{r}
+### Reading data into R
 metadata <- read.csv(file="data/mouse_exp_design.csv")
 
 ```
@@ -497,10 +497,10 @@ Getting info on environmental variables:
 
 Let's use the `metadata` file that we created to test out data inspection functions.
 ```{r}
-head(metadata)
-str(metadata)
-dim(metadata)
-nrow(metadata)
+head(metadata) # shows the first 6 rows of the data frame
+str(metadata) # shows the structure of the data frame
+dim(metadata) 
+nrow(metadata) # shows the number of rows in the data frame
 ncol(metadata)
 class(metadata)
 colnames(metadata)
@@ -526,6 +526,7 @@ colnames(metadata)
 **Exercise 3**
 
 Use the `class()` function on `glengths` and `metadata`, how does the output differ between the two?
+
 ```{r}
 
 
@@ -613,6 +614,7 @@ metadata[c("sample1", "sample2", "sample3") , "celltype"]
 ```{r}
 # Check column names of metadata data frame
 colnames(metadata)
+# names and colnames are the same for data frames
 
 # Check row names of metadata data frame
 rownames(metadata)
@@ -624,7 +626,7 @@ metadata$genotype
 ```
 
 ```{r}
-# Extract the first five values/elements of the genotype column
+# Extract the first five values/elements of the genotype column using the $ operator
 metadata$genotype[1:5]
 ```
 
@@ -657,6 +659,9 @@ To do this we would extract the column of interest as a vector, with the first v
 
 So our logical expression would be:
 ```{r}
+names(metadata)
+metadata$celltype
+table(metadata$celltype)
 metadata$celltype == "typeA"
 ```
 
@@ -682,8 +687,9 @@ metadata[which(metadata$celltype == "typeA"), ]
 
 Let’s try another subsetting. Extract the rows of the metadata data frame for only the replicates 2 and 3. First, let’s create the logical expression for the column of interest (replicate):
 ```{r}
+table(metadata$replicate)
 idx <- which(metadata$replicate > 1)
-    
+idx
 metadata[idx, ]
 ```
 
@@ -712,10 +718,10 @@ rpkm_data <- read.csv("data/counts.rpkm.csv")
 ```
 
 ```{r}
-head(rpkm_data)
+head(rpkm_data) # this is our counts data
 
 colnames(rpkm_data)
-rownames(metadata)
+rownames(metadata) # this is our metadata describing the count data samples
 ```
 
 It looks as if the sample names (header) in our data matrix are similar to the row names of our metadata file, but it's hard to tell since they are not in the same order. 
@@ -847,11 +853,15 @@ We know how to reorder using indices, let’s try to use it to reorder the conte
 first <- c("A","B","C","D","E")
 second <- c("B","D","E","A","C")  # same letters but different order
 
+first
+second
+
 ```
 
 How would you reorder the second vector to match first?
 ```{r}
-
+idx <- c(4,1,5,2,3)  # reorder indices
+second[idx]
 ```
 
 ### The `match` function
@@ -882,7 +892,7 @@ second[reorder_idx]
 
 # Reordering and saving the output to a variable
 second_reordered <- second[reorder_idx] 
-
+second_reordered == first
 ```
 
 Matching with vectors of different lengths:
@@ -927,7 +937,9 @@ colnames(rpkm_data)
 
 Reordering genomic data using the `match()` function:
 ```{r}
+# Use the match function to reorder the counts data frame to have the sample names in the same order as the metadata data frame, so rownames(metadata) comes first, order is important
 genomic_idx <- match(rownames(metadata), colnames(rpkm_data))
+
 genomic_idx
 ```
 
@@ -948,6 +960,7 @@ head(rpkm_ordered[,1:5])
 Now we can check if the rownames of metadata is in the same order as the colnames of rpkm_ordered:
 ```{r}
 all(rownames(metadata) == colnames(rpkm_ordered))
+# important to check that the order is correct!!!
 ```
 
 **Exercises**
@@ -1002,6 +1015,16 @@ samplemeans <- map_dbl(rpkm_ordered, mean)
 ```
 
 The output of `map_dbl()` is a *named* vector of length 12. 
+
+Alternatively, we can use the `sapply()` function to get the same result:
+
+```{r}
+
+samplemeans <- sapply(rpkm_ordered, mean)
+
+```
+
+I find this method to be more intuitive and easier to remember.
 
 ### Adding to a metadata object
 	
@@ -1094,13 +1117,14 @@ ggplot(new_metadata) +
 Add shape to aesthetics:
 ```{r}
 ggplot(new_metadata) +
-  geom_point(aes(x = age_in_days, y= samplemeans, color = genotype, shape=celltype)) 
+  geom_point(aes(x = age_in_days, y = samplemeans, color = genotype, shape = celltype)) 
 ```
 
 Add point size to geometry:
 ```{r}
 ggplot(new_metadata) +
-  geom_point(aes(x = age_in_days, y= samplemeans, color = genotype, shape=celltype), size=2.25) 
+  geom_point(aes(x = age_in_days, y = samplemeans, color = genotype, 
+                 shape = celltype), size = 2.25) 
 ```
 
 The labels on the x- and y-axis are also quite small and hard to read. To change their size, we need to add an additional theme layer. The ggplot2 theme system handles non-data plot elements such as:
@@ -1113,7 +1137,8 @@ The labels on the x- and y-axis are also quite small and hard to read. To change
 5th layer: theme
 ```{r}
 ggplot(new_metadata) +
-  geom_point(aes(x = age_in_days, y= samplemeans, color = genotype, shape=celltype), size=3.0) +
+  geom_point(aes(x = age_in_days, y= samplemeans, color = genotype, 
+                 shape=celltype), size=3.0) +
   theme_bw()
 ```
 
@@ -1122,9 +1147,10 @@ Do the axis labels or the tick labels get any larger by changing themes?
 6th layer: axes title size
 ```{r}
 ggplot(new_metadata) +
-  geom_point(aes(x = age_in_days, y= samplemeans,      color = genotype, shape=celltype), size=2.25) +
+  geom_point(aes(x = age_in_days, y = samplemeans, 
+                 color = genotype,   shape=celltype), size = 2.25) +
   theme_bw() +
-  theme(axis.title = element_text(size=rel(1.5)))       
+  theme(axis.title = element_text(size = rel(1.5)))       
 ```
 
 **Exercise**
@@ -1255,8 +1281,8 @@ write.csv(sub_meta, file="data/subset_meta.csv")
 pdf(file = "figures/scatterplot.pdf")
 
 ggplot(new_metadata) +
-      geom_point(aes(x = age_in_days, y= samplemeans, color = genotype,
-            shape=celltype), size=rel(3.0)) 
+      geom_point(aes(x = age_in_days, y = samplemeans, color = genotype,
+            shape = celltype), size = rel(3.0)) 
 ## Closing the device is essential to save the temporary file created by pdf()/png()
 dev.off()
 
@@ -1273,17 +1299,17 @@ In order to find help on line you must provide a reproducible example. **Google*
 
 save.image() # saves all environmental variables in your current R session to a file called ".RData" in your working directory -- this is a command that you should use often when in an R session to save your work.
 
-#OR give it a memorable name
+# OR give it a memorable name
 
 save.image("intro-to-R.RData")
 
-#OR for a single object
+# OR for a single object
 
 save.image(metadata,"metadata.RData")
 
 # you can also use 
 
-saveRDS(metadata,file = "metadata.rds")
+saveRDS(metadata,file = "metadata.RDS")
 
 ```
 
@@ -1292,14 +1318,14 @@ saveRDS(metadata,file = "metadata.rds")
 
 load(file = ".RData") # to load .RData files
 
-readRDS(file = "metadata.rds") # to load .rds files
+readRDS(file = "metadata.RDS") # to load .rds files
 
 ```
 
 ### `sessionInfo()`
 
 Lists details about your current R session: R version and platform; locale and timezone; all packages and versions that are loaded as we saw before.
-```{r, eval=FALSE}
+```{r, eval = FALSE}
 # you'll also often be required to provide your session info
 sessionInfo()
 ```

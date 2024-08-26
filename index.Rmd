@@ -1,5 +1,5 @@
 --- 
-title: "intro-to-R" 
+title: "Applied Omics Science for Drug Discovery and Development" 
 author: "Guri Giaever"
 output:
     bookdown::gitbook:
@@ -21,11 +21,11 @@ favicon: "img/icons8-biotech-64.png"
 cover-image: "img/koos10.png"
 --- 
 
-# Welcome to Omic-sciences! {-}
+# Welcome to Applied Omics Science for Drug Discovery and Development! {-}
 
 ![](lessons/img/koos10.png)
 
-The bookdown version of these pages for each module is published on my page at [intro-to-R](https://bookdown.org/ggiaever/intro-to-R/) and here, [RNAseq_analysis](https://bookdown.org/ggiaever/RNAseq_analysis/) and finally
+The published version for each module can be found at my bookdown sites: [intro-to-R](https://bookdown.org/ggiaever/intro-to-R/), [RNAseq_analysis](https://bookdown.org/ggiaever/RNAseq_analysis/) and
 [r4ds-ggplot2](https://bookdown.org/ggiaever/r4ds-ggplot2/).
 
 ## What we will cover: {-}
@@ -54,6 +54,6 @@ While statistics textbooks focus on mathematics, this book focuses on using a co
 
 Throughout the course we show the R code that performs genomic analysis. All sections of this book are reproducible as they were made using *R markdown* documents that include R code used to produce the figures, tables and results.
 
-The first lesson will walk you installing R and RStudio and the material for the course.
+Let's get started with the first module, Introduction to R and RStudio.
 
 
