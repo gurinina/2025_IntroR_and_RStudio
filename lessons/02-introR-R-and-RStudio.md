@@ -4,13 +4,13 @@
 
 R is a programming language and is a great option for analyzing and visualizing data. R is open source and has an active development community that's constantly releasing new packages, making R code even easier to use.
 
-<img src="img/why_R.png" width="600">
+![Alt text](img/why_R.png){ width=600 }
 
 ## What is RStudio?
 
 RStudio is an integrated development environment (IDE) for R. 
 
-<img src="img/rstudio_logo.png" width="300">
+![Alt text](img/rstudio_logo.png){ width=300 }
 
 ## Open a project directory in RStudio
 
@@ -60,7 +60,7 @@ Let's test it out; in your console type:
 ```
 
 <p align="center">
-<img src="img/Console.png" width="400">
+![Alt text](img/Console.png){ width=400 }
 </p>
 
 ### Script editor
@@ -79,7 +79,7 @@ You will see the command run in the console and output the result.
 You can also run the code by highlighting it and pressing the `Ctrl` and `Return/Enter` keys at the same time as a shortcut.
 
 <p align="center">
-<img src="img/Script_editor_output.png" width="400">
+![Alt text](img/Script_editor_output.png){ width=400 }
 </p>
 	
 ***
@@ -126,7 +126,7 @@ y <- 5
 You can view information on the variable by looking in your `Environment` window in the upper right-hand corner of the RStudio interface.
 
 <p align="center">
-<img src="img/Environment.png" width="300">
+![Alt text](img/Environment.png){ width=300 }
 </p>
 
 Now we can reference these variables by name to perform mathematical operations on the values contained within. What do you get in the console for the following operation: 
@@ -183,7 +183,7 @@ You can access the files we need for this workshop in your data directory. **We 
 In this example dataset we have collected whole brain samples from 12 mice and want to evaluate expression differences between them. The expression data represents normalized count data (`normalized_counts.txt`) obtained from RNA-sequencing of the 12 brain samples. This data is stored in a comma separated values (CSV) file as a 2-dimensional matrix, with **each row corresponding to a gene and each column corresponding to a sample**.
 
 <p align="center">
-<img src="img/counts_view.png" width="900">
+![Alt text](img/counts_view.png){ width=900 }
 </p>
 
 ### The metadata
@@ -192,7 +192,7 @@ We have another file in which we identify **information about the data** or **me
 The first column contains the row names, and **note that these are identical to the column names in our expression data file above** (albeit, in a slightly different order). The next few columns contain information about our samples that allow us to categorize them. For example, the second column contains genotype information for each sample. Each sample is classified in one of two categories: Wt (wild type) or KO (knockout). *What types of categories do you observe in the remaining columns?*
 
 <p align="center">
-<img src="img/metadata_view.png" width="400">
+![Alt text](img/metadata_view.png){ width=400 }
 </p>
 
 ***

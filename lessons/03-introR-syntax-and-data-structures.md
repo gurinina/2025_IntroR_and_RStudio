@@ -48,7 +48,7 @@ For example, if you were to try to create the following vector:
 
 R will coerce it into:
 
-<img src="img/vector4.png" width="400">
+![Alt text](img/vector4.png){ width=400 }
 
 The values in a vector are called *elements*. 
 
