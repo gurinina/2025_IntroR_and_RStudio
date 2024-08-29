@@ -56,15 +56,15 @@ Be intentional about where you create this Project. You should make a folder whe
 
 Start RStudio, then go to:
 
-File > New Project > Version Control > Git. In the “repository URL” paste the URL of your new GitHub repository: https://github.com/gurinina/Intro-to-R
+File > New Project > Version Control > Git. In the “repository URL” paste the URL of your new GitHub repository: https://github.com/gurinina/2024_IntroR_and_RStudio
 
 You don't need to put anything in the Project directory name field. 
 
 In the Create as a sub-directory field navigate to your RProjects folder.
 
-Hit Create Project and your Intro-to-R project will be generated.
+Hit Create Project and your 2024_IntroR_and_RStudio project will be generated.
 
-If you have already created the Intro-to-R project but have closed RStudio, you can open it by starting Rstudio, going to Open Project in the File menu, navigating to the Intro-to-R folder and open it. Alternatively, you should be able to find it in the Recent Projects list on the RStudio start page. 
+If you have already created the 2024_IntroR_and_RStudio project but have closed RStudio, you can open it by starting Rstudio, going to Open Project in the File menu, navigating to the 2024_IntroR_and_RStudio folder and open it. Alternatively, you should be able to find it in the Recent Projects list on the RStudio start page. 
 
 ### Running R code; installing packages
 

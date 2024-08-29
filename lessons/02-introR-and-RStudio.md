@@ -14,7 +14,7 @@ RStudio is an integrated development environment (IDE) for R.
 
 ## Open a project directory in RStudio
 
-1. Start Rstudio, and go to the `File` menu, select `Open Project`, and navigate to your Intro-to-R folder and double click on `Intro-to-R.Rproj`.
+1. Start Rstudio, and go to the `File` menu, select `Open Project`, and navigate to your 2024_IntroR_and_RStudio folder and double click on `2024_IntroR_and_RStudio.Rproj`.
 
 2. When RStudio opens, you will see four panels in the window.
 
