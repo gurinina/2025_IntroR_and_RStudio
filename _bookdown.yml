@@ -1,4 +1,4 @@
-book_filename: "intro-to-R"
+book_filename: "2024_IntroR_and_RStudio"
 new_session: no
 rmd_files:
   - index.Rmd

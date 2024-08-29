@@ -447,7 +447,7 @@ save.image() # saves all environmental variables in your current R session to a 
 
 #OR give it a memorable name
 
-save.image("intro-to-R.RData")
+save.image("2024_IntroR_and_RStudio.RData")
 ```
 
 ## 07 Reading and data inspection
@@ -1301,7 +1301,7 @@ save.image() # saves all environmental variables in your current R session to a 
 
 # OR give it a memorable name
 
-save.image("intro-to-R.RData")
+save.image("2024_IntroR_and_RStudio.RData")
 
 # OR for a single object
 

@@ -11,7 +11,7 @@ editor_options:
 library(knitr)
 knitr::opts_chunk$set(tidy.opts = list(width.cutoff = 100), tidy = TRUE)
 ```
-The 01-getting-started.html file gives step-by-step instructions for installing R and RStudio. Open this file in your web browser. Where installation links are provided, right click on the link to go to the download site. Instructions for obtaining additional files and packages required to get up and running for the course are also included here. You can also go to the "Getting started" chapter in the bookdown version of this file found here: [intro-to-R](https://bookdown.org/ggiaever/intro-to-R/).
+The 01-getting-started.html file gives step-by-step instructions for installing R and RStudio. Open this file in your web browser. Where installation links are provided, right click on the link to go to the download site. Instructions for obtaining additional files and packages required to get up and running for the course are also included here. You can also go to the "Getting started" chapter in the bookdown version of this file found here: [2024_IntroR_and_RStudio](https://bookdown.org/ggiaever/2024_IntroR_and_RStudio/).
 
 ### Installing R
 
@@ -70,7 +70,7 @@ If you have already created the 2024_IntroR_and_RStudio project but have closed 
 
 The first R command we will run is `install.packages`. R only includes a basic set of functions. It can do much more than this, and many of these functions are stored in the Comprehensive R Archive Network (CRAN). Note that these packages are vetted: they are checked for common errors and they must have a dedicated maintainer. You can easily install packages from within R if you know the name of the packages. As an example, we are going to install the three required packages.
 
-You'll need to install `bookdown`, `knitr` and `rmarkdown` packages to compile the 01-getting-started.Rmd file in R. R Markdown is a file format for making dynamic documents with R. An R Markdown document is written in markdown (an easy-to-write plain text format) and contains chunks of embedded R code, like the ones below. The notation at the beginning of each chunk gives specific instructions for the chunk. For example, "include = FALSE" in the following chunk prevents code from appearing in the finished file and "eval = FALSE" tells R not to run that chunk. Chunks need to be inserted using three single backticks followed by {r} in closed parentheses at the beginning of the chunk and three more backticks at the end of a chunk. You can insert a chunk automatically by clicking on the insert chunk at the top of an Rmd document (click the green +C icon and in the dropdown menu choose R). To create a document (usually HTML or PDF) from rmarkdown, you need to Knit the document using the 'knitr' package. Knitting a document simply means taking all the text and code and creating a nicely formatted document in either HTML, PDF, or Word. 'bookdown' allows you to compile files into a book, like the ones we'll be using in class, available on my bookdown page at [intro-to-R](https://bookdown.org/ggiaever/intro-to-R/).
+You'll need to install `bookdown`, `knitr` and `rmarkdown` packages to compile the 01-getting-started.Rmd file in R. R Markdown is a file format for making dynamic documents with R. An R Markdown document is written in markdown (an easy-to-write plain text format) and contains chunks of embedded R code, like the ones below. The notation at the beginning of each chunk gives specific instructions for the chunk. For example, "include = FALSE" in the following chunk prevents code from appearing in the finished file and "eval = FALSE" tells R not to run that chunk. Chunks need to be inserted using three single backticks followed by {r} in closed parentheses at the beginning of the chunk and three more backticks at the end of a chunk. You can insert a chunk automatically by clicking on the insert chunk at the top of an Rmd document (click the green +C icon and in the dropdown menu choose R). To create a document (usually HTML or PDF) from rmarkdown, you need to Knit the document using the 'knitr' package. Knitting a document simply means taking all the text and code and creating a nicely formatted document in either HTML, PDF, or Word. 'bookdown' allows you to compile files into a book, like the ones we'll be using in class, available on my bookdown page at [2024_IntroR_and_RStudio](https://bookdown.org/ggiaever/2024_IntroR_and_RStudio/).
 
 Copy and paste the following `chunk outputs` (light pink bits) into your console (bottom left corner of RStudio) without the header and footer backticks.
 ```{r, eval = FALSE}
@@ -126,7 +126,7 @@ Setting eval = FALSE tells R not to run the code in the chunk.
 render_book(input = 'index.Rmd',config_file = "_bookdown.yml", output_format = "bookdown::gitbook")
 ```
 
-If it appears to run successfully, go to the "_book" folder that has appeared in your working directory. Open it and then click on "index.html". This will open up in your browser and then you should have your own version of the 'intro-to-R' book. 
+If it appears to run successfully, go to the "_book" folder that has appeared in your working directory. Open it and then click on "index.html". This will open up in your browser and then you should have your own version of the '2024_IntroR_and_RStudio' book. 
 
 If you now open the index.Rmd file in RStudio and click on the "Knit" button at the top of the script window, you should be able to compile the book in your viewer pane, which makes it easier to navigate for the work we will be doing in class.
 
@@ -177,7 +177,7 @@ It will provide prompts and ask you what you want to learn. Choose R Programming
  15: Base Graphics        DON'T choose this
  
 
-The second approach is to start going through the lectures, which are self-standing. For that I would go to the webpage hosting the book and start going through the lessons. You can find the book version of the introduction to R here: [intro-to-R](https://bookdown.org/ggiaever/intro-to-R/). Going through the initial lessons will be very really helpful for you, as we will dive into things pretty quickly and are not likely to get through all of the intro-to-R sections in class. I recommend the ggplot2 lecture in particular after going through some of the basics.
+The second approach is to start going through the lectures, which are self-standing. For that I would go to the webpage hosting the book and start going through the lessons. You can find the book version of the introduction to R here: [2024_IntroR_and_RStudio](https://bookdown.org/ggiaever/2024_IntroR_and_RStudio/). Going through the initial lessons will be very really helpful for you, as we will dive into things pretty quickly and are not likely to get through all of the 2024_IntroR_and_RStudio sections in class. I recommend the ggplot2 lecture in particular after going through some of the basics.
 
 There are also many open and free resources and reference guides for R that will be helpful to you. Several examples are listed here:
 
