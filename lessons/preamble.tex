@@ -1,41 +1,17 @@
-\usepackage{booktabs}
+% Load necessary packages
+\usepackage{graphicx}    % For including images
+\usepackage{amsmath}     % For advanced math typesetting
+\usepackage{hyperref}    % For creating hyperlinks
 
-\usepackage{tcolorbox}
-\usepackage[T1]{fontenc}
+% Custom commands
+\newcommand{\vect}[1]{\boldsymbol{#1}}  % Command to bold vectors
 
-\definecolor{dangcol}{RGB}{152,62,130}
-\definecolor{warncol}{RGB}{245,220,112}
-\definecolor{infocol}{RGB}{70,122,172}
-\definecolor{trycol}{RGB}{97,88,156}
+% Custom formatting
+\setlength{\parindent}{0pt}             % Remove paragraph indentation
+\setlength{\parskip}{1em}               % Add space between paragraphs
+\usepackage[margin=1in]{geometry}       % Set 1-inch margins
 
-\newtcolorbox{dangerous}{
-  colback=dangcol!10,
-  colframe=dangcol,
-  coltext=black,
-  boxsep=5pt,
-  arc=4pt
-}
-
-\newtcolorbox{warning}{
-  colback=warncol!10,
-  colframe=warncol,
-  coltext=black,
-  boxsep=5pt,
-  arc=4pt
-}
-
-\newtcolorbox{info}{
-  colback=infocol!10,
-  colframe=infocol,
-  coltext=black,
-  boxsep=5pt,
-  arc=4pt
-}
-
-\newtcolorbox{try}{
-  colback=trycol!10,
-  colframe=trycol,
-  coltext=black,
-  boxsep=5pt,
-  arc=4pt
-}
+% Title page setup (optional)
+\title{\Huge My Custom Title Page}
+\author{\Large Author Name}
+\date{\today}

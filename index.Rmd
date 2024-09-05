@@ -24,8 +24,9 @@ cover-image: "img/koos10.png"
 # Welcome to Applied Omics Science for Drug Discovery and Development! {-}
 
 <p align="center">
-  <img src="lessons/img/koos10.png" alt="Welcome to Omics Science!" width="600" />
+  <img src="img/koos10.png" alt="Welcome to Omics Science!" width="300" />
 </p>
+
 
 
 The published version for each module can be found at my bookdown sites: [2024_IntroR_and_RStudio](https://bookdown.org/ggiaever/2024_IntroR_and_RStudio/), [RNAseq_analysis](https://bookdown.org/ggiaever/RNAseq_analysis/) and

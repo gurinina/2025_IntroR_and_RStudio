@@ -1,13 +1,25 @@
----
-output: html_document
-editor_options: 
-  chunk_output_type: console
----
-# Codebook 69 points total; 70 with bonus
+# Codebook for IntroR and RStudio
+
+69 points total
+
+## 01 Setting up R and RStudio
 
 ```{r, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+
+knitr::opts_chunk$set(echo = TRUE) # this will make sure that the code is displayed in the output
+
 ```
+
+To clear the environment so that we start fresh, you can use the following command:
+```{r}
+
+rm(list = ls())
+
+```
+
+To clear the console in Rstudio, you can use the following command: ctrl + L
+
+
 ## 02 Introduction to R and RStudio
 
 **.md file = 02-introR-R-and-RStudio.md**
@@ -19,10 +31,11 @@ Add some additional code to the following `chunk`:
 # Intro to R Lesson
 
 3+5
-```
-The chunk will run inline, but I prefer to set the chunk so it will run in the console, because it gives us extra room, especially for plotting. You can set this using the cog wheel at the top of the script window next to the Knit button.
 
-### The assignment operator (\<-)
+```
+The chunk will run inline and output inline, but I prefer to set the chunk so it will run in the console, because it gives us extra room, especially for plotting. You can set this using the cog wheel at the top of the script window next to the Knit button.
+
+### The assignment operator (<-)
 The assignment operator assigns values on the right to variables on the left.
 
 **In RStudio the keyboard shortcut for the assignment operator <- is Alt + - (Windows) or Option + - (Mac).**
@@ -33,6 +46,7 @@ x <- 3
 y <- 5
 ```
 
+
 ```{r}
 x + y
 
@@ -41,7 +55,7 @@ number <- x + y
 number
 ```
 
-**Exercise**
+**Exercise** points +2
 
 1. Try changing the value of the variable x to 5. What happens to number?
 ```{r}
@@ -78,7 +92,7 @@ species <- c("ecoli", "human", "corn")
 species
 ```
 
-**Exercise**
+**Exercise** points +1
 
 Try to create a vector of numeric and character values by combining the two vectors that we just created (`glengths` and `species`). Assign this combined vector to a new variable called combined. Hint: you will need to use the combine `c()` function to do this. Print the combined vector in the console, what looks different compared to the original vectors?
 
@@ -104,7 +118,7 @@ length(expression)
 levels(expression)
 ```
 
-**Exercises**
+**Exercises** points +2
 
 Let’s say that in our experimental analyses, we are working with three different sets of cells: normal, cells knocked out for geneA (a very exciting gene), and cells overexpressing geneA. We have three replicates for each celltype.
 
@@ -129,7 +143,7 @@ df <- data.frame(species, glengths)
 df
 ```
 
-**Exercise**
+**Exercise** points +1
 
 Create a data frame called favorite_books with the following vectors as columns:
 ```{r}
@@ -180,7 +194,7 @@ example("round")
 round(3.14159, digits = 2)
 ```
 
-**Exercise**
+**Exercise** points +3
 
 1. Let’s use base R function to calculate mean value of the `glengths` vector. You might need to search online to find what function can perform this task.
 ```{r}
@@ -217,7 +231,7 @@ Pretty simple, right? In this case, we only had one line of code that was run, b
 We have only scratched the surface here when it comes to creating functions! If you are interested you can also find more detailed information on writing functions [R-bloggers site](https://www.r-bloggers.com/how-to-write-and-debug-an-r-function/).
 
 ***
-**Exercise** 
+**Exercise** points +2
 
 1. Write a function called `multiply_it`, which takes two inputs: a numeric value `x`, and a numeric value `y`. The function will return the product of these two numeric values, which is `x * y`. For example, `multiply_it(x=4, y=6)` will return output `24`.
 
@@ -285,7 +299,7 @@ To see the functions in a package you can also type:
 ls("package:ggplot2")
 ```
 
-**Exercise**
+**Exercise** points +1
 
 The tidyverse suite of integrated packages was designed to work together to make common data science operations more user-friendly. We will be using the tidyverse suite in later lessons, and so let’s install it. Use the function from the`BiocManager` package.
 
@@ -326,7 +340,7 @@ age[idx]
 age[1:4]
 ```
 
-**Exercises**
+**Exercises** points +3, +4 for bonus
 
 1. Create a vector called alphabets with the following letters, C, D, X, L, F.
 
@@ -346,7 +360,7 @@ age[1:4]
 
 ```
 
-   c)  display the letters in the opposite order (F, L, X, D, C) *Bonus points for using a function instead of the indices (Hint: use Google)
+    c)  display the letters in the opposite order (F, L, X, D, C) *Bonus points for using a function instead of the indices (Hint: use Google)
 ```{r}
 
 ```
@@ -414,7 +428,7 @@ droplevels(exp)
 
 as.character(exp)
 ```
-**Exercise**
+**Exercise** points +1
 
 Extract only those elements in samplegroup that are not KO (nesting the logical operation is optional).
 ```{r}
@@ -431,7 +445,7 @@ expression <- factor(expression, levels=c("low", "medium", "high")) # you can re
 str(expression)
 ```
 
-**Exercise**
+**Exercise** points +1
 
 Use the samplegroup factor we created in a previous lesson, and relevel it such that KO is the first level followed by CTL and OE.
 
@@ -470,7 +484,7 @@ We can see if it has successfully been read in by running:
 ```{r}
 metadata
 ```
-**Exercise 1**
+**Exercise 1** points +2
 
 1. Read "project-summary.txt" in to R using read.table() with the approriate arguments and store it as the variable proj_summary. To figure out the appropriate arguments to use with read.table(), keep the following in mind:
 
@@ -506,7 +520,7 @@ class(metadata)
 colnames(metadata)
 ```
 
-**Exercise 2**
+**Exercise 2** points +2
 
 * What is the class of each column in metadata (use one command)?
 
@@ -523,7 +537,7 @@ colnames(metadata)
 ```
 
 
-**Exercise 3**
+**Exercise 3** points +6
 
 Use the `class()` function on `glengths` and `metadata`, how does the output differ between the two?
 
@@ -531,6 +545,8 @@ Use the `class()` function on `glengths` and `metadata`, how does the output dif
 
 
 ```
+
+* Ans:
 
 Use the `summary()` function on the `proj_summary dataframe`, what is the median “Intronic_Rate?
 
@@ -556,6 +572,8 @@ What are the dimensions of the proj_summary dataframe?
 
 ```
 
+* Ans:
+
 When you use the rownames() function on metadata, what is the data structure of the output?
 ```{r}
 
@@ -567,6 +585,8 @@ How many elements in (how long is) the output of colnames(proj_summary)? Don’t
 ```{r}
 
 ```
+
+* Ans:
 
 ## 08 Data frames and matrices
 
@@ -630,7 +650,7 @@ metadata$genotype
 metadata$genotype[1:5]
 ```
 
-**Exercises**
+**Exercises** points +3
 
 Return a data frame with only the genotype and replicate column values for sample2 and sample8.
 ```{r}
@@ -698,7 +718,7 @@ This should return the indices for the rows in the replicate column within metad
 sub_meta <- metadata[which(metadata$replicate > 1), ]
 ```
 
-**Exercise**
+**Exercise** points +1
 
 Subset the metadata dataframe to return only the rows of data with a genotype of KO.
 
@@ -765,7 +785,7 @@ any(A %in% B)
 all(A %in% B)
 ```
 
-**Exercise** 
+**Exercise** points +2
 
 1. Using the A and B vectors created above, evaluate each element in B to see if there is a match in A
 ```{r}
@@ -815,7 +835,7 @@ all(x == y)
 
 Looks like all of the samples are there, but they need to be reordered. To reorder our genomic samples, we will learn different ways to reorder data in our next lesson. 
 
-**Exercise**
+**Exercise** points +3
 
 We have a list of 6 marker genes that we are very interested in. Our goal is to extract count data for these genes using the %in% operator from the rpkm_data data frame, instead of scrolling through rpkm_data and finding them manually.
 
@@ -845,7 +865,7 @@ important_genes <- c("ENSMUSG00000083700", "ENSMUSG00000080990", "ENSMUSG0000006
 **.md file = 10-reordering-to-match-datasets.md**
 
 
-**Exercise**
+**Exercise** points +1
 
 We know how to reorder using indices, let’s try to use it to reorder the contents of one vector to match the contents of another. Let’s create the vectors first and second as detailed below:
 ```{r}
@@ -963,7 +983,7 @@ all(rownames(metadata) == colnames(rpkm_ordered))
 # important to check that the order is correct!!!
 ```
 
-**Exercises**
+**Exercises** points +2
 
 After talking with your collaborator, it becomes clear that sample2 and sample9 were actually from a different mouse background than the other samples and should not be part of our analysis. Create a new variable called subset_rpkm that has these columns removed from the rpkm_ordered data frame.
 
@@ -1153,7 +1173,7 @@ ggplot(new_metadata) +
   theme(axis.title = element_text(size = rel(1.5)))       
 ```
 
-**Exercise**
+**Exercise** points +5
 
 1. The current axis label text defaults to what we gave as input to geom_point (i.e the column headers). We can change this by adding additional layers called xlab() and ylab() for the x- and y-axis, respectively. Add these layers to the current plot such that the x-axis is labeled “Age (days)” and the y-axis is labeled “Mean expression”.
 
@@ -1173,7 +1193,7 @@ How many theme() layers can be added to a ggplot code chunk, in your estimation?
 
 - Ans:
 
-## 13 Boxplot exercise
+## 13 Boxplot exercise points +16
 
 **.md file = 13-boxplot_exercise.md**
 
@@ -1358,7 +1378,7 @@ round(sqrt(83), digits = 2)
 sqrt(83) %>% round(digits = 2)
 ```
 
-**Exercise**
+**Exercise** points +2
 
 1. Create a vector of random numbers using the code below:
 
@@ -1426,7 +1446,7 @@ bp_oe[1:3,1:12]
 ```
 >Note: the dplyr::filter is necessary because the stats library gets loaded with ggplot2, rmarkdown and bookdown and stats also has a filter function
 
-**Exercise**
+**Exercise** points +1
 
 We would like to perform an additional round of filtering to only keep the most specific GO terms.
 
@@ -1476,7 +1496,7 @@ bp_oe <- bp_oe %>%
 
 ```
 
-**Exercise**
+**Exercise** points +1
 
 Rename the intersection column to genes to reflect the fact that these are the DE genes associated with the GO process.
 ```{r}
@@ -1493,7 +1513,7 @@ bp_oe <- bp_oe %>%
   mutate(gene_ratio = overlap.size / query.size)
 ```
 
-**Exercise**
+**Exercise** points +1
 
 Create a column in bp_oe called term_percent to determine the percent of DE genes associated with the GO term relative to the total number of genes associated with the GO term (overlap.size / term.size)
 
@@ -1501,7 +1521,7 @@ Create a column in bp_oe called term_percent to determine the percent of DE gene
 bp_oe <- bp_oe %>% mutate(term_percent = overlap.size / term.size)
 ```
 
-**Homework**
+**Exercise** points +4
 
 Use ggplot to plot the first 30 significant GO terms vs gene_ratio. Color the points by p.value as shown in the figure in below:
 

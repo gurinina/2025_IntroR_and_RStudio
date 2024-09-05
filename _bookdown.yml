@@ -3,7 +3,7 @@ new_session: no
 rmd_files:
   - index.Rmd
   - lessons/01-getting-started.Rmd
-  - lessons/02-introR-R-and-RStudio.md
+  - lessons/02-introR-and-RStudio.md
   - lessons/03-introR-syntax-and-data-structures.md
   - lessons/04-introR-functions-and-arguments.md
   - lessons/05-introR_packages.md

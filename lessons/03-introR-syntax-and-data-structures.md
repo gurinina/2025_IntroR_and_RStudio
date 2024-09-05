@@ -2,7 +2,7 @@
 
 ## Data Types
 
-Variables can contain values of specific types within R. The six **data types** that R uses include: 
+Variables can contain values of specific types within R. The **data types** that R uses include: 
 
 * `"numeric"` for any numerical value, including whole numbers and decimals. 
 
@@ -10,7 +10,7 @@ Variables can contain values of specific types within R. The six **data types** 
 
 * `"integer"` for whole numbers (e.g., `2L`, the `L` indicates to R that it's an integer). It behaves similar to the `numeric` data type for most tasks or functions. 
 
-* `"logical"` datatypes are `TRUE` and `FALSE` in all capital letters (the Boolean data type). The `logical` data type can also be specified using `T` for `TRUE` in all capital letters, and `F`for`FALSE`. `T` and `F` are not recommended for use in R, as they can be confused with other functions or variables. 1 and 0 can also be used to represent `TRUE` and `FALSE`, respectively.
+* `"logical"` datatypes are `TRUE` and `FALSE` in all capital letters (the Boolean data type). The `logical` data type can also be specified using `T` for `TRUE` in all capital letters, and `F`for`FALSE`. `T` and `F` are not recommended for use in R, as they can be confused with other functions or variables.
 
 The table below provides examples of each of the commonly used data types:
 
@@ -78,8 +78,8 @@ species
 ***
 **Exercise**
 
-Try to create a vector of numeric and character values by _combining_ the two vectors that we just created (`glengths` and `species`). Assign this combined vector to a new variable called `combined`. *Hint: you will need to use the combine `c()` function to do this*. 
-Print the `combined` vector in the console, what looks different compared to the original vectors?
+Try to create a vector of numeric and character values by _combining_ the two vectors that we just created (`glengths` and `species`). Assign this combined vector to a new variable called `combined`. *Hint: you will need to use the combine `c()` function to do this*.
+Print the `combined` vector in the console, what looks different compared to the original vectors? What do you think notice about the output of the `combined` vector?
 
 ***
 

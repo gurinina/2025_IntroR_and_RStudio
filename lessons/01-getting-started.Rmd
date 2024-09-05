@@ -16,10 +16,10 @@ The 01-getting-started.html file gives step-by-step instructions for installing 
 ### Installing R
 
 The first step is to install R. You can download and install R from
-the [Comprehensive R Archive Network](https://cran.r-project.org/).
+the [Comprehensive R Archive Network](https://cran.r-project.org/), for [MacOS](https://cran.r-project.org/bin/macosx/) and for Windows [Windows](https://cran.r-project.org/bin/windows/base/).
 
 
-**Note: if you have a Mac M1 arm64 computer, DON'T install the R-4.4.1-arm64.pkg, instead install R-4.4.1-x86_64.pkg for Intel because the arm64 version doesn't support Bioconductor packages.**
+**Note: if you have a Mac M1 arm64 computer, DON'T install the R-4.4.1-arm64.pkg, instead install R-4.4.1-x86_64.pkg for Intel because the arm64 version doesn't support the Bioconductor packages that we will be using.**
 
 For MacOS, the next things you need to install are XQuartz and fortran tools.
 
