@@ -183,7 +183,7 @@ You can access the files we need for this workshop in your data directory. **We 
 In this example dataset we have collected whole brain samples from 12 mice and want to evaluate expression differences between them. The expression data represents normalized count data (`normalized_counts.txt`) obtained from RNA-sequencing of the 12 brain samples. This data is stored in a comma separated values (CSV) file as a 2-dimensional matrix, with **each row corresponding to a gene and each column corresponding to a sample**.
 
 <p align="center">
-![Alt text](img/counts_view.png){ width=900 }
+![Alt text](img/counts_view.png){ width=600 }
 </p>
 
 ### The metadata

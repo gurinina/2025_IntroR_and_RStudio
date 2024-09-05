@@ -81,7 +81,7 @@ The functional analysis that we will focus on involves **gene ontology (GO) term
 	* cellular components (CC)
 	* molecular functions (MF)
 
-<img src="img/mov10_FA.png" width="1200">
+![Alt text](img/mov10_FA.png){ width=1200px }
 
 ## Analysis goal and workflow
 
@@ -192,7 +192,7 @@ bp_oe <- bp_oe[, c("term.id", "term.name", "p.value", "query.size", "term.size",
 </details>
 	
 	
-<img src="img/bp_oe_selection.png" width="1200">
+![Alt text](img/bp_oe_selection.png){ width=1200px }
 
 
 ### 4. Order GO processes by significance (adjusted p-values)
@@ -263,7 +263,7 @@ Create a column in `bp_oe` called `term_percent` to determine the percent of DE 
 
 Our final data for plotting should look like the table below:
 
-<img src="img/bp_oe_ready_to_plot.png" width="1200">
+![Alt text](img/bp_oe_ready_to_plot.png){ width=1200px }
 
 ## Next steps
 

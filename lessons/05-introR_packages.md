@@ -24,7 +24,7 @@ As you work with R, you'll see that there are thousands of R packages that offer
 
 CRAN is a repository where the latest downloads of R are found in addition to source code for different user contributed R packages.
 
-<img src="img/cran_packages.png" width="600">
+![Alt text](img/cran_packages.png){ width=600px }
 
 Packages for R can be installed from the [CRAN](http://cran.r-project.org/) package repository using the `install.packages` function.
 
@@ -37,14 +37,14 @@ install.packages("ggplot2")
 ### Package installation from Bioconductor
 Alternatively, packages can also be installed from [Bioconductor](https://www.bioconductor.org/), another repository of packages which provides tools for the analysis and comprehension of high-throughput **genomic data**.
 
-<img src="img/bioconductor_logo.png" width="300">
+![Alt text](img/bioconductor_logo.png){ width=300px }
 
 You should already have installed Bioconductor, by installing BiocManager. *This only needs to be done once ever for your R installation.* 
 
 ```r
 # DO NOT RUN THIS!
 
-install.packages("BiocManager")
+# install.packages("BiocManager")
 ```
 
 Now you can use the `install()` function from the `BiocManager` package to install a package by providing the name in quotations. 
@@ -70,13 +70,13 @@ library(ggplot2)
 
 We only need to install a package once on our computer. However, to use the package, we need to load the library every time we start a new R/RStudio environment. 
 
-<img src="img/install_vs_library.jpeg" width="600">
+![Alt text](img/install_vs_library.jpeg){ width=600px }
 
 ### Finding functions specific to a package
 
 This is your first time using `ggplot2`, how do you know where to start and what functions are available to you? One way to do this, is by using the `Package` tab in RStudio. If you click on the tab, you will see listed all packages that you have installed. For those *libraries that you have loaded*, you will see a blue checkmark in the box next to it. Scroll down to `ggplot2` in your list:
 
-<img src="img/ggplot_help.png" width="300">  
+![Alt text](img/ggplot_help.png){ width=300px }  
 
 
 If your library is successfully loaded you will see the box checked, as in the screenshot above. Now, if you click on `ggplot2` RStudio will open up the help pages and you can scroll through. 

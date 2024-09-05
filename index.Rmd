@@ -2,12 +2,13 @@
 title: "Applied Omics Science for Drug Discovery and Development" 
 author: "Guri Giaever"
 output:
-    bookdown::gitbook:
-        number_sections: true
-        includes:
-          in_header: includes/header.html
-date: "`r Sys.Date()`" 
-geometry: margin=2cm
+  bookdown::gitbook:
+    css: [css/git.css, css/toc.css]
+    config:
+      toc:
+        collapse: section
+      download: ["pdf", "epub"]
+date: "`r Sys.Date()`"
 link-citations: yes 
 colorlinks: yes
 lot: yes
@@ -27,9 +28,7 @@ cover-image: "img/koos10.png"
   <img src="img/koos10.png" alt="Welcome to Omics Science!" width="300" />
 </p>
 
-
-
-The published version for each module can be found at my bookdown sites: [2024_IntroR_and_RStudio](https://bookdown.org/ggiaever/2024_IntroR_and_RStudio/), [RNAseq_analysis](https://bookdown.org/ggiaever/RNAseq_analysis/) and
+The published version for each module can be found at my bookdown sites: [2024_IntroR_and_RStudio](https://bookdown.org/ggiaever/2024_IntroR_and_RStudio/), [RNAseq_analysis](https://bookdown.org/ggiaever/RNA-seq-analysis/) and
 [r4ds-ggplot2](https://bookdown.org/ggiaever/r4ds-ggplot2/).
 
 ## What we will cover: {-}
@@ -41,7 +40,6 @@ We start with an introduction to R, including data structures, data wrangling an
 To determine the expression levels of genes, the full RNA-seq workflow follows the steps detailed in the image below. All steps were performed on the command line (Linux/Unix) through the generation of the read counts per gene. The differential expression analysis and downstream functional analysis are generally performed in R using R packages specifically designed for the complex statistical analyses required to determine whether genes are differentially expressed.
 
 ![RNA-seq full workflow](img/full_workflow_2019.png){ width=400 }
-
 
 We will next cover variant analysis from FASTQ files to mapping genome sequencing data to a reference and produce high-quality variant calls that can be used in downstream analyses.  We will use a pipeline employing the Genome Analysis Toolkit (GATK) to perform variant calling that is based on the best practices for variant discovery analysis outlined by the Broad Institute. The result will be the identification of genomic variants, such as single nucleotide polymorphisms (SNPs) and DNA insertions and deletions (indels). 
 

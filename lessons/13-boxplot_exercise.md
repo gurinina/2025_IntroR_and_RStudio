@@ -30,7 +30,7 @@ Generate a boxplot using the data in the new_metadata dataframe. Create a ggplot
 **After running the above code the boxplot should look something like that provided below.**
 
 <p align="center">
-<img src="img/ggboxplot_flip.png" width="600">
+![Alt text](img/ggboxplot_flip.png){ width=600px }
 </p>
 
 ### 2. Change genotype order

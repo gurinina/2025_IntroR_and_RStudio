@@ -83,7 +83,7 @@ ggplot(new_metadata) +
 ```
 
 <p align="center">
-<img src="img/ggscatter-1.png" width="500">
+![Alt text](img/ggscatter-1.png){ width=500px }
 </p>
 
 Now that we have the required aesthetics, let's add some extras like color to the plot. We can **`color` the points on the plot based on the genotype column** within `aes()`. 
@@ -95,7 +95,7 @@ ggplot(new_metadata) +
 ```
 
 <p align="center">
-<img src="img/ggscatter-2.png" width="500">
+![Alt text](img/ggscatter-2.png){ width=500px }
 </p>
 
 Let's try to have both **celltype and genotype represented on the plot**. To do this we can assign the `shape` argument in `aes()` the celltype column, so that each celltype is plotted with a different shaped data point. 
@@ -107,7 +107,7 @@ ggplot(new_metadata) +
 ```
 
 <p align="center">
-<img src="img/ggscatter-3.png" width="500">
+![Alt text](img/ggscatter-3.png){ width=500px }
 </p>
 
 The data points are quite small. We can adjust the **size of the data points** within the `geom_point()` layer, but it should **not be within `aes()`** since we are not mapping it to a column in the input data frame, instead we are just specifying a number. 
@@ -119,7 +119,7 @@ ggplot(new_metadata) +
 ```
 
 <p align="center">
-<img src="img/ggscatter-4.png" width="500">
+![Alt text](img/ggscatter-4.png){ width=500px }
 </p>
 
 ### Layers
@@ -157,7 +157,7 @@ ggplot(new_metadata) +
 ```
  
 <p align="center">
-<img src="img/ggscatter-5.png" width="500">
+![Alt text](img/ggscatter-5.png){ width=500px }
 </p> 
 
 > *NOTE:* You can use the `example("geom_point")` function here to explore a multitude of different aesthetics and layers that can be added to your plot. 

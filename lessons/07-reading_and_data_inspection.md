@@ -19,7 +19,7 @@ For example, if we have text file where the columns are separated by commas (com
 
 When working with large datasets, you will very likely be working with a "metadata" file which contains the information about each sample in your dataset.
 
-<img src="img/metadata_view.png" width="400"> 
+![Alt text](img/metadata_view.png){ width=400px } 
 
 ### The `read.csv()` function
 
@@ -31,7 +31,7 @@ First, check the arguments for the function using the `?` to ensure that you are
 ?read.csv
 ```
 
-<img src="img/read.table-help.png" width="450"> 
+![Alt text](img/read.table-help.png){ width=450px } 
 
 The first item on the documentation page is the function **Description**, which specifies that the output of this set of functions is going to be a **data frame**.
 

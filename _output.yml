@@ -1,31 +1,14 @@
 bookdown::gitbook:
-  output_dir: "_book"
-  includes:
-    in_header: includes/header.html
-    after_body: [includes/footer.html, includes/webex.js]
-  md_extensions: -smart
-  df_print: kable
-  css: [css/git.css, css/toc.css]
-  config:
-    toc:
-      collapse: section
-    download: ["pdf", "epub"]
-    fig_height: 5.3
-    fig_width: 8.5
-
-bookdown::word_document2:
-  toc: yes
-  fontfamily: serif
-  fig_height: 5.3
-  fig_width: 8.5
-
-bookdown::html_chapters:
-  css: [css/git.css, css/toc.css]
+    df_print: kable
+    css: [css/git.css, css/toc.css]
+    config:
+      toc:
+        collapse: section
+      download: ["pdf", "epub"]
 
 bookdown::pdf_book:
-  # Remove output_dir here
   includes:
-    in_header: lessons/preamble.tex
+   in_header: lessons/preamble.tex
   keep_tex: yes
   dev: "cairo_pdf"
   latex_engine: xelatex
@@ -36,10 +19,10 @@ bookdown::pdf_book:
   toc_unnumbered: no
   toc_appendix: yes
   quote_footer: ["\\VA{", "}{}"]
+  toc: true
+  number_sections: true
+  lof: false    # Remove List of Figures entirely
+  lot: false    # Remove List of Tables entirely
 
 bookdown::epub_book:
-  # Remove output_dir here
-  dev: svglite
-  stylesheet: css/epub.css
-
-bookdown::bs4_book: default
+  epub_version: "epub3"

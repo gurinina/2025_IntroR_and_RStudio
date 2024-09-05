@@ -1,17 +1,37 @@
-% Load necessary packages
+% Basic packages for LaTeX
 \usepackage{graphicx}    % For including images
 \usepackage{amsmath}     % For advanced math typesetting
 \usepackage{hyperref}    % For creating hyperlinks
+\usepackage{fancyvrb}    % For verbatim environments and code
+\usepackage{longtable}   % For tables that span multiple pages
+\usepackage{booktabs}    % For better table styling
+\usepackage{tocloft}     % For controlling table of contents behavior
 
-% Custom commands
-\newcommand{\vect}[1]{\boldsymbol{#1}}  % Command to bold vectors
+% Disable List of Figures in the Table of Contents
+\makeatletter
+\let\origlistoffigures\listoffigures
+\renewcommand{\listoffigures}{
+  \begingroup
+  \cftparskip=0pt % Set the parskip to 0 to avoid extra space
+  \renewcommand{\addtocontents}[2]{}
+  \origlistoffigures
+  \endgroup
+}
+\makeatother
 
 % Custom formatting
 \setlength{\parindent}{0pt}             % Remove paragraph indentation
 \setlength{\parskip}{1em}               % Add space between paragraphs
-\usepackage[margin=1in]{geometry}       % Set 1-inch margins
 
-% Title page setup (optional)
-\title{\Huge My Custom Title Page}
-\author{\Large Author Name}
-\date{\today}
+% Page geometry (remove this if you handle margins in output.yml)
+\usepackage[top=1in, left=0.5in, right=0.5in, bottom=0.5in]{geometry}
+
+% Custom commands
+\newcommand{\vect}[1]{\boldsymbol{#1}}  % Command to bold vectors
+
+% PDF-specific configurations
+\hypersetup{
+  colorlinks=true,                       % Enable colored links in the PDF
+  linkcolor=blue,                        % Color of internal links
+  urlcolor=cyan                          % Color of URLs
+}

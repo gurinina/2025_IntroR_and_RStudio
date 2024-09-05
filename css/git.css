@@ -17,7 +17,7 @@ th, td {
 .reveal ul,
 .reveal ol {
     font-size: 12px;
-    color: black;
+    color: #000000;
 }
 
 /*
@@ -26,23 +26,31 @@ th, td {
 }
 */
 
-/*____Code Chunks____*/
-/*this is the the box part of the. code */
+
+/* This targets the Code element inside an r element, which is inside
+   an element with both the .pre and .sourceCode classes */
 .pre.sourceCode r Code {
-  margin: 0 !important;
-  background:white!important;
-  color: black!important;
-  border: 3px solid black;
+  background: white!important; /* Sets the background color to white */
+  color: black!important;      /* Ensures the text color is black */
+  border: 3px solid black;      /* Adds a black border around the element */
 }
 
-/*this is the meat of the. code */
+/* This targets r elements inside any element with the .sourceCode class */
 .sourceCode r {
-  background: #E2CCFE!important;
-  color: black!important;
-  border: 3px solid black
-  margin-bottom: 12px!important;
-
+  background: #D7DDFD!important; /* Sets a lighter blue background for r elements */
+  color: black!important;        /* Ensures the text color is black */
+  border: 3px solid black;        /* Adds a black border around the r element */
+  margin-bottom: 12px!important;  /* Adds some space below the element */
 }
+
+/* This targets pre and code elements together to style code blocks */
+pre code {
+  white-space: pre-wrap;            /* Ensures the text wraps within code blocks */
+  font-size: 12px;                  /* Sets the font size to 12px */
+  color: black;                     /* Sets the text color to black */
+  background-color: #D7DDFD!important; /* Sets a lighter blue background for code blocks */
+}
+
 .showopt {
   background-color: #000080;
   color: #FFFFFF;
@@ -54,10 +62,11 @@ th, td {
   font-family: sans-serif;
   border-radius: 8px;
 }
+
 details {
   border: 3px solid #aaa;
   width: 672px;
-  border-color: black;
+  border-color: #000000;
   color: #FFFFFF;
   background-color: #000080;
   border-radius: 4px;
@@ -75,42 +84,40 @@ font-weight: bold;
 
 details[open] {
   padding: 0.5em;
-  border: 3px solid black;
+  border: 3px solid #000000;
   width: 672px;
-  background-color: #E2CCFE;
+  background-color: #D7DDFD;
   color: #000080;
   border-radius: 4px;
-  border-color: black;
+  border-color: #000000;
   padding: 0.5em 0.5em 0;
 }
 
 details summary {
-background-color: #000080;
-
+  background-color: #000080;
   font-size: 12px!important;
   color: #FFFFFF;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #000000;
   margin-bottom: 0.5em;
 }
-details[open] summary {
 
+details[open] summary {
   font-size: 12px!important;
-  background-color: #E2CCFE;
+  background-color: #D7DDFD;
   color: #000080;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #000000;
   margin-bottom: 0.5em;
 }
 
 .book .book-body .page-wrapper .page-inner section.normal *{
-
   font-size: 12px!important;
-
 }
 
 code span.do {
-    color: black!important;
+    color: #000000!important;
     font-style: italic;
 }
+
 p code {
   white-space: inherit;
   color: darkred!important;
@@ -121,15 +128,9 @@ p code {
   word-break: normal;
   /* word-wrap: normal;*/
   font-size: 12px!important;
-  border: 2px solid black!important;
+  border: 2px solid #000000!important;
   white-space: pre-wrap;
-  background: #E2CCFE!important;
-}
-
-pre code {
-  white-space: pre-wrap;
-  font-size: 12px;
-  background-color: #E2CCFE!important;
+  background: #D7DDFD!important;
 }
 
 .main-container {
@@ -137,7 +138,6 @@ pre code {
   margin-left: auto;
   margin-right: auto;
 }
-
 
 .book .book-body .page-wrapper .page-inner {
   max-width: 95%;
