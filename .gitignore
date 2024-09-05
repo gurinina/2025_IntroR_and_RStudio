@@ -1,3 +1,28 @@
+
+# Ignore the output folder (where the book is built)
+# bookdown files
+_book/
+_bookdown_files/
+2024_IntroR_and_RStudio.Rmd
+
+# Ignore the timing file and instructor files
+timing.txt
+
+17-introR_codebook_answers.Rmd
+17-introR_codebook.Rmd
+17-codebook_answers.Rmd
+2024_IntroR_and_RStudio.Rmd
+# data/subset_meta.csv
+
+# Ignore log files and temporary files
+*.log
+*.out
+*.aux
+
+# Ignore R Markdown intermediate files
+*.knit.md
+*.utf8.md
+
 # History files
 .Rhistory
 .Rapp.history
@@ -54,6 +79,3 @@ rsconnect/
 
 .DS_Store
 
-# bookdown files
-_book/
-_bookdown_files/
