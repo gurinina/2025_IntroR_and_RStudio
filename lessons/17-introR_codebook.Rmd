@@ -751,9 +751,9 @@ Subset the metadata dataframe to return only the rows of data with a genotype of
 ### Logical operators to match elements
 
 ```{r}
-rpkm_data <- read.csv("data/counts_rpkm.csv") # note the pathname is relative to the working directory if run in console but not if run inline
+rpkm_data <- read.csv("data/counts.rpkm.csv") # note the pathname is relative to the working directory if run in console but not if run inline
 
-# rpkm_data <- read.csv("../data/counts_rpkm.csv")
+# rpkm_data <- read.csv("../data/counts.rpkm.csv")
 
 ```
 
@@ -1151,7 +1151,7 @@ ggplot(new_metadata,aes(x = age_in_days, y= samplemeans)) + geom_point()# what h
 Add color to aesthetics:
 ```{r}
 ggplot(new_metadata) +
-  geom_point(aes(x = age_in_days, y= samplemeans, color = genotype)) 
+  geom_point(aes(x = age_in_days, y = samplemeans, color = genotype)) 
 ```
 
 Add shape to aesthetics:

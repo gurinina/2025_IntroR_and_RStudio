@@ -12,7 +12,8 @@ timing.txt
 17-introR_codebook.Rmd
 17-codebook_answers.Rmd
 2024_IntroR_and_RStudio.Rmd
-# data/subset_meta.csv
+data/subset_meta.csv
+figures/scatterplot.pdf
 
 # Ignore log files and temporary files
 *.log

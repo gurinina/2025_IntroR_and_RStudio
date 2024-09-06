@@ -5,19 +5,10 @@
 \usepackage{fancyvrb}    % For verbatim environments and code
 \usepackage{longtable}   % For tables that span multiple pages
 \usepackage{booktabs}    % For better table styling
-\usepackage{tocloft}     % For controlling table of contents behavior
 
-% Disable List of Figures in the Table of Contents
-\makeatletter
-\let\origlistoffigures\listoffigures
-\renewcommand{\listoffigures}{
-  \begingroup
-  \cftparskip=0pt % Set the parskip to 0 to avoid extra space
-  \renewcommand{\addtocontents}[2]{}
-  \origlistoffigures
-  \endgroup
-}
-\makeatother
+% Disable List of Figures and List of Tables
+\renewcommand{\listoffigures}{}
+\renewcommand{\listoftables}{}
 
 % Custom formatting
 \setlength{\parindent}{0pt}             % Remove paragraph indentation
