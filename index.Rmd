@@ -1,6 +1,5 @@
 --- 
 title: "Applied Omics Science for Drug Discovery and Development" 
-author: "Guri Giaever"
 output:
   bookdown::gitbook:
     css: [css/git.css, css/toc.css]
@@ -8,12 +7,7 @@ output:
       toc:
         collapse: section
       download: ["pdf", "epub"]
-date: "`r Sys.Date()`"
 link-citations: yes 
-colorlinks: yes
-lot: yes
-lof: yes
-fontsize: 12pt
 github-repo: gurinina/2024_IntroR_and_RStudio 
 url: https\://bookdown.org/ggiaever/2024_IntroR_and_RStudio/ 
 site: bookdown::bookdown_site 
@@ -22,7 +16,7 @@ favicon: "img/icons8-biotech-64.png"
 cover-image: "img/koos10.png"
 --- 
 
-# Welcome to Applied Omics Science for Drug Discovery and Development! {-}
+# Welcome to Omics Science! {-}
 
 <p align="center">
   <img src="img/koos10.png" alt="Welcome to Omics Science!" width="300" />

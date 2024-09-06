@@ -1,28 +1,41 @@
-% Basic packages for LaTeX
+% Load necessary packages
 \usepackage{graphicx}    % For including images
-\usepackage{amsmath}     % For advanced math typesetting
+\usepackage{amsmath}     % For math typesetting
 \usepackage{hyperref}    % For creating hyperlinks
-\usepackage{fancyvrb}    % For verbatim environments and code
-\usepackage{longtable}   % For tables that span multiple pages
-\usepackage{booktabs}    % For better table styling
+\usepackage{fancyvrb}    % For verbatim environments and code blocks
+\usepackage{longtable}   % For long tables
+\usepackage{booktabs}    % For better table formatting
+\usepackage{listings}    % For better code formatting
 
-% Disable List of Figures and List of Tables
+% Suppress List of Figures (LoF) and List of Tables (LoT)
 \renewcommand{\listoffigures}{}
 \renewcommand{\listoftables}{}
+
+% Configure listings to handle code formatting
+\lstset{
+  language=R,              % Set the default language (R, Python, etc.)
+  breaklines=true,          % Enable automatic line breaks
+  breakatwhitespace=true,   % Break lines at whitespace if possible
+  basicstyle=\small\ttfamily, % Use small monospaced font for code
+  commentstyle=\itshape\ttfamily, % Italic monospaced font for comments
+  columns=fullflexible,     % Flexibility for proper line wrapping
+  keepspaces=true,          % Preserve spaces and indentation
+  frame=single              % Add a frame around the code blocks
+}
 
 % Custom formatting
 \setlength{\parindent}{0pt}             % Remove paragraph indentation
 \setlength{\parskip}{1em}               % Add space between paragraphs
 
-% Page geometry (remove this if you handle margins in output.yml)
+% Page geometry (if necessary; otherwise, use output.yml)
 \usepackage[top=1in, left=0.5in, right=0.5in, bottom=0.5in]{geometry}
 
 % Custom commands
 \newcommand{\vect}[1]{\boldsymbol{#1}}  % Command to bold vectors
 
-% PDF-specific configurations
+% PDF-specific settings
 \hypersetup{
   colorlinks=true,                       % Enable colored links in the PDF
-  linkcolor=blue,                        % Color of internal links
-  urlcolor=cyan                          % Color of URLs
+  linkcolor=blue,                        % Color for internal links
+  urlcolor=cyan                          % Color for external links
 }

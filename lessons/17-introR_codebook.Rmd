@@ -385,7 +385,7 @@ age[1:4]
 ```{r}
 age
 age > 50
-age[age > 50] # here the logical operator is nested within the square brackets and therefore returns only the elements of age that are greater than 50
+age[age > 50] ## nested
 ```
 
 ```{r}
@@ -438,7 +438,13 @@ expression[expression == "high"]  ## This will only return those elements in the
 ```{r}
 
 exp <- expression[expression == "high"]
-exp # Notice here that exp is a factor with only one level, "high" yet `Levels` still shows all three levels. This is because the factor is a categorical variable, and the levels are the categories. In this case, the only category is "high". If you want to remove unused levels, you can use droplevels(), or since there is only one level, you can use as.character() to convert it to a character vector.
+exp
+
+```
+
+Notice here that exp is a factor with only one level, "high", yet `Levels` still shows all three levels. This is because the factor is a categorical variable, and the levels are the categories. In this case, the only category is "high". If you want to remove unused levels, you can use droplevels(), or since there is only one level, you can use as.character() to convert it to a character vector.
+
+```{r}
 
 droplevels(exp)  # this will remove the unused levels
 
@@ -474,7 +480,9 @@ Use the samplegroup factor we created in a previous lesson, and relevel it such 
 It's always a good idea to periodically save your work. You can do this by using the command `save.image()`:
 ```{r}
 
-save.image() # saves all environmental variables in your current R session to a file called ".RData" in your working directory -- this is a command that you should use often when in an R session to save your work.
+save.image() # saves all environmental variables in your current R session 
+# to a file called ".RData" in your working directory -- this is a command 
+# that you should use often when in an R session to save your work.
 
 #OR give it a memorable name
 
@@ -1090,7 +1098,7 @@ head(new_metadata)
 **.md file = 12-ggplot2.md**
 
 ```{r, eval = FALSE}
-## load the new_metadata data frame into your environment from a .RData object, if you need to - set eval=TRUE 
+## load the new_metadata data frame into your environment from a .RData object, if you need to set eval = TRUE
 load("data/new_metadata.RData")
 ```
 
@@ -1157,7 +1165,8 @@ ggplot(new_metadata) +
 Add shape to aesthetics:
 ```{r}
 ggplot(new_metadata) +
-  geom_point(aes(x = age_in_days, y = samplemeans, color = genotype, shape = celltype)) 
+  geom_point(aes(x = age_in_days, y = samplemeans, color = genotype, 
+                 shape = celltype)) 
 ```
 
 Add point size to geometry:
@@ -1188,7 +1197,7 @@ Do the axis labels or the tick labels get any larger by changing themes?
 ```{r}
 ggplot(new_metadata) +
   geom_point(aes(x = age_in_days, y = samplemeans, 
-                 color = genotype,   shape = celltype), size = 2.25) +
+                 color = genotype, shape = celltype), size = 2.25) +
   theme_bw() +
   theme(axis.title = element_text(size = rel(1.5)))       
 ```
@@ -1317,7 +1326,7 @@ write.csv(sub_meta, file="data/subset_meta.csv")
 
 ```{r}
 
-# opens the graphics device for writing
+# opens the graphics device for writing to a file
 pdf(file = "figures/scatterplot.pdf")
 
 ggplot(new_metadata) +

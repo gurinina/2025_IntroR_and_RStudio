@@ -140,10 +140,10 @@ Notice that we get the same results regardless of whether or not we use the `whi
 Since factors are special vectors, the same rules for selecting values using indices apply. The elements of the expression factor created previously had the following categories or levels: low, medium, and high. 
 Let's extract the values of the factor with high expression, and let's using `nesting` here:
 ```r
-expression[expression == "high"]    ## This will only return those elements in the factor equal to "high"
+expression[expression == "high"]    
+## This will only return those elements in the factor equal to "high"
 ```
 
-***
 **Exercise**
 
 Extract only those elements in `samplegroup` that are not KO (*nesting the logical operation is optional*).
@@ -167,7 +167,8 @@ The categories are referred to as "factor levels". As we learned earlier, the le
 To relevel the categories, you can add the `levels` argument to the `factor()` function, and give it a vector with the categories listed in the required order:
 
 ```r
-expression <- factor(expression, levels=c("low", "medium", "high"))     # you can re-factor a factor 
+expression <- factor(expression, levels=c("low", "medium", "high")) 
+# you can re-factor a factor 
 
 str(expression)
 Factor w/ 3 levels "low","medium",..: 1 3 2 3 1 2 3
