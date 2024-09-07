@@ -26,7 +26,7 @@ If you are on a Mac, you also need to install XCode. Open the terminal app and t
 
 sudo xcode-select --install
 
-This installs Xcode command line tools which are sufficient to build R.
+There is dash between xcode and select follow by a space and then a double dash before the word install which may not be visible in the pdf file. This installs Xcode command line tools which are sufficient to build R.
 
 
 ### Installing RStudio
