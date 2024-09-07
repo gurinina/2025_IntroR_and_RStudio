@@ -1,12 +1,14 @@
 bookdown::gitbook:
-    df_print: kable
-    css: [css/git.css, css/toc.css]
-    config:
-      toc:
-        collapse: section
-      download: ["pdf", "epub"]
+  fig_caption: false  # Disable figure captions in Gitbook
+  df_print: kable
+  css: [css/git.css, css/toc.css]
+  config:
+    toc:
+      collapse: section
+    download: ["pdf", "epub"]
 
 bookdown::pdf_book:
+  fig_caption: false  # Disable figure captions in PDF output
   includes:
     in_header: preamble.tex
   latex_engine: xelatex
@@ -16,4 +18,5 @@ bookdown::pdf_book:
   lot: false    # Disable List of Tables
 
 bookdown::epub_book:
+  fig_caption: false  # Disable figure captions in EPUB output
   epub_version: "epub3"

@@ -158,7 +158,9 @@ We have a list of 6 marker genes that we are very interested in. Our goal is to 
 First, let's create a vector called `important_genes` with the Ensembl IDs of the 6 genes we are interested in:
 
 ```r
-important_genes <- c("ENSMUSG00000083700", "ENSMUSG00000080990", "ENSMUSG00000065619", "ENSMUSG00000047945", "ENSMUSG00000081010", "ENSMUSG00000030970")
+important_genes <- c("ENSMUSG00000083700", "ENSMUSG00000080990", 
+"ENSMUSG00000065619", "ENSMUSG00000047945", "ENSMUSG00000081010",
+"ENSMUSG00000030970")
 ```
 
 1. Use the `%in%` operator to determine if all of these genes are present in the row names of the `rpkm_data` data frame.

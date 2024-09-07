@@ -35,7 +35,7 @@ First, check the arguments for the function using the `?` to ensure that you are
 
 The first item on the documentation page is the function **Description**, which specifies that the output of this set of functions is going to be a **data frame**.
 
-In usage, all of the arguments listed for `read.table()` are the default values for all of the family members unless otherwise specified for a given function. Let's take a look at 2 examples:
+In usage, all of the arguments listed for `read.table()` are the default values for all of the family members unless otherwise specified for a given function. Let's take a look at 3 examples:
 
 1. **The separator**  
 

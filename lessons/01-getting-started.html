@@ -354,25 +354,25 @@ display: none;
 
 <div id="getting-started" class="section level1">
 <h1>Getting started</h1>
-<p>The 01-getting-started.html file gives step-by-step instructions for
-installing R and RStudio. Open this file in your web browser. Where
-installation links are provided, right click on the link to go to the
-download site. Instructions for obtaining additional files and packages
-required to get up and running for the course are also included here.
-You can also go to the getting-started chapter in the bookdown version
-of this file found here: <a href="https://bookdown.org/ggiaever/2024_IntroR_and_RStudio/">2024_IntroR_and_RStudio</a>.</p>
+<p>The 01-getting-started.pdf file gives step-by-step instructions for
+installing R and RStudio. Where installation links are provided, right
+click on the link to go to the download site. Instructions for obtaining
+additional files and packages required to get up and running for the
+course are also included here. You can also go to the “Getting started”
+chapter in the bookdown version of this file found here: <a href="https://bookdown.org/ggiaever/2024_IntroR_and_RStudio/">2024_IntroR_and_RStudio</a>.</p>
 <div id="installing-r" class="section level3">
 <h3>Installing R</h3>
 <p>The first step is to install R. You can download and install R from
 the <a href="https://cran.r-project.org/">Comprehensive R Archive
-Network</a>.</p>
+Network (CRAN)</a>, for MacOS <a href="https://cran.r-project.org/bin/macosx/">here</a> and for Windows
+<a href="https://cran.r-project.org/bin/windows/base/">here</a>.</p>
 <p><strong>Note: if you have a Mac M1 arm64 computer, DON’T install the
-R-4.3.1-arm64.pkg, install R-4.3.1-x86_64.pkg for Intel because the
-arm64 version doesn’t support Bioconductor packages.</strong></p>
+R-4.4.1-arm64.pkg, instead install R-4.4.1-x86_64.pkg for Intel because
+the arm64 version doesn’t support the Bioconductor packages that we will
+be using.</strong></p>
 <p>For MacOS, the next things you need to install are XQuartz and
 fortran tools.</p>
-<p>Download and install
-<a href="http://xquartz.macosforge.org">XQuartz</a> (version 2.8.5 or
+<p>Download and install <a href="http://xquartz.macosforge.org/">XQuartz</a> (version 2.8.5 or
 later)</p>
 <p>The download link for fortran tools:</p>
 <p><strong><a href="https://mac.r-project.org/tools/gfortran-12.2-universal.pkg">gfortran-12.2-universal.pkg</a></strong></p>
@@ -399,11 +399,11 @@ anywhere. It’s fairly sophisticated and we are not going to learn a lot
 about it here but it is well worth your time to learn it if you don’t
 know about it already. A good introduction to using Git with R can be
 found <a href="https://happygitwithr.com/clone.html">here</a>. For this
-course we will use it primarily just to “clone” course material from a
-“repository” onto your local machine.</p>
-<p>There are two course repositories that you need to clone. To clone
-the first one so that you get your own copy in Rstudio, create a new
-RStudio Project.</p>
+course we will use github primarily just to “clone” course material from
+a “repository” onto your local machine.</p>
+<p>There are three course repositories for the course that you need to
+clone. To clone the first one so that you get your own copy in Rstudio,
+create a new RStudio Project.</p>
 <p>Be intentional about where you create this Project. You should make a
 folder where you keep all of your RProjects, for example, your home
 directory /Users/your username/Documents/RProjects is a good one.</p>
@@ -414,24 +414,23 @@ directory /Users/your username/Documents/RProjects is a good one.</p>
 field.</p>
 <p>In the Create as a sub-directory field navigate to your RProjects
 folder.</p>
-<p>Hit Create Project and your 2024_IntroR_and_RStudio project will be generated.</p>
-<p>If you have already created the 2024_IntroR_and_RStudio project but have closed
-RStudio, you can open it by starting Rstudio, going to Open Project in
-the File menu, navigating to the 2024_IntroR_and_RStudio folder and double clicking
-on the 2024_IntroR_and_RStudio.RProj.</p>
+<p>Hit Create Project and your 2024_IntroR_and_RStudio project will be
+generated.</p>
+<p>If you have already created the 2024_IntroR_and_RStudio project but
+have closed RStudio, you can open it by starting Rstudio, going to Open
+Project in the File menu, navigating to the 2024_IntroR_and_RStudio
+folder and opening it. Alternatively, you should be able to find it in
+the Recent Projects list on the RStudio start page.</p>
 </div>
-<div id="running-r-code" class="section level3">
-<h3>Running R code</h3>
-<p>Open the file 01-getting-started.html file in your browser and follow
-the instructions below for installing packages.</p>
+<div id="running-r-code-installing-packages" class="section level3">
+<h3>Running R code; installing packages</h3>
 <p>The first R command we will run is <code>install.packages</code>. R
 only includes a basic set of functions. It can do much more than this,
-and many of these functions are stored in the Comprehensive R Archive
-Network (CRAN). Note that these packages are vetted: they are checked
-for common errors and they must have a dedicated maintainer. You can
-easily install packages from within R if you know the name of the
-packages. As an example, we are going to install the three required
-packages.</p>
+and many of these functions are stored in the <a href="https://cran.r-project.org/">CRAN</a>. Note that these packages
+are vetted: they are checked for common errors and they must have a
+dedicated maintainer. You can easily install packages from within R if
+you know the name of the packages. As an example, we are going to
+install the three required packages.</p>
 <p>You’ll need to install <code>bookdown</code>, <code>knitr</code> and
 <code>rmarkdown</code> packages to compile the 01-getting-started.Rmd
 file in R. R Markdown is a file format for making dynamic documents with
@@ -444,26 +443,34 @@ following chunk prevents code from appearing in the finished file and
 using three single backticks followed by {r} in closed parentheses at
 the beginning of the chunk and three more backticks at the end of a
 chunk. You can insert a chunk automatically by clicking on the insert
-chunk at the top of an Rmd document (click the green +C icon and in the
-dropdown menu choose R). To create a document (usually HTML or PDF) from
-rmarkdown, you need to Knit the document using the ‘knitr’ package.
-Knitting a document simply means taking all the text and code and
-creating a nicely formatted document in either HTML, PDF, or Word.
+chunk at the top of an Rmd document (click the green +C square icon and
+choose R in the dropdown menu). To create a document (usually HTML or
+PDF) from rmarkdown, you need to Knit the document using the ‘knitr’
+package. Knitting a document simply means taking all the text and code
+and creating a nicely formatted document in either HTML, PDF, or Word.
 ‘bookdown’ allows you to compile files into a book, like the ones we’ll
 be using in class, available on my bookdown page at <a href="https://bookdown.org/ggiaever/2024_IntroR_and_RStudio/">2024_IntroR_and_RStudio</a>.</p>
-<p>Copy and paste the following <code>chunk outputs</code> (light yellow
+<p>Copy and paste the following <code>chunk outputs</code> (light pink
 bits) into your console (bottom left corner of RStudio) without the
 header and footer backticks.</p>
-<pre class="r"><code># type the following into your console or run the chunk in the .Rmd file if you managed to open the
-# document in R, after setting eval to TRUE, by clicking on the little green arrow next to the
-# chunk.
+<pre class="r"><code># type the following into your console or run the chunk in the .Rmd file if you
+# managed to open the document in R, after setting eval to TRUE, by clicking on
+# the little green arrow next to the chunk.
 
-install.packages(c(&quot;rmarkdown&quot;, &quot;bookdown&quot;, &quot;knitr&quot;))</code></pre>
+install.packages(c(&quot;rmarkdown&quot;, &quot;bookdown&quot;, &quot;knitr&quot;, &quot;devtools&quot;, &quot;rsconnect&quot;))</code></pre>
 <p>To load the packages after installation copy and paste the following
 <code>chunk output</code> into your console:</p>
 <pre class="r"><code>library(bookdown)
 library(knitr)
-library(rmarkdown)</code></pre>
+library(rmarkdown)
+library(devtools)</code></pre>
+<pre><code>## Loading required package: usethis</code></pre>
+<pre class="r"><code>library(rsconnect)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;rsconnect&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:devtools&#39;:
+## 
+##     lint</code></pre>
 <p>Once these packages have been installed and loaded, you should be
 able to run the .Rmd version of this file. So you can switch from
 following the 01-getting-started.html file to following the
@@ -475,43 +482,60 @@ menu. If want to keep using the .html file, just copy and paste the
 <code>chunk outputs</code> (light yellow bits) into your console (bottom
 left corner of RStudio).</p>
 <p><strong>Note that eval is often set to FALSE in my working copy of
-the 01-getting-started.Rmd file. That is usually because I have already
-run these commands once and don’t need to run them again, nor should you
-after you have run them once. Typically, eval = FALSE is set for chunks
-that install packages that have already been installed.</strong></p>
+the .Rmd files. This is usually because I have already run these
+commands once and don’t need to run them again, nor should you after you
+have run them once (it’s time consuming). Typically, eval = FALSE is set
+for chunks that install packages that have already been
+installed.</strong></p>
 <p>Packages can also be installed from <a href="https://www.bioconductor.org/">Bioconductor</a>, another
 repository of packages which provides tools for the analysis and
 comprehension of high-throughput <strong>genomic data</strong>. We’ll
 use <code>Bioconductor</code> most of the time when installing
 packages.</p>
 <p>To install from Bioconductor, you first need to install
-<code>BiocManager</code>. <em>This only needs to be done once ever for
-your R installation.</em> We will be installing several packages from
-Bioconductor using <code>BiocManager</code> (see below).</p>
+<code>BiocManager</code>. <strong>This only needs to be done once ever
+for your R installation.</strong> We will be installing several packages
+from Bioconductor using <code>BiocManager</code> (see below).</p>
 <p>Set eval = TRUE if you haven’t yet installed BiocManager.</p>
 <pre class="r"><code>install.packages(&quot;BiocManager&quot;)</code></pre>
 <p>For the other packages you’ll need, run the following (you should set
 eval = TRUE):</p>
-<pre class="r"><code>devtools::install_github(&quot;gurinina/GOenrichment&quot;)
+<pre class="r"><code>devtools::install_github(&quot;gurinina/GOenrichment&quot;, force = TRUE)
 
-BiocManager::install(c(&quot;gplots&quot;, &quot;tidyverse&quot;, &quot;RColorBrewer&quot;, &quot;DESeq2&quot;, &quot;pheatmap&quot;, &quot;ggplot2&quot;, &quot;ggrepel&quot;,
-    &quot;org.Hs.eg.db&quot;, &quot;clusterProfiler&quot;, &quot;enrichplot&quot;, &quot;fgsea &quot;, &quot;purrr&quot;))</code></pre>
+BiocManager::install(c(&quot;gplots&quot;, &quot;tidyverse&quot;, &quot;RColorBrewer&quot;, &quot;DESeq2&quot;, &quot;pheatmap&quot;,
+    &quot;ggplot2&quot;, &quot;ggrepel&quot;, &quot;org.Hs.eg.db&quot;, &quot;clusterProfiler&quot;, &quot;enrichplot&quot;, &quot;fgsea &quot;,
+    &quot;purrr&quot;))</code></pre>
+</div>
+<div id="running-r-code-compiling-the-book" class="section level3">
+<h3>Running R code; compiling the book</h3>
 <p><strong>Optional</strong> Once the <code>rmarkdown</code>,
 <code>bookdown</code> and <code>knitr</code> packages have been
 installed and the libraries loaded, you can try running the following
 command <strong>in your console:</strong></p>
+<p>There are two ways to render the book. The first is to run the
+following command in the console. The second is to run the render_all.R
+file in the 2024_IntroR_and_RStudio folder. You can run this by opening
+the file in RStudio and clicking the “source” button at the top of the
+script window.</p>
 <p>Setting eval = FALSE tells R not to run the code in the chunk.</p>
-<pre class="r"><code># DO NOT RUN THIS IN RMARKDOWN, DO NOT SET EVAL = TRUE, COPY AND PASTE IT INTO YOUR CONSOLE AND RUN
-# IT THERE -- ELSE IT WILL TRIGGER AN ENDLESS LOOP
-render_book(input = &quot;index.Rmd&quot;, config_file = &quot;_bookdown.yml&quot;, output_format = &quot;bookdown::gitbook&quot;)</code></pre>
+<pre class="r"><code># DO NOT RUN THIS IN RMARKDOWN, DO NOT SET EVAL = TRUE, COPY AND PASTE JUST THE
+# RENDER_BOOK COMMAND INTO YOUR CONSOLE AND RUN IT THERE -- ELSE IT WILL
+# TRIGGER AN ENDLESS LOOP
+render_book(input = &quot;index.Rmd&quot;, output_format = &quot;bookdown::gitbook&quot;)</code></pre>
 <p>If it appears to run successfully, go to the “_book” folder that has
 appeared in your working directory. Open it and then click on
 “index.html”. This will open up in your browser and then you should have
-your own version of the ‘2024_IntroR_and_RStudio’ book.</p>
+your own version of the ‘2024_IntroR_and_RStudio’ book. If you now open
+the index.Rmd file in RStudio and click on the “Knit” button at the top
+of the script window, you should be able to compile the book in your
+viewer pane, which makes it easier to navigate for the work we will be
+doing in class.</p>
 <p><strong>Optional</strong> You can publish this book on bookdown.org.
 It requires setting up an account and then running the following
 command:</p>
-<pre class="r"><code># DO NOT RUN THIS IN RMARKDOWN, COPY AND PASTE IT INTO YOUR CONSOLE AND RUN IT RUN IT THERE
+<pre class="r"><code># DO NOT RUN THIS IN RMARKDOWN, COPY AND PASTE publish_book() INTO YOUR CONSOLE
+# AND RUN IT RUN IT THERE
+
 publish_book()</code></pre>
 <p>R will tell you: You do not currently have a bookdown.org publishing
 account configured on this system. Would you like to configure one now?
@@ -552,11 +576,12 @@ choose this</p>
 <p>The second approach is to start going through the lectures, which are
 self-standing. For that I would go to the webpage hosting the book and
 start going through the lessons. You can find the book version of the
-introduction to R here: <a href="https://bookdown.org/ggiaever/2024_IntroR_and_RStudio/">2024_IntroR_and_RStudio</a>. Going
-through the initial lessons will be very really helpful for you, as we
-will dive into things pretty quickly and are not likely to get through
-all of the 2024_IntroR_and_RStudio sections in class. I recommend the ggplot2 lecture
-in particular after going through some of the basics.</p>
+introduction to R here: <a href="https://bookdown.org/ggiaever/2024_IntroR_and_RStudio/">2024_IntroR_and_RStudio</a>.
+Going through the initial lessons will be very really helpful for you,
+as we will dive into things pretty quickly and are not likely to get
+through all of the 2024_IntroR_and_RStudio sections in class. I
+recommend the ggplot2 lecture in particular after going through some of
+the basics.</p>
 <p>There are also many open and free resources and reference guides for
 R that will be helpful to you. Several examples are listed here:</p>
 <ul>

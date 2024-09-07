@@ -22,7 +22,7 @@ cover-image: "img/koos10.png"
   <img src="img/koos10.png" alt="Welcome to Omics Science!" width="300" />
 </p>
 
-The published version for each module can be found at my bookdown sites: [2024_IntroR_and_RStudio](https://bookdown.org/ggiaever/2024_IntroR_and_RStudio/), [RNA-seq-analysis](https://bookdown.org/ggiaever/RNA-seq-analysis/) and
+<!-- The published version for each module can be found at my bookdown sites: [2024_IntroR_and_RStudio](https://bookdown.org/ggiaever/2024_IntroR_and_RStudio/), [RNA-seq-analysis](https://bookdown.org/ggiaever/RNA-seq-analysis/) and -->
 [r4ds-ggplot2](https://bookdown.org/ggiaever/r4ds-ggplot2/).
 
 ## What we will cover: {-}

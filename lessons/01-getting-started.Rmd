@@ -1,17 +1,10 @@
----
-output:
-  html_document: default
-  pdf_document: default
-editor_options:
-  chunk_output_type: console
----
 # Getting started
 
 ```{r, echo=FALSE}
 library(knitr)
-knitr::opts_chunk$set(tidy.opts = list(width.cutoff = 100), tidy = TRUE)
+knitr::opts_chunk$set(tidy.opts = list(width.cutoff = 80), tidy = TRUE)
 ```
-The 01-getting-started.html file gives step-by-step instructions for installing R and RStudio. Open this file in your web browser. Where installation links are provided, right click on the link to go to the download site. Instructions for obtaining additional files and packages required to get up and running for the course are also included here. You can also go to the "Getting started" chapter in the bookdown version of this file found here: [2024_IntroR_and_RStudio](https://bookdown.org/ggiaever/2024_IntroR_and_RStudio/).
+The 01-getting-started.pdf file gives step-by-step instructions for installing R and RStudio. Where installation links are provided, right click on the link to go to the download site. Instructions for obtaining additional files and packages required to get up and running for the course are also included here. You can also go to the "Getting started" chapter in the bookdown version of this file found here: [2024_IntroR_and_RStudio](https://bookdown.org/ggiaever/2024_IntroR_and_RStudio/).
 
 ### Installing R
 
@@ -23,7 +16,7 @@ the [Comprehensive R Archive Network (CRAN)](https://cran.r-project.org/), for M
 
 For MacOS, the next things you need to install are XQuartz and fortran tools.
 
-Download and install <a href="http://xquartz.macosforge.org">XQuartz</a> (version 2.8.5 or later)
+Download and install [XQuartz](http://xquartz.macosforge.org/) (version 2.8.5 or later)
 
 The download link for fortran tools:
 
