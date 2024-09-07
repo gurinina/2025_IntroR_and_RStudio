@@ -377,10 +377,13 @@ later)</p>
 <p>The download link for fortran tools:</p>
 <p><strong><a href="https://mac.r-project.org/tools/gfortran-12.2-universal.pkg">gfortran-12.2-universal.pkg</a></strong></p>
 <p>If you are on a Mac, you also need to install XCode. Open the
-terminal app and type:</p>
+terminal app (in the Finder under the GO dropdown click Utilities and in
+that folder click on ‘Terminal.app’) and then type:</p>
 <p>sudo xcode-select –install</p>
-<p>This installs Xcode command line tools which are sufficient to build
-R.</p>
+<p>There is dash between xcode and select follow by a space and then a
+double dash before the word install which may not be visible in the pdf
+file. This installs Xcode command line tools which are sufficient to
+build R.</p>
 </div>
 <div id="installing-rstudio" class="section level3">
 <h3>Installing RStudio</h3>
@@ -409,7 +412,8 @@ folder where you keep all of your RProjects, for example, your home
 directory /Users/your username/Documents/RProjects is a good one.</p>
 <p>Start RStudio, then go to:</p>
 <p>File &gt; New Project &gt; Version Control &gt; Git. In the
-“repository URL” paste the URL of your new GitHub repository: <a href="https://github.com/gurinina/2024_IntroR_and_RStudio" class="uri">https://github.com/gurinina/2024_IntroR_and_RStudio</a></p>
+“repository URL” paste the URL of your new GitHub repository:</p>
+<p><a href="https://github.com/gurinina/2024_IntroR_and_RStudio" class="uri">https://github.com/gurinina/2024_IntroR_and_RStudio</a></p>
 <p>You don’t need to put anything in the Project directory name
 field.</p>
 <p>In the Create as a sub-directory field navigate to your RProjects
@@ -440,26 +444,29 @@ below. The notation at the beginning of each chunk gives specific
 instructions for the chunk. For example, “include = FALSE” in the
 following chunk prevents code from appearing in the finished file and
 “eval = FALSE” tells R not to run that chunk. Chunks need to be inserted
-using three single backticks followed by {r} in closed parentheses at
-the beginning of the chunk and three more backticks at the end of a
-chunk. You can insert a chunk automatically by clicking on the insert
-chunk at the top of an Rmd document (click the green +C square icon and
-choose R in the dropdown menu). To create a document (usually HTML or
-PDF) from rmarkdown, you need to Knit the document using the ‘knitr’
-package. Knitting a document simply means taking all the text and code
-and creating a nicely formatted document in either HTML, PDF, or Word.
+using three single backticks (below the ‘~’ on your keyboard to the left
+of number 1) followed by {r} in closed parentheses at the beginning of
+the chunk and three more backticks at the end of a chunk. You can insert
+a chunk automatically by clicking on the insert chunk at the top of an
+Rmd document (click the green +C square icon and choose R in the
+dropdown menu). To create a document (usually HTML or PDF) from
+rmarkdown, you need to Knit the document using the ‘knitr’ package.
+Knitting a document simply means taking all the text and code and
+creating a nicely formatted document in either HTML, PDF, or Word.
 ‘bookdown’ allows you to compile files into a book, like the ones we’ll
 be using in class, available on my bookdown page at <a href="https://bookdown.org/ggiaever/2024_IntroR_and_RStudio/">2024_IntroR_and_RStudio</a>.</p>
-<p>Copy and paste the following <code>chunk outputs</code> (light pink
-bits) into your console (bottom left corner of RStudio) without the
-header and footer backticks.</p>
+<p>Open the 01-getting started.Rmd and navigate to the code below. Copy
+and paste the following <code>chunk outputs</code> into your console
+(bottom left corner of RStudio) without the header and footer
+backticks.</p>
 <pre class="r"><code># type the following into your console or run the chunk in the .Rmd file if you
 # managed to open the document in R, after setting eval to TRUE, by clicking on
 # the little green arrow next to the chunk.
 
 install.packages(c(&quot;rmarkdown&quot;, &quot;bookdown&quot;, &quot;knitr&quot;, &quot;devtools&quot;, &quot;rsconnect&quot;))</code></pre>
 <p>To load the packages after installation copy and paste the following
-<code>chunk output</code> into your console:</p>
+<code>chunk output</code> into your console again without the header and
+footer backticks:</p>
 <pre class="r"><code>library(bookdown)
 library(knitr)
 library(rmarkdown)
@@ -522,14 +529,14 @@ script window.</p>
 # RENDER_BOOK COMMAND INTO YOUR CONSOLE AND RUN IT THERE -- ELSE IT WILL
 # TRIGGER AN ENDLESS LOOP
 render_book(input = &quot;index.Rmd&quot;, output_format = &quot;bookdown::gitbook&quot;)</code></pre>
-<p>If it appears to run successfully, go to the “_book” folder that has
+<p>If it runs successfully, you will have a “_book” folder that has
 appeared in your working directory. Open it and then click on
 “index.html”. This will open up in your browser and then you should have
-your own version of the ‘2024_IntroR_and_RStudio’ book. If you now open
-the index.Rmd file in RStudio and click on the “Knit” button at the top
-of the script window, you should be able to compile the book in your
-viewer pane, which makes it easier to navigate for the work we will be
-doing in class.</p>
+your own version of the ‘2024_IntroR_and_RStudio’ book.</p>
+<p>If you now open the index.Rmd file in RStudio and click on the “Knit”
+button at the top of the script window, you should be able to compile
+the book in your viewer pane, which makes it easier to navigate for the
+work we will be doing in class.</p>
 <p><strong>Optional</strong> You can publish this book on bookdown.org.
 It requires setting up an account and then running the following
 command:</p>
@@ -539,15 +546,15 @@ command:</p>
 publish_book()</code></pre>
 <p>R will tell you: You do not currently have a bookdown.org publishing
 account configured on this system. Would you like to configure one now?
-[Y/n]: Type Y A browser window should open to complete
-authentication.</p>
+[Y/n]: Type ‘y’ and hit enter.</p>
+<p>A browser window should open to complete authentication.</p>
 </div>
 <div id="learn-r-basics" class="section level2">
 <h2>Learn R Basics</h2>
 <p>In this book we will be using the<strong>R programming
 language</strong> for all our analysis. You will be introduced to R in
-the first lab. However, if you have no basic programming skills and
-knowledge of R your first homework assignment is to complete an R
+the first lab. However, if you have no basic programming skills and no
+knowledge of R, your first homework assignment is to complete an R
 tutorial to familiarize yourself with the basics of programming and R
 syntax.</p>
 <p>There are two approaches here. The first is to go through the <a href="http://swirlstats.com/">swirl</a> tutorial, which teaches you R
@@ -559,8 +566,7 @@ and run it the following way:</p>
 library(swirl)
 swirl()</code></pre>
 <p>It will provide prompts and ask you what you want to learn. Choose R
-Programming, then choose any of these lessons except 10, 11, 13:15.
-Functions is a good one to try.</p>
+Programming, then choose any of these lessons except 10, 11, 13-15.</p>
 <p>1: Basic Building Blocks<br />
 2: Workspace and Files<br />
 3: Sequences of Numbers<br />

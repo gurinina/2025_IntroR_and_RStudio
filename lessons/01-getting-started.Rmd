@@ -22,7 +22,7 @@ The download link for fortran tools:
 
 **[gfortran-12.2-universal.pkg](https://mac.r-project.org/tools/gfortran-12.2-universal.pkg)**
 
-If you are on a Mac, you also need to install XCode. Open the terminal app and type:
+If you are on a Mac, you also need to install XCode. Open the terminal app (in the Finder under the GO dropdown click Utilities and in that folder click on 'Terminal.app') and then type:
 
 sudo xcode-select --install
 
@@ -49,7 +49,9 @@ Be intentional about where you create this Project. You should make a folder whe
 
 Start RStudio, then go to:
 
-File > New Project > Version Control > Git. In the “repository URL” paste the URL of your new GitHub repository: https://github.com/gurinina/2024_IntroR_and_RStudio
+File > New Project > Version Control > Git. In the “repository URL” paste the URL of your new GitHub repository:
+
+https://github.com/gurinina/2024_IntroR_and_RStudio
 
 You don't need to put anything in the Project directory name field. 
 
@@ -63,9 +65,10 @@ If you have already created the 2024_IntroR_and_RStudio project but have closed 
 
 The first R command we will run is `install.packages`. R only includes a basic set of functions. It can do much more than this, and many of these functions are stored in the [CRAN](https://cran.r-project.org/). Note that these packages are vetted: they are checked for common errors and they must have a dedicated maintainer. You can easily install packages from within R if you know the name of the packages. As an example, we are going to install the three required packages.
 
-You'll need to install `bookdown`, `knitr` and `rmarkdown` packages to compile the 01-getting-started.Rmd file in R. R Markdown is a file format for making dynamic documents with R. An R Markdown document is written in markdown (an easy-to-write plain text format) and contains chunks of embedded R code, like the ones below. The notation at the beginning of each chunk gives specific instructions for the chunk. For example, "include = FALSE" in the following chunk prevents code from appearing in the finished file and "eval = FALSE" tells R not to run that chunk. Chunks need to be inserted using three single backticks followed by {r} in closed parentheses at the beginning of the chunk and three more backticks at the end of a chunk. You can insert a chunk automatically by clicking on the insert chunk at the top of an Rmd document (click the green +C square icon and choose R in the dropdown menu). To create a document (usually HTML or PDF) from rmarkdown, you need to Knit the document using the 'knitr' package. Knitting a document simply means taking all the text and code and creating a nicely formatted document in either HTML, PDF, or Word. 'bookdown' allows you to compile files into a book, like the ones we'll be using in class, available on my bookdown page at [2024_IntroR_and_RStudio](https://bookdown.org/ggiaever/2024_IntroR_and_RStudio/).
+You'll need to install `bookdown`, `knitr` and `rmarkdown` packages to compile the 01-getting-started.Rmd file in R. R Markdown is a file format for making dynamic documents with R. An R Markdown document is written in markdown (an easy-to-write plain text format) and contains chunks of embedded R code, like the ones below. The notation at the beginning of each chunk gives specific instructions for the chunk. For example, "include = FALSE" in the following chunk prevents code from appearing in the finished file and "eval = FALSE" tells R not to run that chunk. Chunks need to be inserted using three single backticks (below the '~' on your keyboard to the left of number 1) followed by {r} in closed parentheses at the beginning of the chunk and three more backticks at the end of a chunk. You can insert a chunk automatically by clicking on the insert chunk at the top of an Rmd document (click the green +C square icon and choose R in the dropdown menu). To create a document (usually HTML or PDF) from rmarkdown, you need to Knit the document using the 'knitr' package. Knitting a document simply means taking all the text and code and creating a nicely formatted document in either HTML, PDF, or Word. 'bookdown' allows you to compile files into a book, like the ones we'll be using in class, available on my bookdown page at [2024_IntroR_and_RStudio](https://bookdown.org/ggiaever/2024_IntroR_and_RStudio/).
 
-Copy and paste the following `chunk outputs` (light pink bits) into your console (bottom left corner of RStudio) without the header and footer backticks.
+Open the 01-getting started.Rmd and navigate to the code below. Copy and paste the following `chunk outputs` into your console (bottom left corner of RStudio) without the header and footer backticks.
+
 ```{r, eval = FALSE}
 # type the following into your console or run the chunk in the .Rmd file if you managed to open the document in R, after setting eval to TRUE, by clicking on the little green arrow next to the chunk. 
 
@@ -73,8 +76,7 @@ install.packages(c("rmarkdown","bookdown","knitr","devtools","rsconnect"))
 
 ```
 
-
-To load the packages after installation copy and paste the following `chunk output` into your console:
+To load the packages after installation copy and paste the following `chunk output` into your console again without the header and footer backticks:
 ```{r}
 library(bookdown)
 library(knitr)
@@ -126,7 +128,8 @@ Setting eval = FALSE tells R not to run the code in the chunk.
 render_book(input = 'index.Rmd', output_format = "bookdown::gitbook")
 ```
 
-If it appears to run successfully, go to the "_book" folder that has appeared in your working directory. Open it and then click on "index.html". This will open up in your browser and then you should have your own version of the '2024_IntroR_and_RStudio' book. 
+If it runs successfully, you will have a "_book" folder that has appeared in your working directory. Open it and then click on "index.html". This will open up in your browser and then you should have your own version of the '2024_IntroR_and_RStudio' book. 
+
 If you now open the index.Rmd file in RStudio and click on the "Knit" button at the top of the script window, you should be able to compile the book in your viewer pane, which makes it easier to navigate for the work we will be doing in class.
 
 **Optional**
@@ -143,13 +146,14 @@ publish_book()
 
 R will tell you:
 You do not currently have a bookdown.org publishing account configured on this system. Would you like to configure one now? [Y/n]: 
-Type Y
+Type 'y' and hit enter.
+
 A browser window should open to complete authentication.
 
 ## Learn R Basics
 
 In this book we will be using the**R programming language** for all our
-analysis. You will be introduced to R in the first lab. However, if you have no basic programming skills and knowledge of R your first homework assignment is to complete an R tutorial to familiarize yourself with the basics of programming and R syntax. 
+analysis. You will be introduced to R in the first lab. However, if you have no basic programming skills and no knowledge of R, your first homework assignment is to complete an R tutorial to familiarize yourself with the basics of programming and R syntax. 
 
 There are two approaches here. The first is to go through the [swirl](http://swirlstats.com/) tutorial, which teaches you R programming and data science interactively, at your own pace and in the R console. Once you have R installed, you can install `swirl` and run it the following way: 
 
@@ -161,7 +165,7 @@ library(swirl)
 swirl()
 ```
 
-It will provide prompts and ask you what you want to learn. Choose R Programming, then choose any of these lessons except 10, 11, 13:15. Functions is a good one to try.
+It will provide prompts and ask you what you want to learn. Choose R Programming, then choose any of these lessons except 10, 11, 13-15.
 
  1:  Basic Building Blocks      
  2:  Workspace and Files     
