@@ -3,7 +3,7 @@
 
 [Tidyverse](https://www.tidyverse.org/packages/) is a suite of packages that are incredibly useful for working with data. are designed to work together to make common data science operations more user friendly. The packages have functions for data wrangling, tidying, reading/writing, parsing, and visualizing, among others. 
 
-![](img/tidyverse_website.png)
+![Alt text](img/tidyverse_website.png){ width=300 }
 
 ## Tidyverse basics
 

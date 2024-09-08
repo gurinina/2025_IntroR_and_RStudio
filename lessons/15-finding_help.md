@@ -13,9 +13,9 @@ precise as possible when describing your problem.**
 
 2. **Always include the output of `sessionInfo()`** as it provides critical information about your platform, the versions of R and the packages that you are using, and other information that can be very helpful to understand your problem.
 
-	```r
-	sessionInfo()  #This time it is not interchangeable with search()
-	```
+```r
+sessionInfo()  #This time it is not interchangeable with search()
+```
 
 3. If possible, **reproduce the problem using a very small `data.frame`**
 instead of your 50,000 rows and 10,000 columns one, provide the small one with
