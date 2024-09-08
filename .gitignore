@@ -13,7 +13,12 @@ timing.txt
 17-codebook_answers.Rmd
 2024_IntroR_and_RStudio.Rmd
 data/subset_meta.csv
+# Ignore the scatterplot.pdf file inside the figures/ folder
 figures/scatterplot.pdf
+
+# Allow the figures/ folder to be tracked
+!figures/
+
 
 # Ignore log files and temporary files
 *.log
