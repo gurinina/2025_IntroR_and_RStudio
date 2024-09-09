@@ -5,9 +5,10 @@ output:
 ---
 # Getting started with R and RStudio
 
-```{r, echo=FALSE}
-library(knitr)
+```{r, include = FALSE}
+
 knitr::opts_chunk$set(tidy.opts = list(width.cutoff = 80), tidy = TRUE)
+
 ```
 
 This `01-getting-started.pdf` file gives step-by-step instructions for installing R and RStudio. Where installation links are provided, click on the link to go to the download site. Instructions for obtaining additional files and packages required to get up and running for the course are also included in this file.
@@ -72,51 +73,63 @@ If you have already created the 2024_IntroR_and_RStudio project but have closed 
 
 The first R command we will run is `install.packages`. R only includes a basic set of functions. It can do much more than this, and many of these functions are stored in the [Comprehensive R Archive Network (CRAN) repository](https://cran.r-project.org/). Note that these packages are vetted: they are checked for common errors and they must have a dedicated maintainer. You can easily install packages from within R if you know the name of the packages. As an example, we are going to install the three required packages.
 
-You'll need to install `bookdown`, `knitr` and `rmarkdown` packages to compile the 01-getting-started.Rmd file in R. R Markdown is a file format for making dynamic documents with R. An R Markdown document is written in markdown (an easy-to-write plain text format) and contains chunks of embedded R code, like the ones below (pink bits). The notation at the beginning of each chunk gives specific instructions for the chunk. For example, "include = FALSE" in the following chunk prevents code from appearing in the finished file and "eval = FALSE" tells R not to run that chunk. Chunks need to be inserted using three single backticks (below the '~' on your keyboard; to the left of number 1) followed by {r} in closed parentheses at the beginning of the chunk and three more backticks at the end of a chunk. You can insert a chunk automatically by clicking on the insert chunk at the top of an Rmd document (click the green +C square icon and choose R in the dropdown menu). To create a document (usually HTML or PDF) from rmarkdown, you need to Knit the document using the `knitr` package. Knitting a document simply means taking all the text and code and creating a nicely formatted document in either HTML, PDF, or Word. 'bookdown' allows you to compile files into a book, like the ones we'll be using in class. You can see this bookdown module on my bookdown page at [2024_IntroR_and_RStudio](https://bookdown.org/ggiaever/2024_IntroR_and_RStudio/).
+You'll need to install `bookdown`, `knitr` and `rmarkdown` packages to compile the 01-getting-started.Rmd file in R. R Markdown is a file format for making dynamic documents with R. An R Markdown document is written in markdown (an easy-to-write plain text format) and contains chunks of embedded R code, like the ones below. The notation at the beginning of each chunk gives specific instructions for the chunk. For example, `include = FALSE` in the first chunk prevents code from appearing in the finished file and `eval = FALSE` tells R not to run/evaluate that chunk. Chunks need to be inserted using three single backticks (below the '~' on your keyboard; to the left of the number 1) followed by r and any instructions for the chunk in parentheses, your code, and then three more backticks at the end of a chunk. You can insert a chunk automatically by clicking on the insert chunk at the top of an Rmd document (click the green +C square icon and choose R in the dropdown menu). For the code below, you want to copy just the code/commands into your console (usually the bottom left quadrant of RStudio) and run them from there.
 
-Copy and paste the following `chunk output` into your console (usually the bottom left quadrant of RStudio) without the header and footer backticks.
+To create a document (usually HTML or PDF) from rmarkdown, you need to Knit the document using the `knitr` package. Knitting a document simply means taking all the text and code and creating a nicely formatted document in either HTML, PDF, or Word. `Bookdown` allows you to compile files into a book, like the ones we'll be using in class. You can see this module in `bookdown` format on my bookdown page at [2024_IntroR_and_RStudio](https://bookdown.org/ggiaever/2024_IntroR_and_RStudio/).
+
+Copy and paste the following command into your console without including the header and footer lines.
 
 ```{r, eval = FALSE}
-# type the following into your console or run the chunk in the .Rmd file if you managed to open the document in R, after setting eval to TRUE, by clicking on the little green arrow next to the chunk. 
 
-install.packages(c("rmarkdown","bookdown","knitr","devtools","rsconnect"))
+install.packages(c("bookdown","knitr","rsconnect","rmarkdown"))
 
 ```
 
-To load the packages after installation copy and paste the following `chunk output` into your console again without the header and footer backticks:
+To load the packages after installation copy and paste the following `chunk output` into your console again without the header and footer:
 ```{r}
 library(bookdown)
 library(knitr)
 library(rmarkdown)
-library(devtools)
 library(rsconnect)
 ```
 
-Once these packages have been installed and loaded, you should be able to run the `.Rmd` version of this file, which is in the lessons folder. So you can switch from following the `01-getting-started.pdf` file to following the `01-getting-started.Rmd` file. Open the `01-getting started.Rmd` by navigating to the lessons folder under 'Files' panel (usually the lower right quadrant of RStudio. 
+Once these packages have been installed and loaded, you should be able to run bits of the `.Rmd` version of this file, which is in the lessons folder. So you can switch from following the `01-getting-started.pdf` file to following the `01-getting-started.Rmd` file. Open the `01-getting started.Rmd` by navigating to the lessons folder under 'Files' panel (usually the lower right quadrant of RStudio). 
 
-In this file, you run `chunks` of R code by clicking the little green arrow next to the `chunk` or by clicking the `Run` button at the top of the script window and selecting `run current chunk` in the dropdown menu. If want to keep using the PDF file, just copy and paste the `chunk outputs` into your console (usually lower left quadrant of RStudio).
+In this file, you run `chunks` of R code by clicking the little green arrow next to the `chunk` or by clicking the `Run` button at the top of the script window and selecting `run current chunk` in the dropdown menu. If want to keep using the PDF file, just copy and paste the `chunks` into your console (usually lower left quadrant of RStudio).
 
-**Note that eval is often set to FALSE in my working copy of the .Rmd files. This is usually because I have already run these commands once and don't need to run them again, nor should you after you have run them once (it's time consuming). Typically, `eval = FALSE` is set for chunks that install packages that have already been installed.**
+**Note that `eval` is often set to FALSE in my working copy (and therefore your working copy) of the .Rmd files. This is usually because I have already run these commands once and don't need to run them again, nor should you after you have run them once (it's time consuming). Typically, `eval = FALSE` is set for chunks that install packages that have already been installed.**
 
 Packages can also be installed from [Bioconductor](https://www.bioconductor.org/), another repository of packages which provides tools for the analysis and comprehension of high-throughput **genomic data**. We'll use `Bioconductor` most of the time when installing packages.
 
 To install from Bioconductor, you first need to install `BiocManager`. **This only needs to be done once ever for your R installation.** We will be installing several packages from Bioconductor using `BiocManager` (see below). 
 
-Set `eval = TRUE` if you haven't yet installed BiocManager.
+Set `eval = TRUE` if you haven't yet installed BiocManager and run the `chunk` below in your console by clicking on the green arrow next to the `chunk` or by clicking the `Run` button at the top of the script window and selecting `run current chunk` in the dropdown menu. After running, set `eval = FALSE` again.
 ```{r, eval = FALSE}
 
 install.packages("BiocManager")
 
 ```
 
-For the other packages you'll need, run the following (you should set `eval = TRUE`): 
+For the other packages you'll need, run the following (you should set `eval = TRUE` and run the or copy paste the code into your console if you haven't installed these packages yet).: 
 ```{r, eval = FALSE}
+
+# Install the "GOenrichment" package from GitHub
+if (!requireNamespace("devtools", quietly = TRUE)) {
+    install.packages("devtools")
+}
 
 devtools::install_github("gurinina/GOenrichment", force = TRUE)
 
-BiocManager::install(c("gplots", "tidyverse", "RColorBrewer",
- "DESeq2","pheatmap", "ggplot2", "ggrepel", "org.Hs.eg.db",
- "clusterProfiler", "enrichplot", "fgsea ", "purrr"))
+# Install Bioconductor packages using BiocManager
+if (!requireNamespace("BiocManager", quietly = TRUE)) {
+    install.packages("BiocManager")
+}
+
+# Install required Bioconductor and CRAN packages
+BiocManager::install(c("clusterProfiler", "DESeq2", "dplyr", "enrichplot", 
+                       "fgsea", "ggplot2", "ggrepel", "gplots", 
+                       "org.Hs.eg.db", "pheatmap", "purrr", 
+                       "tidyverse", "RColorBrewer"))
 
 ```
 
@@ -125,26 +138,24 @@ BiocManager::install(c("gplots", "tidyverse", "RColorBrewer",
 **Optional**
 Once the `rmarkdown`, `bookdown` and `knitr` packages have been installed and the libraries loaded, you can try running the following command **in your console:** 
 
-There are two ways to render the book. The first is to run the following command in the console. The second is to run the render_all.R file in the 2024_IntroR_and_RStudio folder. You can run this by opening the file in RStudio and clicking the 'source' button at the top of the script window.
+There are two ways to render the book. The first is to run the following command by copying and pasting it into the console (again without the backticks). The second is to run the render_all.R file in the main directory 2024_IntroR_and_RStudio folder. You can run this by opening the file in RStudio and clicking the 'source' button at the top of the script window.
 
-Setting `eval = FALSE` tells R not to run the code in the chunk.
+Setting `eval = FALSE` tells R not to run the code in the chunk. Do not set `eval = TRUE` in the RMarkdown file here, as this will trigger an endless loop.
 ```{r, eval = FALSE}
 
-# DO NOT RUN THIS IN RMARKDOWN, DO NOT SET EVAL = TRUE 
-# COPY AND PASTE JUST THE RENDER_BOOK COMMAND INTO YOUR CONSOLE AND RUN IT THERE -- ELSE IT WILL TRIGGER AN ENDLESS LOOP
-
 render_book(input = 'index.Rmd', output_format = "bookdown::gitbook")
+
 ```
 
 If it runs successfully, you will have a '_book' folder that has appeared in your working directory. Open it and then click on 'index.html'. This will open up in your browser and then you should have your own version of the '2024_IntroR_and_RStudio' book. 
 
-If you now open the index.Rmd file in RStudio and click on the 'Knit' button at the top of the script window, you should be able to compile the book in your viewer pane, which makes it easier to navigate for the work we will be doing in class.
+If you now open the `index.Rmd` file in RStudio and click on the `Knit` button at the top of the script window, you should be able to compile the book in your viewer pane, which makes it easier to navigate for the work we will be doing in class.
 
 **Optional**
 You can publish this book on bookdown.org. It requires setting up an account and then running the following command:
-```{r, eval = FALSE}
 
-# DO NOT RUN THIS IN RMARKDOWN, COPY AND PASTE `publish_book()` INTO YOUR CONSOLE AND RUN IT RUN IT THERE
+Again, do not set `eval = TRUE` in the RMarkdown file here, just copy and paste the following command into your console (without the header and footer).
+```{r, eval = FALSE}
 
 publish_book()
 
@@ -152,6 +163,7 @@ publish_book()
 
 R will tell you:
 You do not currently have a bookdown.org publishing account configured on this system. Would you like to configure one now? [Y/n]: 
+
 Type 'y' and hit enter.
 
 A browser window should open to complete authentication.
@@ -163,12 +175,13 @@ analysis. You will be introduced to R in the first lab. However, if you have no 
 
 There are two approaches here. The first is to go through the [swirl](http://swirlstats.com/) tutorial, which teaches you R programming and data science interactively, at your own pace and in the R console. Once you have R installed, you can install `swirl` and run it the following way: 
 
-(note this chunk won't run unless you change eval to TRUE)
+(note this chunk won't run unless you change `eval = TRUE`)
 ```{r, eval = FALSE}
 
 install.packages("swirl")
 library(swirl)
 swirl()
+
 ```
 
 It will provide prompts and ask you what you want to learn. Choose R Programming, then choose any of these lessons except 10, 11, 13-15.
