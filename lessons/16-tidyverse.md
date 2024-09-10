@@ -3,7 +3,7 @@
 
 [Tidyverse](https://www.tidyverse.org/packages/) is a suite of packages that are incredibly useful for working with data. are designed to work together to make common data science operations more user friendly. The packages have functions for data wrangling, tidying, reading/writing, parsing, and visualizing, among others. 
 
-![Alt text](img/tidyverse_website.png){ width=300 }
+![](img/tidyverse_website.png)
 
 ## Tidyverse basics
 
@@ -120,15 +120,15 @@ functional_GO_results <- read_delim(file = "data/gprofiler_results_Mov10oe.tsv",
 # Take a look at the results
 functional_GO_results
 ```
+### How to do this in base R
 
-<details>
-	<summary><i>Click here to see how to do this in base R</i></summary>
-	<br><pre><code># Read in the functional analysis results<br>
-functional_GO_results <- read.delim(file = "data/gprofiler_results_Mov10oe.tsv", sep = "\t" )</code><br>
-<code># Take a look at the results
-functional_GO_results</code></pre><br>
-</details>
+```r
+# Read in the functional analysis results<br>
+functional_GO_results <- read.delim(file = "data/gprofiler_results_Mov10oe.tsv", sep = "\t" )
 
+# Take a look at the results
+functional_GO_results
+```
 Notice that the results were automatically read in as a tibble and the output gives the number of rows, columns and the data type for each of the columns.
 
 
@@ -149,13 +149,16 @@ bp_oe <- functional_GO_results %>%
   
 View(bp_oe)
 ```
-<details>
-	<summary><i>Click here to see how to do this in base R</i></summary>
-	<br><pre><code># Return only GO biological processes
+### How to do this in base R
+
+```r
+# Return only GO biological processes
 idx <- functional_GO_results$domain == "BP"
-bp_oe2 <- functional_GO_results[idx,]</code><br>
-<code>View(bp_oe)</code></pre><br>
-</details>
+bp_oe2 <- functional_GO_results[idx,]
+
+# View the biological processes
+View(bp_oe)
+```
 
 Now we have returned only those rows with a `domain` of `BP`. **How have the dimensions of our results changed?**
 
@@ -183,14 +186,16 @@ bp_oe <- bp_oe %>%
 
 head(bp_oe)
 ```
-	
-<details>
-	<summary><i>Click here to see how to do this in base R</i></summary>
-	<br><pre><code># Selecting columns to keep
-bp_oe <- bp_oe[, c("term.id", "term.name", "p.value", "query.size", "term.size", "overlap.size", "intersection")]</code><br>
-<code>View(bp_oe)</code></pre><br>
-</details>
-	
+
+### How to do this in base R
+
+```r
+# Selecting columns to keep
+bp_oe <- bp_oe[, c("term.id", "term.name", "p.value", "query.size", "term.size", "overlap.size", "intersection")]
+
+# View the selected columns
+head(bp_oe)
+```
 	
 ![Alt text](img/bp_oe_selection.png){ width=1200px }
 
@@ -217,13 +222,13 @@ Let's rename the `term.id` and `term.name` columns.
 bp_oe <- bp_oe %>% dplyr::rename(GO_id = term.id, 
                 GO_term = term.name)
 ```
-<details>
-	<summary><i>Click here to see how to do this in base R</i></summary>
-	<br><pre><code># Provide better names for columns
-colnames(bp_oe)[colnames(bp_oe) == "term.id"] <- "GO_id"
-colnames(bp_oe)[colnames(bp_oe) == "term.name"] <- "GO_term"</code></pre><br>
-</details>
+### How to do this in base R
 	
+```r
+# Provide better names for columns
+colnames(bp_oe)[colnames(bp_oe) == "term.id"] <- "GO_id"
+colnames(bp_oe)[colnames(bp_oe) == "term.name"] <- "GO_term"
+```
 	
 > **NOTE:**  In the case of two packages with identical function names, you can use `::` with the package name before and the function name after (e.g `stats::filter()`) to ensure that the correct function is implemented. The `::` can also be used to bring in a function from a library without loading it first.
 > 
@@ -247,12 +252,12 @@ Let's generate gene ratios to reflect the number of DE genes associated with eac
 bp_oe <- bp_oe %>%
   mutate(gene_ratio = overlap.size / query.size)
 ```
-<details>
-	<summary><i>Click here to see how to do this in base R</i></summary>
-	<br><pre><code># Create gene ratio column based on other columns in dataset
-bp_oe <- cbind(bp_oe, gene_ratio = bp_oe$overlap.size / bp_oe$query.size)</code></pre><br>
-</details>
-	
+### How to do this in base R
+
+```r
+# Create gene ratio column based on other columns in dataset
+bp_oe <- cbind(bp_oe, gene_ratio = bp_oe$overlap.size / bp_oe$query.size)
+```
 	
 ***
 **Exercise**

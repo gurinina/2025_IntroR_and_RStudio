@@ -1533,8 +1533,7 @@ bp_oe <- bp_oe %>%
 
 Rename the intersection column to genes to reflect the fact that these are the DE genes associated with the GO process.
 ```{r}
-bp_oe <- bp_oe %>% 
-  dplyr::rename(genes = intersection)
+
 ```
 
 ### Mutate
@@ -1553,6 +1552,8 @@ Create a column in bp_oe called term_percent to determine the percent of DE gene
 ```{r}
 bp_oe <- bp_oe %>% mutate(term_percent = overlap.size / term.size)
 ```
+
+Gives you a sense of how many of the genes in the GO term are differentially expressed.
 
 **Exercise** points +4
 

@@ -18,7 +18,7 @@ RStudio is an integrated development environment (IDE) for R.
 
 2. When RStudio opens, you will see four panels in the window.
 
-3. Open the file `17-codebook.Rmd` in the lessons directory under the File menu (lower right panel). It will open in the script window in the upper left. This file contains all the R code that we will be running in the lessons.
+3. Open the file `17-introR_codebook.Rmd` in the lessons directory under the File menu (lower right panel). It will open in the script window in the upper left. This file contains all the R code that we will be running in the lessons.
 
 ## RStudio Interface
 
@@ -34,7 +34,7 @@ RStudio is an integrated development environment (IDE) for R.
 
 * History: keeps track of all commands run in console. 
 
-* Git keeps track of any changes in your git repository. It is important that you don't change any of the original files in your working directory. In fact, it's best if you save `17-codebook.Rmd` which contains all the code we will be running under another name, e.g. `17-codebook_yourname.Rmd`, with your name at the end. You can save this either in the lessons directory or in the scripts directory, this is the document you will be handing in as your homework for this module. This way you can always go back to the original file if you need to. If you want to take notes, you can do so in the `17-codebook_yourname.Rmd` file.
+* Git keeps track of any changes in your git repository. It is important that you don't change any of the original files in your working directory. In fact, it's best if you save `17-introR_codebook.Rmd` which contains all the code we will be running under another name, e.g. `17-codebook_yourname.Rmd`, with your name at the end. You can save this either in the lessons directory or in the scripts directory, this is the document you will be handing in as your homework for this module. This way you can always go back to the original file if you need to. If you want to take notes, you can do so in the `17-codebook_yourname.Rmd` file.
 
 4. **Files/Plots/Packages/Help** (lower right panel)
 
