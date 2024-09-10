@@ -22,20 +22,27 @@ cover-image: "img/koos10.png"
   <img src="img/koos10.png" alt="Welcome to Omics Science!" width="300" />
 </p>
 
-The published version for each module can be found at my bookdown sites: [2024_IntroR_and_RStudio](https://bookdown.org/ggiaever/2024_IntroR_and_RStudio/), [RNA-seq-analysis](https://bookdown.org/ggiaever/RNA-seq-analysis/) and
-[r4ds-ggplot2](https://bookdown.org/ggiaever/r4ds-ggplot2/).
+The lab module includes four sections:
+
+- 1. Introduction to R and RStudio. Bookdown site: [2024_IntroR_and_RStudio](https://bookdown.org/ggiaever/2024_IntroR_and_RStudio/) 
+
+- 2. Introduction to Differential Gene Expression (DGE) analysis. Bookdown site: [RNA-seq-analysis](https://bookdown.org/ggiaever/RNA-seq-analysis/)
+
+- 3. Variant-calling and annotation pipeline: **Marjan Barazandeh**
+
+- 4. Data Visualization in R. Bookdown site: [r4ds-ggplot2](https://bookdown.org/ggiaever/r4ds-ggplot2/).
 
 ## What we will cover: {-}
 
-This course will cover several of the statistical concepts and data analytic skills needed to succeed in data-driven life science research as it relates to genomics and the omic sciences. For the bulk of the course we cover topics related to genomics and high-dimensional data. Specifically, we describe multiple testing, error rate controlling procedures, exploratory data analysis for high-throughput data, p-value corrections and the false discovery rate. Here we will cover experimental techniques used in genomics including RNA-seq and variant analysis.
+This course will cover several of the statistical concepts and data analytic skills needed to succeed in data-driven life science research as it relates to genomics and the omic sciences. For the bulk of the course we cover topics related to genomics and high-dimensional data. Here we cover experimental techniques used in genomics including RNA-seq and variant analysis.
 
-We start with an introduction to R, including data structures, data wrangling and plotting methods. We will then we walk you through an end-to-end gene-level RNA-seq differential expression workflow using various R packages. We will start with the count matrix, perform exploratory data analysis for quality assessment and to explore the relationship between samples, perform differential expression analysis, and visually explore the results prior to performing downstream functional analysis.
+We start with an introduction to R, including data structures, data wrangling and plotting methods. We then we walk you through an end-to-end gene-level RNA-seq differential expression workflow using various R packages. We will start with the count matrix, perform exploratory data analysis for quality assessment and to explore the relationship between samples, perform differential expression analysis, and visually explore the results prior to performing downstream functional analysis.
 
 To determine the expression levels of genes, the full RNA-seq workflow follows the steps detailed in the image below. All steps are performed on the command line (Linux/Unix) through the generation of the read counts per gene. The differential expression analysis and downstream functional analysis are generally performed in R using R packages specifically designed for the complex statistical analyses required to determine whether genes are differentially expressed.
 
 ![RNA-seq full workflow](img/full_workflow_2019.png){ width=400 }
 
-We will next cover variant analysis from FASTQ files to mapping genome sequencing data to a reference and produce high-quality variant calls that can be used in downstream analyses.  We will use a pipeline employing the Genome Analysis Toolkit (GATK) to perform variant calling that is based on the best practices for variant discovery analysis outlined by the Broad Institute. The result will be the identification of genomic variants, such as single nucleotide polymorphisms (SNPs) and DNA insertions and deletions (indels). 
+We will next cover variant analysis from FASTQ files to mapping genome sequencing data to a reference genome and produce high-quality variant calls that can be used in downstream analyses. We will use a pipeline employing the Genome Analysis Toolkit (GATK) to perform variant calling that is based on the best practices for variant discovery analysis outlined by the Broad Institute. The result will be the identification of genomic variants, such as single nucleotide polymorphisms (SNPs) and DNA insertions and deletions (indels). 
 
 We will cover the concepts of distance and dimension reduction. We will introduce Principal Component Analysis for dimension reduction. Principal Component Analysis (PCA) is a technique used to emphasize variation and bring out strong patterns in a dataset. Once we learn this, we will be ready to cover hierarchical clustering and other methods of visualization.
 
@@ -49,7 +56,7 @@ Finally, we cover functional analysis of high-throughput data. The output of RNA
 
 While statistics textbooks focus on mathematics, this book focuses on using a computer to perform data analysis by stating a practical data-related challenge. This book also includes the computer code that provides a solution to the problem and helps illustrate the concepts behind the solution. By running the code yourself, and seeing data generation and analysis happen live, you will get a better intuition for the concepts, the mathematics, and the theory.
 
-Throughout the course we show the R code that performs genomic analysis. All sections of this book are reproducible as they were made using *R markdown* documents that include R code used to produce the figures, tables and results.
+Throughout the course we show the R code that performs genomic analysis. All sections of this book are reproducible; comprised of *R markdown* documents that include the R code necessary to produce all figures, tables and results.
 
 Let's get started with the first module, Introduction to R and RStudio.
 

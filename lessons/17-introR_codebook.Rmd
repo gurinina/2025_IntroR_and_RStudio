@@ -76,6 +76,7 @@ number
 
 ```{r}
 
+
 ```
 
 ## 03 R syntax and data structures
@@ -389,7 +390,7 @@ age[age > 50] ## nested
 ```
 
 ```{r}
-age > 50 | age < 18
+age > 50 | age < 18 ## returns logical values for each element
 
 age
 
@@ -408,7 +409,7 @@ age[idx]
 ### Logical operators with `which()`
 
 ```{r}
-which(age > 50 | age < 18)
+which(age > 50 | age < 18) ## returns only the indices of the TRUE values
 
 age[which(age > 50 | age < 18)]  ## nested
 
@@ -423,16 +424,23 @@ age[idx_num]
 
 ```{r}
 
-
 expression <- c("low", "high", "medium", "high", "low", "medium", "high")
 
 expression <- factor(expression)
 
 expression
 
+```
+
+```{r}
+
 str(expression)
+```
+
+```{r}
 
 expression[expression == "high"]  ## This will only return those elements in the factor equal to "high"
+
 ```
 
 ```{r}
@@ -442,12 +450,14 @@ exp
 
 ```
 
-Notice here that exp is a factor with only one level, "high", yet `Levels` still shows all three levels. This is because the factor is a categorical variable, and the levels are the categories. In this case, the only category is "high". If you want to remove unused levels, you can use droplevels(), or since there is only one level, you can use as.character() to convert it to a character vector.
+Notice here that exp is a factor with only one level, "high", yet `Levels` still shows all three levels. This is because the factor is a categorical variable, and the levels are the categories. In this case, the only category is "high". If you want to remove unused levels, you can use `droplevels()`, or since there is only one level, you can use `as.character()` to convert it to a character vector.
 
 ```{r}
 
 droplevels(exp)  # this will remove the unused levels
+```
 
+```{r}
 as.character(exp) # this will convert the factor to a character vector
 ```
 
@@ -461,7 +471,7 @@ Extract only those elements in samplegroup that are not KO (nesting the logical 
 #### Releveling factors
 
 ```{r}
-expression <- c("low", "high", "medium", "high", "low", "medium", "high")
+
 expression # the default of the factor function is to order the levels alphabetically
 expression <- factor(expression, levels=c("low", "medium", "high")) # you can re-factor a factor 
 
@@ -484,7 +494,7 @@ save.image() # saves all environmental variables in your current R session
 # to a file called ".RData" in your working directory -- this is a command 
 # that you should use often when in an R session to save your work.
 
-#OR give it a memorable name
+# OR give it a memorable name
 
 save.image("2024_IntroR_and_RStudio.RData")
 ```

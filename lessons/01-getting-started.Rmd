@@ -1,7 +1,9 @@
 ---
 output:
-  word_document: default
+  pdf_document: default
   html_document: default
+editor_options:
+  chunk_output_type: console
 ---
 # Getting started with R and RStudio
 
@@ -11,107 +13,64 @@ knitr::opts_chunk$set(tidy.opts = list(width.cutoff = 80), tidy = TRUE)
 
 ```
 
-This `01-getting-started.pdf` file gives step-by-step instructions for installing R and RStudio. Where installation links are provided, click on the link to go to the download site. Instructions for obtaining additional files and packages required to get up and running for the course are also included in this file.
+## Introduction
 
-### Installing R
+Welcome to this guide on getting started with R, RStudio, and the course material repository. This document will guide you through the installation of R, RStudio, syncing with the live repository, and installing the necessary R packages.
 
-The first step is to install R. Click on the link below and then click on the download link for your operating system:
+## Step 1: Installing R
 
-**[Download and install R](https://cran.r-project.org/)**
+R is a powerful language for statistical computing and data analysis. To install R, follow the instructions for your operating system:
 
-**Note: if you have a Mac M1 arm64 computer, DON'T install the R-4.4.1-arm64.pkg, instead install R-4.4.1-x86_64.pkg for Intel because the arm64 version doesn't support the Bioconductor packages that we will be using.**
+### For Windows:
+1. Go to the [R Project website (Windows)](https://cran.r-project.org/bin/windows/).
+2. Click on the link for Windows and then click "base."
+3. Download the installer and follow the on-screen instructions.
 
-For MacOS, the next things you need to install are XQuartz and fortran tools. 
+### For macOS:
+1. Go to the [R Project website (macOS)](https://cran.r-project.org/bin/macosx/).
+2. Click on the link for macOS and download the installer.
+3. Install the additional dependencies:
 
-**[Download and install XQuartz (version 2.8.5 or later)](http://xquartz.macosforge.org/)**
+   - **XCode Command Line Tools**: Download from the Apple Developer website or run the following command in the terminal (use the search bar if you don't know where the Terminal.app is) and run 
+     
+     `sudo xcode-select --install`
+     
+     Instructions are also here: [Apple Developer](https://developer.apple.com/download/more/) and here: [RTools](https://mac.r-project.org/tools/).
+     
+   - **XQuartz**: Required for some R packages. Install from [XQuartz](https://www.xquartz.org/).
+   - **Fortran**: Needed for package compilation. Install from the [macOS R tools page](https://mac.r-project.org/tools/).
 
-The download link for fortran tools:
+## Step 2: Installing RStudio
 
-**[Download and install gfortran-12.2-universal.pkg](https://mac.r-project.org/tools/gfortran-12.2-universal.pkg)**
+RStudio is an IDE that makes it easier to work with R. To install RStudio:
 
-If you are on a Mac, you also need to install XCode. XCode is a suite of development tools that includes a compiler, debugger, and other tools. It is free to download from the App Store. You can also install it directly by typing the following command in the terminal (you can find the terminal by typing terminal in the search bar in the upper right corner of your screen):
+1. Go to the [RStudio website](https://www.rstudio.com/products/rstudio/download/).
+2. Download the free version of RStudio Desktop for your operating system (Windows or macOS).
+3. Run the installer and follow the installation instructions.
 
-sudo xcode-select --install
+## Step 3: Syncing with the Course Repository
 
-You need to be careful with the syntax here. There is dash between xcode and select follow by a space and then a double dash before the word install which may not be visible in the pdf file. You can also find these instructions [here](https://mac.r-project.org/tools/). This installs Xcode command line tools which are sufficient to build R.
+We will be using materials from a GitHub repository for this course. Instead of cloning the repository with Git, RStudio has built-in Git support that makes syncing with the live version easy.
 
-### Installing RStudio
+### Syncing the repository using RStudio:
 
-The next step is to install RStudio, instructions are here:
+1. Open RStudio and select `File -> New Project -> Version Control -> Git`.
+	**Note**: If you don't have git installed on your device, you might have to first download and install it from [github](https://git-scm.com/downloads). Close the Rstudio before installing git and re-open it afterwards.
+2. In the "Repository URL" field, paste the following URL for the course material repository:  
+   `https://github.com/gurinina/2024_IntroR_and_RStudio`
+3. Choose a local folder on your computer to store the project files.
+4. Click "Create Project" to clone the repository.
+   
+After the repository is cloned, you can sync your local files with the GitHub repository by clicking the "Pull" button in the "Git" tab in RStudio. This ensures that you always have the latest version of the course materials.
 
-[Download and install RStudio](http://www.rstudio.com/products/rstudio/download/)
 
-RStudio is a free and open-source integrated development environment (IDE) for R. It includes a console, syntax-highlighting editor that supports direct code execution, as well as tools for plotting, history, debugging, and workspace management.
+## Step 4: Installing Required R Packages
 
-### Clone the course material from Github.
+Once you have R, RStudio, and the course repository set up, you will need to install some R packages to work with the course material.
 
-What is Github? Github is a version control system that allows you to keep track of changes in your code and collaborate with others. It lets you and others work together on projects from anywhere. Github is fairly sophisticated and we are not going to learn a lot about it here but it is well worth your time to learn it if you don't know about it already. A good introduction to using Git with R can be found [here](https://happygitwithr.com/clone.html). For this course we will use github primarily just to 'clone' course material from a 'repository' onto your local machine. 
+Copy and paste the following command into the RStudio console to install all the required packages:
 
-There are three course repositories for the course that you need to clone. To clone the first one so that you get your own copy in Rstudio, create a new RStudio Project.
-
-Be intentional about where you create this Project. You should make a folder where you keep all of your RProjects, for example, your home directory /Users/your username/Documents/RProjects is a good one.
-
-Start RStudio, then go to:
-
-File > New Project > Version Control > Git. In the “repository URL” paste the URL of your new GitHub repository:
-
-https://github.com/gurinina/2024_IntroR_and_RStudio
-
-Alternatively, you can click on the link and then on the 'github repository' website click the green 'Code' button and copy the URL that appears in the box.
-
-You don't need to put anything in the Project directory name field. 
-
-In the Create as a sub-directory field navigate to your RProjects folder.
-
-Hit Create Project and your 2024_IntroR_and_RStudio project will be generated.
-
-RStudio will open up a new session with the 2024_IntroR_and_RStudio project loaded and you will see the files in the Files pane (usually the lower right quadrant of RStudio).
-
-If you have already created the 2024_IntroR_and_RStudio project but have closed RStudio, you can open it by starting Rstudio, going to Open Project in the File menu, navigating to the 2024_IntroR_and_RStudio folder and opening it. Alternatively, you should be able to find it in the Recent Projects list on the RStudio start page. 
-
-### Running R code; installing packages
-
-The first R command we will run is `install.packages`. R only includes a basic set of functions. It can do much more than this, and many of these functions are stored in the [Comprehensive R Archive Network (CRAN) repository](https://cran.r-project.org/). Note that these packages are vetted: they are checked for common errors and they must have a dedicated maintainer. You can easily install packages from within R if you know the name of the packages. As an example, we are going to install the three required packages.
-
-You'll need to install `bookdown`, `knitr` and `rmarkdown` packages to compile the 01-getting-started.Rmd file in R. R Markdown is a file format for making dynamic documents with R. An R Markdown document is written in markdown (an easy-to-write plain text format) and contains chunks of embedded R code, like the ones below. The notation at the beginning of each chunk gives specific instructions for the chunk. For example, `include = FALSE` in the first chunk prevents code from appearing in the finished file and `eval = FALSE` tells R not to run/evaluate that chunk. Chunks need to be inserted using three single backticks (below the '~' on your keyboard; to the left of the number 1) followed by r and any instructions for the chunk in parentheses, your code, and then three more backticks at the end of a chunk. You can insert a chunk automatically by clicking on the insert chunk at the top of an Rmd document (click the green +C square icon and choose R in the dropdown menu). For the code below, you want to copy just the code/commands into your console (usually the bottom left quadrant of RStudio) and run them from there.
-
-To create a document (usually HTML or PDF) from rmarkdown, you need to Knit the document using the `knitr` package. Knitting a document simply means taking all the text and code and creating a nicely formatted document in either HTML, PDF, or Word. `Bookdown` allows you to compile files into a book, like the ones we'll be using in class. You can see this module in `bookdown` format on my bookdown page at [2024_IntroR_and_RStudio](https://bookdown.org/ggiaever/2024_IntroR_and_RStudio/).
-
-Copy and paste the following command into your console without including the header and footer lines.
-
-```{r, eval = FALSE}
-
-install.packages(c("bookdown","knitr","rsconnect","rmarkdown"))
-
-```
-
-To load the packages after installation copy and paste the following `chunk output` into your console again without the header and footer:
-```{r}
-library(bookdown)
-library(knitr)
-library(rmarkdown)
-library(rsconnect)
-```
-
-Once these packages have been installed and loaded, you should be able to run bits of the `.Rmd` version of this file, which is in the lessons folder. So you can switch from following the `01-getting-started.pdf` file to following the `01-getting-started.Rmd` file. Open the `01-getting started.Rmd` by navigating to the lessons folder under 'Files' panel (usually the lower right quadrant of RStudio). 
-
-In this file, you run `chunks` of R code by clicking the little green arrow next to the `chunk` or by clicking the `Run` button at the top of the script window and selecting `run current chunk` in the dropdown menu. If want to keep using the PDF file, just copy and paste the `chunks` into your console (usually lower left quadrant of RStudio).
-
-**Note that `eval` is often set to FALSE in my working copy (and therefore your working copy) of the .Rmd files. This is usually because I have already run these commands once and don't need to run them again, nor should you after you have run them once (it's time consuming). Typically, `eval = FALSE` is set for chunks that install packages that have already been installed.**
-
-Packages can also be installed from [Bioconductor](https://www.bioconductor.org/), another repository of packages which provides tools for the analysis and comprehension of high-throughput **genomic data**. We'll use `Bioconductor` most of the time when installing packages.
-
-To install from Bioconductor, you first need to install `BiocManager`. **This only needs to be done once ever for your R installation.** We will be installing several packages from Bioconductor using `BiocManager` (see below). 
-
-Set `eval = TRUE` if you haven't yet installed BiocManager and run the `chunk` below in your console by clicking on the green arrow next to the `chunk` or by clicking the `Run` button at the top of the script window and selecting `run current chunk` in the dropdown menu. After running, set `eval = FALSE` again.
-```{r, eval = FALSE}
-
-install.packages("BiocManager")
-
-```
-
-For the other packages you'll need, run the following (you should set `eval = TRUE` and run the or copy paste the code into your console if you haven't installed these packages yet).: 
-```{r, eval = FALSE}
+```{r, results = "hide", message = FALSE, eval = FALSE}
 
 # Install the "GOenrichment" package from GitHub
 if (!requireNamespace("devtools", quietly = TRUE)) {
@@ -126,56 +85,101 @@ if (!requireNamespace("BiocManager", quietly = TRUE)) {
 }
 
 # Install required Bioconductor and CRAN packages
-BiocManager::install(c("clusterProfiler", "DESeq2", "dplyr", "enrichplot", 
-                       "fgsea", "ggplot2", "ggrepel", "gplots", 
-                       "org.Hs.eg.db", "pheatmap", "purrr", 
-                       "tidyverse", "RColorBrewer"))
+BiocManager::install(c(
+    "bookdown", "clusterProfiler", "DESeq2", "dplyr", "enrichplot", "fgsea", 
+    "ggplot2", "ggrepel", "gplots", "knitr", "org.Hs.eg.db", "pheatmap", 
+    "purrr", "RColorBrewer", "rmarkdown", "rsconnect", "tidyverse", "tinytex"
+))
+
+# Check if TinyTeX is installed
+if (!tinytex::is_tinytex()) {
+    message("TinyTeX is not installed. Installing TinyTeX now...")
+    tinytex::install_tinytex(force = TRUE)
+} else {
+    message("TinyTeX is already installed. Skipping installation.")
+}
+```
+
+These packages provide tools for data visualization, manipulation, compiling documents, and much more.
+
+## Step 5: Verifying Your Installation
+
+To verify that everything is installed correctly, load the packages by copying and pasting this into your RStudio console:
+
+```{r, results = "hide", message = FALSE, eval = FALSE}
+
+library(BiocManager)
+library(bookdown)
+library(clusterProfiler)
+library(DESeq2)
+library(devtools)
+library(dplyr)
+library(enrichplot)
+library(fgsea)
+library(ggplot2)
+library(ggrepel)
+library(GOenrichment)
+library(gplots)
+library(knitr)
+library(org.Hs.eg.db)
+library(pheatmap)
+library(purrr)
+library(RColorBrewer)
+library(rmarkdown)
+library(rsconnect)
+library(tidyverse)
+library(tinytex)
 
 ```
+
+If the libraries load without any error messages, everything is set up correctly.
+
+## Step 6: Compiling the Course Book
+
+The course materials include a book compiled with `bookdown`. You can compile the book into HTML to read it locally.
 
 ### Running R code; compiling the book
 
 **Optional**
-Once the `rmarkdown`, `bookdown` and `knitr` packages have been installed and the libraries loaded, you can try running the following command **in your console:** 
 
-There are two ways to render the book. The first is to run the following command by copying and pasting it into the console (again without the backticks). The second is to run the render_all.R file in the main directory 2024_IntroR_and_RStudio folder. You can run this by opening the file in RStudio and clicking the 'source' button at the top of the script window.
+To render the book run the `knit_to_gitbook.R` file in the main project directory, 2024_IntroR_and_RStudio. You can run this by opening the file in RStudio and clicking the 'source' button at the top of the script window. This will generate an HTML version of the book, which you can view locally. If it doesn't automatically open, you can find the file in the `_book` directory in the main folder of the repository. Click on the `index.html` file to view the book in your browser.
 
-Setting `eval = FALSE` tells R not to run the code in the chunk. Do not set `eval = TRUE` in the RMarkdown file here, as this will trigger an endless loop.
-```{r, eval = FALSE}
 
-render_book(input = 'index.Rmd', output_format = "bookdown::gitbook")
+## Step 7: Running R Code
 
+Once everything is set up, you can start experimenting with R by typing commands into the RStudio console.
+
+For example, to calculate the mean of a set of numbers, type:
+
+```{r}
+mean(c(1, 2, 3, 4, 5))
 ```
 
-If it runs successfully, you will have a '_book' folder that has appeared in your working directory. Open it and then click on 'index.html'. This will open up in your browser and then you should have your own version of the '2024_IntroR_and_RStudio' book. 
+You should see the result `3`.
 
-If you now open the `index.Rmd` file in RStudio and click on the `Knit` button at the top of the script window, you should be able to compile the book in your viewer pane, which makes it easier to navigate for the work we will be doing in class.
+## Additional Resources
 
-**Optional**
-You can publish this book on bookdown.org. It requires setting up an account and then running the following command:
+Here are some helpful resources for learning more about R, RStudio, and the topics covered in this course:
 
-Again, do not set `eval = TRUE` in the RMarkdown file here, just copy and paste the following command into your console (without the header and footer).
-```{r, eval = FALSE}
+- [R for Data Science by Hadley Wickham](https://r4ds.had.co.nz/)
+- [CRAN R Installation for macOS](https://cran.r-project.org/bin/macosx/)
+- [RStudio Documentation](https://support.rstudio.com/hc/en-us)
+- [GitHub Repository for the Course](https://github.com/gurinina/2024_IntroR_and_RStudio)
+- [2024_IntroR_and_RStudio](https://bookdown.org/ggiaever/2024_IntroR_and_RStudio/)
 
-publish_book()
+This guide should help you get started with R, RStudio, and the course material. If you have any questions, feel free to ask during class or email me: ggiaever@gmail.com.
 
-```
-
-R will tell you:
-You do not currently have a bookdown.org publishing account configured on this system. Would you like to configure one now? [Y/n]: 
-
-Type 'y' and hit enter.
-
-A browser window should open to complete authentication.
+Some hands on exercises are provided below to help you get started with R and RStudio.
 
 ## Learn R Basics
 
 In this book we will be using the**R programming language** for all our
-analysis. You will be introduced to R in the first lab. However, if you have no basic programming skills and no knowledge of R, your first homework assignment is to complete an R tutorial to familiarize yourself with the basics of programming and R syntax. 
+analysis. You will be introduced to R in the first lab. However, if you have no basic programming skills and no knowledge of R, you might want to start learning R before the course starts. The best way to do this
+is to complete an R tutorial to familiarize yourself with the basics of programming and R syntax. 
 
-There are two approaches here. The first is to go through the [swirl](http://swirlstats.com/) tutorial, which teaches you R programming and data science interactively, at your own pace and in the R console. Once you have R installed, you can install `swirl` and run it the following way: 
+[Swirl](http://swirlstats.com/) is a great way to learn R interactively. It is an R package that turns the R console into an interactive learning environment where you can work at your own pace and choose your own adventure. You can install `swirl` and run it in the following way:
 
-(note this chunk won't run unless you change `eval = TRUE`)
+Run the code below in your R console to install `swirl` and start the interactive tutorial, don't set eval = TRUE, as it will not work in a bookdown document.
 ```{r, eval = FALSE}
 
 install.packages("swirl")
@@ -184,59 +188,26 @@ swirl()
 
 ```
 
-It will provide prompts and ask you what you want to learn. Choose R Programming, then choose any of these lessons except 10, 11, 13-15.
+Swirl will provide prompts and ask you what you want to learn. Choose R Programming, then choose any of the first nine lessons.
 
- 1:  Basic Building Blocks      
- 2:  Workspace and Files     
- 3:  Sequences of Numbers       
- 4:  Vectors                 
- 5:  Missing Values             
- 6:  Subsetting Vectors      
- 7:  Matrices and Data Frames   
- 8:  Logic                   
- 9:  Functions
- 10: lapply and sapply    DON'T choose this
- 11: vapply and tapply    DON'T choose this
- 12: Looking at Data 
- 13: Simulation           DON'T choose this
- 14: Dates and Times      DON'T choose this
- 15: Base Graphics        DON'T choose this
- 
+- 1. Basic Building Blocks   
+- 2. Workspace and Files   
+- 3. Sequences of Numbers    
+- 4. Vectors     
+- 5. Missing Values    
+- 6. Subsetting Vectors  
+- 7. Matrices and Data Frames 
+- 8. Logic     
+- 9. Functions
 
-The second approach is to start going through the lectures, which are self-standing. For that I would go to the webpage hosting the book and start going through the lessons. You can find the book version of the introduction to R here: [2024_IntroR_and_RStudio](https://bookdown.org/ggiaever/2024_IntroR_and_RStudio/). Going through the initial lessons will be very really helpful for you, as we will dive into things pretty quickly and are not likely to get through all of the 2024_IntroR_and_RStudio sections in class. I recommend the ggplot2 lecture in particular after going through some of the basics.
+There are many open resources and reference guides for R that will be helpful to you. Several examples are listed here:
 
-There are also many open and free resources and reference guides for R that will be helpful to you. Several examples are listed here:
+* [Quick-R](http://www.statmethods.net/)
 
-* [Quick-R](http://www.statmethods.net/): a quick online reference for data input, basic statistics and plots.
+* [R reference card (PDF)](https://cran.r-project.org/doc/contrib/Short-refcard.pdf)
 
-* [R reference card (PDF)](https://cran.r-project.org/doc/contrib/Short-refcard.pdf) by Tom Short.
+* [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
 
-* The best reference for rmarkdown documents is [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/).:
+* [Guide-to-R-Book](https://bookdown.org/yih_huynh/Guide-to-R-Book/). 
 
-* There is also an excellent introductory R book for graduate students here: [Guide-to-R-Book](https://bookdown.org/yih_huynh/Guide-to-R-Book/). 
-
-
-## Getting help
-
-Three key things you need to know about R is that you can get help for a function by typing the function into the help menu, a tab in the Files pane (lower right corner of RStudio) or by using `help` or `?`, like this:
-
-```{r}
-
-help("install.packages")
-?install.packages
-
-```
-
-Make sure and put the function of interest in quotes when using the `help` function above and the `example` function below.
-
-To see examples for function usage you can type example followed the function of interest in quotes. Here we use the function `sum` as an example, which returns the sum of all the values present in its arguments:
-```{r}
-
-example("sum")
-
-```
-
-To get the arguments of a function such as `sum` type:
-```{r}
-args(sum)
-```
+* [R for Data Science](https://r4ds.had.co.nz/)

@@ -418,7 +418,10 @@ support that makes syncing with the live version easy.</p>
 <h3>Syncing the repository using RStudio:</h3>
 <ol style="list-style-type: decimal">
 <li>Open RStudio and select
-<code>File -&gt; New Project -&gt; Version Control -&gt; Git</code>.</li>
+<code>File -&gt; New Project -&gt; Version Control -&gt; Git</code>.
+<strong>Note</strong>: If you don’t have git installed on your device,
+you might have to first download and install it from <a href="https://git-scm.com/downloads">github</a>. Close the Rstudio
+before installing git and re-open it afterwards.</li>
 <li>In the “Repository URL” field, paste the following URL for the
 course material repository:<br />
 <code>https://github.com/gurinina/2024_IntroR_and_RStudio</code></li>
@@ -430,8 +433,6 @@ files.</li>
 the GitHub repository by clicking the “Pull” button in the “Git” tab in
 RStudio. This ensures that you always have the latest version of the
 course materials.</p>
-<p><strong>Note</strong>: You do not need to install Git separately to
-use this functionality, as RStudio handles it internally.</p>
 </div>
 </div>
 <div id="step-4-installing-required-r-packages" class="section level2">
@@ -453,29 +454,48 @@ if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE)) {
 }
 
 # Install required Bioconductor and CRAN packages
-BiocManager::install(c(&quot;bookdown&quot;,&quot;clusterProfiler&quot;, &quot;DESeq2&quot;, &quot;dplyr&quot;, 
-                       &quot;enrichplot&quot;, &quot;fgsea&quot;, &quot;ggplot2&quot;, &quot;ggrepel&quot;, 
-                       &quot;gplots&quot;, &quot;knitr&quot;, &quot;org.Hs.eg.db&quot;, &quot;pheatmap&quot;, 
-                       &quot;purrr&quot;, &quot;rmarkdown&quot;, &quot;RColorBrewer&quot;, &quot;rsconnect&quot;,
-                       &quot;tidyverse&quot;, &quot;RColorBrewer&quot;))
-</code></pre>
+BiocManager::install(c(
+    &quot;bookdown&quot;, &quot;clusterProfiler&quot;, &quot;DESeq2&quot;, &quot;dplyr&quot;, &quot;enrichplot&quot;, &quot;fgsea&quot;, 
+    &quot;ggplot2&quot;, &quot;ggrepel&quot;, &quot;gplots&quot;, &quot;knitr&quot;, &quot;org.Hs.eg.db&quot;, &quot;pheatmap&quot;, 
+    &quot;purrr&quot;, &quot;RColorBrewer&quot;, &quot;rmarkdown&quot;, &quot;rsconnect&quot;, &quot;tidyverse&quot;, &quot;tinytex&quot;
+))
+
+# Check if TinyTeX is installed
+if (!tinytex::is_tinytex()) {
+    message(&quot;TinyTeX is not installed. Installing TinyTeX now...&quot;)
+    tinytex::install_tinytex(force = TRUE)
+} else {
+    message(&quot;TinyTeX is already installed. Skipping installation.&quot;)
+}</code></pre>
 <p>These packages provide tools for data visualization, manipulation,
 compiling documents, and much more.</p>
 </div>
 <div id="step-5-verifying-your-installation" class="section level2">
 <h2>Step 5: Verifying Your Installation</h2>
-<p>To verify that most everything is installed correctly, load the
-packages by copying and pasting this into your RStudio console:</p>
-<pre class="r"><code>library(ggplot2)
-library(dplyr)
-library(tidyr)
-library(DESeq2)
+<p>To verify that everything is installed correctly, load the packages
+by copying and pasting this into your RStudio console:</p>
+<pre class="r"><code>library(BiocManager)
 library(bookdown)
-library(knitr)
-library(rmarkdown)
+library(clusterProfiler)
+library(DESeq2)
 library(devtools)
+library(dplyr)
+library(enrichplot)
+library(fgsea)
+library(ggplot2)
+library(ggrepel)
+library(gplots)
+library(knitr)
+library(org.Hs.eg.db)
+library(pheatmap)
+library(purrr)
+library(RColorBrewer)
+library(rmarkdown)
+library(rsconnect)
 library(tidyverse)
-</code></pre>
+library(tinytex)</code></pre>
+<p>If the libraries load without any error messages, everything is set
+up correctly.</p>
 </div>
 <div id="step-6-compiling-the-course-book" class="section level2">
 <h2>Step 6: Compiling the Course Book</h2>
@@ -485,14 +505,14 @@ locally.</p>
 <div id="running-r-code-compiling-the-book" class="section level3">
 <h3>Running R code; compiling the book</h3>
 <p><strong>Optional</strong></p>
-<p>To render the book run the render_all.R file in the main directory
-2024_IntroR_and_RStudio folder. You can run this by opening the file in
-RStudio and clicking the ‘source’ button at the top of the script
-window. After it has run you can view the book by running the following
-command in the console:</p>
-<pre class="r"><code>rstudioapi::viewer(&#39;_book/index.html&#39;)</code></pre>
-<p>This will generate an HTML version of the book, which you can view
-locally.</p>
+<p>To render the book run the <code>knit_to_gitbook.R</code> file in the
+main project directory, 2024_IntroR_and_RStudio. You can run this by
+opening the file in RStudio and clicking the ‘source’ button at the top
+of the script window. This will generate an HTML version of the book,
+which you can view locally. If it doesn’t automatically open, you can
+find the file in the <code>_book</code> directory in the main folder of
+the repository. Click on the <code>index.html</code> file to view the
+book in your browser.</p>
 </div>
 </div>
 <div id="step-7-running-r-code" class="section level2">
@@ -501,6 +521,7 @@ locally.</p>
 typing commands into the RStudio console.</p>
 <p>For example, to calculate the mean of a set of numbers, type:</p>
 <pre class="r"><code>mean(c(1, 2, 3, 4, 5))</code></pre>
+<pre><code>## [1] 3</code></pre>
 <p>You should see the result <code>3</code>.</p>
 </div>
 <div id="additional-resources" class="section level2">
@@ -516,29 +537,12 @@ for macOS</a></li>
 Documentation</a></li>
 <li><a href="https://github.com/gurinina/2024_IntroR_and_RStudio">GitHub
 Repository for the Course</a></li>
+<li><a href="https://bookdown.org/ggiaever/2024_IntroR_and_RStudio/">2024_IntroR_and_RStudio</a></li>
 </ul>
 <hr />
 <p>This guide should help you get started with R, RStudio, and the
-course material. If you have any questions, feel free to contact me by
-email: <a href="mailto:ggiaever@gmail.com" class="email">ggiaever@gmail.com</a>.</p>
-<div id="key-changes" class="section level3">
-<h3>Key Changes:</h3>
-<ol style="list-style-type: decimal">
-<li><strong>Git Integration via RStudio</strong>: Students do not need
-to install Git separately. They will sync the course repository using
-RStudio’s built-in version control by following easy steps to “clone”
-and “pull” updates from GitHub.</li>
-<li><strong>No <code>eval = TRUE</code></strong>: I’ve removed the need
-to modify code chunk options like <code>eval = TRUE</code>. All the code
-can be copied directly into the console.</li>
-<li><strong>macOS Additional Dependencies</strong>: Added instructions
-for installing <strong>XQuartz</strong> and <strong>Fortran</strong> for
-macOS users, ensuring they have the necessary tools.</li>
-</ol>
-<p>This should make syncing with the course repository easy, and
-everything else you need is included as requested. Let me know if you
-need further adjustments!</p>
-</div>
+course material. If you have any questions, feel free to ask during
+class or email me: <a href="mailto:ggiaever@gmail.com" class="email">ggiaever@gmail.com</a>.</p>
 </div>
 
 
