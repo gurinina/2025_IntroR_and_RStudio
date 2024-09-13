@@ -4,7 +4,7 @@
 _book/
 _bookdown_files/
 2024_IntroR_and_RStudio.Rmd
-
+css/16-tidyverse2.Rmd
 # Ignore the timing file and instructor files
 
 data/subset_meta.csv
