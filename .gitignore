@@ -4,7 +4,16 @@
 _book/
 _bookdown_files/
 2024_IntroR_and_RStudio.Rmd
+<<<<<<< HEAD
 css/16-tidyverse2.Rmd
+=======
+<<<<<<< HEAD
+css/16-tidyverse2.Rmd
+=======
+_epub/
+_pdf/
+>>>>>>> 9b73272 (tidyverse)
+>>>>>>> ffffc26 (16-tidyverse)
 # Ignore the timing file and instructor files
 
 data/subset_meta.csv
