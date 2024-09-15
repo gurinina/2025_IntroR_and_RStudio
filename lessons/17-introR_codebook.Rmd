@@ -72,12 +72,12 @@ number
 
 2. Now try changing the value of variable y to contain the value 10. What do you need to do, to update the variable number?
 
-* Ans: 
-
 ```{r}
 
 
 ```
+
+* Ans: 
 
 ## 03 R syntax and data structures
 
@@ -485,18 +485,6 @@ Use the samplegroup factor we created in a previous lesson, and relevel it such 
 ```{r}
 
 
-```
-
-It's always a good idea to periodically save your work. You can do this by using the command `save.image()`:
-```{r}
-
-save.image() # saves all environmental variables in your current R session 
-# to a file called ".RData" in your working directory -- this is a command 
-# that you should use often when in an R session to save your work.
-
-# OR give it a memorable name
-
-save.image("2024_IntroR_and_RStudio.RData")
 ```
 
 ## 07 Reading and data inspection
@@ -1076,16 +1064,6 @@ samplemeans <- map_dbl(rpkm_ordered, mean)
 
 The output of `map_dbl()` is a *named* vector of length 12. 
 
-Alternatively, we can use the `sapply()` function to get the same result:
-
-```{r}
-
-samplemeans <- sapply(rpkm_ordered, mean)
-
-```
-
-I find this method to be more intuitive and easier to remember.
-
 ### Adding to a metadata object
 	
 Before we add `samplemeans` as a new column to metadata, let's create a vector with the ages of each of the mice in our data set.
@@ -1372,7 +1350,7 @@ save.image(metadata,"metadata.RData")
 
 # you can also use 
 
-saveRDS(metadata,file = "metadata.RDS")
+saveRDS(metadata,file = "metadata.RDS") # we'll see how to load this later
 
 ```
 

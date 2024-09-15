@@ -22,6 +22,11 @@ collapsible_code <- function(html_content, non_html_content) {
 
 ![](img/tidyverse_website.png)
 
+## What is data wrangling?
+Data wrangling: The process of cleaning and unifying messy and complex data sets for easy access and analysis.
+
+![](img/wrangling.png)
+
 ## Tidyverse basics
 
 **Two important new concepts in tidyverse that we will focus on are pipes and tibbles**.
