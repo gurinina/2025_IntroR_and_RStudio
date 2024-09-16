@@ -5,7 +5,6 @@
 collapsible_code <- function(html_content, non_html_content) {
   output_format <- knitr::opts_knit$get("rmarkdown.pandoc.to")
   # opts_knit$get("out.format") is not reliable for determining the output format
-  print(c("format", output_format))
   if (output_format == "html") {
     # HTML output (GitBook/HTML): Show collapsible section
     cat(html_content)
@@ -145,6 +144,7 @@ functional_GO_results
 ```
 
 ```{r, results='asis', echo=FALSE}
+
 collapsible_code(
   # HTML output: Collapsible section with raw HTML
   '<details>\n<summary><i>Click here to see how to do this in base R</i></summary>\n<pre><code># Read in the functional analysis results\nfunctional_GO_results <- read.delim(file = "data/gprofiler_results_Mov10oe.tsv", sep = "\\t")</code>\n<code># Take a look at the results\nfunctional_GO_results</code></pre>\n</details>',
@@ -179,6 +179,7 @@ head(bp_oe[,-7])
 
 
 ```{r, results='asis', echo=FALSE}
+
 collapsible_code('<details>\n<summary><i>Click here to see how to do this in base R</i></summary>\n<pre><code># Return only GO biological processes\nidx <- functional_GO_results$domain == "BP"\nbp_oe2 <- functional_GO_results[idx,]</code>\n<code># View(bp_oe</code></pre>\n</details>',
 "### How to do this in base R\n\n````{r}\n# Return only GO biological processes\nidx <- functional_GO_results$domain == \"BP\"\nbp_oe2 <- functional_GO_results[idx,]\n# View(bp_oe)\n````\n")
 
@@ -212,6 +213,7 @@ head(bp_oe)
 ```
 
 ```{r, results='asis', echo=FALSE}
+
 collapsible_code(
   # HTML content (collapsible section)
   '<details>\n<summary><i>Click here to see how to do this in base R</i></summary>\n<pre><code># Selecting columns to keep\nbp_oe <- bp_oe[, c("term.id", "term.name", "p.value", "query.size", "term.size", "overlap.size", "intersection")]\n# View(bp_oe)</code></pre>\n</details>',
@@ -251,6 +253,7 @@ bp_oe <- bp_oe %>% dplyr::rename(GO_id = term.id,
 
 
 ```{r, results='asis', echo=FALSE}
+
 collapsible_code('<details>\n<summary><i>Click here to see how to do this in base R</i></summary>\n<pre><code># Provide better names for columns\ncolnames(bp_oe)[colnames(bp_oe) == "term.id"] <- "GO_id"\ncolnames(bp_oe)[colnames(bp_oe) == "term.name"] <- "GO_term"</code></pre>\n</details>',
 "### How to do this in base R\n\n```r\n# Provide better names for columns\ncolnames(bp_oe)[colnames(bp_oe) == \"term.id\"] <- \"GO_id\"\ncolnames(bp_oe)[colnames(bp_oe) == \"term.name\"] <- \"GO_term\"\n```\n")
 
@@ -280,6 +283,7 @@ bp_oe <- bp_oe %>%
 ```
 
 ```{r, results='asis', echo=FALSE}
+
 collapsible_code('<details>\n<summary><i>Click here to see how to do this in base R</i></summary>\n<pre><code># Create gene ratio column based on other columns in dataset\nbp_oe <- cbind(bp_oe, gene_ratio = bp_oe$overlap.size / bp_oe$query.size)</code></pre>\n</details>',
 "### How to do this in base R\n\n```r\n# Create gene ratio column based on other columns in dataset\nbp_oe <- cbind(bp_oe, gene_ratio = bp_oe$overlap.size / bp_oe$query.size)\n```\n")
 

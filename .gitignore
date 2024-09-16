@@ -9,7 +9,9 @@ _pdf/
 # Ignore the timing file and instructor files
 timing.txt
 render_all.R
+solutions.R
 17-introR_codebook_answers.Rmd
+17-introR_codebook_solutions.Rmd
 17-introR_codebook.Rmd
 17-codebook_answers.Rmd
 data/subset_meta.csv

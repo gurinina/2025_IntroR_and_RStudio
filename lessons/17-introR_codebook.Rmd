@@ -65,7 +65,7 @@ number
 1. Try changing the value of the variable x to 5. What happens to number?
 ```{r}
 
-
+# Your code here
 ```
 
 * Ans: 
@@ -74,7 +74,7 @@ number
 
 ```{r}
 
-
+# Your code here
 ```
 
 * Ans: 
@@ -103,7 +103,7 @@ species
 Try to create a vector of numeric and character values by combining the two vectors that we just created (`glengths` and `species`). Assign this combined vector to a new variable called combined. Hint: you will need to use the combine `c()` function to do this. Print the combined vector in the console, what looks different compared to the original vectors?
 
 ```{r}
-
+# Your code here
 ```
 
 * Ans: 
@@ -130,13 +130,13 @@ Let’s say that in our experimental analyses, we are working with three differe
 
 1. Create a vector named samplegroup with nine elements: 3 control (“CTL”) values, 3 knock-out (“KO”) values, and 3 over-expressing (“OE”) values.
 ```{r}
-
+# Your code here
 ```
 
 2. Turn samplegroup into a factor data structure.
 
 ```{r}
-
+# Your code here
 ```
 
 ### Dataframes
@@ -159,6 +159,7 @@ pages <- c(453, 432, 328)
 
 ```{r}
 
+# Your code here
 
 ```
 
@@ -211,19 +212,20 @@ example("round")
 
 1. Let’s use base R function to calculate mean value of the `glengths` vector. You might need to search online to find what function can perform this task.
 ```{r}
-
+# Your code here
 ```
 
 2. Create a new vector `test <- c(1, NA, 2, 3, NA, 4)`. Use the same base R function from exercise 1 (with addition of proper argument), and calculate the mean value of the `test` vector. The output should be 2.5. > NOTE: In R, missing values are represented by the symbol NA (not available). It’s a way to make sure that users know they have missing data, and make a conscious decision on how to deal with it. There are ways to ignore NA during statistical calculation, or to remove NA from the vector. If you want more information related to missing data or NA you can go to the NA help page (please note that there are many advanced concepts on that page that have not been covered in class).
 ```{r}
 
 test <- c(1, NA, 2, 3, NA, 4)
+# Your code here
 
 ```
 
 3. Another commonly used base function is sort(). Use this function to sort the `glengths` vector in descending order.
 ```{r}
-
+# Your code here
 ```
 
 ### User-defined Functions
@@ -252,12 +254,12 @@ We have only scratched the surface here when it comes to creating functions! If 
 
 Function:
 ```{r}
-
+# Your code here
 ```
 
 Demo:
 ```{r}
-
+# Your code here
 ```
 
 
@@ -322,7 +324,7 @@ The tidyverse suite of integrated packages was designed to work together to make
 
 Set eval=TRUE if tidyverse is not yet installed. How can you run the `BiocManager::install()` command for a package that is already installed without getting an error?
 ```{r, eval = FALSE}
-
+# Your code here
 ```
 
 * Ans: 
@@ -362,7 +364,7 @@ age[1:4]
 1. Create a vector called alphabets with the following letters, C, D, X, L, F.
 
 ```{r}
-
+# Your code here
 ```
 
 2. Use the associated indices along with [ ] to do the following:
@@ -370,16 +372,16 @@ age[1:4]
     a) only display C, D and F
   
 ```{r}
-
+# Your code here
 ```
     b) display all except X
 ```{r}
-
+# Your code here
 ```
 
     c)  display the letters in the opposite order (F, L, X, D, C) *Bonus points for using a function instead of the indices (Hint: use Google)
 ```{r}
-
+# Your code here
 ```
 
 ### Selecting using logical operators
@@ -484,6 +486,7 @@ Use the samplegroup factor we created in a previous lesson, and relevel it such 
 
 ```{r}
 
+# Your code here
 
 ```
 
@@ -519,12 +522,14 @@ metadata
 
 ```{r}
 
+# Your code here
 
 ```
 
 2. Display the contents of proj_summary in your console
 ```{r}
 
+# Your code here
 
 ```
 
@@ -549,6 +554,7 @@ names(metadata)
 
 ```{r}
 
+# Your code here
 
 ```
 
@@ -556,6 +562,7 @@ names(metadata)
 
 ```{r}
 
+# Your code here
 
 ```
 
@@ -566,6 +573,7 @@ Use the `class()` function on `glengths` and `metadata`, how does the output dif
 
 ```{r}
 
+# Your code here
 
 ```
 
@@ -574,7 +582,7 @@ Use the `class()` function on `glengths` and `metadata`, how does the output dif
 Use the `summary()` function on the `proj_summary dataframe`, what is the median “Intronic_Rate?
 
 ```{r}
-
+# Your code here
 ```
 
 * Ans:
@@ -583,6 +591,7 @@ How long is the `samplegroup` factor?
 
 ```{r}
 
+# Your code here
 
 ```
 
@@ -592,6 +601,7 @@ What are the dimensions of the proj_summary dataframe?
 
 ```{r}
 
+# Your code here
 
 ```
 
@@ -599,14 +609,14 @@ What are the dimensions of the proj_summary dataframe?
 
 When you use the rownames() function on metadata, what is the data structure of the output?
 ```{r}
-
+# Your code here
 ```
 
 * Ans: 
 
 How many elements in (how long is) the output of colnames(proj_summary)? Don’t count, but use another function to determine this.
 ```{r}
-
+# Your code here
 ```
 
 * Ans:
@@ -677,17 +687,17 @@ metadata$genotype[1:5]
 
 Return a data frame with only the genotype and replicate column values for sample2 and sample8.
 ```{r}
-
+# Your code here
 ```
 
 Return the fourth and ninth values of the replicate column.
 ```{r}
-
+# Your code here
 ```
 
 Extract the replicate column as a data frame.
 ```{r}
-
+# Your code here
 ```
 
 #### Selecting using logical operators:
@@ -746,7 +756,7 @@ sub_meta <- metadata[which(metadata$replicate > 1), ]
 Subset the metadata dataframe to return only the rows of data with a genotype of KO.
 
 ```{r}
-
+# Your code here
 ```
 
 
@@ -815,12 +825,12 @@ all(A %in% B)
 
 1. Using the A and B vectors created above, evaluate each element in B to see if there is a match in A
 ```{r}
-
+# Your code here
 ```
 
 2. Subset the B vector to only return those values that are also in A.
 ```{r}
-
+# Your code here
 ```
 
 Suppose we had two vectors containing same values. **How can we check if those values are in the same order in each vector?**  In this case, we can use == operator to compare each element of the same position from two vectors. Unlike %in% operator, == operator requires that two vectors are of equal length.
@@ -875,17 +885,17 @@ important_genes <- c("ENSMUSG00000083700", "ENSMUSG00000080990",
 
 1. Use the %in% operator to determine if all of these genes are present in the row names of the rpkm_data data frame.
 ```{r}
-
+# Your code here
 ```
 
 2. Extract the rows from rpkm_data that correspond to these 6 genes using [] and the %in% operator. Double check the row names to ensure that you are extracting the correct rows.
 ```{r}
-
+# Your code here
 ```
 
 3. Extract the rows from rpkm_data that correspond to these 6 genes using [], but without using the %in% operator.
 ```{r}
-
+# Your code here
 ```
 
 ## 10 Reordering to match datasets
@@ -1016,12 +1026,12 @@ all(rownames(metadata) == colnames(rpkm_ordered))
 After talking with your collaborator, it becomes clear that sample2 and sample9 were actually from a different mouse background than the other samples and should not be part of our analysis. Create a new variable called subset_rpkm that has these columns removed from the rpkm_ordered data frame.
 
 ```{r}
-
+# Your code here
 ```
 
 Use the `match()` function to subset the metadata data frame so that the row names of the metadata data frame match the column names of the subset_rpkm data frame.
 ```{r}
-
+# Your code here
 
 ```
 
@@ -1201,7 +1211,7 @@ ggplot(new_metadata) +
 3. Add the following new layer to the code chunk theme(plot.title=element_text(hjust=0.5))
 
 ```{r}
-
+# Your code here
 ```
 
 What does it change?
@@ -1234,19 +1244,20 @@ How many theme() layers can be added to a ggplot code chunk, in your estimation?
 
 1.
 ```{r}
-
+# Your code here
 ```
 
 
 2. Change genotype order: Factor the `new_metadata$genotype` column without creating any extra variables/objects and change the levels to `c("Wt", "KO")`
 ```{r}
-
+# Your code here
 ```
 
 3. Re-run the boxplot code chunk you created in 1.
 
 ```{r}
 
+# Your code here
 
 ```
 
@@ -1271,12 +1282,13 @@ What do you think is the difference between scale_color_manual() and scale_fill_
 * Boxplot using "color" instead of "fill". Use purple and orange for your colors.
 ```{r}
 
+# Your code here
 
 ```
 
 * Back in your boxplot code, change the colors in the scale_fill_manual() layer to be your 2 favorite colors.
 ```{r}
-
+# Your code here
 ```
  
 
@@ -1297,7 +1309,7 @@ library(gplots)
 ```
 
 ```{r}
-
+# Your code here
 ```
 
 
@@ -1411,12 +1423,12 @@ random_numbers <- c(81, 90, 65, 43, 71, 29)
 
     a) Take the mean of random_numbers using the mean() function.
 ```{r}
-
+# Your code here
 ```
     
     b)  Round the output to three digits using the round() function.
 ```{r}
-
+# Your code here
 ```
 
 ### Tibbles
@@ -1521,7 +1533,7 @@ bp_oe <- bp_oe %>%
 
 Rename the intersection column to genes to reflect the fact that these are the DE genes associated with the GO process.
 ```{r}
-
+# Your code here
 ```
 
 ### Mutate
@@ -1538,7 +1550,7 @@ bp_oe <- bp_oe %>%
 Create a column in bp_oe called term_percent to determine the percent of DE genes associated with the GO term relative to the total number of genes associated with the GO term (overlap.size / term.size)
 
 ```{r}
-bp_oe <- bp_oe %>% mutate(term_percent = overlap.size / term.size)
+# Your code here
 ```
 
 Gives you a sense of how many of the genes in the GO term are differentially expressed.
@@ -1560,7 +1572,7 @@ Change the p.value gradient colors to red-orange-yellow
 ```{r}
 # to help linearize the p.values for the colors; not essential for answer
 sub$`-log10(p.value)` = -log10(sub$p.value) 
-
+# Your code here
 
 
 
