@@ -29,7 +29,7 @@ The Tidyverse suite of packages introduces users to a set of data structures, fu
 
 **Two important new concepts in tidyverse that we will focus on are pipes and tibbles**.
 
-Before we get start
+Before we get started with pipes or tibbles, let's load the library:
 
 ```{r}
 library(tidyverse)
