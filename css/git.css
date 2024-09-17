@@ -31,25 +31,54 @@ th, td {
    an element with both the .pre and .sourceCode classes */
 .pre.sourceCode r Code {
   background: white!important; /* Sets the background color to white */
-  color: black!important;      /* Ensures the text color is black */
-  border: 3px solid black;      /* Adds a black border around the element */
+  color: #000000!important;      /* Ensures the text color is #000000 */
+  font-weight: bold;
+  border: 3px solid #000000;      /* Adds a #000000 border around the element */
 }
 
-/* This targets r elements inside any element with the .sourceCode class */
-.sourceCode r {
-  background: #D7DDFD!important; /* Sets a lighter blue background for r elements */
-  color: black!important;        /* Ensures the text color is black */
-  border: 3px solid black;        /* Adds a black border around the r element */
-  margin-bottom: 12px!important;  /* Adds some space below the element */
-}
-
-/* This targets pre and code elements together to style code blocks */
+/* Styling for block code chunks (e.g., code chunks in R Markdown) */
 pre code {
-  white-space: pre-wrap;            /* Ensures the text wraps within code blocks */
-  font-size: 12px;                  /* Sets the font size to 12px */
-  color: black;                     /* Sets the text color to black */
-  background-color: #D7DDFD!important; /* Sets a lighter blue background for code blocks */
+  background-color: #EAEAFD !important;  /* Light blue background for code blocks */
+  color: #000000 !important;             /* Set the text color to black */
+  padding: 10px;                         /* Add padding around the code block */
+  font-size: 12px;                       /* Set the font size */
+  font-weight: bold;                     /* Set the font weight to bold */
+  border: 3px solid #000000;             /* Add a black border */
 }
+
+
+
+/* Force all comments (both # and ##) to be dark gray and bold in block code */
+pre code span.hljs-comment,
+.sourceCode span.hljs-comment {
+  color: #000073 !important;    /* Force dark gray for comments */
+  font-weight: bold !important; /* Force comments to be bold */
+}
+
+/* Optional: You can also ensure inline comments are handled the same way */
+/*pre code,
+.sourceCode code {
+  background-color: #EAEAFD !important;
+  color: #000000 !important;
+  font-weight: bold !important;
+}*/
+
+  /* Constant */
+code span.co {
+    color: #000073;
+    font-style: italic;
+    font-weight: bold;
+}
+
+/* Comment */
+code span.cv {
+    color: #000073;
+    font-weight: bold;
+    font-style: italic;
+    font-weight: bold
+}
+
+
 
 .showopt {
   background-color: #000080;
@@ -86,7 +115,7 @@ details[open] {
   padding: 0.5em;
   border: 3px solid #000000;
   width: 672px;
-  background-color: #D7DDFD;
+  background-color: #EAEAFD;
   color: #000080;
   border-radius: 4px;
   border-color: #000000;
@@ -103,7 +132,7 @@ details summary {
 
 details[open] summary {
   font-size: 12px!important;
-  background-color: #D7DDFD;
+  background-color: #EAEAFD;
   color: #000080;
   border-bottom: 1px solid #000000;
   margin-bottom: 0.5em;
@@ -130,7 +159,7 @@ p code {
   font-size: 12px!important;
   border: 2px solid #000000!important;
   white-space: pre-wrap;
-  background: #D7DDFD!important;
+  background: #EAEAFD!important;
 }
 
 .main-container {

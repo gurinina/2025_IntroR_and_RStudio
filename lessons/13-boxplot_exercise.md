@@ -4,7 +4,7 @@
 
 A boxplot provides a graphical view of the distribution of data based on a five number summary: 
 
-* The top and bottom of the box represent the (1) first and (2) third quartiles (25th and 75th percentiles, respectively). 
+* The top and bottom of the box represent the (1) first and (2) third quartiles (25th and 75th percentiles, respectively), also known as Q1 and Q3.
 
 * The line inside the box represents the (3) median (50th percentile). 
 

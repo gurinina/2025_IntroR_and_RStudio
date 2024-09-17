@@ -11,19 +11,11 @@ editor_options:
 
 ```{r, include=FALSE}
 
-knitr::opts_chunk$set(echo = TRUE) # this will make sure that the code is displayed in the output
+## setup.R set up page width and code formatting
+source("setup.R")
 
 ```
-
-To clear the environment so that we start fresh, you can use the following command:
-```{r}
-
-rm(list = ls())
-
-```
-
-To clear the console in Rstudio, you can use the following command: ctrl + L
-
+Let's start by going to the environment panel in RStudio and clearing the environment. This is a good habit to get into when starting a new project, as it ensures that you are starting with a clean slate.
 
 ## 02 Introduction to R and RStudio
 
@@ -33,7 +25,7 @@ To clear the console in Rstudio, you can use the following command: ctrl + L
 
 Add some additional code to the following `chunk`:
 ```{r}
-# Intro to R Lesson
+## Intro to R Lesson
 
 3+5
 
@@ -73,7 +65,6 @@ number
 2. Now try changing the value of variable y to contain the value 10. What do you need to do, to update the variable number?
 
 ```{r}
-
 # Your code here
 ```
 
@@ -110,14 +101,16 @@ Try to create a vector of numeric and character values by combining the two vect
 
 ### Factors
 
+Create a character vector and store the vector as a variable called 'expression'
 ```{r}
-# Create a character vector and store the vector as a variable called 'expression'
 expression <- c("low", "high", "medium", "high", "low", "medium", "high")
 expression
 ```
 
+
+Turn 'expression' vector into a factor
 ```{r}
-# Turn 'expression' vector into a factor
+
 expression <- factor(expression)
 expression
 length(expression)
@@ -215,7 +208,12 @@ example("round")
 # Your code here
 ```
 
-2. Create a new vector `test <- c(1, NA, 2, 3, NA, 4)`. Use the same base R function from exercise 1 (with addition of proper argument), and calculate the mean value of the `test` vector. The output should be 2.5. > NOTE: In R, missing values are represented by the symbol NA (not available). It’s a way to make sure that users know they have missing data, and make a conscious decision on how to deal with it. There are ways to ignore NA during statistical calculation, or to remove NA from the vector. If you want more information related to missing data or NA you can go to the NA help page (please note that there are many advanced concepts on that page that have not been covered in class).
+2. **Create a new vector `test <- c(1, NA, 2, 3, NA, 4)`. Use the same base R function from exercise 1 (with addition of proper argument), and calculate the mean value of the `test` vector. The output should be 2.5.**
+
+> **NOTE:** In R, missing values are represented by the symbol `NA` (not available).  
+> It’s a way to make sure that users know they have missing data, and make a conscious decision on how to deal with it.  
+> There are ways to ignore `NA` during statistical calculation, or to remove `NA` from the vector.
+
 ```{r}
 
 test <- c(1, NA, 2, 3, NA, 4)
@@ -467,7 +465,11 @@ as.character(exp) # this will convert the factor to a character vector
 
 Extract only those elements in samplegroup that are not KO (nesting the logical operation is optional).
 ```{r}
+samplegroup <- c(rep("CTL", 3), rep("KO", 3), rep("OE", 3))
 
+samplegroup <- factor(samplegroup)
+
+# Your code here
 ```
 
 #### Releveling factors
@@ -485,6 +487,9 @@ str(expression)
 Use the samplegroup factor we created in a previous lesson, and relevel it such that KO is the first level followed by CTL and OE.
 
 ```{r}
+samplegroup <- c(rep("CTL", 3), rep("KO", 3), rep("OE", 3))
+
+samplegroup <- factor(samplegroup)
 
 # Your code here
 
@@ -877,7 +882,7 @@ We have a list of 6 marker genes that we are very interested in. Our goal is to 
 
 First, let’s create a vector called important_genes with the Ensembl IDs of the 6 genes we are interested in:
 
-```{r}
+```{r, echo=FALSE}
 important_genes <- c("ENSMUSG00000083700", "ENSMUSG00000080990", 
                      "ENSMUSG00000065619", "ENSMUSG00000047945",
                      "ENSMUSG00000081010", "ENSMUSG00000030970")
@@ -918,8 +923,7 @@ second
 
 How would you reorder the second vector to match first?
 ```{r}
-idx <- c(4,1,5,2,3)  # reorder indices
-second[idx]
+# Your code here
 ```
 
 ### The `match` function
@@ -1199,16 +1203,16 @@ ggplot(new_metadata) +
   geom_point(aes(x = age_in_days, y = samplemeans, 
                  color = genotype, shape = celltype), size = 2.25) +
   theme_bw() +
-  theme(axis.title = element_text(size = rel(1.5)))       
+  theme(axis.title = element_text(size = rel(1.5)))  # increase the size of the axis titles     
 ```
 
 **Exercise** points +5
 
-1. The current axis label text defaults to what we gave as input to geom_point (i.e the column headers). We can change this by adding additional layers called xlab() and ylab() for the x- and y-axis, respectively. Add these layers to the current plot such that the x-axis is labeled “Age (days)” and the y-axis is labeled “Mean expression”.
+1. The current axis label text defaults to what we gave as input to geom_point (i.e the column headers). We can change this by adding additional layers called **xlab()** and **ylab()** for the x- and y-axis, respectively. Add these layers to the current plot such that the x-axis is labeled “Age (days)” and the y-axis is labeled “Mean expression”.
 
-2. Use the ggtitle layer to add a plot title of your choice.
+2. Use the **ggtitle** layer to add a plot title of your choice.
 
-3. Add the following new layer to the code chunk theme(plot.title=element_text(hjust=0.5))
+3. Add the following new layer to the code chunk: theme(plot.title = element_text(hjust  =0.5))
 
 ```{r}
 # Your code here
@@ -1422,10 +1426,6 @@ random_numbers <- c(81, 90, 65, 43, 71, 29)
 2. Use the pipe (%>%) to perform two steps in a single line: 
 
     a) Take the mean of random_numbers using the mean() function.
-```{r}
-# Your code here
-```
-    
     b)  Round the output to three digits using the round() function.
 ```{r}
 # Your code here

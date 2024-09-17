@@ -15,22 +15,21 @@ collapsible_code <- function(html_content, non_html_content) {
 }
 
 ```
+An incredibly important skill of a data scientist is to be able to take data from an untidy format and get it into a tidy format. This process is often referred to as data wrangling. Generally, data wranglings skills are those that allow you to wrangle data from the format they’re currently in into the tidy format you actually want them in.
 
+![](img/wrangling.png)
 
 [Tidyverse](https://www.tidyverse.org/packages/) is a suite of packages that are incredibly useful for working with data. are designed to work together to make common data science operations more user friendly. The packages have functions for data wrangling, tidying, reading/writing, parsing, and visualizing, among others. 
 
 ![](img/tidyverse_website.png)
 
-## What is data wrangling?
-Data wrangling: The process of cleaning and unifying messy and complex data sets for easy access and analysis.
-
-![](img/wrangling.png)
-
 ## Tidyverse basics
+
+The Tidyverse suite of packages introduces users to a set of data structures, functions and operators to make working with data more intuitive, but is slightly different from the way we do things in base R. 
 
 **Two important new concepts in tidyverse that we will focus on are pipes and tibbles**.
 
-Before we get started with pipes or tibbles, let's load the library:
+Before we get start
 
 ```{r}
 library(tidyverse)

@@ -2,6 +2,8 @@
 
 ## Data Visualization with `ggplot2`
 
+This chapter will teach you how to visualise your data using ggplot2. R has several systems for making graphs, but ggplot2 is one of the most elegant and most versatile. ggplot2 implements the grammar of graphics, a coherent system for describing and building graphs. With ggplot2, you can do more faster by learning one system and applying it in many places.
+
 For this lesson, you will need the `new_metadata` data frame. Load it into your environment as follows:
 
 ```r
@@ -18,8 +20,6 @@ head(new_metadata)
 Great, we are now ready to move forward!
 
 ***
-
-When we are working with large sets of numbers it can be useful to display that information graphically to gain more insight. In this lesson we will be plotting with the Bioconductor package [`ggplot2`](http://docs.ggplot2.org/).
 
 The `ggplot2` syntax takes some getting used to, but once you get it, you will find it's extremely powerful and flexible. We will start with drawing a simple x-y scatterplot of `samplemeans` versus `age_in_days` from the `new_metadata` data frame. Note that `ggplot2` expects a "data frame".
 
