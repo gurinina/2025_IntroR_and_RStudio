@@ -1360,7 +1360,7 @@ save.image()
 
 # OR give it a memorable name
 
-save.image("2024_IntroR_and_RStudio.RData")
+save.image("2025_IntroR_and_RStudio.RData")
 
 # OR for a single object
 
