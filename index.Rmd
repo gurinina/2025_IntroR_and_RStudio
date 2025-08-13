@@ -59,3 +59,4 @@ While statistics textbooks focus on mathematics, this book focuses on using a co
 Throughout the course we show the R code that performs genomic analysis. All sections of this book are reproducible; comprised of *R markdown* documents that include the R code necessary to produce all figures, tables and results.
 
 Let's get started with the first module, Introduction to R and RStudio.
+
