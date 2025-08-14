@@ -1,22 +1,21 @@
---- 
-title: "Applied Omics Science for Drug Discovery and Development" 
-output:
-  bookdown::gitbook:
-    css: [css/git.css, css/toc.css]
-    config:
-      toc:
-        collapse: section
-      download: ["pdf", "epub"]
-      sharing: no
-      search: no
-link-citations: yes 
+---
+title: "PHAR 520: Applied Omics Science for Drug Discovery and Development"
+subtitle: "ModuleI: 2025_IntroR_and_RStudio"
 github-repo: gurinina/2025_IntroR_and_RStudio
-url: https\://bookdown.org/ggiaever/2025_IntroR_and_RStudio/
+url: https://bookdown.org/ggiaever/2025_IntroR_and_RStudio/
 site: bookdown::bookdown_site 
 documentclass: book
 favicon: "img/icons8-biotech-64.png"
 cover-image: "img/koos10.png"
---- 
+---
+
+
+```{r, include=FALSE}
+
+## setup.R set up page width and code formatting
+source("setup.R")
+
+```
 
 # Welcome to Omics Science! {-}
 
@@ -26,14 +25,14 @@ cover-image: "img/koos10.png"
 
 The lab module includes four sections:
 
-- 1. Introduction to R and RStudio. Bookdown site: [2025_IntroR_and_RStudio](https://bookdown.org/ggiaever/2025_IntroR_and_RStudio/)
-Github site: [2025_IntroR_and_RStudio](http://github.com/gurinina/2025_IntroR_and_RStudio)
+- 1. Introduction to R and RStudio. [Bookdown site: 2025_IntroR_and_RStudio](https://bookdown.org/ggiaever/2025_IntroR_and_RStudio/)
+[Github site: 2025_IntroR_and_RStudio](http://github.com/gurinina/2025_IntroR_and_RStudio)
 
-- 2. Introduction to Differential Gene Expression (DGE) analysis. Bookdown site: [2025_RNA-Seq-Analysis](https://bookdown.org/ggiaever/2025_RNA-seq-analysis/). Github site: [2025_RNA-Seq-Analysis](http://github.com/gurinina/2025_RNA-Seq-Analysis).
+- 2. Introduction to Differential Gene Expression (DGE) analysis. [Bookdown site: 2025_RNA-Seq-Analysis](https://bookdown.org/ggiaever/2025_RNA-seq-analysis/). [Github site: 2025_RNA-Seq-Analysis](http://github.com/gurinina/2025_RNA-Seq-Analysis).
 
-- 3. Differential Gene Expression (DGE) continued. Bookdown site: [2025_RNA-Seq-Analysis](https://bookdown.org/ggiaever/2025_RNA-seq-analysis/). Github site: [2025_RNA-Seq-Analysis](http://github.com/gurinina/2025_RNA-Seq-Analysis).
+- 3. Differential Gene Expression (DGE) continued. [Bookdown site: 2025_RNA-Seq-Analysis](https://bookdown.org/ggiaever/2025_RNA-seq-analysis/). [Github site: 2025_RNA-Seq-Analysis](http://github.com/gurinina/2025_RNA-Seq-Analysis).
 
-- 4. Data Visualization in R. Bookdown site: [2025_r4ds-ggplot2](https://bookdown.org/ggiaever/2025_r4ds-ggplot2/).
+- 4. Data Visualization in R. [Bookdown site: 2025_r4ds-ggplot2](https://bookdown.org/ggiaever/2025_r4ds-ggplot2/). [Github site: 2025_r4ds-ggplot2](http://github.com/gurinina/2025_r4ds-ggplot2)
 
 - 5. Variant-calling and annotation pipeline: **Marjan Barazandeh**
 

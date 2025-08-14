@@ -3,7 +3,8 @@
 # bookdown files
 _book/
 _bookdown_files/
-2024_IntroR_and_RStudio.Rmd
+2025_IntroR_and_RStudio.Rmd
+index_original.Rmd
 _epub/
 _pdf/
 # Ignore the timing file and instructor files
@@ -85,5 +86,6 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 
+# .DS_Store (Mac)
 .DS_Store
 
