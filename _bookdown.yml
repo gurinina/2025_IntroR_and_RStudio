@@ -2,7 +2,7 @@ book_filename: "2024_IntroR_and_RStudio"
 new_session: no
 rmd_files:
   - index.Rmd
-  - lessons/01-getting-started.Rmd
+  - lessons/01-starting_out.Rmd
   - lessons/02-introR-and-RStudio.md
   - lessons/03-introR-syntax-and-data-structures.md
   - lessons/04-introR-functions-and-arguments.md

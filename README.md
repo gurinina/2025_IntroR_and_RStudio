@@ -5,9 +5,7 @@
 | Biologists | None | 4-session online workshop (~ 8 hours of trainer-led time)|
 
 ### Description
-This repository has teaching materials for a hands-on **Introduction to R** workshop taught online. The workshop will introduce participants to the basics of R and RStudio. R is a simple programming environment that enables the effective handling of data, while providing excellent graphical support. RStudio is a tool that provides a user-friendly environment for working with R. These materials are intended to provide both basic R programming knowledge and its application for increasing efficiency for data analysis. 
-
-**Note for Trainers:** Please note that the schedule linked below assumes that learners will spend between 2-3 hours on reading through, and completing exercises from selected lessons between classes. The online component of the workshop focuses on more exercises and discussion/Q & A.
+This repository is an adaptation of teaching materials for a hands-on **Introduction to R** workshop taught online [here](https://hbctraining.github.io/Intro-to-R-flipped/). The workshop introduces participants to the basics of R and RStudio. R is a simple programming environment that enables the effective handling of data, while providing excellent graphical support. RStudio is a tool that provides a user-friendly environment for working with R. These materials are intended to provide both basic R programming knowledge and its application for increasing efficiency for data analysis. 
 
 ### Learning Objectives
 
@@ -15,27 +13,11 @@ This repository has teaching materials for a hands-on **Introduction to R** work
 2. **Data types and data structures**: Describe frequently-used data types and data structures in R.
 3. **Data inspection and wrangling**: Demonstrate the utilization of functions and indices to inspect and subset data from various data structures.
 4. **Data visualization**: Apply the ggplot2 package to create plots for data visualization.
-
-### Lessons
-* [Workshop schedule (trainer-led learning)](schedules/workshop_schedule.md)
-* [Self-learning](schedules/links-to-lessons.md)
-
-### Installation Requirements
-
-Download the most recent versions of R and RStudio for the appropriate OS using the links below:
-
- - [R](https://cran.r-project.org/) 
- - [RStudio](https://www.rstudio.com/products/rstudio/download/#download)
-
-### Dataset
-
-All the files used for the above lessons are linked within, but can also be [accessed here](https://github.com/hbctraining/2024_IntroR_and_RStudio-with-DGE/tree/master/data).
-
 ---
 
 ### Citation
 
-To cite material from this course in your publications, please use:
+To cite original material from this course in your publications, please use:
 
 > Meeta Mistry, Mary Piper, Jihe Liu, & Radhika Khetani. (2021, May 5). *hbctraining/2024_IntroR_and_RStudio-flipped: R workshop first release*. Zenodo. https://doi.org/10.5281/zenodo.4739342
 

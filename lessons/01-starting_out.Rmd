@@ -1,0 +1,345 @@
+---
+title: 'Starting out:'
+output: 
+  html_document: default
+  pdf_document:
+    latex_engine: xelatex
+date: "2025-09-01"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Getting Started with R and RStudio
+## A Beginner's Guide for First-Year Graduate Students
+
+## What You're Installing and Why
+
+Before we start, here's what each tool does:
+
+- **R**: The programming language that does the actual data analysis
+- **RStudio**: A user-friendly interface that makes R easier to use (like Microsoft Word for documents)
+- **Git**: Software that helps you download and sync course materials
+- **Additional tools**: Help R work with different types of data and create documents
+
+**Important**: Install everything in the order listed below. Each step builds on the previous one.
+
+## Step 1: Install R
+
+R is the programming language. Install this first!
+
+### For Windows:
+1. Go to [R Project website](https://cran.r-project.org/bin/windows/)
+2. Click "base" then "Download R for Windows"
+3. Run the downloaded file and follow the installation prompts
+
+### For macOS:
+**These instructions work for ALL Macs (Intel and Apple Silicon):**
+
+1. Go to [R Project website](https://cran.r-project.org/bin/macosx/)
+2. Download the **Intel (x86_64)** version (yes, even for newer Macs with M1/M2/M3 chips)
+3. Run the downloaded `.pkg` file and follow the installation prompts
+
+## Step 2: Install Additional Tools (macOS Only)
+
+Windows users can skip to Step 3. Mac users need these tools for R to work properly:
+
+### Install Required System Tools:
+Open **Terminal** (found in Applications → Utilities) and paste each command one at a time:
+
+```bash
+xcode-select --install
+```
+Click "Install" when prompted and wait for it to finish (this may take 10-15 minutes).
+
+### Install Graphics Support:
+1. Go to [XQuartz.org](https://www.xquartz.org)
+2. Download and install XQuartz
+3. **Log out and log back in** to your Mac after installation
+
+### Install Fortran Compiler:
+1. Go to [R Tools for macOS](https://mac.r-project.org/tools/)
+2. Download **gfortran-12.2-universal.pkg**
+3. Install it by double-clicking the downloaded file
+
+### Add Fortran to Your System Path:
+In Terminal, paste these commands:
+
+```bash
+echo 'export PATH="/opt/gfortran/bin:/usr/local/bin:$PATH"' >> ~/.zshrc
+echo 'export PATH="/opt/gfortran/bin:/usr/local/bin:$PATH"' >> ~/.bash_profile
+```
+
+## Step 3: Install Git
+
+Git helps you download and sync course materials.
+
+### For Windows:
+1. Go to [git-scm.com](https://git-scm.com/download/win)
+2. Download Git for Windows
+3. Run the installer using all default settings (just keep clicking "Next")
+
+### For macOS:
+If you completed Step 2, Git is already installed! To verify, open Terminal and type:
+
+```bash
+git --version
+```
+You should see version information.
+
+### Configure Git (All Users):
+Open **Terminal** (Mac) or **Git Bash** (Windows) and run these commands with your information:
+
+```bash
+git config --global user.name "Your Full Name"
+git config --global user.email "your.email@university.edu"
+```
+
+## Step 4: Install RStudio
+
+RStudio is the user-friendly interface for R.
+
+1. Go to [RStudio.com](https://www.rstudio.com/products/rstudio/download/)
+2. Download **RStudio Desktop** (the free version)
+3. Install it like any other program
+
+### For Mac Users with Apple Silicon (M1/M2/M3):
+After installing RStudio:
+
+1. In Finder, go to **Applications**
+2. Right-click on **RStudio.app**
+3. Select **Get Info**
+4. Check the box **"Open using Rosetta"**
+
+## Step 5: Test Your Installation
+
+Let's make sure everything works:
+
+### Test RStudio and R:
+1. **Open RStudio** (not R - always use RStudio)
+2. You should see 4 panels:
+   - **Console** (bottom left) - this is where you type R commands
+   - **Environment** (top right) - shows your data
+   - **Files/Plots** (bottom right) - shows files and graphs
+   - **Script** (top left) - for writing longer code
+
+3. **Click in the Console** (the bottom left panel where you see `>`)
+4. Type this and press Enter:
+```r
+2 + 2
+```
+   You should see `[1] 4`
+
+### Test Git Connection:
+1. In RStudio, go to **File → New Project → Version Control**
+2. You should see **"Git"** as an option
+3. If you see it, great! If not, restart RStudio and try again
+
+## Step 6: Download Course Materials
+
+Now let's get the main course files:
+
+1. In RStudio, go to **File → New Project → Version Control → Git**
+2. In the "Repository URL" field, paste:
+```
+https://github.com/gurinina/2025_IntroR_and_RStudio
+```
+3. Choose where to save the project on your computer
+4. Click **"Create Project"**
+
+RStudio will download all course materials. This may take a few minutes.
+
+### Additional Repositories:
+As the course progresses, you may need to clone additional repositories for specific modules. Your instructor will provide those URLs when needed.
+
+**Tips:**
+- To **update** materials later in the term, open the project and click the **Pull** button in the **Git** tab
+- To **switch** between projects later: RStudio → *File → Open Project…* and select the corresponding `.Rproj` file
+
+### Understanding the Git Pane:
+When you open your course project in RStudio, you should see a tab labeled **Git** in the upper-right panel (next to *Environment* and *History*). This is where you can:
+
+- **See changes** you've made to files (they'll appear in the list)
+- **Revert changes** if you made an edit you don't want to keep
+- **Pull** to update your local copy with the newest course materials from GitHub
+- **Push** to send your own changes to GitHub (*not applicable in this course — you won't be pushing*)
+
+For this course, you will mainly use the **Pull** button (blue down-arrow icon) to update your files when the instructor posts new material.
+
+### **IMPORTANT: Git Best Practices for Students**
+
+To avoid problems when updating course materials, follow these rules:
+
+#### ✅ **Safe Things to Do:**
+- **Create new files** for your notes and practice work
+- **Rename template files** before editing them (like `codebook_yourname.Rmd`)
+- **Make new folders** like `my_notes/` or `homework/` for your work
+- **Copy lesson files** to a new name before modifying them
+
+#### ❌ **Things That Cause Git Conflicts:**
+- **Don't edit the original lesson `.Rmd` files directly**
+- **Don't modify existing file names in the lessons folder**
+- **Don't save your work in the main lesson directories**
+
+#### **Golden Rule:**
+> **Never edit the original lesson files directly. Always create new files for your notes and practice. This way you can always Pull the latest updates without problems!**
+
+#### **Suggested Workflow:**
+```
+2025_IntroR_and_RStudio/
+├── lessons/               # DON'T TOUCH - instructor files  
+├── img/                   # DON'T TOUCH - course images
+├── _book/                 # DON'T TOUCH - bookdown output
+├── codebook.Rmd           # DON'T EDIT - copy/rename instead
+├── (other course files)   # DON'T TOUCH - various course materials
+├── my_notes/             # CREATE - your folder for notes
+│   ├── lesson1_notes.Rmd
+│   ├── practice.R
+│   └── other_notes.Rmd
+└── codebook_lastname.Rmd  # CREATE - copy of codebook with your name
+```
+
+**For the codebook**: Copy `codebook.Rmd` and rename it to `codebook_lastname.Rmd` (replace "lastname" with your actual last name). This file includes homework questions and space for your notes.
+
+## Step 7: Install Required R Packages
+
+R packages are like apps that add extra features. We need several for this course.
+
+### Find the Console:
+Look for the **Console** panel in RStudio (bottom left). You'll see a `>` symbol where you can type.
+
+### Install Packages:
+
+**First, locate the Console in RStudio**: Look at the bottom left panel of RStudio. You'll see a panel labeled "Console" with a `>` symbol - this is where you type R commands.
+
+**Click in the Console** and paste this entire block of code (it will take 10-15 minutes):
+
+```r
+# Install basic tools first
+install.packages(c("devtools", "BiocManager", "tidyverse", "rmarkdown"))
+
+# Install Bioconductor (for biological data analysis)
+if (!requireNamespace("BiocManager", quietly = TRUE)) {
+    install.packages("BiocManager")
+}
+
+# Install all required packages for the course
+BiocManager::install(c(
+    "bookdown", "clusterProfiler", "DESeq2", "dplyr", "enrichplot", "fgsea", 
+    "ggplot2", "ggrepel", "gplots", "knitr", "org.Hs.eg.db", "pheatmap", 
+    "purrr", "RColorBrewer", "rmarkdown", "rsconnect", "tidyverse", "tinytex"
+))
+
+# Install course-specific package
+devtools::install_github("gurinina/GOenrichment", force = TRUE)
+
+# Install document creation tools
+if (!tinytex::is_tinytex()) {
+    tinytex::install_tinytex(force = TRUE)
+}
+```
+
+**Be patient!** This process downloads and installs many packages. You'll see lots of text scrolling by - this is normal.
+
+## Step 8: Verify Everything Works
+
+Let's test that all packages installed correctly:
+
+### In the Console, paste and run:
+
+**Remember**: The Console is the bottom left panel in RStudio with the `>` symbol.
+
+```r
+# Check if key packages work
+library(ggplot2)
+library(dplyr)
+library(DESeq2)
+
+# If no error messages appear, you're ready!
+cat("Success! All packages are working.\n")
+```
+
+### Test Creating a Document:
+1. In RStudio, go to **File → New File → R Markdown**
+2. Leave the default settings and click **OK**
+3. Click the **"Knit"** button at the top
+4. If a webpage opens with a document, everything is working perfectly!
+
+### Creating PDF Documents:
+If you want to create PDF files (instead of HTML), you need to modify the document header:
+
+1. **For documents with special characters or emojis**: Change the top of your document to:
+```yaml
+---
+title: "Your Document Title"
+output: 
+  pdf_document:
+    latex_engine: xelatex
+---
+```
+
+2. **For simple documents**: You can use:
+```yaml
+---
+title: "Your Document Title"
+output: pdf_document
+---
+```
+
+**Note**: If you get errors about Unicode characters when making PDFs, always use `latex_engine: xelatex` in your document header.
+
+## What Success Looks Like
+
+✅ **RStudio opens without errors**  
+✅ **You can type `2 + 2` in the Console and get `[1] 4`**  
+✅ **You can create a new R Markdown document and "Knit" it**  
+✅ **You have a folder with course materials from the main repository**  
+
+## Common Problems and Solutions
+
+### "Package not found" errors:
+- Make sure you're typing in the **Console** (bottom left panel)
+- Try restarting RStudio and running the code again
+
+### "Command not found" in Terminal:
+- Close and reopen Terminal
+- Try restarting your computer
+
+### RStudio can't find Git:
+- Make sure you installed Git before RStudio
+- Restart RStudio completely (quit and reopen)
+
+### Installation seems stuck:
+- Be patient! Package installation can take 15-30 minutes
+- As long as you see text appearing, it's working
+
+## Getting Help
+
+**If something doesn't work:**
+
+1. Try restarting RStudio
+2. Try restarting your computer  
+3. Ask a classmate or instructor
+4. Email the instructor with:
+   - What step you're on
+   - What error message you see (copy and paste it)
+   - A screenshot if helpful
+
+**Remember**: Software installation can be tricky, even for experienced users. Don't worry if you need help - this is completely normal!
+
+## Next Steps
+
+Once everything is installed:
+
+1. **Explore RStudio** - click around and see what's in each panel
+2. **Try the built-in R tutorial**: In the Console, type:
+```r
+install.packages("swirl")
+library(swirl)
+swirl()
+```
+3. **Read the course materials** you downloaded
+4. **Don't panic!** Learning R takes time, and everyone starts as a beginner
+
+Welcome to R! You're ready to start your data analysis journey.

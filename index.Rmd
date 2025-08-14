@@ -7,9 +7,11 @@ output:
       toc:
         collapse: section
       download: ["pdf", "epub"]
+      sharing: no
+      search: no
 link-citations: yes 
-github-repo: gurinina/2024_IntroR_and_RStudio 
-url: https\://bookdown.org/ggiaever/2024_IntroR_and_RStudio/ 
+github-repo: gurinina/2025_IntroR_and_RStudio
+url: https\://bookdown.org/ggiaever/2025_IntroR_and_RStudio/
 site: bookdown::bookdown_site 
 documentclass: book
 favicon: "img/icons8-biotech-64.png"
@@ -24,13 +26,16 @@ cover-image: "img/koos10.png"
 
 The lab module includes four sections:
 
-- 1. Introduction to R and RStudio. Bookdown site: [2024_IntroR_and_RStudio](https://bookdown.org/ggiaever/2024_IntroR_and_RStudio/) 
+- 1. Introduction to R and RStudio. Bookdown site: [2025_IntroR_and_RStudio](https://bookdown.org/ggiaever/2025_IntroR_and_RStudio/)
+Github site: [2025_IntroR_and_RStudio](http://github.com/gurinina/2025_IntroR_and_RStudio)
 
-- 2. Introduction to Differential Gene Expression (DGE) analysis. Bookdown site: [RNA-seq-analysis](https://bookdown.org/ggiaever/RNA-seq-analysis/)
+- 2. Introduction to Differential Gene Expression (DGE) analysis. Bookdown site: [2025_RNA-Seq-Analysis](https://bookdown.org/ggiaever/2025_RNA-seq-analysis/). Github site: [2025_RNA-Seq-Analysis](http://github.com/gurinina/2025_RNA-Seq-Analysis).
 
-- 3. Variant-calling and annotation pipeline: **Marjan Barazandeh**
+- 3. Differential Gene Expression (DGE) continued. Bookdown site: [2025_RNA-Seq-Analysis](https://bookdown.org/ggiaever/2025_RNA-seq-analysis/). Github site: [2025_RNA-Seq-Analysis](http://github.com/gurinina/2025_RNA-Seq-Analysis).
 
-- 4. Data Visualization in R. Bookdown site: [r4ds-ggplot2](https://bookdown.org/ggiaever/r4ds-ggplot2/).
+- 4. Data Visualization in R. Bookdown site: [2025_r4ds-ggplot2](https://bookdown.org/ggiaever/2025_r4ds-ggplot2/).
+
+- 5. Variant-calling and annotation pipeline: **Marjan Barazandeh**
 
 ## What we will cover: {-}
 
@@ -40,13 +45,13 @@ We start with an introduction to R, including data structures, data wrangling an
 
 To determine the expression levels of genes, the full RNA-seq workflow follows the steps detailed in the image below. All steps are performed on the command line (Linux/Unix) through the generation of the read counts per gene. The differential expression analysis and downstream functional analysis are generally performed in R using R packages specifically designed for the complex statistical analyses required to determine whether genes are differentially expressed.
 
-![RNA-seq full workflow](img/full_workflow_2019.png){ width=400 }
-
-We will next cover variant analysis from FASTQ files to mapping genome sequencing data to a reference genome and produce high-quality variant calls that can be used in downstream analyses. We will use a pipeline employing the Genome Analysis Toolkit (GATK) to perform variant calling that is based on the best practices for variant discovery analysis outlined by the Broad Institute. The result will be the identification of genomic variants, such as single nucleotide polymorphisms (SNPs) and DNA insertions and deletions (indels). 
+![RNA-seq full workflow](img/full_workflow_2019.png){ width=400 
 
 We will cover the concepts of distance and dimension reduction. We will introduce Principal Component Analysis for dimension reduction. Principal Component Analysis (PCA) is a technique used to emphasize variation and bring out strong patterns in a dataset. Once we learn this, we will be ready to cover hierarchical clustering and other methods of visualization.
 
-Finally, we cover functional analysis of high-throughput data. The output of RNA-seq differential expression analysis is a list of significant differentially expressed genes (DEGs). To gain greater biological insight on the differentially expressed genes there are various analyses that can be done:
+We will next cover variant analysis; from FASTQ files to mapping genome sequencing data to a reference genome to produce high-quality variant calls that can be used in downstream analyses. We will use a pipeline employing the Genome Analysis Toolkit (GATK) to perform variant calling that is based on the best practices for variant discovery analysis outlined by the Broad Institute (MIT). The result will be the identification of genomic variants, such as single nucleotide polymorphisms (SNPs) and DNA insertions and deletions (indels).
+
+Finally, we will cover functional analysis of high-throughput data. The output of RNA-Seq differential expression analysis is a list of significant differentially expressed genes (DEGs). To gain greater biological insight on the differentially expressed genes there are various analyses that can be done:
 
 - determine whether there is enrichment of known biological functions, interactions, or pathways
 - identify genes' involvement in novel pathways or networks by grouping genes together based on similar trends
@@ -59,5 +64,3 @@ While statistics textbooks focus on mathematics, this book focuses on using a co
 Throughout the course we show the R code that performs genomic analysis. All sections of this book are reproducible; comprised of *R markdown* documents that include the R code necessary to produce all figures, tables and results.
 
 Let's get started with the first module, Introduction to R and RStudio.
-
-
