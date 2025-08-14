@@ -3,7 +3,9 @@
 # bookdown files
 _book/
 _bookdown_files/
-2024_IntroR_and_RStudio.Rmd
+2025_IntroR_and_RStudio.Rmd
+2025_IntroR_and_RStudio.html
+search_index.json
 timing.txt
 09-DGE_codebook_Aurelio_gg.Rmd
 # Ignore the timing file and instructor files
@@ -11,6 +13,7 @@ timing.txt
 data/subset_meta.csv
 # Ignore the scatterplot.pdf file inside the figures/ folder
 figures/scatterplot.pdf
+solutions.R
 
 # Allow the figures/ folder to be tracked
 !figures/
