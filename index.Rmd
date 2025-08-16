@@ -1,5 +1,5 @@
 ---
-title: "PHAR 520: Applied Omics Science for Drug Discovery and Development"
+title: "PHAR520: Applied Omics Science for Drug Discovery and Development"
 subtitle: "ModuleI: 2025_IntroR_and_RStudio"
 github-repo: gurinina/2025_IntroR_and_RStudio
 url: https://bookdown.org/ggiaever/2025_IntroR_and_RStudio/

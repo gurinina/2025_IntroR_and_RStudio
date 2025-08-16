@@ -1,4 +1,4 @@
-# Starting out with R and RStudio
+# Getting Started with R and RStudio
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -209,7 +209,7 @@ Look for the **Console** panel in RStudio (bottom left). You'll see a `>` symbol
 
 ```r
 # Install basic tools first
-install.packages(c("devtools", "BiocManager", "tidyverse", "rmarkdown"))
+install.packages(c("devtools", "BiocManager", "tidyverse"))
 
 # Install Bioconductor (for biological data analysis)
 if (!requireNamespace("BiocManager", quietly = TRUE)) {
@@ -218,9 +218,7 @@ if (!requireNamespace("BiocManager", quietly = TRUE)) {
 
 # Install all required packages for the course
 BiocManager::install(c(
-    "bookdown", "clusterProfiler", "DESeq2", "dplyr", "enrichplot", "fgsea", 
-    "ggplot2", "ggrepel", "gplots", "knitr", "org.Hs.eg.db", "pheatmap", 
-    "purrr", "RColorBrewer", "rmarkdown", "rsconnect", "tidyverse", "tinytex", "fansi"
+"apeglm", "bookdown", "clusterProfiler", "DESeq2", "dplyr", "enrichplot", "fansi", "fgsea", "gggraph", "ggplot2", "ggrepel", "gplots","GO.db", "GOSemSim", "igraph", "knitr", "org.Hs.eg.db", "pheatmap", "purrr", "RColorBrewer", "rmarkdown", "rsconnect", "tidyverse", "tinytex",  "visNetwork"
 ))
 
 # Install course-specific package
