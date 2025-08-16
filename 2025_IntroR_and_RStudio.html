@@ -1869,107 +1869,103 @@ font-size: 0.95em;
 </div>
 <div id="starting-out-with-r-and-rstudio" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Starting out with R and RStudio</h1>
-<div id="a-beginners-guide-for-first-year-graduate-students" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> A Beginner’s Guide for First-Year Graduate Students</h2>
-</div>
-<div id="what-youre-installing-and-why" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> What You’re Installing and Why</h2>
-<p>Before we start, here’s what each tool does:</p>
-<ul>
-<li><strong>R</strong>: The programming language that does the actual data analysis</li>
-<li><strong>RStudio</strong>: A user-friendly interface that makes R easier to use (like Microsoft Word for documents)</li>
-<li><strong>Git</strong>: Software that helps you download and sync course materials</li>
-<li><strong>Additional tools</strong>: Help R work with different types of data and create documents</li>
-</ul>
-<p><strong>Important</strong>: Install everything in the order listed below. Each step builds on the previous one.</p>
-</div>
-<div id="step-1-install-r" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Step 1: Install R</h2>
-<p>R is the programming language. Install this first!</p>
-<div id="for-windows" class="section level3" number="1.3.1">
-<h3><span class="header-section-number">1.3.1</span> For Windows:</h3>
-<ol style="list-style-type: decimal">
-<li>Go to <a href="https://cran.r-project.org/bin/windows/">R Project website</a></li>
-<li>Click “base” then “Download R for Windows”</li>
-<li>Run the downloaded file and follow the installation prompts</li>
-</ol>
-</div>
-<div id="for-macos" class="section level3" number="1.3.2">
-<h3><span class="header-section-number">1.3.2</span> For macOS:</h3>
-<p><strong>These instructions work for ALL Macs (Intel and Apple Silicon):</strong></p>
-<ol style="list-style-type: decimal">
-<li>Go to <a href="https://cran.r-project.org/bin/macosx/">R Project website</a></li>
-<li>Download the <strong>Intel (x86_64)</strong> version (yes, even for newer Macs with M1/M2/M3 chips)</li>
-<li>Run the downloaded <code>.pkg</code> file and follow the installation prompts</li>
-</ol>
-</div>
-</div>
-<div id="step-2-install-additional-tools-macos-only" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> Step 2: Install Additional Tools (macOS Only)</h2>
-<p>Windows users can skip to Step 3. Mac users need these tools for R to work properly:</p>
-<div id="install-required-system-tools" class="section level3" number="1.4.1">
-<h3><span class="header-section-number">1.4.1</span> Install Required System Tools:</h3>
-<p>Open <strong>Terminal</strong> (found in Applications → Utilities) and paste each command one at a time:</p>
-<pre class="bash"><code>xcode-select --install</code></pre>
+<pre><code>
+# Getting Started with R and RStudio
+## A Beginner&#39;s Guide for First-Year Graduate Students
+
+## What You&#39;re Installing and Why
+
+Before we start, here&#39;s what each tool does:
+
+- **R**: The programming language that does the actual data analysis
+- **RStudio**: A user-friendly interface that makes R easier to use (like Microsoft Word for documents)
+- **Git**: Software that helps you download and sync course materials
+- **Additional tools**: Help R work with different types of data and create documents
+
+**Important**: Install everything in the order listed below. Each step builds on the previous one.
+
+## Step 1: Install R
+
+R is the programming language. Install this first!
+
+### For Windows:
+1. Go to [R Project website](https://cran.r-project.org/bin/windows/)
+2. Click &quot;base&quot; then &quot;Download R for Windows&quot;
+3. Run the downloaded file and follow the installation prompts
+
+### For macOS:
+**These instructions work for ALL Macs (Intel and Apple Silicon):**
+
+1. Go to [R Project website](https://cran.r-project.org/bin/macosx/)
+2. Download the **Intel (x86_64)** version (yes, even for newer Macs with M1/M2/M3 chips)
+3. Run the downloaded `.pkg` file and follow the installation prompts
+
+## Step 2: Install Additional Tools (macOS Only)
+
+Windows users can skip to Step 3. Mac users need these tools for R to work properly:
+
+### Install Required System Tools:
+Open **Terminal** (found in Applications → Utilities) and paste each command one at a time:
+
+```bash
+xcode-select --install</code></pre>
 <p>Click “Install” when prompted and wait for it to finish (this may take 10-15 minutes).</p>
-</div>
-<div id="install-graphics-support" class="section level3" number="1.4.2">
-<h3><span class="header-section-number">1.4.2</span> Install Graphics Support:</h3>
+<div id="install-graphics-support" class="section level3" number="1.0.1">
+<h3><span class="header-section-number">1.0.1</span> Install Graphics Support:</h3>
 <ol style="list-style-type: decimal">
 <li>Go to <a href="https://www.xquartz.org">XQuartz.org</a></li>
 <li>Download and install XQuartz</li>
 <li><strong>Log out and log back in</strong> to your Mac after installation</li>
 </ol>
 </div>
-<div id="install-fortran-compiler" class="section level3" number="1.4.3">
-<h3><span class="header-section-number">1.4.3</span> Install Fortran Compiler:</h3>
+<div id="install-fortran-compiler" class="section level3" number="1.0.2">
+<h3><span class="header-section-number">1.0.2</span> Install Fortran Compiler:</h3>
 <ol style="list-style-type: decimal">
 <li>Go to <a href="https://mac.r-project.org/tools/">R Tools for macOS</a></li>
 <li>Download <strong>gfortran-12.2-universal.pkg</strong></li>
 <li>Install it by double-clicking the downloaded file</li>
 </ol>
 </div>
-<div id="add-fortran-to-your-system-path" class="section level3" number="1.4.4">
-<h3><span class="header-section-number">1.4.4</span> Add Fortran to Your System Path:</h3>
+<div id="add-fortran-to-your-system-path" class="section level3" number="1.0.3">
+<h3><span class="header-section-number">1.0.3</span> Add Fortran to Your System Path:</h3>
 <p>In Terminal, paste these commands:</p>
 <pre class="bash"><code>echo &#39;export PATH=&quot;/opt/gfortran/bin:/usr/local/bin:$PATH&quot;&#39; &gt;&gt; ~/.zshrc
 echo &#39;export PATH=&quot;/opt/gfortran/bin:/usr/local/bin:$PATH&quot;&#39; &gt;&gt; ~/.bash_profile</code></pre>
 </div>
-</div>
-<div id="step-3-install-git" class="section level2" number="1.5">
-<h2><span class="header-section-number">1.5</span> Step 3: Install Git</h2>
+<div id="step-3-install-git" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Step 3: Install Git</h2>
 <p>Git helps you download and sync course materials.</p>
-<div id="for-windows-1" class="section level3" number="1.5.1">
-<h3><span class="header-section-number">1.5.1</span> For Windows:</h3>
+<div id="for-windows" class="section level3" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> For Windows:</h3>
 <ol style="list-style-type: decimal">
 <li>Go to <a href="https://git-scm.com/download/win">git-scm.com</a></li>
 <li>Download Git for Windows</li>
 <li>Run the installer using all default settings (just keep clicking “Next”)</li>
 </ol>
 </div>
-<div id="for-macos-1" class="section level3" number="1.5.2">
-<h3><span class="header-section-number">1.5.2</span> For macOS:</h3>
+<div id="for-macos" class="section level3" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> For macOS:</h3>
 <p>If you completed Step 2, Git is already installed! To verify, open Terminal and type:</p>
 <pre class="bash"><code>git --version</code></pre>
 <p>You should see version information.</p>
 </div>
-<div id="configure-git-all-users" class="section level3" number="1.5.3">
-<h3><span class="header-section-number">1.5.3</span> Configure Git (All Users):</h3>
+<div id="configure-git-all-users" class="section level3" number="1.1.3">
+<h3><span class="header-section-number">1.1.3</span> Configure Git (All Users):</h3>
 <p>Open <strong>Terminal</strong> (Mac) or <strong>Git Bash</strong> (Windows) and run these commands with your information:</p>
 <pre class="bash"><code>git config --global user.name &quot;Your Full Name&quot;
 git config --global user.email &quot;your.email@university.edu&quot;</code></pre>
 </div>
 </div>
-<div id="step-4-install-rstudio" class="section level2" number="1.6">
-<h2><span class="header-section-number">1.6</span> Step 4: Install RStudio</h2>
+<div id="step-4-install-rstudio" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Step 4: Install RStudio</h2>
 <p>RStudio is the user-friendly interface for R.</p>
 <ol style="list-style-type: decimal">
 <li>Go to <a href="https://www.rstudio.com/products/rstudio/download/">RStudio.com</a></li>
 <li>Download <strong>RStudio Desktop</strong> (the free version)</li>
 <li>Install it like any other program</li>
 </ol>
-<div id="for-mac-users-with-apple-silicon-m1m2m3" class="section level3" number="1.6.1">
-<h3><span class="header-section-number">1.6.1</span> For Mac Users with Apple Silicon (M1/M2/M3):</h3>
+<div id="for-mac-users-with-apple-silicon-m1m2m3" class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> For Mac Users with Apple Silicon (M1/M2/M3):</h3>
 <p>After installing RStudio:</p>
 <ol style="list-style-type: decimal">
 <li>In Finder, go to <strong>Applications</strong></li>
@@ -1979,11 +1975,11 @@ git config --global user.email &quot;your.email@university.edu&quot;</code></pre
 </ol>
 </div>
 </div>
-<div id="step-5-test-your-installation" class="section level2" number="1.7">
-<h2><span class="header-section-number">1.7</span> Step 5: Test Your Installation</h2>
+<div id="step-5-test-your-installation" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Step 5: Test Your Installation</h2>
 <p>Let’s make sure everything works:</p>
-<div id="test-rstudio-and-r" class="section level3" number="1.7.1">
-<h3><span class="header-section-number">1.7.1</span> Test RStudio and R:</h3>
+<div id="test-rstudio-and-r" class="section level3" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> Test RStudio and R:</h3>
 <ol style="list-style-type: decimal">
 <li><strong>Open RStudio</strong> (not R - always use RStudio)</li>
 <li>You should see 4 panels:
@@ -1999,8 +1995,8 @@ git config --global user.email &quot;your.email@university.edu&quot;</code></pre
 <pre class="r"><code>2 + 2</code></pre>
 <p>You should see <code>[1] 4</code></p>
 </div>
-<div id="test-git-connection" class="section level3" number="1.7.2">
-<h3><span class="header-section-number">1.7.2</span> Test Git Connection:</h3>
+<div id="test-git-connection" class="section level3" number="1.3.2">
+<h3><span class="header-section-number">1.3.2</span> Test Git Connection:</h3>
 <ol style="list-style-type: decimal">
 <li>In RStudio, go to <strong>File → New Project → Version Control</strong></li>
 <li>You should see <strong>“Git”</strong> as an option</li>
@@ -2008,8 +2004,8 @@ git config --global user.email &quot;your.email@university.edu&quot;</code></pre
 </ol>
 </div>
 </div>
-<div id="step-6-download-course-materials" class="section level2" number="1.8">
-<h2><span class="header-section-number">1.8</span> Step 6: Download Course Materials</h2>
+<div id="step-6-download-course-materials" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Step 6: Download Course Materials</h2>
 <p>Now let’s get the main course files:</p>
 <ol style="list-style-type: decimal">
 <li>In RStudio, go to <strong>File → New Project → Version Control → Git</strong></li>
@@ -2021,15 +2017,15 @@ git config --global user.email &quot;your.email@university.edu&quot;</code></pre
 <li>Click <strong>“Create Project”</strong></li>
 </ol>
 <p>RStudio will download all course materials. This may take a few minutes.</p>
-<div id="additional-repositories" class="section level3" number="1.8.1">
-<h3><span class="header-section-number">1.8.1</span> Additional Repositories:</h3>
+<div id="additional-repositories" class="section level3" number="1.4.1">
+<h3><span class="header-section-number">1.4.1</span> Additional Repositories:</h3>
 <p>As the course progresses, you may need to clone additional repositories for specific modules. Your instructor will provide those URLs when needed.</p>
 <p><strong>Tips:</strong>
 - To <strong>update</strong> materials later in the term, open the project and click the <strong>Pull</strong> button in the <strong>Git</strong> tab
 - To <strong>switch</strong> between projects later: RStudio → <em>File → Open Project…</em> and select the corresponding <code>.Rproj</code> file</p>
 </div>
-<div id="understanding-the-git-pane" class="section level3" number="1.8.2">
-<h3><span class="header-section-number">1.8.2</span> Understanding the Git Pane:</h3>
+<div id="understanding-the-git-pane" class="section level3" number="1.4.2">
+<h3><span class="header-section-number">1.4.2</span> Understanding the Git Pane:</h3>
 <p>When you open your course project in RStudio, you should see a tab labeled <strong>Git</strong> in the upper-right panel (next to <em>Environment</em> and <em>History</em>). This is where you can:</p>
 <ul>
 <li><strong>See changes</strong> you’ve made to files (they’ll appear in the list)</li>
@@ -2039,11 +2035,11 @@ git config --global user.email &quot;your.email@university.edu&quot;</code></pre
 </ul>
 <p>For this course, you will mainly use the <strong>Pull</strong> button (blue down-arrow icon) to update your files when the instructor posts new material.</p>
 </div>
-<div id="important-git-best-practices-for-students" class="section level3" number="1.8.3">
-<h3><span class="header-section-number">1.8.3</span> <strong>IMPORTANT: Git Best Practices for Students</strong></h3>
+<div id="important-git-best-practices-for-students" class="section level3" number="1.4.3">
+<h3><span class="header-section-number">1.4.3</span> <strong>IMPORTANT: Git Best Practices for Students</strong></h3>
 <p>To avoid problems when updating course materials, follow these rules:</p>
-<div id="safe-things-to-do" class="section level4" number="1.8.3.1">
-<h4><span class="header-section-number">1.8.3.1</span> ✅ <strong>Safe Things to Do:</strong></h4>
+<div id="safe-things-to-do" class="section level4" number="1.4.3.1">
+<h4><span class="header-section-number">1.4.3.1</span> ✅ <strong>Safe Things to Do:</strong></h4>
 <ul>
 <li><strong>Create new files</strong> for your notes and practice work</li>
 <li><strong>Rename template files</strong> before editing them (like <code>codebook_yourname.Rmd</code>)</li>
@@ -2051,22 +2047,22 @@ git config --global user.email &quot;your.email@university.edu&quot;</code></pre
 <li><strong>Copy lesson files</strong> to a new name before modifying them</li>
 </ul>
 </div>
-<div id="things-that-cause-git-conflicts" class="section level4" number="1.8.3.2">
-<h4><span class="header-section-number">1.8.3.2</span> ❌ <strong>Things That Cause Git Conflicts:</strong></h4>
+<div id="things-that-cause-git-conflicts" class="section level4" number="1.4.3.2">
+<h4><span class="header-section-number">1.4.3.2</span> ❌ <strong>Things That Cause Git Conflicts:</strong></h4>
 <ul>
 <li><strong>Don’t edit the original lesson <code>.Rmd</code> files directly</strong></li>
 <li><strong>Don’t modify existing file names in the lessons folder</strong></li>
 <li><strong>Don’t save your work in the main lesson directories</strong></li>
 </ul>
 </div>
-<div id="golden-rule" class="section level4" number="1.8.3.3">
-<h4><span class="header-section-number">1.8.3.3</span> <strong>Golden Rule:</strong></h4>
+<div id="golden-rule" class="section level4" number="1.4.3.3">
+<h4><span class="header-section-number">1.4.3.3</span> <strong>Golden Rule:</strong></h4>
 <blockquote>
 <p><strong>Never edit the original lesson files directly. Always create new files for your notes and practice. This way you can always Pull the latest updates without problems!</strong></p>
 </blockquote>
 </div>
-<div id="suggested-workflow" class="section level4" number="1.8.3.4">
-<h4><span class="header-section-number">1.8.3.4</span> <strong>Suggested Workflow:</strong></h4>
+<div id="suggested-workflow" class="section level4" number="1.4.3.4">
+<h4><span class="header-section-number">1.4.3.4</span> <strong>Suggested Workflow:</strong></h4>
 <pre><code>2025_IntroR_and_RStudio/
 ├── lessons/               # DON&#39;T TOUCH - instructor files  
 ├── img/                   # DON&#39;T TOUCH - course images
@@ -2082,19 +2078,19 @@ git config --global user.email &quot;your.email@university.edu&quot;</code></pre
 </div>
 </div>
 </div>
-<div id="step-7-install-required-r-packages" class="section level2" number="1.9">
-<h2><span class="header-section-number">1.9</span> Step 7: Install Required R Packages</h2>
+<div id="step-7-install-required-r-packages" class="section level2" number="1.5">
+<h2><span class="header-section-number">1.5</span> Step 7: Install Required R Packages</h2>
 <p>R packages are like apps that add extra features. We need several for this course.</p>
-<div id="find-the-console" class="section level3" number="1.9.1">
-<h3><span class="header-section-number">1.9.1</span> Find the Console:</h3>
+<div id="find-the-console" class="section level3" number="1.5.1">
+<h3><span class="header-section-number">1.5.1</span> Find the Console:</h3>
 <p>Look for the <strong>Console</strong> panel in RStudio (bottom left). You’ll see a <code>&gt;</code> symbol where you can type.</p>
 </div>
-<div id="install-packages" class="section level3" number="1.9.2">
-<h3><span class="header-section-number">1.9.2</span> Install Packages:</h3>
+<div id="install-packages" class="section level3" number="1.5.2">
+<h3><span class="header-section-number">1.5.2</span> Install Packages:</h3>
 <p><strong>First, locate the Console in RStudio</strong>: Look at the bottom left panel of RStudio. You’ll see a panel labeled “Console” with a <code>&gt;</code> symbol - this is where you type R commands.</p>
 <p><strong>Click in the Console</strong> and paste this entire block of code (it will take 10-15 minutes):</p>
 <pre class="r"><code># Install basic tools first
-install.packages(c(&quot;devtools&quot;, &quot;BiocManager&quot;, &quot;tidyverse&quot;, &quot;rmarkdown&quot;))
+install.packages(c(&quot;devtools&quot;, &quot;BiocManager&quot;, &quot;tidyverse&quot;))
 
 # Install Bioconductor (for biological data analysis)
 if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE)) {
@@ -2103,9 +2099,7 @@ if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE)) {
 
 # Install all required packages for the course
 BiocManager::install(c(
-    &quot;bookdown&quot;, &quot;clusterProfiler&quot;, &quot;DESeq2&quot;, &quot;dplyr&quot;, &quot;enrichplot&quot;, &quot;fgsea&quot;, 
-    &quot;ggplot2&quot;, &quot;ggrepel&quot;, &quot;gplots&quot;, &quot;knitr&quot;, &quot;org.Hs.eg.db&quot;, &quot;pheatmap&quot;, 
-    &quot;purrr&quot;, &quot;RColorBrewer&quot;, &quot;rmarkdown&quot;, &quot;rsconnect&quot;, &quot;tidyverse&quot;, &quot;tinytex&quot;, &quot;fansi&quot;
+&quot;apeglm&quot;, &quot;bookdown&quot;, &quot;clusterProfiler&quot;, &quot;DESeq2&quot;, &quot;dplyr&quot;, &quot;enrichplot&quot;, &quot;fansi&quot;, &quot;fgsea&quot;, &quot;gggraph&quot;, &quot;ggplot2&quot;, &quot;ggrepel&quot;, &quot;gplots&quot;,&quot;GO.db&quot;, &quot;GOSemSim&quot;, &quot;igraph&quot;, &quot;knitr&quot;, &quot;org.Hs.eg.db&quot;, &quot;pheatmap&quot;, &quot;purrr&quot;, &quot;RColorBrewer&quot;, &quot;rmarkdown&quot;, &quot;rsconnect&quot;, &quot;tidyverse&quot;, &quot;tinytex&quot;,  &quot;visNetwork&quot;
 ))
 
 # Install course-specific package
@@ -2118,11 +2112,11 @@ if (!tinytex::is_tinytex()) {
 <p><strong>Be patient!</strong> This process downloads and installs many packages. You’ll see lots of text scrolling by - this is normal.</p>
 </div>
 </div>
-<div id="step-8-verify-everything-works" class="section level2" number="1.10">
-<h2><span class="header-section-number">1.10</span> Step 8: Verify Everything Works</h2>
+<div id="step-8-verify-everything-works" class="section level2" number="1.6">
+<h2><span class="header-section-number">1.6</span> Step 8: Verify Everything Works</h2>
 <p>Let’s test that all packages installed correctly:</p>
-<div id="in-the-console-paste-and-run" class="section level3" number="1.10.1">
-<h3><span class="header-section-number">1.10.1</span> In the Console, paste and run:</h3>
+<div id="in-the-console-paste-and-run" class="section level3" number="1.6.1">
+<h3><span class="header-section-number">1.6.1</span> In the Console, paste and run:</h3>
 <p><strong>Remember</strong>: The Console is the bottom left panel in RStudio with the <code>&gt;</code> symbol.</p>
 <pre class="r"><code># Check if key packages work
 library(ggplot2)
@@ -2132,8 +2126,8 @@ library(DESeq2)
 # If no error messages appear, you&#39;re ready!
 cat(&quot;Success! All packages are working.\n&quot;)</code></pre>
 </div>
-<div id="test-creating-a-document" class="section level3" number="1.10.2">
-<h3><span class="header-section-number">1.10.2</span> Test Creating a Document:</h3>
+<div id="test-creating-a-document" class="section level3" number="1.6.2">
+<h3><span class="header-section-number">1.6.2</span> Test Creating a Document:</h3>
 <ol style="list-style-type: decimal">
 <li>In RStudio, go to <strong>File → New File → R Markdown</strong></li>
 <li>Leave the default settings and click <strong>OK</strong></li>
@@ -2141,8 +2135,8 @@ cat(&quot;Success! All packages are working.\n&quot;)</code></pre>
 <li>If a webpage opens with a document, everything is working perfectly!</li>
 </ol>
 </div>
-<div id="creating-pdf-documents" class="section level3" number="1.10.3">
-<h3><span class="header-section-number">1.10.3</span> Creating PDF Documents:</h3>
+<div id="creating-pdf-documents" class="section level3" number="1.6.3">
+<h3><span class="header-section-number">1.6.3</span> Creating PDF Documents:</h3>
 <p>If you want to create PDF files (instead of HTML), you need to modify the document header:</p>
 <ol style="list-style-type: decimal">
 <li><strong>For documents with special characters or emojis</strong>: Change the top of your document to:</li>
@@ -2163,46 +2157,46 @@ output: pdf_document
 <p><strong>Note</strong>: If you get errors about Unicode characters when making PDFs, always use <code>latex_engine: xelatex</code> in your document header.</p>
 </div>
 </div>
-<div id="what-success-looks-like" class="section level2" number="1.11">
-<h2><span class="header-section-number">1.11</span> What Success Looks Like</h2>
+<div id="what-success-looks-like" class="section level2" number="1.7">
+<h2><span class="header-section-number">1.7</span> What Success Looks Like</h2>
 <p>✅ <strong>RStudio opens without errors</strong><br />
 ✅ <strong>You can type <code>2 + 2</code> in the Console and get <code>[1] 4</code></strong><br />
 ✅ <strong>You can create a new R Markdown document and “Knit” it</strong><br />
 ✅ <strong>You have a folder with course materials from the main repository</strong></p>
 </div>
-<div id="common-problems-and-solutions" class="section level2" number="1.12">
-<h2><span class="header-section-number">1.12</span> Common Problems and Solutions</h2>
-<div id="package-not-found-errors" class="section level3" number="1.12.1">
-<h3><span class="header-section-number">1.12.1</span> “Package not found” errors:</h3>
+<div id="common-problems-and-solutions" class="section level2" number="1.8">
+<h2><span class="header-section-number">1.8</span> Common Problems and Solutions</h2>
+<div id="package-not-found-errors" class="section level3" number="1.8.1">
+<h3><span class="header-section-number">1.8.1</span> “Package not found” errors:</h3>
 <ul>
 <li>Make sure you’re typing in the <strong>Console</strong> (bottom left panel)</li>
 <li>Try restarting RStudio and running the code again</li>
 </ul>
 </div>
-<div id="command-not-found-in-terminal" class="section level3" number="1.12.2">
-<h3><span class="header-section-number">1.12.2</span> “Command not found” in Terminal:</h3>
+<div id="command-not-found-in-terminal" class="section level3" number="1.8.2">
+<h3><span class="header-section-number">1.8.2</span> “Command not found” in Terminal:</h3>
 <ul>
 <li>Close and reopen Terminal</li>
 <li>Try restarting your computer</li>
 </ul>
 </div>
-<div id="rstudio-cant-find-git" class="section level3" number="1.12.3">
-<h3><span class="header-section-number">1.12.3</span> RStudio can’t find Git:</h3>
+<div id="rstudio-cant-find-git" class="section level3" number="1.8.3">
+<h3><span class="header-section-number">1.8.3</span> RStudio can’t find Git:</h3>
 <ul>
 <li>Make sure you installed Git before RStudio</li>
 <li>Restart RStudio completely (quit and reopen)</li>
 </ul>
 </div>
-<div id="installation-seems-stuck" class="section level3" number="1.12.4">
-<h3><span class="header-section-number">1.12.4</span> Installation seems stuck:</h3>
+<div id="installation-seems-stuck" class="section level3" number="1.8.4">
+<h3><span class="header-section-number">1.8.4</span> Installation seems stuck:</h3>
 <ul>
 <li>Be patient! Package installation can take 15-30 minutes</li>
 <li>As long as you see text appearing, it’s working</li>
 </ul>
 </div>
 </div>
-<div id="getting-help" class="section level2" number="1.13">
-<h2><span class="header-section-number">1.13</span> Getting Help</h2>
+<div id="getting-help" class="section level2" number="1.9">
+<h2><span class="header-section-number">1.9</span> Getting Help</h2>
 <p><strong>If something doesn’t work:</strong></p>
 <ol style="list-style-type: decimal">
 <li>Try restarting RStudio</li>
@@ -2218,8 +2212,8 @@ output: pdf_document
 </ol>
 <p><strong>Remember</strong>: Software installation can be tricky, even for experienced users. Don’t worry if you need help - this is completely normal!</p>
 </div>
-<div id="next-steps" class="section level2" number="1.14">
-<h2><span class="header-section-number">1.14</span> Next Steps</h2>
+<div id="next-steps" class="section level2" number="1.10">
+<h2><span class="header-section-number">1.10</span> Next Steps</h2>
 <p>Once everything is installed:</p>
 <ol style="list-style-type: decimal">
 <li><strong>Explore RStudio</strong> - click around and see what’s in each panel</li>
@@ -4156,7 +4150,7 @@ We have only scratched the surface here when it comes to creating functions! If 
 ## LAPACK: /Library/Frameworks/R.framework/Versions/4.5-x86_64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.1
 ## 
 ## locale:
-## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## [1] en_CA.UTF-8/en_CA.UTF-8/en_CA.UTF-8/C/en_CA.UTF-8/en_CA.UTF-8
 ## 
 ## time zone: America/Los_Angeles
 ## tzcode source: internal

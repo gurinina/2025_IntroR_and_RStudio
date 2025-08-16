@@ -636,7 +636,7 @@ a <code>&gt;</code> symbol - this is where you type R commands.</p>
 <p><strong>Click in the Console</strong> and paste this entire block of
 code (it will take 10-15 minutes):</p>
 <pre class="r"><code># Install basic tools first
-install.packages(c(&quot;devtools&quot;, &quot;BiocManager&quot;, &quot;tidyverse&quot;, &quot;rmarkdown&quot;))
+install.packages(c(&quot;devtools&quot;, &quot;BiocManager&quot;, &quot;tidyverse&quot;))
 
 # Install Bioconductor (for biological data analysis)
 if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE)) {
@@ -645,9 +645,7 @@ if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE)) {
 
 # Install all required packages for the course
 BiocManager::install(c(
-    &quot;bookdown&quot;, &quot;clusterProfiler&quot;, &quot;DESeq2&quot;, &quot;dplyr&quot;, &quot;enrichplot&quot;, &quot;fgsea&quot;, 
-    &quot;ggplot2&quot;, &quot;ggrepel&quot;, &quot;gplots&quot;, &quot;knitr&quot;, &quot;org.Hs.eg.db&quot;, &quot;pheatmap&quot;, 
-    &quot;purrr&quot;, &quot;RColorBrewer&quot;, &quot;rmarkdown&quot;, &quot;rsconnect&quot;, &quot;tidyverse&quot;, &quot;tinytex&quot;, &quot;fansi&quot;
+&quot;apeglm&quot;, &quot;bookdown&quot;, &quot;clusterProfiler&quot;, &quot;DESeq2&quot;, &quot;dplyr&quot;, &quot;enrichplot&quot;, &quot;fansi&quot;, &quot;fgsea&quot;, &quot;gggraph&quot;, &quot;ggplot2&quot;, &quot;ggrepel&quot;, &quot;gplots&quot;,&quot;GO.db&quot;, &quot;GOSemSim&quot;, &quot;igraph&quot;, &quot;knitr&quot;, &quot;org.Hs.eg.db&quot;, &quot;pheatmap&quot;, &quot;purrr&quot;, &quot;RColorBrewer&quot;, &quot;rmarkdown&quot;, &quot;rsconnect&quot;, &quot;tidyverse&quot;, &quot;tinytex&quot;,  &quot;visNetwork&quot;
 ))
 
 # Install course-specific package
