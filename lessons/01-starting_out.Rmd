@@ -1,9 +1,17 @@
-# Getting Started with R and RStudio
+---
+title: 'Starting out with R and RStudio'
+output: 
+  html_document: default
+  pdf_document:
+    latex_engine: xelatex
+date: "2025-09-01"
+---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# Getting Started with R and RStudio
 ## A Beginner's Guide for First-Year Graduate Students
 
 ## What You're Installing and Why
@@ -218,7 +226,7 @@ if (!requireNamespace("BiocManager", quietly = TRUE)) {
 
 # Install all required packages for the course
 BiocManager::install(c(
-"apeglm", "bookdown", "clusterProfiler", "DESeq2", "dplyr", "enrichplot", "fansi", "fgsea", "gggraph", "ggplot2", "ggrepel", "gplots","GO.db", "GOSemSim", "igraph", "knitr", "org.Hs.eg.db", "pheatmap", "purrr", "RColorBrewer", "rmarkdown", "rsconnect", "tidyverse", "tinytex",  "visNetwork"
+"apeglm", "bookdown", "clusterProfiler", "DESeq2", "details", "dplyr", "enrichplot", "fansi", "fgsea", "gggraph", "ggplot2", "ggrepel", "ggridges", "ggthemes", gplots","GO.db", "GOSemSim", "igraph", "knitr", "org.Hs.eg.db", "patchwork", "pheatmap", "purrr", "RColorBrewer", "rmarkdown", "rsconnect", "scales", "tidyverse", "tinytex",  "visNetwork"
 ))
 
 # Install course-specific package
