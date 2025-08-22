@@ -30,7 +30,7 @@ source("setup.R")
   <img src="img/koos10.png" alt="Welcome to Omics Science!" width="300" />
 </p>
 
-The lab module includes four sections:
+The lab module includes five sections:
 
 - 1. Introduction to R and RStudio. [Bookdown site: 2025_IntroR_and_RStudio](https://bookdown.org/ggiaever/2025_IntroR_and_RStudio/)
 [Github site: 2025_IntroR_and_RStudio](http://github.com/gurinina/2025_IntroR_and_RStudio)
