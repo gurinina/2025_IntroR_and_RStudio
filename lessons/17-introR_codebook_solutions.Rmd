@@ -114,8 +114,7 @@ Try to create a vector of numeric and character values by combining the two vect
 expression <- c("low", "high", "medium", "high", "low", "medium", "high")
 expression
 ```
-```{r}
-```
+
 ```{r}
 # Turn 'expression' vector into a factor
 expression <- factor(expression)
@@ -1772,7 +1771,7 @@ save.image()
 
 # OR give it a memorable name
 
-save.image("2024_IntroR_and_RStudio.RData")
+save.image("2025_IntroR_and_RStudio.RData")
 
 # OR for a single object
 
