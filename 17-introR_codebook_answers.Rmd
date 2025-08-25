@@ -164,8 +164,8 @@ pages <- c(453, 432, 328)
 ```
 
 ```{r}
+# Your answer
 
-data.frame(titles,pages)
 
 ```
 
