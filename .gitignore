@@ -1,3 +1,6 @@
+# Ignore everything under student_notes, but keep a placeholder so the folder exists
+student_notes/*
+!student_notes/.gitkeep
 
 # Ignore the output folder (where the book is built)
 # bookdown files
