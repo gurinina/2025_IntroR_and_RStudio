@@ -14,9 +14,9 @@ rm(list = ls())
 ```{r, include=FALSE}
 
 # setup.R set up page width and code formatting
-source("setup.R")
+source("scripts/setup.R")
 
-source("solutions.R")
+source("scripts/solutions.R")
 ```
 To clear the console in Rstudio, you can use the following command: ctrl + L
 

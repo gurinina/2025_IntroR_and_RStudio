@@ -12,7 +12,7 @@ editor_options:
 ```{r, include=FALSE}
 
 ## setup.R set up page width and code formatting
-source("setup.R")
+source("scripts/setup.R")
 
 ```
 Let's start by going to the environment panel in RStudio and clearing the environment. This is a good habit to get into when starting a new project, as it ensures that you are starting with a clean slate.
