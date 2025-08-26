@@ -7,7 +7,7 @@ student_notes/*
 _book/
 _pdf/
 _epub/
-_bookdown_files
+_bookdown_files/
 2025_IntroR_and_RStudio.Rmd
 2025_IntroR_and_RStudio.html
 search_index.json
