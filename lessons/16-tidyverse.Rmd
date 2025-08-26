@@ -94,7 +94,9 @@ The functional analysis that we will focus on involves **gene ontology (GO) term
 	
 This shared vocabulary lets scientists describe gene roles consistently.
 
-GO Enrichment
+**GO Enrichment**
+
+![dotplot6](img/GOenrichment.png)
 
 When you have a big list of genes (e.g. from an experiment with significant gene ratios), GO enrichment looks for patterns:
 
@@ -104,6 +106,7 @@ Example: If 20 out of 100 of your genes are about DNA repair, but normally only 
 
 ✅ In one sentence:
 GO tells us what jobs genes have, and GO enrichment finds out which jobs are over-represented in your gene list, revealing the bigger biological story.
+
 ![Alt text](img/mov10_FA.png{ width=1200px }
 
 ## Analysis goal and workflow
@@ -111,6 +114,8 @@ GO tells us what jobs genes have, and GO enrichment finds out which jobs are ove
 **Goal:** *Visually compare the most significant biological processes (BP) based on the number of associated differentially expressed genes (gene ratios) and significance values by creating the following plot:*
 
 ![dotplot6](img/dotplot6.png)
+
+The gene ratio here is just the fraction of genes in the signicant list that are annotated to a specific GO term, so it doesn't say anything about the p-value.
 
 To wrangle our data in preparation for the plotting, we are going to use the Tidyverse suite of tools to wrangle and visualize our data through several steps:
 
