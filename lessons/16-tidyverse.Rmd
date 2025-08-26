@@ -88,11 +88,23 @@ The functional analysis that we will focus on involves **gene ontology (GO) term
 
 * describe the roles of genes and gene products
 * organized into three controlled vocabularies/ontologies (domains):
-	* biological processes (BP)
-	* cellular components (CC)
-	* molecular functions (MF)
+	* biological processes (BP) (e.g. DNA repair, matabolism)
+	* molecular functions (MF) (e.g. kinase, protease)
+	* cellular components (CC) (where they work e.g.nucleus, mitochondria )
+	
+This shared vocabulary lets scientists describe gene roles consistently.
 
-![Alt text](img/mov10_FA.png){ width=1200px }
+GO Enrichment
+
+When you have a big list of genes (e.g. from an experiment with significant gene ratios), GO enrichment looks for patterns:
+
+“Are certain jobs (GO terms) showing up more often than expected by chance?”
+
+Example: If 20 out of 100 of your genes are about DNA repair, but normally only 5% of genes are DNA repair genes, then DNA repair is enriched → suggesting it’s biologically important in your experiment.
+
+✅ In one sentence:
+GO tells us what jobs genes have, and GO enrichment finds out which jobs are over-represented in your gene list, revealing the bigger biological story.
+![Alt text](img/mov10_FA.png{ width=1200px }
 
 ## Analysis goal and workflow
 
