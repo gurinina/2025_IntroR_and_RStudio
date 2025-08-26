@@ -19,7 +19,7 @@ This repository is an adaptation of teaching materials for a hands-on **Introduc
 
 To cite original material from this course in your publications, please use:
 
-> Meeta Mistry, Mary Piper, Jihe Liu, & Radhika Khetani. (2021, May 5). *hbctraining/2024_IntroR_and_RStudio-flipped: R workshop first release*. Zenodo. https://doi.org/10.5281/zenodo.4739342
+> Meeta Mistry, Mary Piper, Jihe Liu, & Radhika Khetani. (2021, May 5). *hbctraining/2025_IntroR_and_RStudio-flipped: R workshop first release*. Zenodo. https://doi.org/10.5281/zenodo.4739342
 
 A lot of time and effort went into the preparation of these materials. Citations help us understand the needs of the community, gain recognition for our work, and attract further funding to support our teaching activities. Thank you for citing this material if it helped you in your data analysis.
 

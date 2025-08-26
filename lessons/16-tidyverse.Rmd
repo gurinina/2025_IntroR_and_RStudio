@@ -1,20 +1,10 @@
 # Tidyverse data wrangling
-
 ```{r, include=FALSE}
 
-collapsible_code <- function(html_content, non_html_content) {
-  output_format <- knitr::opts_knit$get("rmarkdown.pandoc.to")
-  # opts_knit$get("out.format") is not reliable for determining the output format
-  if (output_format == "html") {
-    # HTML output (GitBook/HTML): Show collapsible section
-    cat(html_content)
-  } else {
-    # Non-HTML output (EPUB, PDF): Show regular R code block
-    cat(non_html_content)
-  }
-}
+source("collapsible_code.R", echo=TRUE)
 
 ```
+
 An incredibly important skill of a data scientist is to be able to take data from an untidy format and get it into a tidy format. This process is often referred to as data wrangling. Generally, data wranglings skills are those that allow you to wrangle data from the format they’re currently in into the tidy format you actually want them in.
 
 ![](img/wrangling.png)
@@ -98,17 +88,34 @@ The functional analysis that we will focus on involves **gene ontology (GO) term
 
 * describe the roles of genes and gene products
 * organized into three controlled vocabularies/ontologies (domains):
-	* biological processes (BP)
-	* cellular components (CC)
-	* molecular functions (MF)
+	* biological processes (BP) (e.g. DNA repair, matabolism)
+	* molecular functions (MF) (e.g. kinase, protease)
+	* cellular components (CC) (where they work e.g.nucleus, mitochondria )
+	
+This shared vocabulary lets scientists describe gene roles consistently.
 
-![Alt text](img/mov10_FA.png){ width=1200px }
+**GO Enrichment**
+
+![dotplot6](img/GOenrichment.png)
+
+When you have a big list of genes (e.g. from an experiment with significant gene ratios), GO enrichment looks for patterns:
+
+“Are certain jobs (GO terms) showing up more often than expected by chance?”
+
+Example: If 20 out of 100 of your genes are about DNA repair, but normally only 5% of genes are DNA repair genes, then DNA repair is enriched → suggesting it’s biologically important in your experiment.
+
+✅ In one sentence:
+GO tells us what jobs genes have, and GO enrichment finds out which jobs are over-represented in your gene list, revealing the bigger biological story.
+
+![Alt text](img/mov10_FA.png{ width=1200px }
 
 ## Analysis goal and workflow
 
 **Goal:** *Visually compare the most significant biological processes (BP) based on the number of associated differentially expressed genes (gene ratios) and significance values by creating the following plot:*
 
 ![dotplot6](img/dotplot6.png)
+
+The gene ratio here is just the fraction of genes in the signicant list that are annotated to a specific GO term, so it doesn't say anything about the p-value.
 
 To wrangle our data in preparation for the plotting, we are going to use the Tidyverse suite of tools to wrangle and visualize our data through several steps:
 
@@ -143,7 +150,6 @@ functional_GO_results
 ```
 
 ```{r, results='asis', echo=FALSE}
-
 collapsible_code(
   # HTML output: Collapsible section with raw HTML
   '<details>\n<summary><i>Click here to see how to do this in base R</i></summary>\n<pre><code># Read in the functional analysis results\nfunctional_GO_results <- read.delim(file = "data/gprofiler_results_Mov10oe.tsv", sep = "\\t")</code>\n<code># Take a look at the results\nfunctional_GO_results</code></pre>\n</details>',
@@ -171,14 +177,10 @@ Now let's return only those rows that have a `domain` of `BP`:
 bp_oe <- functional_GO_results %>%
   filter(domain == "BP")
   
-head(bp_oe[,-7])
-
+# View(bp_oe)
 ```
 
-
-
 ```{r, results='asis', echo=FALSE}
-
 collapsible_code('<details>\n<summary><i>Click here to see how to do this in base R</i></summary>\n<pre><code># Return only GO biological processes\nidx <- functional_GO_results$domain == "BP"\nbp_oe2 <- functional_GO_results[idx,]</code>\n<code># View(bp_oe</code></pre>\n</details>',
 "### How to do this in base R\n\n````{r}\n# Return only GO biological processes\nidx <- functional_GO_results$domain == \"BP\"\nbp_oe2 <- functional_GO_results[idx,]\n# View(bp_oe)\n````\n")
 
@@ -212,7 +214,6 @@ head(bp_oe)
 ```
 
 ```{r, results='asis', echo=FALSE}
-
 collapsible_code(
   # HTML content (collapsible section)
   '<details>\n<summary><i>Click here to see how to do this in base R</i></summary>\n<pre><code># Selecting columns to keep\nbp_oe <- bp_oe[, c("term.id", "term.name", "p.value", "query.size", "term.size", "overlap.size", "intersection")]\n# View(bp_oe)</code></pre>\n</details>',
@@ -224,7 +225,6 @@ collapsible_code(
 
 	
 ![Alt text](img/bp_oe_selection.png){ width=1200px }
-
 
 
 ### 4. Order GO processes by significance (adjusted p-values)
@@ -252,7 +252,6 @@ bp_oe <- bp_oe %>% dplyr::rename(GO_id = term.id,
 
 
 ```{r, results='asis', echo=FALSE}
-
 collapsible_code('<details>\n<summary><i>Click here to see how to do this in base R</i></summary>\n<pre><code># Provide better names for columns\ncolnames(bp_oe)[colnames(bp_oe) == "term.id"] <- "GO_id"\ncolnames(bp_oe)[colnames(bp_oe) == "term.name"] <- "GO_term"</code></pre>\n</details>',
 "### How to do this in base R\n\n```r\n# Provide better names for columns\ncolnames(bp_oe)[colnames(bp_oe) == \"term.id\"] <- \"GO_id\"\ncolnames(bp_oe)[colnames(bp_oe) == \"term.name\"] <- \"GO_term\"\n```\n")
 
@@ -282,7 +281,6 @@ bp_oe <- bp_oe %>%
 ```
 
 ```{r, results='asis', echo=FALSE}
-
 collapsible_code('<details>\n<summary><i>Click here to see how to do this in base R</i></summary>\n<pre><code># Create gene ratio column based on other columns in dataset\nbp_oe <- cbind(bp_oe, gene_ratio = bp_oe$overlap.size / bp_oe$query.size)</code></pre>\n</details>',
 "### How to do this in base R\n\n```r\n# Create gene ratio column based on other columns in dataset\nbp_oe <- cbind(bp_oe, gene_ratio = bp_oe$overlap.size / bp_oe$query.size)\n```\n")
 
