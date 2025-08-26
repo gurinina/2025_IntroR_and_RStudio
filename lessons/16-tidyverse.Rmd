@@ -1,7 +1,7 @@
 # Tidyverse data wrangling
 ```{r, include=FALSE}
 
-source("collapsible_code.R", echo=TRUE)
+source("scripts/collapsible_code.R", echo=TRUE)
 
 ```
 

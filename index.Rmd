@@ -13,7 +13,7 @@ cover-image: "img/koos10.png"
 ```{r, include=FALSE}
 
 ## setup.R set up page width and code formatting
-source("setup.R")
+source("scripts/setup.R")
 
 ```
 
