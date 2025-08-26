@@ -21,7 +21,7 @@ bookdown::html_document2:
 bookdown::pdf_book:
   fig_caption: false  # Disable figure captions in PDF output
   includes:
-    in_header: preamble.tex
+    in_header: scripts/preamble.tex
   latex_engine: xelatex
   toc: true
   number_sections: true
