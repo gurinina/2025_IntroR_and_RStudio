@@ -5,23 +5,21 @@ student_notes/*
 # Ignore the output folder (where the book is built)
 # bookdown files
 _book/
+_pdf/
+_epub/
 _bookdown_files/
 2025_IntroR_and_RStudio.Rmd
 2025_IntroR_and_RStudio.html
+search_index.json
 index_original.Rmd
-_epub/
-_pdf/
-# Ignore the timing file and instructor files
 timing.txt
-render_all.R
-solutions.R
-17-introR_codebook_answers.Rmd
-17-introR_codebook_solutions.Rmd
-17-introR_codebook.Rmd
-17-codebook_answers.Rmd
+09-DGE_codebook_Aurelio_gg.Rmd
+# Ignore the timing file and instructor files
+404.html
 data/subset_meta.csv
 # Ignore the scatterplot.pdf file inside the figures/ folder
 figures/scatterplot.pdf
+solutions.R
 
 # Allow the figures/ folder to be tracked
 !figures/
@@ -90,6 +88,5 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 
-# .DS_Store (Mac)
 .DS_Store
 
