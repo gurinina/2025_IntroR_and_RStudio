@@ -5,8 +5,7 @@ student_notes/*
 # Ignore the output folder (where the book is built)
 # bookdown files
 _book/
-_pdf/
-_epub/
+
 _bookdown_files/
 2025_IntroR_and_RStudio.Rmd
 2025_IntroR_and_RStudio.html
