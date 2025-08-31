@@ -23,6 +23,7 @@ bookdown::pdf_book:
   includes:
     in_header: scripts/preamble.tex
   latex_engine: xelatex
+  keep_tex: true
   toc: true
   number_sections: true
   lof: false    # Disable List of Figures

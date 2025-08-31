@@ -581,7 +581,7 @@ them</li>
 </ul>
 </div>
 <div id="things-that-cause-git-conflicts" class="section level4">
-<h4>❌ <strong>Things That Cause Git Conflicts:</strong></h4>
+<h4>⛔ <strong>Things That Cause Git Conflicts:</strong></h4>
 <ul>
 <li><strong>Don’t edit the original lesson <code>.Rmd</code> files
 directly</strong></li>
@@ -623,174 +623,80 @@ homework questions and space for your notes.</p>
 <h2>Step 7: Install Required R Packages</h2>
 <p>R packages are like apps that add extra features. We need several for
 this course.</p>
-<div id="find-the-console" class="section level3">
-<h3>Find the Console:</h3>
-<p>Look for the <strong>Console</strong> panel in RStudio (bottom left).
-You’ll see a <code>&gt;</code> symbol where you can type.</p>
+<div id="important-locate-the-console-first" class="section level3">
+<h3>Important: Locate the Console First</h3>
+<p>Before running any code, you need to find the
+<strong>Console</strong> in RStudio:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Open RStudio</strong></li>
+<li><strong>Look at the bottom left panel</strong> - this is the
+Console</li>
+<li><strong>You’ll see a <code>&gt;</code> symbol</strong> - this is
+where you type R commands</li>
+<li><strong>Click in this area</strong> to make sure your cursor is
+active in the Console</li>
+</ol>
 </div>
-<div id="install-packages" class="section level3">
-<h3>Install Packages:</h3>
-<p><strong>First, locate the Console in RStudio</strong>: Look at the
-bottom left panel of RStudio. You’ll see a panel labeled “Console” with
-a <code>&gt;</code> symbol - this is where you type R commands.</p>
-<p><strong>Click in the Console</strong> and paste this entire block of
-code (it will take 10-15 minutes):</p>
-<pre class="r"><code># Install basic tools first
-install.packages(c( &quot;BiocManager&quot;, &quot;devtools&quot;, &quot;ggraph&quot;, &quot;tidyverse&quot;))</code></pre>
-<pre><code>## 
-## The downloaded binary packages are in
-##  /var/folders/1x/22clsd4x75bc16q8k6sx3zcc0000gq/T//RtmplPEArF/downloaded_packages</code></pre>
-<pre class="r"><code># Install Bioconductor (for biological data analysis)
+<div id="copy-and-paste-this-code-into-the-console" class="section level3">
+<h3>COPY AND PASTE THIS CODE INTO THE CONSOLE:</h3>
+<p><strong>Click in the Console (bottom left panel with the
+<code>&gt;</code> symbol) and paste this entire block of
+code:</strong></p>
+<pre class="r"><code># Set CRAN mirror first (this tells R where to download packages)
+options(repos = c(CRAN = &quot;https://cloud.r-project.org/&quot;))
+
+# Install basic tools first
+install.packages(c(&quot;BiocManager&quot;, &quot;devtools&quot;, &quot;ggraph&quot;, &quot;tidyverse&quot;))
+
+# Install Bioconductor (for biological data analysis)
 if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE)) {
     install.packages(&quot;BiocManager&quot;)
 }
 
 # Install all required packages for the course
 BiocManager::install(c(
-&quot;apeglm&quot;, &quot;bookdown&quot;, &quot;clusterProfiler&quot;, &quot;DESeq2&quot;, &quot;details&quot;, &quot;dplyr&quot;, &quot;enrichplot&quot;, &quot;fansi&quot;, &quot;fgsea&quot;, &quot;ggplot2&quot;, &quot;ggrepel&quot;, &quot;ggridges&quot;, &quot;ggthemes&quot;, &quot;gplots&quot;,&quot;GO.db&quot;, &quot;GOSemSim&quot;, &quot;igraph&quot;, &quot;knitr&quot;, &quot;org.Hs.eg.db&quot;, &quot;patchwork&quot;, &quot;pheatmap&quot;, &quot;purrr&quot;, &quot;RColorBrewer&quot;, &quot;rmarkdown&quot;, &quot;rsconnect&quot;, &quot;scales&quot;, &quot;tidyverse&quot;, &quot;tinytex&quot;,  &quot;visNetwork&quot;
-))</code></pre>
-<pre><code>## &#39;getOption(&quot;repos&quot;)&#39; replaces Bioconductor standard repositories, see &#39;help(&quot;repositories&quot;, package
-## = &quot;BiocManager&quot;)&#39; for details.
-## Replacement repositories:
-##     CRAN: https://cloud.r-project.org</code></pre>
-<pre><code>## Bioconductor version 3.21 (BiocManager 1.30.26), R 4.5.1 (2025-06-13)</code></pre>
-<pre><code>## Warning: package(s) not installed when version(s) same as or greater than current; use `force = TRUE` to
-##   re-install: &#39;apeglm&#39; &#39;bookdown&#39; &#39;clusterProfiler&#39; &#39;DESeq2&#39; &#39;details&#39; &#39;dplyr&#39; &#39;enrichplot&#39; &#39;fansi&#39;
-##   &#39;fgsea&#39; &#39;ggplot2&#39; &#39;ggrepel&#39; &#39;ggridges&#39; &#39;ggthemes&#39; &#39;gplots&#39; &#39;GO.db&#39; &#39;GOSemSim&#39; &#39;igraph&#39; &#39;knitr&#39;
-##   &#39;org.Hs.eg.db&#39; &#39;pheatmap&#39; &#39;purrr&#39; &#39;RColorBrewer&#39; &#39;rmarkdown&#39; &#39;rsconnect&#39; &#39;scales&#39; &#39;tidyverse&#39;
-##   &#39;tinytex&#39; &#39;visNetwork&#39;</code></pre>
-<pre><code>## Installing package(s) &#39;patchwork&#39;</code></pre>
-<pre><code>## 
-## The downloaded binary packages are in
-##  /var/folders/1x/22clsd4x75bc16q8k6sx3zcc0000gq/T//RtmplPEArF/downloaded_packages</code></pre>
-<pre><code>## Old packages: &#39;crosstalk&#39;, &#39;data.tree&#39;, &#39;rprojroot&#39;</code></pre>
-<pre class="r"><code># Install course-specific package
-devtools::install_github(&quot;gurinina/GOenrichment&quot;, force = TRUE)</code></pre>
-<pre><code>## Using GitHub PAT from the git credential store.</code></pre>
-<pre><code>## Downloading GitHub repo gurinina/GOenrichment@HEAD</code></pre>
-<pre><code>## 
-## [36m──[39m [36mR CMD build[39m [36m─────────────────────────────────────────────────────────────────────────────────────[39m
-##      checking for file ‘/private/var/folders/1x/22clsd4x75bc16q8k6sx3zcc0000gq/T/RtmplPEArF/remotes16ac4f5ae6a9/gurinina-GOenrichment-08622d2/DESCRIPTION’ ...  [32m✔[39m  [90mchecking for file ‘/private/var/folders/1x/22clsd4x75bc16q8k6sx3zcc0000gq/T/RtmplPEArF/remotes16ac4f5ae6a9/gurinina-GOenrichment-08622d2/DESCRIPTION’[39m[36m[39m
-##   [90m─[39m[90m  [39m[90mpreparing ‘GOenrichment’:[39m[36m[39m
-##      checking DESCRIPTION meta-information ...  [32m✔[39m  [90mchecking DESCRIPTION meta-information[39m[36m[39m
-##   [90m─[39m[90m  [39m[90mchecking for LF line-endings in source and make files and shell scripts[39m[36m[39m
-##   [90m─[39m[90m  [39m[90mchecking for empty or unneeded directories[39m[36m[39m
-##   [90m─[39m[90m  [39m[90mbuilding ‘GOenrichment_0.5.0.tar.gz’[39m[36m[39m
-##      
-## </code></pre>
-<pre class="r"><code># Install document creation tools
+&quot;apeglm&quot;, &quot;bookdown&quot;, &quot;clusterProfiler&quot;, &quot;colorspace&quot;, &quot;DESeq2&quot;, &quot;details&quot;, &quot;dplyr&quot;, &quot;enrichplot&quot;, &quot;fansi&quot;, &quot;fgsea&quot;, &quot;ggplot2&quot;, &quot;ggrepel&quot;, &quot;ggridges&quot;, &quot;ggthemes&quot;, &quot;gplots&quot;,&quot;GO.db&quot;, &quot;GOSemSim&quot;, &quot;igraph&quot;, &quot;knitr&quot;, &quot;org.Hs.eg.db&quot;, &quot;patchwork&quot;, &quot;pheatmap&quot;, &quot;purrr&quot;, &quot;RColorBrewer&quot;, &quot;rmarkdown&quot;, &quot;rsconnect&quot;, &quot;scales&quot;,  &quot;tidydr&quot;, &quot;tidyr&quot; ,&quot;tidyverse&quot;, &quot;tinytex&quot;,  &quot;visNetwork&quot;
+))
+
+# Install course-specific package
+devtools::install_github(&quot;gurinina/GOenrichment&quot;, force = TRUE)
+
+# Install document creation tools
 if (!tinytex::is_tinytex()) {
     tinytex::install_tinytex(force = TRUE)
 }</code></pre>
-<p><strong>Be patient!</strong> This process downloads and installs many
-packages. You’ll see lots of text scrolling by - this is normal.</p>
+</div>
+<div id="after-pasting-the-code" class="section level3">
+<h3>After Pasting the Code:</h3>
+<ol style="list-style-type: decimal">
+<li><strong>Press Enter</strong> to run all the commands</li>
+<li><strong>Be patient!</strong> This process takes 10-15 minutes and
+downloads many packages</li>
+<li><strong>Don’t worry about the scrolling text</strong> - this is
+normal</li>
+<li><strong>If prompted to install from source</strong>, type
+<code>n</code> and press Enter</li>
+<li><strong>If asked to restart R</strong>, type <code>y</code> and
+press Enter</li>
+</ol>
 </div>
 </div>
 <div id="step-8-verify-everything-works" class="section level2">
 <h2>Step 8: Verify Everything Works</h2>
-<p>Let’s test that all packages installed correctly:</p>
-<div id="in-the-console-paste-and-run" class="section level3">
-<h3>In the Console, paste and run:</h3>
-<p><strong>Remember</strong>: The Console is the bottom left panel in
-RStudio with the <code>&gt;</code> symbol.</p>
+<p>Let’s test that all packages installed correctly.</p>
+<div id="copy-and-paste-this-test-code-into-the-console" class="section level3">
+<h3>COPY AND PASTE THIS TEST CODE INTO THE CONSOLE:</h3>
+<p><strong>Again, click in the Console (bottom left panel) and paste
+this code:</strong></p>
 <pre class="r"><code># Check if key packages work
 library(ggplot2)
-library(dplyr)</code></pre>
-<pre><code>## 
-## Attaching package: &#39;dplyr&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union</code></pre>
-<pre class="r"><code>library(DESeq2)</code></pre>
-<pre><code>## Loading required package: S4Vectors</code></pre>
-<pre><code>## Loading required package: stats4</code></pre>
-<pre><code>## Loading required package: BiocGenerics</code></pre>
-<pre><code>## Loading required package: generics</code></pre>
-<pre><code>## 
-## Attaching package: &#39;generics&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
-## 
-##     explain</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     as.difftime, as.factor, as.ordered, intersect, is.element, setdiff, setequal, union</code></pre>
-<pre><code>## 
-## Attaching package: &#39;BiocGenerics&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
-## 
-##     combine</code></pre>
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     IQR, mad, sd, var, xtabs</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     anyDuplicated, aperm, append, as.data.frame, basename, cbind, colnames, dirname,
-##     do.call, duplicated, eval, evalq, Filter, Find, get, grep, grepl, is.unsorted,
-##     lapply, Map, mapply, match, mget, order, paste, pmax, pmax.int, pmin, pmin.int,
-##     Position, rank, rbind, Reduce, rownames, sapply, saveRDS, table, tapply, unique,
-##     unsplit, which.max, which.min</code></pre>
-<pre><code>## 
-## Attaching package: &#39;S4Vectors&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
-## 
-##     first, rename</code></pre>
-<pre><code>## The following object is masked from &#39;package:utils&#39;:
-## 
-##     findMatches</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     expand.grid, I, unname</code></pre>
-<pre><code>## Loading required package: IRanges</code></pre>
-<pre><code>## 
-## Attaching package: &#39;IRanges&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
-## 
-##     collapse, desc, slice</code></pre>
-<pre><code>## Loading required package: GenomicRanges</code></pre>
-<pre><code>## Loading required package: GenomeInfoDb</code></pre>
-<pre><code>## Loading required package: SummarizedExperiment</code></pre>
-<pre><code>## Loading required package: MatrixGenerics</code></pre>
-<pre><code>## Loading required package: matrixStats</code></pre>
-<pre><code>## 
-## Attaching package: &#39;matrixStats&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
-## 
-##     count</code></pre>
-<pre><code>## 
-## Attaching package: &#39;MatrixGenerics&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:matrixStats&#39;:
-## 
-##     colAlls, colAnyNAs, colAnys, colAvgsPerRowSet, colCollapse, colCounts, colCummaxs,
-##     colCummins, colCumprods, colCumsums, colDiffs, colIQRDiffs, colIQRs, colLogSumExps,
-##     colMadDiffs, colMads, colMaxs, colMeans2, colMedians, colMins, colOrderStats,
-##     colProds, colQuantiles, colRanges, colRanks, colSdDiffs, colSds, colSums2,
-##     colTabulates, colVarDiffs, colVars, colWeightedMads, colWeightedMeans,
-##     colWeightedMedians, colWeightedSds, colWeightedVars, rowAlls, rowAnyNAs, rowAnys,
-##     rowAvgsPerColSet, rowCollapse, rowCounts, rowCummaxs, rowCummins, rowCumprods,
-##     rowCumsums, rowDiffs, rowIQRDiffs, rowIQRs, rowLogSumExps, rowMadDiffs, rowMads,
-##     rowMaxs, rowMeans2, rowMedians, rowMins, rowOrderStats, rowProds, rowQuantiles,
-##     rowRanges, rowRanks, rowSdDiffs, rowSds, rowSums2, rowTabulates, rowVarDiffs,
-##     rowVars, rowWeightedMads, rowWeightedMeans, rowWeightedMedians, rowWeightedSds,
-##     rowWeightedVars</code></pre>
-<pre><code>## Loading required package: Biobase</code></pre>
-<pre><code>## Welcome to Bioconductor
-## 
-##     Vignettes contain introductory material; view with &#39;browseVignettes()&#39;. To cite
-##     Bioconductor, see &#39;citation(&quot;Biobase&quot;)&#39;, and for packages &#39;citation(&quot;pkgname&quot;)&#39;.</code></pre>
-<pre><code>## 
-## Attaching package: &#39;Biobase&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:MatrixGenerics&#39;:
-## 
-##     rowMedians</code></pre>
-<pre><code>## The following objects are masked from &#39;package:matrixStats&#39;:
-## 
-##     anyMissing, rowMedians</code></pre>
-<pre class="r"><code># If no error messages appear, you&#39;re ready!
+library(dplyr)
+library(DESeq2)
+
+# If no error messages appear, you&#39;re ready!
 cat(&quot;Success! All packages are working.\n&quot;)</code></pre>
-<pre><code>## Success! All packages are working.</code></pre>
+<p><strong>If you see “Success! All packages are working.” then
+everything is installed correctly!</strong></p>
 </div>
 <div id="test-creating-a-document" class="section level3">
 <h3>Test Creating a Document:</h3>
@@ -836,7 +742,9 @@ document header.</p>
 ✅ <strong>You can create a new R Markdown document and “Knit”
 it</strong><br />
 ✅ <strong>You have a folder with course materials from the main
-repository</strong></p>
+repository</strong><br />
+✅ <strong>The test code runs without errors and shows
+“Success!”</strong></p>
 </div>
 <div id="common-problems-and-solutions" class="section level2">
 <h2>Common Problems and Solutions</h2>
@@ -846,6 +754,8 @@ repository</strong></p>
 <li>Make sure you’re typing in the <strong>Console</strong> (bottom left
 panel)</li>
 <li>Try restarting RStudio and running the code again</li>
+<li>Make sure you pasted the CRAN mirror line:
+<code>options(repos = c(CRAN = &quot;https://cloud.r-project.org/&quot;))</code></li>
 </ul>
 </div>
 <div id="command-not-found-in-terminal" class="section level3">
@@ -867,6 +777,14 @@ panel)</li>
 <ul>
 <li>Be patient! Package installation can take 15-30 minutes</li>
 <li>As long as you see text appearing, it’s working</li>
+</ul>
+</div>
+<div id="trying-to-use-cran-without-setting-a-mirror-error" class="section level3">
+<h3>“trying to use CRAN without setting a mirror” error:</h3>
+<ul>
+<li>Make sure you ran the first line:
+<code>options(repos = c(CRAN = &quot;https://cloud.r-project.org/&quot;))</code></li>
+<li>Restart RStudio and try again</li>
 </ul>
 </div>
 </div>
@@ -906,7 +824,7 @@ swirl()</code></pre>
 <li><strong>Don’t panic!</strong> Learning R takes time, and everyone
 starts as a beginner</li>
 </ol>
-<p>Welcome to R! You’re ready to start your data analysis journey.</p>
+<p>Welcome to R! You’re ready to start your data analysis</p>
 </div>
 </div>
 

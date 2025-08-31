@@ -47,6 +47,7 @@ sqrt(83) %>% round(digits = 2)
 
 The pipe represents a much easier way of writing and deciphering R code.
 
+***
 **Exercises**
 
 1. Create a vector of random numbers using the code below:
@@ -59,11 +60,8 @@ The pipe represents a much easier way of writing and deciphering R code.
 	
 * Take the mean of `random_numbers` using the `mean()` function.
 * Round the output to three digits using the `round()` function.
-```{r, results='asis', echo=FALSE}
 
-# Your code here
-
-```
+***
 
 ### Tibbles
 
@@ -190,42 +188,29 @@ collapsible_code('<details>\n<summary><i>Click here to see how to do this in bas
 
 **Now we have returned only those rows with a `domain` of `BP`. **How have the dimensions of our results changed?**
 
+***
 **Exercise:**
 
 We would like to perform an additional round of filtering to only keep the most specific GO terms. 
 
 1. For `bp_oe`, use the `filter()` function to only keep those rows where the `relative.depth` is greater than 4.
-
-```{r results='asis', echo=FALSE}
-
-solutions(list(
-  quote(bp_oe <- bp_oe %>% filter(relative.depth > 4))
-))
-
-```
-
 2. Save output to overwrite our `bp_oe` variable.
 
-```{r results='asis', echo=FALSE}
+***
 
-solutions(list(
-  quote(bp_oe <- bp_oe %>% select(term.id, term.name, p.value, query.size, term.size, overlap.size, intersection))
-))
 
-```
-
-3. Select only the columns needed for visualization
+### 3. Select only the columns needed for visualization
 
 For visualization purposes, we are only interested in the columns related to the GO terms, the significance of the terms, and information about the number of genes associated with the terms. 
 
 To extract these columns from a data frame/tibble we can use the `select()` function. In contrast to base R, we do not need to put the column names in quotes for selection.
 
-```{r results='asis', echo=FALSE}
+```{r}
+# Selecting columns to keep
+bp_oe <- bp_oe %>%
+  select(term.id, term.name, p.value, query.size, term.size, overlap.size, intersection)
 
-solutions(list(
-  quote(bp_oe <- bp_oe %>% select(term.id, term.name, p.value, query.size, term.size, overlap.size, intersection))
-))
-
+head(bp_oe)
 ```
 
 ```{r, results='asis', echo=FALSE}
@@ -276,19 +261,12 @@ collapsible_code('<details>\n<summary><i>Click here to see how to do this in bas
 > 
 > In the example above, we wanted to use the `rename()` function specifically from the `dplyr` package, and not any of the other packages (or base R) which may have the `rename()` function.
 
+***
 **Exercise**
 
 Rename the `intersection` column to `genes` to reflect the fact that these are the DE genes associated with the GO process.
 
-```{r, results='asis', echo=FALSE}
-
-solutions(list(
-  quote(bp_oe <- bp_oe %>% rename(genes = intersection))
-))
-
-```
-
-
+***
 
 ### 6. Create additional metrics for plotting (e.g. gene ratios)
 
@@ -308,17 +286,12 @@ collapsible_code('<details>\n<summary><i>Click here to see how to do this in bas
 
 ```
 	
+***
 **Exercise**
 
 Create a column in `bp_oe` called `term_percent` to determine the percent of DE genes associated with the GO term relative to the total number of genes associated with the GO term (`overlap.size` / `term.size`)
 
-```{r, results='asis', echo=FALSE}
-
-solutions(list(
-  quote(bp_oe <- bp_oe %>% mutate(term_percent = overlap.size / term.size))
-))
-
-```
+***
 
 Our final data for plotting should look like the table below:
 
@@ -341,3 +314,4 @@ Use ggplot2 to plot bp_oe to recapitulate the GO enrichment figure shown below u
 * [teach the tidyverse](http://varianceexplained.org/r/teach-tidyverse/)
 * [tidy style guide](http://style.tidyverse.org/)
 
+***

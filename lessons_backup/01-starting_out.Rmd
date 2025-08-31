@@ -126,7 +126,7 @@ Let's make sure everything works:
 
 3. **Click in the Console** (the bottom left panel where you see `>`)
 4. Type this and press Enter:
-```{r}
+```r
 2 + 2
 ```
    You should see `[1] 4`
@@ -215,7 +215,7 @@ Look for the **Console** panel in RStudio (bottom left). You'll see a `>` symbol
 
 **Click in the Console** and paste this entire block of code (it will take 10-15 minutes):
 
-```{r, eval=FALSE}
+```r
 # Install basic tools first
 install.packages(c("devtools", "BiocManager", "tidyverse"))
 
@@ -226,7 +226,7 @@ if (!requireNamespace("BiocManager", quietly = TRUE)) {
 
 # Install all required packages for the course
 BiocManager::install(c(
-"apeglm", "bookdown", "clusterProfiler", "DESeq2", "details", "dplyr", "enrichplot", "fansi", "fgsea", "gggraph", "ggplot2", "ggrepel", "ggridges", "ggthemes", "gplots","GO.db", "GOSemSim", "igraph", "knitr", "org.Hs.eg.db", "patchwork", "pheatmap", "purrr", "RColorBrewer", "rmarkdown", "rsconnect", "scales", "tidyverse", "tinytex",  "visNetwork"
+"apeglm", "bookdown", "clusterProfiler", "DESeq2", "details", "dplyr", "enrichplot", "fansi", "fgsea", "gggraph", "ggplot2", "ggrepel", "ggridges", "ggthemes", gplots","GO.db", "GOSemSim", "igraph", "knitr", "org.Hs.eg.db", "patchwork", "pheatmap", "purrr", "RColorBrewer", "rmarkdown", "rsconnect", "scales", "tidyverse", "tinytex",  "visNetwork"
 ))
 
 # Install course-specific package
@@ -248,7 +248,7 @@ Let's test that all packages installed correctly:
 
 **Remember**: The Console is the bottom left panel in RStudio with the `>` symbol.
 
-```{r}
+```r
 # Check if key packages work
 library(ggplot2)
 library(dplyr)
@@ -332,7 +332,7 @@ Once everything is installed:
 
 1. **Explore RStudio** - click around and see what's in each panel
 2. **Try the built-in R tutorial**: In the Console, type:
-```{r eval=FALSE}
+```r
 install.packages("swirl")
 library(swirl)
 swirl()
