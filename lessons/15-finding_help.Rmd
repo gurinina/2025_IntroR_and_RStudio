@@ -110,31 +110,6 @@ work_days <- c(Monday, Tuesday, Wednesday, Thursday, Friday)
 	
 ```
 	
-```{r}
-
-solutions(list(
-  quote({
-    # Fix 1: Add quotes around day names to make them strings
-    work_days <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
-  }),
-  quote({
-    # Fix 2: Add missing closing parenthesis
-    round_the_sum <- function(x){
-            return(round(sum(x)))
-    }
-  }),
-  quote({
-    # Fix 3: Function expects 3 arguments but only 2 were provided
-    add_numbers <- function(x,y,z){
-            sum(x,y,z)
-    }
-    
-    add_numbers(5, 9, 3)  # Now providing all 3 required arguments
-  })
-))
-
-```
-
 2. You try to install a package and you get the following error message:
 
 ```
