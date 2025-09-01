@@ -82,6 +82,8 @@ metadata
 	* all the columns in the input text file have column name/headers
 	* you want the first column of the text file to be used as row names (hint: look up the input for the `row.names =` argument in `read.table()`)
 	
+2. Display the contents of `proj_summary` in your console
+	
 ```{r, results='asis', echo=FALSE}
 
 solutions(list(
@@ -89,15 +91,6 @@ solutions(list(
   quote(proj_summary)
 ))
 ```
-
-
-2. Display the contents of `proj_summary` in your console
-
-```{r, results='asis', echo=FALSE}
-
-```
-
-
 
 ## Inspecting data structures
 

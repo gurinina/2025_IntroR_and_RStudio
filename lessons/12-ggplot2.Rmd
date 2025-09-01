@@ -1,3 +1,8 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: inline
+---
 # Plotting with ggplot2
 
 ## Data Visualization with `ggplot2`
@@ -32,11 +37,11 @@ The `ggplot()` function is used to **initialize the basic graph structure**, the
 
 Let's start: 
 
-```{r eval=FALSE}
+```{r}
 ggplot(new_metadata) # what happens? 
 ```
 
-You get an blank plot, because you need to **specify additional layers** using the `+` operator.
+You get a blank plot, because you need to **specify additional layers** using the `+` operator.
 
 The **geom (geometric) object** is the layer that specifies what kind of plot we want to draw. A plot **must have at least one `geom`**; there is no upper limit. Examples include:
 
@@ -81,10 +86,6 @@ ggplot(new_metadata) +
      geom_point(aes(x = age_in_days, y= samplemeans))
 ```
 
-<p align="center">
-![Alt text](img/ggscatter-1.png){ width=500px }
-</p>
-
 Now that we have the required aesthetics, let's add some extras like color to the plot. We can **`color` the points on the plot based on the genotype column** within `aes()`. 
 
 ```{r}
@@ -93,33 +94,25 @@ ggplot(new_metadata) +
   color = genotype)) 
 ```
 
-<p align="center">
-![Alt text](img/ggscatter-2.png){ width=500px }
-</p>
-
 Let's try to have both **celltype and genotype represented on the plot**. To do this we can assign the `shape` argument in `aes()` the celltype column, so that each celltype is plotted with a different shaped data point. 
 
 ```{r}
+
 ggplot(new_metadata) +
   geom_point(aes(x = age_in_days, y= samplemeans, 
   color = genotype, shape=celltype)) 
-```
 
-<p align="center">
-![Alt text](img/ggscatter-3.png){ width=500px }
-</p>
+```
 
 The data points are quite small. We can adjust the **size of the data points** within the `geom_point()` layer, but it should **not be within `aes()`** since we are not mapping it to a column in the input data frame, instead we are just specifying a number. 
 
 ```{r}
+
 ggplot(new_metadata) +
   geom_point(aes(x = age_in_days, y= samplemeans, 
   color = genotype, shape=celltype), size=2.25) 
-```
 
-<p align="center">
-![Alt text](img/ggscatter-4.png){ width=500px }
-</p>
+```
 
 ### Layers
 
@@ -154,10 +147,6 @@ ggplot(new_metadata) +
   theme_bw() +
   theme(axis.title = element_text(size=rel(1.5)))			
 ```
- 
-<p align="center">
-![Alt text](img/ggscatter-5.png){ width=500px }
-</p> 
 
 > *NOTE:* You can use the `example("geom_point")` function here to explore a multitude of different aesthetics and layers that can be added to your plot. 
 
@@ -169,30 +158,22 @@ ggplot(new_metadata) +
 
 2. Use the `ggtitle` layer to add a plot title of your choice.
 
-
 3. Add the following new layer to the code chunk `theme(plot.title=element_text(hjust=0.5))`.
   * What does it change?
   * How many theme() layers can be added to a ggplot code chunk, in your estimation?
   
-
 ```{r, results='asis', echo=FALSE}
 
 solutions(list(
-  quote({
-    gg <- ggplot(new_metadata) +
-      geom_point(aes(x = age_in_days, y = samplemeans, 
-                     color = genotype, shape = celltype), size = 2.25) +
-      theme_bw() +
-      theme(axis.title = element_text(size = rel(1.5)))
-    
-    final_plot <- gg +
-      xlab("Age (days)") +
-      ylab("Mean expression") +
-      ggtitle("Mean expression by age and genotype") +
-      theme(plot.title=element_text(hjust=0.5))
-    
-    print(final_plot)
-  })
+  quote(gg <- ggplot(new_metadata)),
+  quote(gg <- gg + geom_point(aes(x = age_in_days, y = samplemeans))),
+  quote(gg <- gg + geom_point(aes(color = genotype, shape = celltype), size = 2.25)),
+  quote(gg <- gg + theme_bw()),
+  quote(gg <- gg + theme(axis.title = element_text(size = rel(1.5)))),
+  quote(final_plot <- gg + xlab("Age (days)") + ylab("Mean expression")),
+  quote(final_plot <- final_plot + ggtitle("Mean expression by age and genotype")),
+  quote(final_plot <- final_plot + theme(plot.title = element_text(hjust = 0.5))),
+  quote(print(final_plot))
 ))
 
 ```

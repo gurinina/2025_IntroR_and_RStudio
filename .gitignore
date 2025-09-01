@@ -18,7 +18,6 @@ figures/scatterplot.pdf
 # Allow the figures/ folder to be tracked
 !figures/
 
-
 # Ignore log files and temporary files
 *.log
 *.out

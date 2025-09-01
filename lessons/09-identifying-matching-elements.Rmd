@@ -196,5 +196,3 @@ solutions(list(
 ))
 
 ```
-NA
-```

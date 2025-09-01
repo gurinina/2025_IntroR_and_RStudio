@@ -28,17 +28,21 @@ not relevant to your issue). Alternatively, in particular if your questions is
 not related to a `data.frame`, you can save any other R data structure that you have in your environment to a file:
 
 ```{r eval=FALSE}
-		# DO NOT RUN THIS!
 
-		save(iris, file="/tmp/iris.RData")
+# DO NOT RUN THIS!
+
+save(iris, file="/tmp/iris.RData")
+
 ```
 
 The content of this `.RData` file is not human readable and cannot be posted directly on stackoverflow. It can, however, be emailed to someone who can read it with this command:
 
 ```{r eval=FALSE}
+
 # DO NOT RUN THIS!
 
 load(file="~/Downloads/iris.RData")
+
 ```
 
 ### Where to ask for help?
@@ -107,7 +111,27 @@ work_days <- c(Monday, Tuesday, Wednesday, Thursday, Friday)
 ```
 	
 ```{r}
-# Your code here
+
+solutions(list(
+  quote({
+    # Fix 1: Add quotes around day names to make them strings
+    work_days <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
+  }),
+  quote({
+    # Fix 2: Add missing closing parenthesis
+    round_the_sum <- function(x){
+            return(round(sum(x)))
+    }
+  }),
+  quote({
+    # Fix 3: Function expects 3 arguments but only 2 were provided
+    add_numbers <- function(x,y,z){
+            sum(x,y,z)
+    }
+    
+    add_numbers(5, 9, 3)  # Now providing all 3 required arguments
+  })
+))
 
 ```
 
@@ -120,19 +144,20 @@ work_days <- c(Monday, Tuesday, Wednesday, Thursday, Friday)
 	What would you do to remedy the error?
 	
 ```{r results='asis', echo=FALSE}
-cat('<details>
-<summary><i>Click here to see the solution</i></summary>
-<pre><code># The error indicates that \'Seurat\' depends on \'multtest\' which is not installed
-# First install the missing dependency:
-install.packages("multtest")
 
-# Then try installing Seurat again:
-install.packages("Seurat")
-
-# Alternative: Use dependencies = TRUE to automatically install all dependencies
-install.packages("Seurat", dependencies = TRUE)
-</code></pre>
-</details>')
+solutions(list(
+  quote({
+    # The error indicates that 'Seurat' depends on 'multtest' which is not installed
+    # First install the missing dependency:
+    install.packages("multtest")
+    
+    # Then try installing Seurat again:
+    install.packages("Seurat")
+    
+    # Alternative: Use dependencies = TRUE to automatically install all dependencies
+    install.packages("Seurat", dependencies = TRUE)
+  })
+))
 ```
 	
 3. You would like to ask for help on an online forum. To do this you want the users of the forum to reproduce your problem, so you want to provide them as much relevant information and data as possible.
@@ -140,4 +165,23 @@ install.packages("Seurat", dependencies = TRUE)
 	- You want to provide them with the list of packages that you currently have loaded, the version of R, your OS and package versions. Use the appropriate function(s) to obtain this information.
 	- You want to also provide a small data frame that reproduces the error (if working with a large data frame, you'll need to subset it down to something small). For this exercise use the data frame `df`, and save it as an RData object called `df.RData`. 
 	- What code should the people looking at your help request should use to read in `df.RData`?
+	
+```{r results='asis', echo=FALSE}
+
+solutions(list(
+  quote({
+    # Get system information, R version, and package details
+    sessionInfo()
+  }),
+  quote({
+    # Save a data frame as an RData object
+    # (assuming df exists in your environment)
+    save(df, file = "df.RData")
+  }),
+  quote({
+    # Code others should use to read in df.RData
+    load("df.RData")
+  })
+))
+```
 
