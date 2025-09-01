@@ -144,26 +144,10 @@ number <- x + y
 
 1. Try changing the value of the variable `x` to 5. What happens to `number`?
 
-```{r, results='asis', echo=FALSE}
-solutions(list(
-  quote(x <- 5),
-  quote(number)
-))
-
-```
 
 2. Now try changing the value of variable `y` to contain the value 10. What do you need to do, to 
 update the variable `number`?
 
-```{r, results='asis', echo=FALSE}
-solutions(list(
-  quote(y <- 10),
-  quote(number),
-  quote(number <- x + y),
-  quote(number)
-))
-
-```
 
 ### Tips on variable names
 

@@ -144,14 +144,6 @@ expression[expression == "high"]
 **Exercise**
 
 Extract only those elements in `samplegroup` that are not KO (*nesting the logical operation is optional*).
-```{r, results='asis', echo=FALSE}
-
-solutions(list(
-  quote(samplegroup[samplegroup != "KO"]),
-  quote(samplegroup[!samplegroup == "KO"])
-))
-
-```
 
 
 #### Releveling factors
@@ -191,12 +183,4 @@ samplegroup <- c("CTL", "CTL", "CTL", "KO", "KO", "KO", "OE", "OE", "OE")
 samplegroup <- factor(samplegroup)
 ```
 
-```{r, results='asis', echo=FALSE}
-
-solutions(list(
-  quote(samplegroup <- relevel(samplegroup, ref = "KO")),
-  quote(levels(samplegroup))
-))
-
-```
 

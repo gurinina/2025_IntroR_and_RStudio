@@ -93,23 +93,9 @@ all(A %in% B)
 
 1. Using the `A` and `B` vectors created above, evaluate each element in `B` to see if there is a match in `A
 
-```{r, results='asis', echo=FALSE}
-
-solutions(list(
-  quote(B %in% A)
-))
-
-```
 
 2. Subset the `B` vector to only return those values that are also in `A`.
 
-```{r, results='asis', echo=FALSE}
-
-solutions(list(
-  quote(B[B %in% A])
-))
-
-```
 
 Suppose we had two vectors containing same values. How can we check **if those values are in the same order in each vector**? In this case, we can use `==` operator to compare each element of the same position from two vectors. The operator returns a logical vector indicating TRUE/FALSE at each position. Then we can use `all()` function to check if all values in the returned vector are TRUE. If all values are TRUE, we know that these two vectors are the same. Unlike `%in%` operator, `==` operator requires that **two vectors are of equal length**.  
 
@@ -169,30 +155,8 @@ important_genes <- c("ENSMUSG00000083700", "ENSMUSG00000080990",
 ```
 
 1. Use the `%in%` operator to determine if all of these genes are present in the row names of the `rpkm_data` data frame.
-```{r, results='asis', echo=FALSE}
-
-solutions(list(
-  quote(important_genes %in% rownames(rpkm_data))
-))
-
-```
 	
 2. Extract the rows from `rpkm_data` that correspond to these 6 genes using `[]` and the `%in%` operator. Double check the row names to ensure that you are extracting the correct rows.
 
-```{r, results='asis', echo=FALSE}
-
-solutions(list(
-  quote(rpkm_data[rownames(rpkm_data) %in% important_genes, ]),
-  quote(rownames(rpkm_data[rownames(rpkm_data) %in% important_genes, ]))
-))
-
-```
 
 3. **Bonus question:** Extract the rows from `rpkm_data` that correspond to these 6 genes using `[]`, but without using the `%in%` operator.
-```{r, results='asis', echo=FALSE}
-
-solutions(list(
-  quote(rpkm_data[important_genes, ])
-))
-
-```

@@ -1,1 +1,0 @@
-Cheatsheets downloaded from [https://www.rstudio.com/resources/cheatsheets/](https://www.rstudio.com/resources/cheatsheets/). These are helpful for quick reference when you are working on your own projects.

@@ -143,22 +143,6 @@ solutions(list(
 	
 	What would you do to remedy the error?
 	
-```{r results='asis', echo=FALSE}
-
-solutions(list(
-  quote({
-    # The error indicates that 'Seurat' depends on 'multtest' which is not installed
-    # First install the missing dependency:
-    install.packages("multtest")
-    
-    # Then try installing Seurat again:
-    install.packages("Seurat")
-    
-    # Alternative: Use dependencies = TRUE to automatically install all dependencies
-    install.packages("Seurat", dependencies = TRUE)
-  })
-))
-```
 	
 3. You would like to ask for help on an online forum. To do this you want the users of the forum to reproduce your problem, so you want to provide them as much relevant information and data as possible.
 
@@ -166,22 +150,4 @@ solutions(list(
 	- You want to also provide a small data frame that reproduces the error (if working with a large data frame, you'll need to subset it down to something small). For this exercise use the data frame `df`, and save it as an RData object called `df.RData`. 
 	- What code should the people looking at your help request should use to read in `df.RData`?
 	
-```{r results='asis', echo=FALSE}
-
-solutions(list(
-  quote({
-    # Get system information, R version, and package details
-    sessionInfo()
-  }),
-  quote({
-    # Save a data frame as an RData object
-    # (assuming df exists in your environment)
-    save(df, file = "df.RData")
-  }),
-  quote({
-    # Code others should use to read in df.RData
-    load("df.RData")
-  })
-))
-```
 

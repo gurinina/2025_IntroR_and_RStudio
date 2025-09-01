@@ -162,19 +162,4 @@ ggplot(new_metadata) +
   * What does it change?
   * How many theme() layers can be added to a ggplot code chunk, in your estimation?
   
-```{r, results='asis', echo=FALSE}
-
-solutions(list(
-  quote(gg <- ggplot(new_metadata)),
-  quote(gg <- gg + geom_point(aes(x = age_in_days, y = samplemeans))),
-  quote(gg <- gg + geom_point(aes(color = genotype, shape = celltype), size = 2.25)),
-  quote(gg <- gg + theme_bw()),
-  quote(gg <- gg + theme(axis.title = element_text(size = rel(1.5)))),
-  quote(final_plot <- gg + xlab("Age (days)") + ylab("Mean expression")),
-  quote(final_plot <- final_plot + ggtitle("Mean expression by age and genotype")),
-  quote(final_plot <- final_plot + theme(plot.title = element_text(hjust = 0.5))),
-  quote(print(final_plot))
-))
-
-```
 

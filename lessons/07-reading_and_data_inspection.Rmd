@@ -84,13 +84,6 @@ metadata
 	
 2. Display the contents of `proj_summary` in your console
 	
-```{r, results='asis', echo=FALSE}
-
-solutions(list(
-  quote(proj_summary <- read.table("data/project-summary.txt", header = TRUE, row.names = 1)),
-  quote(proj_summary)
-))
-```
 
 ## Inspecting data structures
 
@@ -144,21 +137,9 @@ colnames(metadata)
 * What is the class of each column in metadata (use one command)?
 
 
-```{r, results='asis', echo=FALSE}
-
-solutions(list(
-  quote(str(metadata))
-))
-```
 
 * What is the median of the replicates in metadata (use one command)?
 
-```{r, results='asis', echo=FALSE}
-
-solutions(list(
-  quote(median(metadata$replicate))
-))
-```
 
 
 **Exercise 3**
@@ -170,16 +151,4 @@ solutions(list(
 * When you use the `rownames()` function on `metadata`, what is the *data structure* of the output?
 * [Optional] How many elements in (how long is) the output of `colnames(proj_summary)`? Don't count, but use another function to determine this.
 
-```{r, results='asis', echo=FALSE}
-
-solutions(list(
-  quote(class(glengths)),
-  quote(class(metadata)),
-  quote(summary(proj_summary)),
-  quote(length(samplegroup)),
-  quote(dim(proj_summary)),
-  quote(class(rownames(metadata))),
-  quote(length(colnames(proj_summary)))
-))
-```
 

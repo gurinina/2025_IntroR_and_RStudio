@@ -17,14 +17,6 @@ second <- c("B","D","E","A","C")  # same letters but different order
 
 How would you reorder the `second` vector to match `first`?
 
-```{r, results='asis', echo=FALSE}
-
-solutions(list(
-  quote(match(first, second)),
-  quote(second[match(first, second)])
-))
-
-```
 
 If we had large datasets, it would be difficult to reorder them by searching for the indices of the matching elements, and it would be quite easy to make a typo or mistake. To help with matching datasets, there is a function called `match()`.
 
@@ -156,21 +148,6 @@ Now that our samples are ordered the same in our metadata and counts data, **if 
 
 1. After talking with your collaborator, it becomes clear that `sample2` and `sample9` were actually from a different mouse background than the other samples and should not be part of our analysis. Create a new variable called `subset_rpkm` that has these columns removed from the `rpkm_ordered` data frame.
 
-```{r, results='asis', echo=FALSE}
-
-solutions(list(
-  quote(subset_rpkm <- rpkm_ordered[, -c(2, 9)])
-))
-
-```
 2. Use the `match()` function to subset the `metadata` data frame so that the row names of the `metadata` data frame match the column names of the `subset_rpkm` data frame.
 
-```{r, results='asis', echo=FALSE}
-
-solutions(list(
-  quote(idx <- match(colnames(subset_rpkm), rownames(metadata))),
-  quote(metadata_subset <- metadata[idx, ])
-))
-
-```
 

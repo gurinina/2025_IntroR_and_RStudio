@@ -98,35 +98,14 @@ Unfortunately, there is no equivalent `$` syntax to select a row by name.
 1. Return a data frame with only the `genotype` and `replicate` column values for `sample2` and `sample8`.
 
 
-```{r, results='asis', echo=FALSE}
-
-solutions(list(
-  quote(metadata[c("sample2", "sample8"), c("genotype", "replicate")])
-))
-
-```
 
 2. Return the fourth and ninth values of the `replicate` column.
 
 
-```{r, results='asis', echo=FALSE}
-
-solutions(list(
-  quote(metadata[c(4, 9), "replicate"])
-))
-
-```
 
 3. Extract the `replicate` column as a data frame.
 
 
-```{r, results='asis', echo=FALSE}
-
-solutions(list(
-  quote(metadata[, "replicate", drop = FALSE])
-))
-
-```
 
 
 ### Selecting using indices with logical operators
@@ -210,11 +189,4 @@ sub_meta <- metadata[which(metadata$replicate > 1), ]
 
 Subset the `metadata` dataframe to return only the rows of data with a genotype of `KO`.
 
-```{r, results='asis', echo=FALSE}
-
-solutions(list(
-  quote(metadata[metadata$genotype == "KO", ])
-))
-
-```
 	
