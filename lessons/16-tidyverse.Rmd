@@ -1,9 +1,4 @@
 # Tidyverse data wrangling
-```{r, include=FALSE}
-
-source("scripts/collapsible_code.R", echo=TRUE)
-
-```
 
 An incredibly important skill of a data scientist is to be able to take data from an untidy format and get it into a tidy format. This process is often referred to as data wrangling. Generally, data wranglings skills are those that allow you to wrangle data from the format they’re currently in into the tidy format you actually want them in.
 

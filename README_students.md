@@ -15,8 +15,7 @@ We’ll keep all personal work inside a folder named **`students_notes/`** at th
 
 **Make your personal codebook from the template**
 
-   - In the **Files** pane, navigate to `lessons/` and locate:  
-     **'17-introR_codebook_template.Rmd'**
+   - In the **Files** pane, locate: **'17-introR_codebook_template.Rmd'**
     
    - Check the box next to that file → click **More** → **Copy To…**
    
