@@ -20,7 +20,7 @@ We’ll keep all personal work inside a folder named **`students_notes/`** at th
    - Check the box next to that file → click **More** → **Copy To…**
    
    - In the dialog, choose the **`students_notes/`** folder and set the new name to:  
-     **`<lastname>_17-introR_codebook.Rmd`** (for example, `garcia_17-introR_codebook_template.Rmd`) → **OK**.
+     **`<lastname>_17-introR_codebook.Rmd`** (for example, `garcia_17-introR_codebook.Rmd`) → **OK**.
      
    - Click the new file in `students_notes/` to open it. This is now **your** working copy.
 
