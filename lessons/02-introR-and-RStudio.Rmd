@@ -16,9 +16,22 @@ RStudio is an integrated development environment (IDE) for R.
 
 1. Start Rstudio, and go to the `File` menu, select `Open Project`, and navigate to your 2025_IntroR_and_RStudio folder and double click on `2025_IntroR_and_RStudio.Rproj`.
 
-2. When RStudio opens, you will see four panels in the window.
+2. One‑time setup
 
-3. Open the file `17-introR_codebook.Rmd` in the lessons directory under the File menu (lower right panel). It will open in the script window in the upper left. This file contains all the R code that we will be running in the lessons.
+**Make your personal codebook from the template**
+
+   - In the **Files** pane, locate: **'17-introR_codebook_template.Rmd'**
+    
+   - Check the box next to that file → click **More** → **Copy To…**
+   
+   - In the dialog, choose the **`students_notes/`** folder and set the new name to:  
+     **`<lastname>_17-introR_codebook.Rmd`** (for example, `garcia_17-introR_codebook_template.Rmd`) → **OK**.
+     
+   - Click the new file in `students_notes/` to open it. This is now **your** working copy.
+
+   - We'll do this for each of the three modules with GitHub repos
+   
+> From now on, **work only inside `students_notes/`**. Anything you create or edit there is yours and won’t interfere with course updates.
 
 ## RStudio Interface
 
