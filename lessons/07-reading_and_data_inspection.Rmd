@@ -78,7 +78,7 @@ metadata
 
 **Exercise 1**
 
-1. Read "project-summary.txt" in to R using `read.table()` with the approriate arguments and store it as the variable `proj_summary`. To figure out the appropriate arguments to use with `read.table()`, keep the following in mind:
+1. Read "project-summary.txt" in to R using `read.table()` with the appropriate arguments and store it as the variable `proj_summary`. To figure out the appropriate arguments to use with `read.table()`, keep the following in mind:
 	* all the columns in the input text file have column name/headers
 	* you want the first column of the text file to be used as row names (hint: look up the input for the `row.names =` argument in `read.table()`)
 	

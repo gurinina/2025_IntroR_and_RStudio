@@ -437,6 +437,9 @@ macOS</a></li>
 <p>In Terminal, paste these commands:</p>
 <pre class="bash"><code>echo &#39;export PATH=&quot;/opt/gfortran/bin:/usr/local/bin:$PATH&quot;&#39; &gt;&gt; ~/.zshrc
 echo &#39;export PATH=&quot;/opt/gfortran/bin:/usr/local/bin:$PATH&quot;&#39; &gt;&gt; ~/.bash_profile</code></pre>
+<p>Quit terminal and restart. In terminal, type:</p>
+<pre class="bash"><code>gfortran --version</code></pre>
+<p>It should say GNU Fortran (GCC) 12.2.0. You’re all set.</p>
 </div>
 </div>
 <div id="step-3-install-git" class="section level2">
@@ -698,49 +701,12 @@ cat(&quot;Success! All packages are working.\n&quot;)</code></pre>
 <p><strong>If you see “Success! All packages are working.” then
 everything is installed correctly!</strong></p>
 </div>
-<div id="test-creating-a-document" class="section level3">
-<h3>Test Creating a Document:</h3>
-<ol style="list-style-type: decimal">
-<li>In RStudio, go to <strong>File → New File → R Markdown</strong></li>
-<li>Leave the default settings and click <strong>OK</strong></li>
-<li>Click the <strong>“Knit”</strong> button at the top</li>
-<li>If a webpage opens with a document, everything is working
-perfectly!</li>
-</ol>
-</div>
-<div id="creating-pdf-documents" class="section level3">
-<h3>Creating PDF Documents:</h3>
-<p>If you want to create PDF files (instead of HTML), you need to modify
-the document header:</p>
-<ol style="list-style-type: decimal">
-<li><strong>For documents with special characters or emojis</strong>:
-Change the top of your document to:</li>
-</ol>
-<pre class="yaml"><code>---
-title: &quot;Your Document Title&quot;
-output: 
-  pdf_document:
-    latex_engine: xelatex
----</code></pre>
-<ol start="2" style="list-style-type: decimal">
-<li><strong>For simple documents</strong>: You can use:</li>
-</ol>
-<pre class="yaml"><code>---
-title: &quot;Your Document Title&quot;
-output: pdf_document
----</code></pre>
-<p><strong>Note</strong>: If you get errors about Unicode characters
-when making PDFs, always use <code>latex_engine: xelatex</code> in your
-document header.</p>
-</div>
 </div>
 <div id="what-success-looks-like" class="section level2">
 <h2>What Success Looks Like</h2>
 <p>✅ <strong>RStudio opens without errors</strong><br />
 ✅ <strong>You can type <code>2 + 2</code> in the Console and get
 <code>[1] 4</code></strong><br />
-✅ <strong>You can create a new R Markdown document and “Knit”
-it</strong><br />
 ✅ <strong>You have a folder with course materials from the main
 repository</strong><br />
 ✅ <strong>The test code runs without errors and shows
