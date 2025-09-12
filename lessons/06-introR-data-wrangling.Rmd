@@ -31,38 +31,57 @@ If we wanted all values except the fifth value of this vector, we would use the 
 age[-5]
 ```
 
+
 If we wanted to select more than one element we would still use the square bracket syntax, but rather than using a single value we would pass in a *vector of several index values*:
 
 ```{r}
-age[c(3,5,6)]   ## nested
+age[c(3,5,6)]   # nested, embedding one operation inside another
 
 # OR
 
 ## create a vector first then select
-idx <- c(3,5,6) # create vector of the elements of interest
+idx <- c(3,5,6) # create vector of the elements of interest, two separate commands
 age[idx]
 ```
 
 To select a sequence of continuous values from a vector, we would use `:` which is a special function that creates numeric vectors of integer in increasing or decreasing order. Let's select the *first four values* from age:
-
 ```{r}
 age[1:4]
 ```
 
-Alternatively, if you wanted the reverse could try `4:1` for instance, and see what is returned. 
+Alternatively, if you wanted the reverse you would use `age[4:1]` for instance. 
 
 **Exercises** 
 
-1. Create a vector called alphabets with the following letters, C, D, X, L, F.
+**Exercises** points +3, +4 for bonus
 
-2. Use the associated indices along with `[ ]` to do the following:
+Create a vector called alphabets with the following letters, C, D, X, L, F.
+```{r}
+alphabets <- c("C", "D", "X", "L", "F")
+```
 
-* only display C, D and F
+1. Use the associated indices along with `[ ]` to do the following:
 
-* display all except X
+Part 1: Only display C, D and F
+```{r}
 
-* display the letters in the opposite order (F, L, X, D, C)
+# Your code here
 
+```
+
+Part 2: Display all except X
+```{r}
+
+# Your code here
+
+```
+
+Part 3: Display letters in opposite order. *Bonus points for using a function instead of the indices (Hint: use Google).
+```{r}
+
+# Your code here
+
+```
 
 #### Selecting using indices with logical operators
 

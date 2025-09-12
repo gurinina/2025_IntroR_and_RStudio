@@ -343,12 +343,12 @@ age[-5]
 ```
 
 ```{r}
-age[c(3,5,6)] ## nested
+age[c(3,5,6)]   # nested, embedding one operation inside another
 
 # OR
 
 ## create a vector first then select
-idx <- c(3,5,6) # create vector of the elements of interest
+idx <- c(3,5,6) # create vector of the elements of interest, two separate commands
 age[idx]
 ```
 
@@ -356,30 +356,39 @@ age[idx]
 age[1:4]
 ```
 
+Alternatively, if you wanted the reverse you would use `age[4:1]` for instance. 
+
 **Exercises** points +3, +4 for bonus
 
-1. Create a vector called alphabets with the following letters, C, D, X, L, F.
+Create a vector called alphabets with the following letters, C, D, X, L, F.
 ```{r}
 alphabets <- c("C", "D", "X", "L", "F")
 ```
 
 
-2. Use the associated indices along with [ ] to do the following:
+1. Use the associated indices along with `[ ]` to do the following:
 
-    a) only display C, D and F
-  
+Part 1: Only display C, D and F
 ```{r}
+
 # Your code here
-```
-    b) display all except X
-```{r}
-# Your code here
+
 ```
 
-    c)  display the letters in the opposite order (F, L, X, D, C) *Bonus points for using a function instead of the indices (Hint: use Google)
+Part 2: Display all except X
 ```{r}
+
 # Your code here
+
 ```
+
+Part 3: Display letters in opposite order. *Bonus points for using a function instead of the indices (Hint: use Google).
+```{r}
+
+# Your code here
+
+```
+
 
 ### Selecting using logical operators
 ```{r}
@@ -464,9 +473,11 @@ as.character(exp) # this will convert the factor to a character vector
 
 Extract only those elements in samplegroup that are not KO (nesting the logical operation is optional).
 ```{r}
-samplegroup <- c(rep("CTL", 3), rep("KO", 3), rep("OE", 3))
-
+samplegroup <- c("CTL", "CTL", "CTL", "KO", "KO", "KO", "OE", "OE", "OE")
 samplegroup <- factor(samplegroup)
+```
+
+```{r}
 
 # Your code here
 ```
@@ -486,9 +497,11 @@ str(expression)
 Use the samplegroup factor we created in a previous lesson, and relevel it such that KO is the first level followed by CTL and OE.
 
 ```{r}
-samplegroup <- c(rep("CTL", 3), rep("KO", 3), rep("OE", 3))
-
+samplegroup <- c("CTL", "CTL", "CTL", "KO", "KO", "KO", "OE", "OE", "OE")
 samplegroup <- factor(samplegroup)
+```
+
+```{r}
 
 # Your code here
 
