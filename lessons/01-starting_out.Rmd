@@ -70,6 +70,13 @@ In Terminal, paste these commands:
 echo 'export PATH="/opt/gfortran/bin:/usr/local/bin:$PATH"' >> ~/.zshrc
 echo 'export PATH="/opt/gfortran/bin:/usr/local/bin:$PATH"' >> ~/.bash_profile
 ```
+Quit terminal and restart.
+In terminal, type:
+
+```bash
+gfortran --version
+```
+It should say GNU Fortran (GCC) 12.2.0. You're all set.
 
 ## Step 3: Install Git
 
@@ -126,7 +133,7 @@ Let's make sure everything works:
 
 3. **Click in the Console** (the bottom left panel where you see `>`)
 4. Type this and press Enter:
-```{r}
+```r
 2 + 2
 ```
    You should see `[1] 4`
@@ -177,7 +184,7 @@ To avoid problems when updating course materials, follow these rules:
 - **Make new folders** like `my_notes/` or `homework/` for your work
 - **Copy lesson files** to a new name before modifying them
 
-#### ❌ **Things That Cause Git Conflicts:**
+#### ⛔ **Things That Cause Git Conflicts:**
 - **Don't edit the original lesson `.Rmd` files directly**
 - **Don't modify existing file names in the lessons folder**
 - **Don't save your work in the main lesson directories**
@@ -185,39 +192,44 @@ To avoid problems when updating course materials, follow these rules:
 #### **Golden Rule:**
 > **Never edit the original lesson files directly. Always create new files for your notes and practice. This way you can always Pull the latest updates without problems!**
 
+**For the codebook**: Copy `17-introR_codebook_template.Rmd` and rename it to **`<lastname>_17-introR_codebook.Rmd`** (replace "lastname" with your actual last name). This file includes homework questions and space for your notes.
+
 #### **Suggested Workflow:**
 ```
 2025_IntroR_and_RStudio/
 ├── lessons/               # DON'T TOUCH - instructor files  
 ├── img/                   # DON'T TOUCH - course images
 ├── _book/                 # DON'T TOUCH - bookdown output
-├── codebook.Rmd           # DON'T EDIT - copy/rename instead
+├── 17-introR_codebook_template.Rmd # DON'T EDIT - copy/rename instead
 ├── (other course files)   # DON'T TOUCH - various course materials
-├── my_notes/             # CREATE - your folder for notes
-│   ├── lesson1_notes.Rmd
+├── student_notes/             # YOUR FOLDER for notes
+│   ├── <lastname>_17-introR_codebook.Rmd
 │   ├── practice.R
 │   └── other_notes.Rmd
-└── codebook_lastname.Rmd  # CREATE - copy of codebook with your name
 ```
-
-**For the codebook**: Copy `codebook.Rmd` and rename it to `codebook_lastname.Rmd` (replace "lastname" with your actual last name). This file includes homework questions and space for your notes.
 
 ## Step 7: Install Required R Packages
 
 R packages are like apps that add extra features. We need several for this course.
 
-### Find the Console:
-Look for the **Console** panel in RStudio (bottom left). You'll see a `>` symbol where you can type.
+### Important: Locate the Console First
+Before running any code, you need to find the **Console** in RStudio:
 
-### Install Packages:
+1. **Open RStudio**
+2. **Look at the bottom left panel** - this is the Console
+3. **You'll see a `>` symbol** - this is where you type R commands
+4. **Click in this area** to make sure your cursor is active in the Console
 
-**First, locate the Console in RStudio**: Look at the bottom left panel of RStudio. You'll see a panel labeled "Console" with a `>` symbol - this is where you type R commands.
+### COPY AND PASTE THIS CODE INTO THE CONSOLE:
 
-**Click in the Console** and paste this entire block of code (it will take 10-15 minutes):
+**Click in the Console (bottom left panel with the `>` symbol) and paste this entire block of code:**
 
-```{r, eval=FALSE}
+```{r eval=FALSE}
+# Set CRAN mirror first (this tells R where to download packages)
+options(repos = c(CRAN = "https://cloud.r-project.org/"))
+
 # Install basic tools first
-install.packages(c("devtools", "BiocManager", "tidyverse"))
+install.packages(c("BiocManager", "devtools", "ggraph", "tidyverse"))
 
 # Install Bioconductor (for biological data analysis)
 if (!requireNamespace("BiocManager", quietly = TRUE)) {
@@ -226,7 +238,7 @@ if (!requireNamespace("BiocManager", quietly = TRUE)) {
 
 # Install all required packages for the course
 BiocManager::install(c(
-"apeglm", "bookdown", "clusterProfiler", "DESeq2", "details", "dplyr", "enrichplot", "fansi", "fgsea", "gggraph", "ggplot2", "ggrepel", "ggridges", "ggthemes", "gplots","GO.db", "GOSemSim", "igraph", "knitr", "org.Hs.eg.db", "patchwork", "pheatmap", "purrr", "RColorBrewer", "rmarkdown", "rsconnect", "scales", "tidyverse", "tinytex",  "visNetwork"
+"apeglm", "bookdown", "clusterProfiler", "colorspace", "DESeq2", "details", "dplyr", "enrichplot", "fansi", "fgsea", "ggplot2", "ggrepel", "ggridges", "ggthemes", "gplots","GO.db", "GOSemSim", "igraph", "knitr", "org.Hs.eg.db", "patchwork", "pheatmap", "purrr", "RColorBrewer", "rmarkdown", "rsconnect", "scales",  "tidydr", "tidyr" ,"tidyverse", "tinytex",  "visNetwork"
 ))
 
 # Install course-specific package
@@ -238,17 +250,22 @@ if (!tinytex::is_tinytex()) {
 }
 ```
 
-**Be patient!** This process downloads and installs many packages. You'll see lots of text scrolling by - this is normal.
+### After Pasting the Code:
+1. **Press Enter** to run all the commands
+2. **Be patient!** This process takes 10-15 minutes and downloads many packages
+3. **Don't worry about the scrolling text** - this is normal
+4. **If prompted to install from source**, type `n` and press Enter
+5. **If asked to restart R**, type `y` and press Enter
 
 ## Step 8: Verify Everything Works
 
-Let's test that all packages installed correctly:
+Let's test that all packages installed correctly.
 
-### In the Console, paste and run:
+### COPY AND PASTE THIS TEST CODE INTO THE CONSOLE:
 
-**Remember**: The Console is the bottom left panel in RStudio with the `>` symbol.
+**Again, click in the Console (bottom left panel) and paste this code:**
 
-```{r}
+```{r eval=FALSE}
 # Check if key packages work
 library(ggplot2)
 library(dplyr)
@@ -258,47 +275,22 @@ library(DESeq2)
 cat("Success! All packages are working.\n")
 ```
 
-### Test Creating a Document:
-1. In RStudio, go to **File → New File → R Markdown**
-2. Leave the default settings and click **OK**
-3. Click the **"Knit"** button at the top
-4. If a webpage opens with a document, everything is working perfectly!
+**If you see "Success! All packages are working." then everything is installed correctly!**
 
-### Creating PDF Documents:
-If you want to create PDF files (instead of HTML), you need to modify the document header:
-
-1. **For documents with special characters or emojis**: Change the top of your document to:
-```yaml
----
-title: "Your Document Title"
-output: 
-  pdf_document:
-    latex_engine: xelatex
----
-```
-
-2. **For simple documents**: You can use:
-```yaml
----
-title: "Your Document Title"
-output: pdf_document
----
-```
-
-**Note**: If you get errors about Unicode characters when making PDFs, always use `latex_engine: xelatex` in your document header.
 
 ## What Success Looks Like
 
 ✅ **RStudio opens without errors**  
 ✅ **You can type `2 + 2` in the Console and get `[1] 4`**  
-✅ **You can create a new R Markdown document and "Knit" it**  
 ✅ **You have a folder with course materials from the main repository**  
+✅ **The test code runs without errors and shows "Success!"**
 
 ## Common Problems and Solutions
 
 ### "Package not found" errors:
 - Make sure you're typing in the **Console** (bottom left panel)
 - Try restarting RStudio and running the code again
+- Make sure you pasted the CRAN mirror line: `options(repos = c(CRAN = "https://cloud.r-project.org/"))`
 
 ### "Command not found" in Terminal:
 - Close and reopen Terminal
@@ -311,6 +303,10 @@ output: pdf_document
 ### Installation seems stuck:
 - Be patient! Package installation can take 15-30 minutes
 - As long as you see text appearing, it's working
+
+### "trying to use CRAN without setting a mirror" error:
+- Make sure you ran the first line: `options(repos = c(CRAN = "https://cloud.r-project.org/"))`
+- Restart RStudio and try again
 
 ## Getting Help
 
@@ -340,4 +336,4 @@ swirl()
 3. **Read the course materials** you downloaded
 4. **Don't panic!** Learning R takes time, and everyone starts as a beginner
 
-Welcome to R! You're ready to start your data analysis journey.
+Welcome to R! You're ready to start your data analysis

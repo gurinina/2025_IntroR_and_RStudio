@@ -12,6 +12,12 @@ To write our matrix to file in comma separated format (.csv), we can use the `wr
 
 By default the delimiter or column separator is set, and columns will be separated by a comma.
 
+Let's remind ourselves of sub_meta:
+```{r}
+sub_meta <- metadata[which(metadata$replicate > 1), ]
+```
+
+
 ```{r}
 # Save a data frame to file
 write.csv(sub_meta, file="data/subset_meta.csv")

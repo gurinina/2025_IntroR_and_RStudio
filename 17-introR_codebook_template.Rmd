@@ -38,7 +38,6 @@ The assignment operator assigns values on the right to variables on the left.
 **In RStudio the keyboard shortcut for the assignment operator <- is Alt + - (Windows) or Option + - (Mac).**
 
 ```{r}
-
 x <- 3
 y <- 5
 ```
@@ -134,7 +133,7 @@ Let’s say that in our experimental analyses, we are working with three differe
 
 ### Dataframes
 
-A data.frame is the de facto data structure for most tabular data and what we use for statistics and plotting. A data.frame is similar to a matrix in that it’s a collection of vectors of the same length and each vector represents a column. However, in a dataframe each vector can be of a different data type (e.g., characters, integers, factors). A dataframe can be created using the `data.frame()` function.
+A data.frame is R's standard data structure for storing data in rows and columns - think of it like an Excel spreadsheet. This is what we'll use for statistics and plotting. A `data.frame` is similar to a `matrix` in that it’s a collection of vectors of the **same length** and each vector represents a column. However, in a dataframe **each vector can be of a different data type (e.g., characters, integers, factors)**. A dataframe can be created using the `data.frame()` function.  In the data frame pictured below, the first column is character, the second column is numeric, the third is character, and the fourth is logical.
 
 ```{r}
 # Create a data frame and store it as a variable called 'df'
@@ -318,7 +317,7 @@ ls("package:ggplot2")
 
 **Exercise** points +1
 
-The tidyverse suite of integrated packages was designed to work together to make common data science operations more user-friendly. We will be using the tidyverse suite in later lessons, and so let’s install it. Use the function from the`BiocManager` package.
+The tidyverse **suite of integrated packages** was designed to work together to make common data science operations more user-friendly. We will be using the tidyverse suite in later lessons, and so let’s install it. Use the function from the`BiocManager` package.
 
 Set eval=TRUE if tidyverse is not yet installed. How can you run the `BiocManager::install()` command for a package that is already installed without getting an error?
 ```{r, eval = FALSE}
@@ -478,7 +477,7 @@ samplegroup <- factor(samplegroup)
 
 expression # the default of the factor function is to order the levels alphabetically
 expression <- factor(expression, levels=c("low", "medium", "high")) # you can re-factor a factor 
-
+expression
 str(expression)
 ```
 
@@ -517,7 +516,7 @@ metadata
 ```
 **Exercise 1** points +2
 
-1. Read "project-summary.txt" in to R using read.table() with the approriate arguments and store it as the variable proj_summary. To figure out the appropriate arguments to use with read.table(), keep the following in mind:
+1. Read "project-summary.txt" in to R using read.table() with the appropriate arguments and store it as the variable proj_summary. To figure out the appropriate arguments to use with read.table(), keep the following in mind:
 
 * all the columns in the input text file have column name/headers
 
@@ -1041,7 +1040,15 @@ Use the `match()` function to subset the metadata data frame so that the row nam
 
 **.md file = 11-setting_up_to_plot.md10-reordering-to-match-datasets.md**
 
+Let’s first load the data:
+
+```{r}
+### Reading data into R
+metadata <- read.csv(file="data/mouse_exp_design.csv")
+
 ### Setup a data frame for visualization
+```
+
 
 ```{r}
 mean(rpkm_ordered$sample1)
@@ -1089,11 +1096,17 @@ Now, we are ready to combine the `metadata` data frame with the 2 new vectors to
 ```{r}
 # Add the new vectors as the last columns to the metadata 
 
-new_metadata <- data.frame(metadata, samplemeans, age_in_days) 
+new_metadata <- data.frame(metadata, samplemeans, age_in_days) nam
 
 # Take a look at the new_metadata object
 head(new_metadata)
 ```
+
+Save the data:
+```{r}
+save.image(file="data/new_metadata.RData")
+```
+`save.image()` saves all environmental variables in your current R session to a file called ".RData" in your working directory.
 
 ## 12 Data visualization with ggplot2
 
@@ -1201,7 +1214,7 @@ ggplot(new_metadata) +
   geom_point(aes(x = age_in_days, y = samplemeans, 
                  color = genotype, shape = celltype), size = 2.25) +
   theme_bw() +
-  theme(axis.title = element_text(size = rel(1.5)))  # increase the size of the axis titles     
+  theme(axis.title = element_text(size = rel(1.5)))  # increase the size of the default axis titles by 1.5-fold.    
 ```
 
 **Exercise** points +5
