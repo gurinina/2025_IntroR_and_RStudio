@@ -244,7 +244,6 @@ square_it(5)
 Pretty simple, right? In this case, we only had one line of code that was run, but in theory you could have many lines of code to get obtain the final results that you want to "return" to the user. 
 We have only scratched the surface here when it comes to creating functions! If you are interested you can also find more detailed information on writing functions [R-bloggers site](https://www.r-bloggers.com/how-to-write-and-debug-an-r-function/).
 
-***
 **Exercise** points +2
 
 1. Write a function called `multiply_it`, which takes two inputs: a numeric value `x`, and a numeric value `y`. The function will return the product of these two numeric values, which is `x * y`. For example, `multiply_it(x=4, y=6)` will return output `24`.
@@ -1109,7 +1108,7 @@ Now, we are ready to combine the `metadata` data frame with the 2 new vectors to
 ```{r}
 # Add the new vectors as the last columns to the metadata 
 
-new_metadata <- data.frame(metadata, samplemeans, age_in_days) nam
+new_metadata <- data.frame(metadata, samplemeans, age_in_days)
 
 # Take a look at the new_metadata object
 head(new_metadata)
@@ -1193,15 +1192,13 @@ ggplot(new_metadata) +
 Add shape to aesthetics:
 ```{r}
 ggplot(new_metadata) +
-  geom_point(aes(x = age_in_days, y = samplemeans, color = genotype, 
-                 shape = celltype)) 
+  geom_point(aes(x = age_in_days, y = samplemeans, color = genotype, shape = celltype)) 
 ```
 
 Add point size to geometry:
 ```{r}
 ggplot(new_metadata) +
-  geom_point(aes(x = age_in_days, y = samplemeans, color = genotype, 
-                 shape = celltype), size = 2.25) 
+  geom_point(aes(x = age_in_days, y = samplemeans, color = genotype, shape = celltype), size = 2.25) 
 ```
 
 The labels on the x- and y-axis are also quite small and hard to read. To change their size, we need to add an additional theme layer. The ggplot2 theme system handles non-data plot elements such as:
@@ -1214,8 +1211,7 @@ The labels on the x- and y-axis are also quite small and hard to read. To change
 5th layer: theme
 ```{r}
 ggplot(new_metadata) +
-  geom_point(aes(x = age_in_days, y = samplemeans, color = genotype, 
-                 shape = celltype), size = 3.0) +
+  geom_point(aes(x = age_in_days, y = samplemeans, color = genotype, shape = celltype), size = 3.0) +
   theme_bw()
 ```
 
@@ -1225,7 +1221,7 @@ Do the axis labels or the tick labels get any larger by changing themes?
 ```{r}
 ggplot(new_metadata) +
   geom_point(aes(x = age_in_days, y = samplemeans, 
-                 color = genotype, shape = celltype), size = 2.25) +
+  color = genotype, shape = celltype), size = 2.25) +
   theme_bw() +
   theme(axis.title = element_text(size = rel(1.5)))  # increase the size of the default axis titles by 1.5-fold.    
 ```
@@ -1360,8 +1356,7 @@ write.csv(sub_meta, file="data/subset_meta.csv")
 pdf(file = "figures/scatterplot.pdf")
 
 ggplot(new_metadata) +
-      geom_point(aes(x = age_in_days, y = samplemeans, color = genotype,
-            shape = celltype), size = rel(3.0)) 
+      geom_point(aes(x = age_in_days, y = samplemeans, color = genotype, shape = celltype), size = rel(3.0)) 
 
 dev.off() # closes the graphics device
 
