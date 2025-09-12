@@ -359,10 +359,10 @@ age[1:4]
 **Exercises** points +3, +4 for bonus
 
 1. Create a vector called alphabets with the following letters, C, D, X, L, F.
-
 ```{r}
-# Your code here
+alphabets <- c("C", "D", "X", "L", "F")
 ```
+
 
 2. Use the associated indices along with [ ] to do the following:
 

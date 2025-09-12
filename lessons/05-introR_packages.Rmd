@@ -94,3 +94,13 @@ ls("package:ggplot2")
 
 The `ggplot2` package is part of the [`tidyverse` suite of integrated packages](https://www.tidyverse.org/packages/) which was designed to work together to make common data science operations more user-friendly. **We will be using the `tidyverse` suite in later lessons, and so let's install it using BiocManager**.
 
+**Exercise** points +1
+
+The tidyverse **suite of integrated packages** was designed to work together to make common data science operations more user-friendly. We will be using the tidyverse suite in later lessons, and so let’s install it. Use the function from the`BiocManager` package.
+
+Set eval=TRUE if tidyverse is not yet installed. How can you run the `BiocManager::install()` command for a package that is already installed without getting an error?
+```{r, eval = FALSE}
+# Your code here
+```
+
+
